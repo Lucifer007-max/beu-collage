@@ -1,0 +1,501 @@
+<app-header></app-header>
+
+
+
+
+<div class="m-0">
+  <div class="row">
+    <!-- Banner Section (Left) -->
+    <div class="col-lg-7 col-12 p-0">
+      <div id="carouselExampleCaptions" class="carousel slide d-none">
+        <div class="carousel-indicators">
+          <button *ngFor="let banner of bannerList; let i = index" type="button"
+            [attr.data-bs-target]="'#carouselExampleCaptions'" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
+            [attr.aria-current]="i === 0 ? 'true' : null" [attr.aria-label]="'Slide ' + (i + 1)">
+          </button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let banner of bannerList; let i = index" [class.active]="i === 0">
+            <img
+              [src]="'https://paramapi.getmocktest.com/'+banner.imagePath.replace('wwwroot\\', '').replace('/\\/g', '/')"
+              class="d-block w-100 height_banner" alt="...">
+            <div class="carousel-caption d-none">
+              <h5>Slide {{i + 1}} label</h5>
+              <p class="text-dark">Some representative placeholder content for slide {{i + 1}}.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div id="carouselExampleIndicators" class="carousel slide p-0">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://college-website-brown-one.vercel.app/assets/SITBihar.webp" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Article Section (Right) -->
+    <div class="col-lg-5  col-12 mt-3 mt-lg-0 mx-0 ">
+      <div class="row">
+        <!-- Important Links -->
+        <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+          <div class="card shadow-sm m-0">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center p-2">
+              <h5 class="mb-0">IMPORTANT LINKS</h5>
+              <div>
+                <i class="fa fa-angle-down"></i>
+                <i class="fa fa-angle-up"></i>
+              </div>
+            </div>
+            <div class="card-body p-2">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex align-items-center p-2">
+                  <i class="fa fa-arrow-right text-primary me-2"></i>
+                  <a href="#" class="text-decoration-none text-dark">U.P. Governor Website</a>
+                </li>
+                <li class="list-group-item d-flex align-items-center p-2">
+                  <i class="fa fa-arrow-right text-primary me-2"></i>
+                  <a href="#" class="text-decoration-none text-dark">ODOP Nodal Details</a>
+                </li>
+                <li class="list-group-item d-flex align-items-center p-2">
+                  <i class="fa fa-arrow-right text-primary me-2"></i>
+                  <a href="#" class="text-decoration-none text-dark">NPTEL Online Certification</a>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+                  <div>
+                    <i class="fa fa-arrow-right text-primary me-2"></i>
+                    <a href="#" class="text-decoration-none text-dark">Pre-PG Registration 2024-25</a>
+                  </div>
+                  <span class="badge bg-danger">NEW</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+                  <div>
+                    <i class="fa fa-arrow-right text-primary me-2"></i>
+                    <a href="#" class="text-decoration-none text-dark">B.Pharm Pre-Registration 2024-25</a>
+                  </div>
+                  <span class="badge bg-danger">NEW</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- What's New -->
+        <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+          <div class="card m-0 shadow-sm">
+            <div class="card-header bg-warning d-flex justify-content-between align-items-center p-2">
+              <h5 class="mb-0">WHAT'S NEW</h5>
+              <div>
+                <i class="fa fa-angle-down"></i>
+                <i class="fa fa-angle-up"></i>
+              </div>
+            </div>
+            <div class="card-body p-2">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item p-2">
+                  <i class="fa fa-arrow-right text-warning me-2"></i>
+                  Walk-in Interview for Guest Faculty Recruitment 2024-25 - REC, Basti, Pratapgarh, Gonda, and Mirzapur
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-2">
+                  <div>
+                    <i class="fa fa-arrow-right text-warning me-2"></i>
+                    Screening Result for Teaching Post at AKTU Lucknow
+                  </div>
+                  <span class="badge bg-danger">NEW</span>
+                </li>
+                <li class="list-group-item p-2">
+                  <i class="fa fa-arrow-right text-warning me-2"></i>
+                  Screening Result for Teaching Post in U.P. Institute
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> <!-- Row End -->
+</div> <!-- Container End -->
+
+
+
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-12 p-0">
+      <article class="d-flex align-items-center border-top border-bottom border-4 border-primary px-2">
+        <div class="bg-primary text-white px-3 py-2 fw-bold">
+          Notices:
+        </div>
+        <div class="overflow-hidden flex-grow-1">
+          <div class="marquee-container">
+            <ul class="marquee-content mb-0 p-0">
+              <li>|| <span>U STUDENTS</span></li>
+              <li>|| <span>NAAC Programs</span></li>
+              <li>|| <span>NIRF Ranking</span></li>
+              <li>|| <span>Pre-Registration Against Vacant Seats and Management Quota: 2024-25</span></li>
+              <li class="highlight">|| <span>पढ़े महाविद्यालय / बढ़े महाविद्यालय दिनांक 07.03.2025</span></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
+<style>
+  .marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .marquee-content {
+    display: flex;
+    animation: marquee 10s linear infinite;
+    padding-left: 100%;
+  }
+
+  .marquee-content li {
+    display: inline-block;
+    padding: 0 20px;
+    font-weight: bold;
+    color: #00548B;
+  }
+
+  .highlight {
+    background-color: #ffc107;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0%);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Hover effect to pause the marquee */
+  .marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+  }
+</style>
+
+
+<section class="">
+  <div class="row align-items-center bg-primary text-white py-4 rounded">
+    <!-- Undergraduate Admissions -->
+    <div class="col-md-5 text-center py-3">
+      <h2 class="h4 fw-bold">Admissions 2024-2025</h2>
+      <hr class="mx-auto w-75 border-1 border-white">
+      <p class="fs-5">URL:
+        <a href="#" class="text-warning text-decoration-none">BIU2024-2025</a>
+      </p>
+    </div>
+
+    <!-- Divider -->
+    <div class="col-md-2 text-center d-none d-md-block d-lg-block d-xl-block d-sm-none">
+      <div class="border-start border-white border-3 mx-auto h-75"></div>
+    </div>
+
+    <!-- Ph.D. Admissions -->
+    <div class="col-md-5 text-center py-3">
+      <h2 class="h4 fw-bold">Ph.D. Admissions 2024-2025</h2>
+      <hr class="mx-auto w-75 border-1 border-white">
+      <p class="fs-5">URL:
+        <a href="#" class="text-warning text-decoration-none">BIUPhd.D.2024-2025</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section class="bg-white py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Student Section -->
+      <div class="col-md-6 p-3">
+        <h2 class="text-center fw-bold text-primary">Student Section</h2>
+        <div class="bg-primary mx-auto my-3" style="height: 1px; width: 90%;"></div>
+        <div class="row row-cols-3 g-3 justify-content-center">
+          <!-- Student Cards -->
+          <div class="col text-center">
+            <div class="border-bottom border-primary pb-2 cursor-pointer">
+              <img src="https://college-website-brown-one.vercel.app/assets/computer.png" class="img-fluid mb-2 w-50" alt="One View">
+              <p class="fw-semibold text-dark">One View</p>
+            </div>
+          </div>
+          <div class="col text-center">
+            <div class="border-bottom border-primary pb-2 cursor-pointer">
+              <img src="https://college-website-brown-one.vercel.app/assets/complain.png" class="img-fluid mb-2 w-50" alt="Grievance">
+              <p class="fw-semibold text-dark">Grievance</p>
+            </div>
+          </div>
+          <div class="col text-center">
+            <div class="border-bottom border-primary pb-2 cursor-pointer">
+              <img src="https://college-website-brown-one.vercel.app/assets/customer.png" class="img-fluid mb-2 w-50" alt="KYC">
+              <p class="fw-semibold text-dark">KYC</p>
+            </div>
+          </div>
+          <div class="col text-center">
+            <div class="border-bottom border-primary pb-2 cursor-pointer">
+              <img src="https://college-website-brown-one.vercel.app/assets/documents.png" class="img-fluid mb-2 w-50" alt="Exam Form">
+              <p class="fw-semibold text-dark">Exam Form</p>
+            </div>
+          </div>
+          <div class="col text-center">
+            <div class="border-bottom border-primary pb-2 cursor-pointer">
+              <img src="https://college-website-brown-one.vercel.app/assets/relationship.png" class="img-fluid mb-2 w-50" alt="Community">
+              <p class="fw-semibold text-dark">Community</p>
+            </div>
+          </div>
+          <div class="col text-center">
+            <div class="border-bottom border-primary pb-2 cursor-pointer">
+              <img src="https://college-website-brown-one.vercel.app/assets/track-mail.png" class="img-fluid mb-2 w-50" alt="Track Post">
+              <p class="fw-semibold text-dark">Track Post</p>
+            </div>
+          </div>
+          <div class="col text-center">
+            <div class="border-bottom border-primary pb-2 cursor-pointer">
+              <img src="https://college-website-brown-one.vercel.app/assets/double-quote.png" class="img-fluid mb-2 w-50" alt="Yojna">
+              <p class="fw-semibold text-dark">Yojna</p>
+            </div>
+          </div>
+          <div class="col text-center">
+            <div class="border-bottom border-primary pb-2 cursor-pointer">
+              <img src="https://college-website-brown-one.vercel.app/assets/customer.png" class="img-fluid mb-2 w-50" alt="Services">
+              <p class="fw-semibold text-dark">Services</p>
+            </div>
+          </div>
+          <div class="col text-center">
+            <div class="border-bottom border-primary pb-2 cursor-pointer">
+              <img src="https://college-website-brown-one.vercel.app/assets/computer.png" class="img-fluid mb-2 w-50" alt="Announcement">
+              <p class="fw-semibold text-dark">Announcement</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Our Mentors Section -->
+      <div class="col-md-6 p-3">
+        <h2 class="text-center fw-bold text-primary">Our Mentors</h2>
+        <div class="bg-primary mx-auto my-3" style="height: 1px; width: 90%;"></div>
+        <div class="row g-3">
+          <div class="col-12 d-flex align-items-center border-bottom pb-2">
+            <img src="https://college-website-brown-one.vercel.app/assets/CM.png" class="img-fluid me-3" style="width: 100px; height: 120px;" alt="Chancellor">
+            <div>
+              <h5 class="fw-bold mb-1">Shri Nitish Kumar</h5>
+              <p class="text-muted mb-1">Hon'ble Chancellor</p>
+              <i class="text-muted">Chief Minister Bihar</i>
+            </div>
+          </div>
+          <div class="col-12 d-flex align-items-center border-bottom pb-2">
+            <img src="https://college-website-brown-one.vercel.app/assets/MinisterDSTTE.png" class="img-fluid me-3" style="width: 100px; height: 120px;"
+              alt="Minister">
+            <div>
+              <h5 class="fw-bold mb-1">Shri Sumit Kumar Singh</h5>
+              <p class="text-muted mb-1">Hon'ble Minister DSTTE</p>
+              <i class="text-muted">Government Of Bihar</i>
+            </div>
+          </div>
+          <div class="col-12 d-flex align-items-center border-bottom pb-2">
+            <img src="https://college-website-brown-one.vercel.app/assets/MinisterDSTTE.png" class="img-fluid me-3" style="width: 100px; height: 120px;"
+              alt="Vice Chancellor">
+            <div>
+              <h5 class="fw-bold mb-1">Prof. Suresh Kant Verma</h5>
+              <p class="text-muted mb-1">Vice Chancellor</p>
+              <i class="text-muted">Bihar Engineering University</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center text-primary fw-semibold mb-3">Program Details</h2>
+    <div class="bg-primary mx-auto mb-4" style="height: 1px; width: 100%;"></div>
+
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border shadow-sm">
+          <img src="https://college-website-brown-one.vercel.app/assets/bakhtiyarpur-college-of-engineering-bakhtiarpur-patna-colleges-Z1Xp52eGd3.webp"
+            class="card-img-top" alt="Course 01">
+          <div class="card-body">
+            <h4 class="card-title fw-bold text-truncate">Government of Bihar</h4>
+            <p class="text-muted small">Under Graduate - Bihar, Patna</p>
+            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Bachelor's degree can choose from B. Pharma,
+              B. Tech, BHMCT, B.Arch, BFAD, etc.</p>
+            <p><i class="far fa-calendar me-2"></i>27 Nov 2024 - 5 Mar 2025</p>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <a href="#" class="btn btn-outline-primary w-100">Explore Course</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border shadow-sm">
+          <img src="https://college-website-brown-one.vercel.app/assets/bakhtiyarpur-college-of-engineering-bakhtiarpur-patna-colleges-Z1Xp52eGd3.webp"
+            class="card-img-top" alt="Course 02">
+          <div class="card-body">
+            <h4 class="card-title fw-bold text-truncate">Government of Bihar</h4>
+            <p class="text-muted small">Post Graduate - Bihar, Patna</p>
+            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Master's degree can choose from MBA, MCA,
+              M.Tech, M.Pharm, and M.Arch.</p>
+            <p><i class="far fa-calendar me-2"></i>27 Nov 2024 - 5 Mar 2025</p>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <a href="#" class="btn btn-outline-primary w-100">Explore Course</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border shadow-sm">
+          <img src="https://college-website-brown-one.vercel.app/assets/bakhtiyarpur-college-of-engineering-bakhtiarpur-patna-colleges-Z1Xp52eGd3.webp"
+            class="card-img-top" alt="Course 03">
+          <div class="card-body">
+            <h4 class="card-title fw-bold text-truncate">Government of Bihar</h4>
+            <p class="text-muted small">Research - Bihar, Patna</p>
+            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Doctoral degree (Ph.D.) can seek admission
+              in the relevant field.</p>
+            <p><i class="far fa-calendar me-2"></i>27 Nov 2024 - 5 Mar 2025</p>
+          </div>
+          <div class="card-footer bg-white border-0">
+            <a href="#" class="btn btn-outline-primary w-100">Explore Course</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center text-primary fw-semibold mb-3">Affiliated With</h2>
+    <div class="bg-primary mx-auto" style="height: 1px; width: 100%;"></div>
+
+    <div class="row justify-content-center mt-4">
+      <div class="col-6 col-md-3 text-center">
+        <img src="https://college-website-brown-one.vercel.app/assets/AICTE.png" class="img-fluid w-75" alt="AICTE">
+      </div>
+      <div class="col-6 col-md-3 text-center">
+        <img src="https://college-website-brown-one.vercel.app/assets/AISHE.png" class="img-fluid w-75" alt="AISHE">
+      </div>
+      <div class="col-6 col-md-3 text-center">
+        <img src="https://college-website-brown-one.vercel.app/assets/NPTEL.png" class="img-fluid w-75" alt="NPTEL">
+      </div>
+      <div class="col-6 col-md-3 text-center">
+        <img src="https://college-website-brown-one.vercel.app/assets/UGC.png" class="img-fluid w-75" alt="UGC">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="bg-warning-subtle pb-4">
+  <div class="bg-warning">
+
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center px-3 py-2">
+        <h3 class="fw-bold text-primary text-center fs-5 fs-md-4 m-0">
+          College Events
+        </h3>
+        <div class="d-flex gap-2 align-items-center text-warning fs-5 fw-bold">
+          <button class="border-0 bg-transparent"><i class="fa fa-angle-down"></i></button>
+          <button class="border-0 bg-transparent"><i class="fa fa-angle-up"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-4">
+    <ul class="list-unstyled">
+      <li class="d-flex gap-3 align-items-center py-2 text-muted small">
+        <!-- <img src="./assets/double-quote.png" alt="" class="img-fluid" style="width: 25px;"> -->
+        <!-- <i class="fa fa-quote"></i> -->
+        <i class="fa fa-quote-left"></i>
+        "Five-Day National Workshop on Research Methodology" on February 24, 2025, to March 1, 2025 at
+        Ashoka Institute of Technology And Management
+      </li>
+
+      <li class="d-flex gap-3 align-items-center py-2 text-muted small">
+        <!-- <img src="./assets/double-quote.png" alt="" class="img-fluid" style="width: 25px;"> -->
+        <i class="fa fa-quote-left"></i>
+        Apeejay Festival of Ideas by ignited Minds: 21st and 22nd Feb 2025
+        <div class="badge bg-danger text-white px-2 py-1">NEW</div>
+      </li>
+
+      <li class="d-flex gap-3 align-items-center py-2 text-muted small">
+        <!-- <img src="./assets/double-quote.png" alt="" class="img-fluid" style="width: 25px;"> -->
+        <i class="fa fa-quote-left"></i>
+        CIPET: IPT-Lucknow is organizing the 16th International Conference on Advancements in Polymeric
+        Materials (APM-2025) on the theme "Advancements in the Petrochemical Sector & Empowering Sustainable
+        Development Leading to 'Viksit Bharat'", : 8th to 10th March, 2025
+      </li>
+
+      <li class="d-flex gap-3 align-items-center py-2 text-muted small">
+        <!-- <img src="./assets/double-quote.png" alt="" class="img-fluid" style="width: 25px;"> -->
+        <i class="fa fa-quote-left"></i>
+        "Transformative Trends in Drug Discovery and Delivery: Exploring Next-Generation Therapeutics and
+        Technologies": 21st and 22nd March 2025
+        <div class="badge bg-danger text-white px-2 py-1">NEW</div>
+      </li>
+
+      <li class="d-flex gap-3 align-items-center py-2 text-muted small">
+        <!-- <img src="./assets/double-quote.png" alt="" class="img-fluid" style="width: 25px;"> -->
+        <i class="fa fa-quote-left"></i>
+        Apeejay Festival of Ideas by ignited Minds: 21st and 22nd Feb 2025
+        <div class="badge bg-danger text-white px-2 py-1">NEW</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+<app-footer></app-footer>

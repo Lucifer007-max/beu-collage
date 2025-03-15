@@ -1,0 +1,366 @@
+<app-header></app-header>
+
+<!-- Hero Section -->
+<article class="header-section py-3 mb-4">
+  <section class="row main-container d-flex align-items-center justify-content-between">
+    <div class="d-flex flex-column head-div col col-lg-8">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="/">{{this.courseTag}}</a></li>
+        <li class="breadcrumb-item"><a href="/">{{this.courseTitle}}</a></li>
+      </ol>
+
+      <h1 class="page-heading pt-4 text-capitalize">{{this.courseTitle}}</h1>
+      <span id="page-sub" class="page-subheading"></span>
+
+      <div class="mt-4">
+        <span class="discount-text">Special Discounted Price</span>
+        <div class="d-flex align-items-center">
+          <span class="price-text">₹ 1999</span>
+
+          <del class="mx-3 del-text">₹ 2999</del>
+          <span class="discounted-text px-1">(33% OFF)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- Buying Card -->
+<div id="buyCardId" class="buy-card p-3 d-none d-md-block" style="z-index: 600">
+  <div class="head-img-div d-flex flex-column align-items-center justify-content-center">
+    <div class="video-box">
+      <img [src]="'https://paramapi.getmocktest.com/'+this.courseImage.replace('wwwroot\\', '').replace('/\\/g', '/')" alt="NEET" class="card-img ">
+    </div>
+  </div>
+  <div class="mt-4">
+    <h4 class="special-text text-center">Special Discounted Price</h4>
+    <div class="d-flex my-3 justify-content-center align-items-center card-details-div ml-4">
+      <span class="card-price-text">₹ 4200</span>
+      <del class="mx-3 card-del-text">₹ 4500</del>
+      <span class="card-discounted-text px-3">7% OFF</span>
+    </div>
+
+    <a href="/buynow-link" class="text-decoration-none" role="button">
+      <button type="button" id="btnSubmitEvent" class="btnbuynow font-fam-medium">Buy Now</button>
+    </a>
+  </div>
+</div>
+
+<!-- Course Details -->
+
+<article class="row main-container">
+  <!-- Mobile Buying Card -->
+  <section class="d-md-none col-xs-12 mb-4">
+    <div class="buy-card-small p-3">
+      <div class="head-img-div d-flex flex-column align-items-center justify-content-center">
+        <div class="video-box">
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/586ec16bb3db2b558ebfec60/694329ee-2cd8-4786-9406-77ca00f30b07/math-header.jpg"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+      <div class="mt-4">
+        <h4 class="special-text text-center">Special Discounted Price</h4>
+        <div class="d-flex my-3 justify-content-center align-items-center card-details-div ml-4">
+          <span class="card-price-text">₹ 4200</span>
+          <del class="mx-3 card-del-text">₹ 4500</del>
+          <span class="card-discounted-text px-3">7% OFF</span>
+        </div>
+
+        <a href="/buynow-link" class="text-decoration-none" role="button">
+          <button type="button" id="btnSubmitEvent1" class="btnbuynow font-fam-medium">Buy Now</button>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Batch details -->
+  <section class="col col-md-8">
+    <div class="batch font-fam-medium">
+      <h2 class="batch-heading font-fam-bold">Batch Details</h2>
+      <div class="font-fam-medium my-3">
+        <div
+          ><div><div>01. PDF Notes of each Class will be uploaded on Param webiste.</div></div
+          ><div><div>02. Daily Practice Problems with their Video Solution in Quiz format.</div></div
+          ><div><div>03. Peer to Peer doubt solving will be provided.</div></div
+          ><div><div>04. Scheduled tests will be held according to the planner.</div></div
+          ><div><div>05. All India Test Series (AITS) will be provided according to the Test Planner.&nbsp;</div></div
+          ><div><div>06. Revision Classes will be provided after syllabus Completion.&nbsp;</div></div
+          ><div><div>07. The complete course will be accessible to all the students until the JEE 2025 Exams.</div></div
+          ><div
+            ><div
+              >08. The registration fee is included in the price of the batch which is showing on the website. The breakup of registration
+              fee will be mentioned on invoice. You may be provided with access to Notes, PYQ’s. Mock Test Papers, AITS Test Series,
+              Previous year batches &amp; other materials, the access can vary depending on the batch you purchase, so that exact details
+              might change from one batch to another.</div
+            ></div
+          ><div
+            >09. FREE access to Mathematics &nbsp;<span>JEE</span>&nbsp;1.0 2024 and
+            PARAM&nbsp;<span>JEE</span>&nbsp;<span>2.0</span>&nbsp;2024 batches.</div
+          ></div
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Faculties -->
+  <section class="col-12 col-md-10 col-lg-8 d-none">
+    <div class="ftcontainer">
+      <h2 class="batch-heading">Top Faculties</h2>
+
+      <div class="owl-carousel owl-loaded owl-drag" id="teacherId">
+        <div class="owl-stage-outer">
+          <div
+            class="owl-stage"
+            style="
+              transform: translate3d(-1198.5px, 0px, 0px);
+              transition: all 0.25s ease 0s;
+              width: 4435px;
+              padding-left: 20px;
+              padding-right: 20px;
+            "
+          >
+            <div class="owl-item cloned" style="width: 389.5px; margin-right: 10px"
+              ><div class="item">
+                <div class="faculty-card d-flex align-items-center justify-content-between my-3 px-3 py-2">
+                  <div class="d-flex justify-content-between flex-column">
+                    <span class="font-fam-bold">Abu Ayaan</span>
+                    <span class="faculty-title">B.Tech Mechanical from Thapar university</span>
+                    <button
+                      type="button"
+                      data-id="13746"
+                      data-bs-toggle="modal"
+                      data-bs-target="#top-faculty"
+                      style="width: 100px !important"
+                      class="btn btn-sm knowmore mt-2 facultyId"
+                      >Know More</button
+                    >
+                  </div>
+
+                  <div>
+                    <img
+                      class="rounded"
+                      src="https://w7.pngwing.com/pngs/315/234/png-transparent-graphy-young-blond-man-men-s-health-male-man-thumbnail.png"
+                      style="width: 63px; height: 90px"
+                      alt="faculties"
+                    />
+                  </div>
+                </div> </div
+            ></div>
+            <div class="owl-item active" style="width: 389.5px; margin-right: 10px"
+              ><div class="item">
+                <div class="faculty-card d-flex align-items-center justify-content-between my-3 px-3 py-2">
+                  <div class="d-flex justify-content-between flex-column">
+                    <span class="font-fam-bold">Abu Ayaan Sir</span>
+                    <span class="faculty-title">B.Tech (IIT,ROORKEE)</span>
+                    <button
+                      type="button"
+                      data-id="13748"
+                      data-bs-toggle="modal"
+                      data-bs-target="#top-faculty"
+                      style="width: 100px !important"
+                      class="btn btn-sm knowmore mt-2 facultyId"
+                      >Know More</button
+                    >
+                  </div>
+
+                  <div>
+                    <img
+                      class="rounded"
+                      src="https://w7.pngwing.com/pngs/315/234/png-transparent-graphy-young-blond-man-men-s-health-male-man-thumbnail.png"
+                      style="width: 63px; height: 90px"
+                      alt="faculties"
+                    />
+                  </div>
+                </div> </div
+            ></div>
+            <div class="owl-item cloned active" style="width: 389.5px; margin-right: 10px"
+              ><div class="item">
+                <div class="faculty-card d-flex align-items-center justify-content-between my-3 px-3 py-2">
+                  <div class="d-flex justify-content-between flex-column">
+                    <span class="font-fam-bold">Abu Ayaan Sir</span>
+                    <span class="faculty-title">B.Sc Chemistry Honours</span>
+                    <button
+                      type="button"
+                      data-id="13749"
+                      data-bs-toggle="modal"
+                      data-bs-target="#top-faculty"
+                      style="width: 100px !important"
+                      class="btn btn-sm knowmore mt-2 facultyId"
+                      >Know More</button
+                    >
+                  </div>
+
+                  <div>
+                    <img
+                      class="rounded"
+                      src="https://w7.pngwing.com/pngs/315/234/png-transparent-graphy-young-blond-man-men-s-health-male-man-thumbnail.png"
+                      style="width: 63px; height: 90px"
+                      alt="faculties"
+                    />
+                  </div>
+                </div> </div
+            ></div>
+            <div class="owl-item active" style="width: 389.5px; margin-right: 10px"
+              ><div class="item">
+                <div class="faculty-card d-flex align-items-center justify-content-between my-3 px-3 py-2">
+                  <div class="d-flex justify-content-between flex-column">
+                    <span class="font-fam-bold">Abu Ayaan Sir</span>
+                    <span class="faculty-title">M.Sc Chemistry</span>
+                    <button
+                      type="button"
+                      data-id="13750"
+                      data-bs-toggle="modal"
+                      data-bs-target="#top-faculty"
+                      style="width: 100px !important"
+                      class="btn btn-sm knowmore mt-2 facultyId"
+                      >Know More</button
+                    >
+                  </div>
+
+                  <div>
+                    <img
+                      class="rounded"
+                      src="https://w7.pngwing.com/pngs/315/234/png-transparent-graphy-young-blond-man-men-s-health-male-man-thumbnail.png"
+                      style="width: 63px; height: 90px"
+                      alt="faculties"
+                    />
+                  </div>
+                </div> </div
+            ></div>
+            <div class="owl-item active" style="width: 389.5px; margin-right: 10px"
+              ><div class="item">
+                <div class="faculty-card d-flex align-items-center justify-content-between my-3 px-3 py-2">
+                  <div class="d-flex justify-content-between flex-column">
+                    <span class="font-fam-bold">Abu Ayaan Sir</span>
+                    <span class="faculty-title">B.Tech Mechanical from Thapar university</span>
+                    <button
+                      type="button"
+                      data-id="13746"
+                      data-bs-toggle="modal"
+                      data-bs-target="#top-faculty"
+                      style="width: 100px !important"
+                      class="btn btn-sm knowmore mt-2 facultyId"
+                      >Know More</button
+                    >
+                  </div>
+
+                  <div>
+                    <img
+                      class="rounded"
+                      src="https://w7.pngwing.com/pngs/315/234/png-transparent-graphy-young-blond-man-men-s-health-male-man-thumbnail.png"
+                      style="width: 63px; height: 90px"
+                      alt="faculties"
+                    />
+                  </div>
+                </div> </div
+            ></div> </div
+        ></div>
+        <div class="owl-nav"><div class="owl-prev">prev</div><div class="owl-next">next</div></div
+        ><div class="owl-dots"
+          ><div class="owl-dot active"><span></span></div><div class="owl-dot"><span></span></div
+          ><div class="owl-dot"><span></span></div></div
+      ></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="col-12 col-md-10 col-lg-8 d-none">
+    <div class="faqcontainer">
+      <h2 class="batch-heading">FAQ's</h2>
+      <div id="faq" class="accordion-item p-3">
+        <div class="mb-4">
+          <h5 class="font-fam-bold d-flex"
+            ><i class="icon-quora" aria-hidden="true"></i>. <div>Why should I join this course and how will this be helpful?</div>
+          </h5>
+
+          <div class="font-fam-medium ms-3 ps-4">
+            <p
+              ><span style="font-weight: 400"
+                >This course is designed to provide you with knowledge and skills in all subjects, which are highly relevant to the JEE exam
+                pattern.</span
+              ></p
+            >
+          </div>
+          <hr />
+        </div>
+        <div class="mb-4">
+          <h5 class="font-fam-bold d-flex"
+            ><i class="icon-quora" aria-hidden="true"></i>.
+            <div>How will the classes be conducted? What will happen if I miss a class?</div>
+          </h5>
+
+          <div class="font-fam-medium ms-3 ps-4">
+            <p
+              ><span style="font-weight: 400"
+                >All classes will be live at the scheduled time, and if you miss any class, you can access the recording anytime</span
+              ></p
+            >
+          </div>
+          <hr />
+        </div>
+        <div class="mb-4">
+          <h5 class="font-fam-bold d-flex"><i class="icon-quora" aria-hidden="true"></i>. <div>Can the classes be downloaded?</div> </h5>
+
+          <div class="font-fam-medium ms-3 ps-4">
+            <p><span style="font-weight: 400">Yes, you can download videos of any courses you have enrolled in.</span></p
+            ><p
+              ><span style="font-weight: 400"
+                >The videos can be downloaded and watched offline in the Param app under the download section go to the Study Page &amp; watch
+                the downloaded video. These videos will be available until the expiry of Online Batches.</span
+              ></p
+            >
+          </div>
+          <hr />
+        </div>
+        <div class="mb-4">
+          <h5 class="font-fam-bold d-flex"
+            ><i class="icon-quora" aria-hidden="true"></i>. <div>What are the class days and timings?</div>
+          </h5>
+
+          <div class="font-fam-medium ms-3 ps-4">
+            <p
+              ><span style="font-weight: 400"
+                >Please check the lecture Planner inside the course to view the class schedule and timings.</span
+              ></p
+            >
+          </div>
+          <hr />
+        </div>
+        <div class="mb-4">
+          <h5 class="font-fam-bold d-flex"
+            ><i class="icon-quora" aria-hidden="true"></i>. <div>How will I get my doubts answered?</div>
+          </h5>
+
+          <div class="font-fam-medium ms-3 ps-4">
+            <p
+              ><span style="font-weight: 400"
+                >In Live / Recorded class we have a doubts engine portal where you can ask your doubts &amp; within 24 hrs you get a
+                solution.</span
+              ></p
+            >
+          </div>
+          <hr />
+        </div>
+        <div class="mb-4">
+          <h5 class="font-fam-bold d-flex"><i class="icon-quora" aria-hidden="true"></i>. <div>What is the Refund Policy?</div> </h5>
+
+          <div class="font-fam-medium ms-3 ps-4">
+            <p
+              ><span style="font-weight: 400"
+                >Dear students, a refund after a batch purchase is not allowed as we have already invested a lot in providing the best
+                learning experience to our valued students, including tech infrastructure, employee salaries, etc. Please make a conscious
+                decision before purchasing a batch.</span
+              ></p
+            >
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<app-footer></app-footer>
