@@ -19,7 +19,7 @@ import 'mousetrap';
 import { NgbDropdownModule, NgbNavModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
-// import { BreadcrumbComponent } from './common/breadcrumb/breadcrumb.component';
+import { BreadcrumbComponent } from './common/breadcrumb/breadcrumb.component';
 
 @NgModule({
   imports: [
@@ -27,7 +27,7 @@ import { FooterComponent } from './common/footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     CardComponent,
-    // BreadcrumbComponent,
+    BreadcrumbComponent,
     NgbDropdownModule,
     NgbNavModule,
     NgbModule,
@@ -35,6 +35,7 @@ import { FooterComponent } from './common/footer/footer.component';
     NgClickOutsideDirective,
     HeaderComponent,
     FooterComponent,
+    // SpinnerComponent
 
   ],
   exports: [
@@ -42,7 +43,7 @@ import { FooterComponent } from './common/footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     CardComponent,
-    // BreadcrumbComponent,
+    BreadcrumbComponent,
     // DataFilterPipe,
     // SpinnerComponent,
     NgbModule,

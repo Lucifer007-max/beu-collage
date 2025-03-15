@@ -63,7 +63,7 @@ import { AboutComponent } from './admin/about/about.component';
 
 
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule , HttpClientModule,     NgMultiSelectDropDownModule.forRoot()
+  imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule, NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
     AuthInterceptorProvider,
@@ -77,4 +77,4 @@ import { AboutComponent } from './admin/about/about.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
