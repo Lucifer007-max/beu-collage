@@ -1,13 +1,14 @@
 <header class="w-100">
-  <div
-    class="d-flex justify-content-center align-items-center border-bottom border-primary border-dashed bg-light text-primary fw-semibold small">
+  <div class="d-flex justify-content-center align-items-center border-bottom border-primary border-dashed bg-light text-primary fw-semibold small">
     <ul class="d-flex list-unstyled m-0">
-      <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning">Home</li>
-      <li class="px-3 py-2 cursor-pointer hover-text-warning">Contact Us</li>
-      <li class="px-3 py-2 border-start border-end border-primary cursor-pointer hover-text-warning">Fee Structure</li>
-      <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning">Placement</li>
-      <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning">Recruitment</li>
-      <li class="px-3 py-2 cursor-pointer hover-text-warning">FAQ</li>
+      <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/'">Home</li>
+      <!-- <li class="px-3 py-2 cursor-pointer hover-text-warning">Contact Us</li> -->
+      <!-- <li class="px-3 py-2 border-start border-end border-primary cursor-pointer hover-text-warning">Fee Structure</li> -->
+      <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/Placement'">Placement</li>
+      <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/Recruitment'">Recruitment</li>
+      <li class="px-3 py-2 cursor-pointer hover-text-warning"  [routerLink]="'/Faq'">FAQ</li>
+      <li class="px-3 py-2 cursor-pointer hover-text-warning"><div id="google_translate_element"></div></li>
+
     </ul>
   </div>
 
@@ -22,7 +23,7 @@
         <img src="https://college-website-brown-one.vercel.app/assets/governmentOfBihar.webp"
           alt="governmentOfBihar logo" class="img-fluid d-block d-sm-block d-md-none d-lg-none d-xl-none" style="width: 6rem;">
       </div>
-      <div>
+      <div class="text-center w-100">
         <h2 class="h4 fw-bold">Bihar Engineering University, Patna <span class="h5 fw-semibold">Government of
             Bihar</span></h2>
         <h2 class="h4 fw-bold">बिहार इंजीनियरिंग विश्वविद्यालय, पटना <span class="h5 fw-semibold">बिहार सरकार</span>
@@ -42,32 +43,32 @@
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item dropdown">
+          <li class="nav-item text-light"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item text-light dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About Us</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Vision</a></li>
-              <li><a class="dropdown-item" href="#">Mission</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/about'">Vision</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/about/mission'">Mission</a></li>
               <li><a class="dropdown-item" href="#">Objective</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item text-light dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Organization
               Structure</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Chancellor</a></li>
-              <li><a class="dropdown-item" href="#">Vice Chancellor</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/organization/chancellor'">Chancellor</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/organization/vice-chancellor'">Vice Chancellor</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="#">Affiliation</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Academics</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Act</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Circular</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Notification</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Letter</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Affiliation'">Affiliation</a></li>
+          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Academics'">Academics</a></li>
+          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Act'">Act</a></li>
+          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Circular'">Circular</a></li>
+          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Notification'">Notification</a></li>
+          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Letter'">Letter</a></li>
+          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Gallery'">Gallery</a></li>
         </ul>
       </div>
     </div>

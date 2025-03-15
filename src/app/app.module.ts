@@ -33,6 +33,7 @@ import { AuthGuard } from 'src/guard/authguard.guard';
 import { StudentComponent } from './theme/layout/student/student.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AboutComponent } from './admin/about/about.component';
+// import { ChancellorComponent } from './pages/organization/chancellor/chancellor.component';
 // import { LoginComponent } from './admin/login/login.component';
 
 
@@ -57,6 +58,7 @@ import { AboutComponent } from './admin/about/about.component';
     NotFoundComponent,
     StudentComponent,
     AboutComponent,
+    // ChancellorComponent,
     // LoginComponent,
 
 

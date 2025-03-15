@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // project import
-import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+// import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { CardComponent } from './components/card/card.component';
 import { DataFilterPipe } from './filter/data-filter.pipe';
 import { SpinnerComponent } from './components/spinner/spinner.component';
@@ -19,6 +19,7 @@ import 'mousetrap';
 import { NgbDropdownModule, NgbNavModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
+// import { BreadcrumbComponent } from './common/breadcrumb/breadcrumb.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import { FooterComponent } from './common/footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     CardComponent,
-    BreadcrumbComponent,
+    // BreadcrumbComponent,
     NgbDropdownModule,
     NgbNavModule,
     NgbModule,
@@ -41,9 +42,9 @@ import { FooterComponent } from './common/footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     CardComponent,
-    BreadcrumbComponent,
-    DataFilterPipe,
-    SpinnerComponent,
+    // BreadcrumbComponent,
+    // DataFilterPipe,
+    // SpinnerComponent,
     NgbModule,
     NgbDropdownModule,
     NgbNavModule,
@@ -52,6 +53,6 @@ import { FooterComponent } from './common/footer/footer.component';
     HeaderComponent,
     FooterComponent
   ],
-  declarations: [DataFilterPipe, SpinnerComponent, ],
+  // declarations: [DataFilterPipe, SpinnerComponent,  ],
 })
 export class SharedModule {}

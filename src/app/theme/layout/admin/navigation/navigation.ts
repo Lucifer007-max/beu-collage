@@ -32,20 +32,20 @@ export const NavigationItems: NavigationItem[] = [
         url: '/admin/dashboard',
         icon: 'feather icon-home'
       },
-      {
-        id: 'student',
-        title: 'Add Student',
-        type: 'item',
-        url: '/admin/add-student',
-        icon: 'feather icon-user-plus'
-      },
-      {
-        id: 'course',
-        title: 'Add Course',
-        type: 'item',
-        url: '/admin/add-course',
-        icon: 'feather icon-book'
-      },
+      // // {
+      // //   id: 'student',
+      // //   title: 'Add Student',
+      // //   type: 'item',
+      // //   url: '/admin/add-student',
+      // //   icon: 'feather icon-user-plus'
+      // // },
+      // {
+      //   id: 'course',
+      //   title: 'Add Course',
+      //   type: 'item',
+      //   url: '/admin/add-course',
+      //   icon: 'feather icon-book'
+      // },
 
     ]
   },
@@ -62,20 +62,20 @@ export const NavigationItems: NavigationItem[] = [
         url: '/admin/add-banner',
         external: true
       },
-      {
-        id: 'menu-level-2.2',
-        title: 'Testimonial Management',
-        type: 'item',
-        url: '/admin/add-testimonial',
-        external: true
-      },
-      {
-        id: 'course',
-        title: 'Merchandise Management',
-        type: 'item',
-        url: '/admin/merchandise-management',
-        icon: 'feather icon-cloth'
-      },
+      // {
+      //   id: 'menu-level-2.2',
+      //   title: 'Testimonial Management',
+      //   type: 'item',
+      //   url: '/admin/add-testimonial',
+      //   external: true
+      // // },
+      // {
+      //   id: 'course',
+      //   title: 'Merchandise Management',
+      //   type: 'item',
+      //   url: '/admin/merchandise-management',
+      //   icon: 'feather icon-cloth'
+      // },
     ]
   }
   // {

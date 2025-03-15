@@ -1,1 +1,29 @@
-<p>not-found works!</p>
+<app-header></app-header>
+
+<section class="position-relative w-100" style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
+  <!-- Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
+
+  <!-- Content -->
+  <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+    <h1 class="fs-2 fw-bold text-light">{{this.router.url.split('/')[1]}}</h1>
+
+    <nav class="mt-2">
+      <ul class="breadcrumb bg-primary">
+        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li>
+        <li class="breadcrumb-item active text-white" aria-current="page">{{this.router.url.split('/')[1] }}</li>
+      </ul>
+    </nav>
+
+    <!-- Divider -->
+    <div class="border-top border-white mt-2" style="width: 100%; opacity: 0.6;"></div>
+  </div>
+</section>
+
+<section class="py-5">
+  <h1 class="text-center my-4 text-dark">{{this.router.url.split('/')[1] }} Page Content Will Upload Soon !</h1>
+
+</section>
+
+<app-footer></app-footer>

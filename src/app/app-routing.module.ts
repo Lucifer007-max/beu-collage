@@ -30,6 +30,22 @@ const routes: Routes = [
         loadComponent: () => import('./pages/about/about.component'),
       },
       {
+        path: 'about/mission',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
+        path: 'organization/chancellor',
+        // loadComponent: () => import('./pages/chancellor/chancellor.component'),
+        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
+
+      },
+      {
+        path: 'organization/vice-chancellor',
+        // loadComponent: () => import('./pages/chancellor/chancellor.component'),
+        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
+
+      },
+      {
         path: 'maincourse/:id',
         loadComponent: () => import('./pages/course/course.component'),
       },
