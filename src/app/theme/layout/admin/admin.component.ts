@@ -2,11 +2,14 @@
 import { Component } from '@angular/core';
 import { Location, LocationStrategy } from '@angular/common';
 import { GradientConfig } from 'src/app/app-config';
+import { BreadcrumbComponent } from "../../shared/common/breadcrumb/breadcrumb.component";
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  styleUrls: ['./admin.component.scss'],
+  // standalone:true,
+  // imports: [BreadcrumbComponent]
 })
 export class AdminComponent {
   // public props
