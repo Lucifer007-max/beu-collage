@@ -53,6 +53,6 @@ import { FooterComponent } from './common/footer/footer.component';
     HeaderComponent,
     FooterComponent
   ],
-  // declarations: [DataFilterPipe, SpinnerComponent,  ],
+  declarations: [DataFilterPipe, SpinnerComponent,  ],
 })
 export class SharedModule {}
