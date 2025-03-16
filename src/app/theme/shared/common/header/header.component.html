@@ -69,6 +69,22 @@
           <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Notification'">Notification</a></li>
           <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Letter'">Letter</a></li>
           <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Gallery'">Gallery</a></li>
+          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/UHV'">UHV</a></li>
+          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/IQAC'">IQAC</a></li>
+          <li class="nav-item text-light dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Results</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Annual Report</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">Lokpal Orders</a></li>
+            </ul>
+          </li>
+          <li class="nav-item text-light dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Lokpal</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="'/appointment-of-lokpal'">Appointment of Lokpal</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">Lokpal Orders</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
