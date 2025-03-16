@@ -33,6 +33,10 @@ import { AuthGuard } from 'src/guard/authguard.guard';
 import { StudentComponent } from './theme/layout/student/student.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AboutComponent } from './admin/about/about.component';
+// import { ActComponent } from './pages/act/act.component';
+// import { CircularComponent } from './pages/circular/circular.component';
+// import { NotificationComponent } from './pages/notification/notification.component';
+// import { LetterComponent } from './pages/letter/letter.component';
 // import { ChancellorComponent } from './pages/organization/chancellor/chancellor.component';
 // import { LoginComponent } from './admin/login/login.component';
 
@@ -58,6 +62,10 @@ import { AboutComponent } from './admin/about/about.component';
     NotFoundComponent,
     StudentComponent,
     AboutComponent,
+    // ActComponent,
+    // CircularComponent,
+    // NotificationComponent,
+    // LetterComponent,
     // ChancellorComponent,
     // LoginComponent,
 

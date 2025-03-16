@@ -34,6 +34,10 @@ const routes: Routes = [
         loadComponent: () => import('./pages/about/about.component'),
       },
       {
+        path: 'about/objective',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
         path: 'organization/chancellor',
         // loadComponent: () => import('./pages/chancellor/chancellor.component'),
         loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
@@ -44,6 +48,22 @@ const routes: Routes = [
         // loadComponent: () => import('./pages/chancellor/chancellor.component'),
         loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
 
+      },
+      {
+        path: 'Act',
+        loadComponent: () => import('./pages/act/act.component').then(m => m.ActComponent)
+      },
+      {
+        path: 'Circular',
+        loadComponent: () => import('./pages/circular/circular.component').then(m => m.CircularComponent)
+      },
+      {
+        path: 'Notification',
+        loadComponent: () => import('./pages/notification/notification.component').then(m => m.NotificationComponent)
+      },
+      {
+        path: 'Letter',
+        loadComponent: () => import('./pages/letter/letter.component').then(m => m.LetterComponent)
       },
       {
         path: 'maincourse/:id',
@@ -114,11 +134,11 @@ const routes: Routes = [
       }
     ]
   },
-  {path:'**' ,  component:NotFoundComponent},
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

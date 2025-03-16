@@ -1,17 +1,19 @@
 <app-header></app-header>
-<section class="position-relative w-100" style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
+<section class="position-relative w-100"
+  style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
   <!-- Overlay -->
   <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
 
   <!-- Content -->
-  <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
-    <h1 class="fs-2 fw-bold text-light">{{this.router.url  === '/about/mission' ?  'Mission' : 'Vision'}}</h1>
+  <div
+    class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+    <h1 class="fs-2 fw-bold text-light">{{pageTitle}}</h1>
 
     <nav class="mt-2">
       <ul class="breadcrumb bg-primary">
         <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
         <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li>
-        <li class="breadcrumb-item active text-white" aria-current="page">{{this.router.url  === '/about/mission' ?  'Mission' : 'Vision'}}</li>
+        <li class="breadcrumb-item active text-white" aria-current="page">{{pageTitle}}</li>
       </ul>
     </nav>
 
@@ -24,27 +26,67 @@
 <section class="py-5">
   <div class="container mt-5">
     <div class="vision-card">
-        <div class="vision-header">
-            {{this.router.url  === '/about/mission' ?  'Mission' : 'Vision'}}
-        </div>
-        <div class="vision-body"  *ngIf="this.router.url !== '/about/mission'">
-            <ul>
-                <li>To provide and upgrade the knowledge of Applied Science, Engineering & Technology, Architecture & Planning, and Management as well as research in the fields of technical education.</li>
-                <li>To create entrepreneurship in an encouraging environment to pursue technical education in close cooperation with industries.</li>
-                <li>To develop an environment for the advancement of the quality of life of mankind in general and in relation to the domain of engineering and technological development and applications.</li>
-            </ul>
-        </div>
-        <div class="vision-body"  *ngIf="this.router.url === '/about/mission'">
-          <ul>
-              <li>To develop flexible and innovative academic programmes to cater the need of students with different background, and prepare them to compete at the national and international levels.</li>
-              <li>To emphasis on knowledge creation through a well-planned research programme in emerging areas, and application of knowledge by undertaking issues and problems from the industry.
-              </li>
-              <li>To emphasis on the overall development of a well-rounded personality of its students with both professional and emotional maturity to take up the challenges in their chosen profession, and to contribute to the development of society.
-              </li>
-          </ul>
+      <div class="vision-header">
+        {{pageTitle}}
+      </div>
+      <div class="vision-body" *ngIf="pageTitle === 'Vision'">
+        <ul>
+          <li>To provide and upgrade the knowledge of Applied Science, Engineering & Technology, Architecture &
+            Planning, and Management as well as research in the fields of technical education.</li>
+          <li>To create entrepreneurship in an encouraging environment to pursue technical education in close
+            cooperation with industries.</li>
+          <li>To develop an environment for the advancement of the quality of life of mankind in general and in relation
+            to the domain of engineering and technological development and applications.</li>
+        </ul>
+      </div>
+      <div class="vision-body" *ngIf="pageTitle === 'Mission'">
+        <ul>
+          <li>To develop flexible and innovative academic programmes to cater the need of students with different
+            background, and prepare them to compete at the national and international levels.</li>
+          <li>To emphasis on knowledge creation through a well-planned research programme in emerging areas, and
+            application of knowledge by undertaking issues and problems from the industry.
+          </li>
+          <li>To emphasis on the overall development of a well-rounded personality of its students with both
+            professional and emotional maturity to take up the challenges in their chosen profession, and to contribute
+            to the development of society.
+          </li>
+        </ul>
+      </div>
+
+      <div class="vision-body" *ngIf="pageTitle === 'Objective'">
+        <ul>
+          <li>To create institutes and centers of excellence for imparting State-of the art education, training and
+            research in the fields of Engineering and Technology as well as Architecture and Planning, Management;</li>
+          <li>To create capabilities for the development of knowledge, skill, and competency at various levels.
+          </li>
+          <li>To create capabilities for upgrading the infrastructure of global standards for education, training, and
+            research in the areas related to Engineering and Technology, Architecture and Planning, Management, and
+            Science.
+          </li>
+          <li>
+            To develop patterns of teaching and training at various levels of educational accomplishments so as to set
+            high standards of education in Science, Engineering and Technology, Architecture and Planning, and
+            Management.
+          </li>
+          <li>
+            To function as a leading resource centre for knowledge management and entrepreneurship development in the
+            areas of Science, Engineering and Technology, Architecture and Planning, and Management.
+          </li>
+          <li>
+            To provide inter-relationship for national and global participation in the fields of Science, Engineering
+            and Technology, Architecture and Planning, and Management.
+          </li>
+          <li>
+            To establish close linkages with industry to make teaching, training, and research at the University
+            relevant to the needs of the industry at national and global levels.
+          </li>
+          <li>
+            To make such provisions as would enable affiliated colleges to undertake specialization of studies.
+          </li>
+        </ul>
       </div>
     </div>
-</div>
+  </div>
 </section>
 
 

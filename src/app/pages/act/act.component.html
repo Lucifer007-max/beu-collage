@@ -1,0 +1,50 @@
+<app-header></app-header>
+<section class="position-relative w-100"
+    style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
+    <!-- Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
+
+    <!-- Content -->
+    <div
+        class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+        <h1 class="fs-2 fw-bold text-light">Act</h1>
+
+        <nav class="mt-2">
+            <ul class="breadcrumb bg-primary">
+                <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Act</li>
+            </ul>
+        </nav>
+
+        <!-- Divider -->
+        <div class="border-top border-white mt-2" style="width: 100%; opacity: 0.6;"></div>
+    </div>
+</section>
+
+<div class="container mt-4">
+    <table class="table table-bordered table-striped">
+        <thead class="table-primary">
+            <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Description</th>
+                <th scope="col">Download</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let act of actDataList">
+                <td>{{ act.id }}</td>
+                <td>{{ act.description }}
+                    <span class="badge bg-danger" *ngIf="act.isNew">NEW</span>
+                </td>
+                <td>
+                    <button class="btn btn-primary" (click)="downloadFile(act.url)">
+                        Download
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<app-footer></app-footer>
