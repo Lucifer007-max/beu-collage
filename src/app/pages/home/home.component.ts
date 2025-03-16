@@ -12,14 +12,14 @@ declare const $: any;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export default class HomeComponent implements OnInit, AfterViewChecked {
-  bannerList:any;
-  testimonialList:any = [];
-  courseList:any = [];
-  merchandiesList:any = [];
+export default class HomeComponent implements OnInit, AfterViewChecked, AfterViewInit {
+  bannerList: any;
+  testimonialList: any = [];
+  courseList: any = [];
+  merchandiesList: any = [];
   // testimonials:any;
-  isSliderInitialized:boolean = false;
-  constructor(private service : ApiService){}
+  isSliderInitialized: boolean = false;
+  constructor(private service: ApiService) { }
 
 
   ngOnInit(): void {
@@ -29,18 +29,18 @@ export default class HomeComponent implements OnInit, AfterViewChecked {
     this.getMerchandies();
   }
 
-  getBanner(){
-    this.service.bannerGet().subscribe((res:any)=> {
+  getBanner() {
+    this.service.bannerGet().subscribe((res: any) => {
       this.bannerList = res;
     })
   }
-  getCourse(){
-    this.service.courseGet().subscribe((res:any)=> {
+  getCourse() {
+    this.service.courseGet().subscribe((res: any) => {
       this.courseList = res;
     })
   }
-  getMerchandies(){
-    this.service.merchandesGet().subscribe((res:any)=> {
+  getMerchandies() {
+    this.service.merchandesGet().subscribe((res: any) => {
       this.merchandiesList = res;
     })
   }
@@ -79,11 +79,57 @@ export default class HomeComponent implements OnInit, AfterViewChecked {
     });
   }
 
+  moveUp(listId: string) {
+    const list = document.getElementById(listId) || document.createElement('ul');
+    const items = list?.children;
+
+    if (items.length === 0) return;
+
+    const firstItem = items[0] as HTMLElement;
+    const height = firstItem.offsetHeight * -1;
+    list.style.transition = "transform 0.5s ease-in-out";
+    list.style.transform = `translateY(${height}px)`;
+    setTimeout(() => {
+      list.appendChild(items[0].cloneNode(true));
+      list.removeChild(items[0]);
+      list.style.transition = "none";
+      list.style.transform = "translateY(0)";
+    }, 500);
+  }
+
+  moveDown(listId: string) {
+    const list = document.getElementById(listId) || document.createElement('ul');
+    const items = list.children;
+    const lastItem = items[items.length - 1].cloneNode(true);
+    list.insertBefore(lastItem, items[0]);
+    list.style.transition = "none";
+    list.style.transform = "translateY(-40px)";
+    setTimeout(() => {
+      list.style.transition = "transform 0.5s ease-in-out";
+      list.style.transform = "translateY(0)";
+      setTimeout(() => {
+        list.removeChild(items[items.length - 1]);
+      }, 500);
+    }, 10);
+  }
+
+  autoScroll(listId: string) {
+    this.moveUp(listId);
+    setTimeout(() => this.autoScroll(listId), 3000);
+  }
+
+
   ngAfterViewChecked() {
     if (this.testimonialList.length > 0 && !this.isSliderInitialized) {
       this.initializeSlider();
       this.isSliderInitialized = true;
     }
+  }
+
+  ngAfterViewInit() {
+    this.autoScroll("important-information");
+    this.autoScroll("notice-board");
+    this.autoScroll("college-events");
   }
 
 }

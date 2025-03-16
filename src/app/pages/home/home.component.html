@@ -74,12 +74,14 @@
             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center p-2">
               <h5 class="mb-0">IMPORTANT LINKS</h5>
               <div>
-                <i class="fa fa-angle-down"></i>
-                <i class="fa fa-angle-up"></i>
+                  <i class="fa fa-angle-down" (click)="moveDown('important-information')"></i>
+                
+                  <i class="fa fa-angle-up" (click)="moveUp('important-information')"></i>
               </div>
             </div>
-            <div class="card-body p-2">
-              <ul class="list-group list-group-flush">
+            <div class="card-body p-2 overflow-hidden h-40">
+              <ul  id="important-information"
+              class="list-group list-group-flush overflow-hidden">
                 <li class="list-group-item d-flex align-items-center p-2">
                   <i class="fa fa-arrow-right text-primary me-2"></i>
                   <a href="#" class="text-decoration-none text-dark">U.P. Governor Website</a>
@@ -117,12 +119,13 @@
             <div class="card-header bg-warning d-flex justify-content-between align-items-center p-2">
               <h5 class="mb-0">WHAT'S NEW</h5>
               <div>
-                <i class="fa fa-angle-down"></i>
-                <i class="fa fa-angle-up"></i>
+                <i class="fa fa-angle-down" (click)="moveDown('notice-board')"></i>
+                <i class="fa fa-angle-up" (click)="moveUp('notice-board')"></i>
               </div>
             </div>
-            <div class="card-body p-2">
-              <ul class="list-group list-group-flush">
+            <div class="card-body p-2 overflow-hidden h-40">
+              <ul id="notice-board"
+              class="list-group list-group-flush notice-board overflow-hidden">
                 <li class="list-group-item p-2">
                   <i class="fa fa-arrow-right text-warning me-2"></i>
                   Walk-in Interview for Guest Faculty Recruitment 2024-25 - REC, Basti, Pratapgarh, Gonda, and Mirzapur
@@ -447,15 +450,15 @@
           College Events
         </h3>
         <div class="d-flex gap-2 align-items-center text-warning fs-5 fw-bold">
-          <button class="border-0 bg-transparent"><i class="fa fa-angle-down"></i></button>
-          <button class="border-0 bg-transparent"><i class="fa fa-angle-up"></i></button>
+          <button class="border-0 bg-transparent" (click)="moveDown('college-events')"><i class="fa fa-angle-down"></i></button>
+          <button class="border-0 bg-transparent" (click)="moveUp('college-events')"><i class="fa fa-angle-up"></i></button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container my-4">
-    <ul class="list-unstyled">
+  <div class="container my-4 h-40 overflow-hidden">
+    <ul class="list-unstyled overflow-hidden" id="college-events">
       <li class="d-flex gap-3 align-items-center py-2 text-muted small">
         <!-- <img src="./assets/double-quote.png" alt="" class="img-fluid" style="width: 25px;"> -->
         <!-- <i class="fa fa-quote"></i> -->
