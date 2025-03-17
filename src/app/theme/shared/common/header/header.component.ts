@@ -34,7 +34,7 @@ export class HeaderComponent implements AfterViewInit{
       script.async = true;
       document.body.appendChild(script);
       // function googleTranslateElementInit() {
-        new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        // new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
       // }
     } else {
       // this.initGoogleTranslate();
