@@ -66,5 +66,46 @@ File: style.css
 
 .nav-link {
   color: #fff !important;
+  font-size: 15px;
+}
+
+.bg-primary, .btn-primary{
+  background: #0676BD !important;
+}
+
+.bg-primarylight {
+  background-color: #bfdbfe;
+}
+.text-primary {
+
+color: #0676BD !important;
+}
+.font-secondary-color {
+  color: #0676BD !important;
 
 }
+.rotate-n90 {
+  transform: rotate(90deg) !important;
+  z-index: 99;
+  left: -84px;
+}
+.start-20  {
+  left: 50px;
+}
+// .skiptranslate {
+//   display: none !important;
+// }
+
+#google_translate_element{
+  position: absolute;
+  top: 0;
+  right: 165px;
+}
+
+@media (max-width:600px) {
+
+  #google_translate_element{
+    right:20px;
+  }
+}
+

@@ -17,12 +17,14 @@
     <div class="d-flex flex-column flex-lg-row align-items-center gap-3 w-100">
       <div class="d-flex justify-content-center">
         <!-- Image for Mobile View -->
-        <img src="https://iplfans.in/beu/images/beu_logo.jpeg" alt="BEU Logo" class="img-fluid "
-          style="width: 7rem; margin-right: 1rem;">
 
+        <img src="https://college-website-brown-one.vercel.app/assets/governmentOfBihar.webp"
+          alt="governmentOfBihar logo" class="img-fluid   d-none d-sm-none d-md-block d-lg-block d-xl-block"
+          style="width: 4rem;">
         <!-- Image for Desktop View -->
         <img src="https://college-website-brown-one.vercel.app/assets/governmentOfBihar.webp"
-          alt="governmentOfBihar logo" class="img-fluid d-block d-sm-block d-md-none d-lg-none d-xl-none" style="width: 6rem;">
+          alt="governmentOfBihar logo" class="img-fluid d-block d-sm-block d-md-none d-lg-none d-xl-none"
+          style="width: 4rem;">
       </div>
       <div class="text-center w-100">
         <h2 class="h4 fw-bold">Bihar Engineering University, Patna <span class="h5 fw-semibold">Government of
@@ -33,12 +35,22 @@
     </div>
 
     <!-- Image for Desktop View -->
-    <img src="https://college-website-brown-one.vercel.app/assets/governmentOfBihar.webp" alt="governmentOfBihar logo"
-      class="img-fluid   d-none d-sm-none d-md-block d-lg-block d-xl-block" style="width: 6rem;">
+    <img src="https://iplfans.in/beu/images/beu_logo.jpeg" alt="BEU Logo" class="img-fluid "
+      style="width:5rem; margin-right: 1rem;">
+    <div id="google_translate_element"></div>
+    <!-- <select class="form-control" (change)="translateLanguage($event)">
+      <option value="">Select Language</option>
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      <option value="fr">French</option>
+      <option value="es">Spanish</option>
+      <option value="ar">Arabic</option>
+    </select> -->
+
   </div>
 
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +75,8 @@
               <li><a class="dropdown-item" [routerLink]="'/organization/vice-chancellor'">Vice Chancellor</a></li>
             </ul>
           </li>
-          <li class="nav-item text-light"><a class="nav-link" href="https://aktu.ac.in/pdf/affiliation_080715.pdf" target="_blank">Affiliation</a></li>
+          <li class="nav-item text-light"><a class="nav-link" href="https://aktu.ac.in/pdf/affiliation_080715.pdf"
+              target="_blank">Affiliation</a></li>
           <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Academics'">Academics</a></li>
           <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Act'">Act</a></li>
           <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Circular'">Circular</a></li>
@@ -91,3 +104,23 @@
     </div>
   </nav>
 </header>
+
+
+<div class="position-fixed  translate-middle-y d-flex gap-2 rotate-n90">
+  <button class="btn btn-primary shadow-sm px-4 py-2">
+    Minutes
+  </button>
+  <button class="btn btn-primary shadow-sm px-4 py-2">
+    BEU ERP
+  </button>
+</div>
+
+
+<div
+  class="position-fixed bottom-0 start-20 z-3 d-flex align-items-center gap-2 p-2 bg-primary text-white rounded-pill w-auto shadow-lg">
+  <i class="fa fa-phone text-white fs-2"></i>
+  <div>
+    <p class="mb-0 small">Student's Grievance Help Desk</p>
+    <p class="mb-0">Call Us: XXXX-XXX-XXX</p>
+  </div>
+</div>
