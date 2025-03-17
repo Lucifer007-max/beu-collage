@@ -37,6 +37,77 @@
       </button>
     </div>
 
+    <div class="col-lg-3 col-md-3 col-sm-12  p-0" style="background: #FAF2BA">
+      <div class="card m-0 shadow-sm shadow-none">
+        <div class="card-header d-flex justify-content-between align-items-center p-2" style="background: #fced80">
+          <h5 class="mb-0 font-secondary-color  ">Notice Board</h5>
+          <div>
+            <button class="btn btn-outline-dark btn-sm" style="color: #fd992e">
+
+              <i class="fa fa-angle-down" (click)="moveDown('notice-board')"></i>
+            </button>
+            &nbsp;
+
+            <button class="btn btn-outline-dark btn-sm" style="color: #fd992e">
+              <i class="fa fa-angle-up" (click)="moveUp('notice-board')"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body p-2 overflow-hidden h-40" style="background: #FAF2BA">
+          <ul id="notice-board" class="list-group list-group-flush notice-board overflow-hidden">
+            <li class="list-group-item font-secondary-color p-2" style="background: #FAF2BA">
+              <i class="fa fa-arrow-right font-secondary-color me-2"></i>
+              Walk-in Interview for Guest Faculty Recruitment 2024-25 - REC, Basti, Pratapgarh, Gonda, and Mirzapur
+            </li>
+            <li class="list-group-item font-secondary-color d-flex justify-content-between align-items-center p-2" style="background: #FAF2BA">
+              <div>
+                <i class="fa fa-arrow-right font-secondary-color me-2"></i>
+                Screening Result for Teaching Post at AKTU Lucknow
+              </div>
+              <span class="badge bg-danger">NEW</span>
+            </li>
+            <li class="list-group-item font-secondary-color p-2" style="background: #FAF2BA">
+              <i class="fa fa-arrow-right font-secondary-color me-2"></i>
+              Screening Result for Teaching Post in U.P. Institute
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="carouselExampleIndicators" class="col-lg-6 col-md-6 col-sm-12 p-0 carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://college-website-brown-one.vercel.app/assets/SITBihar.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif"
+            class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
 
     <div class="col-lg-3 col-md-3 col-sm-12  p-0 border-0" style="background: rgb(191, 219, 254)">
       <div class="card shadow-sm shadow-none m-0">
@@ -85,77 +156,6 @@
       </div>
     </div>
 
-    <div id="carouselExampleIndicators" class="col-lg-6 col-md-6 col-sm-12 p-0 carousel slide">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-          aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-          aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-          aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://college-website-brown-one.vercel.app/assets/SITBihar.webp" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif"
-            class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif"
-            class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-
-    <div class="col-lg-3 col-md-3 col-sm-12  p-0" style="background: #FAF2BA">
-      <div class="card m-0 shadow-sm shadow-none">
-        <div class="card-header d-flex justify-content-between align-items-center p-2" style="background: #fced80">
-          <h5 class="mb-0 font-secondary-color  ">Notice Board</h5>
-          <div>
-            <button class="btn btn-outline-dark btn-sm" style="color: #fd992e">
-
-              <i class="fa fa-angle-down" (click)="moveDown('notice-board')"></i>
-            </button>
-            &nbsp;
-
-            <button class="btn btn-outline-dark btn-sm" style="color: #fd992e">
-              <i class="fa fa-angle-up" (click)="moveUp('notice-board')"></i>
-            </button>
-          </div>
-        </div>
-        <div class="card-body p-2 overflow-hidden h-40" style="background: #FAF2BA">
-          <ul id="notice-board" class="list-group list-group-flush notice-board overflow-hidden">
-            <li class="list-group-item font-secondary-color p-2" style="background: #FAF2BA">
-              <i class="fa fa-arrow-right font-secondary-color me-2"></i>
-              Walk-in Interview for Guest Faculty Recruitment 2024-25 - REC, Basti, Pratapgarh, Gonda, and Mirzapur
-            </li>
-            <li class="list-group-item font-secondary-color d-flex justify-content-between align-items-center p-2" style="background: #FAF2BA">
-              <div>
-                <i class="fa fa-arrow-right font-secondary-color me-2"></i>
-                Screening Result for Teaching Post at AKTU Lucknow
-              </div>
-              <span class="badge bg-danger">NEW</span>
-            </li>
-            <li class="list-group-item font-secondary-color p-2" style="background: #FAF2BA">
-              <i class="fa fa-arrow-right font-secondary-color me-2"></i>
-              Screening Result for Teaching Post in U.P. Institute
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
     <!-- </div> -->
   </div> <!-- Row End -->
 </div> <!-- Container End -->
@@ -384,10 +384,10 @@
             src="https://college-website-brown-one.vercel.app/assets/bakhtiyarpur-college-of-engineering-bakhtiarpur-patna-colleges-Z1Xp52eGd3.webp"
             class="card-img-top" alt="Course 01">
           <div class="card-body">
-            <h4 class="card-title fw-bold text-truncate">Government of Bihar</h4>
-            <p class="text-muted small">Under Graduate - Bihar, Patna</p>
-            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Bachelor's degree can choose from B. Pharma,
-              B. Tech, BHMCT, B.Arch, BFAD, etc.</p>
+            <h4 class="card-title fw-bold text-truncate">Under Graduate - Bihar, Patna</h4>
+            <p class="text-muted small">Government of Bihar</p>
+            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Bachelors degree can choose from our Programme B.Tech.
+            </p>
             <p><i class="far fa-calendar me-2"></i>27 Nov 2024 - 5 Mar 2025</p>
           </div>
           <div class="card-footer bg-white border-0">
@@ -403,10 +403,10 @@
             src="https://college-website-brown-one.vercel.app/assets/bakhtiyarpur-college-of-engineering-bakhtiarpur-patna-colleges-Z1Xp52eGd3.webp"
             class="card-img-top" alt="Course 02">
           <div class="card-body">
-            <h4 class="card-title fw-bold text-truncate">Government of Bihar</h4>
-            <p class="text-muted small">Post Graduate - Bihar, Patna</p>
-            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Master's degree can choose from MBA, MCA,
-              M.Tech, M.Pharm, and M.Arch.</p>
+            <h4 class="card-title fw-bold text-truncate">Post Graduate - Bihar, Patna</h4>
+            <p class="text-muted small">Government of Bihar</p>
+            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Masters degree can choose from our ProgrammeM.Tech.
+            </p>
             <p><i class="far fa-calendar me-2"></i>27 Nov 2024 - 5 Mar 2025</p>
           </div>
           <div class="card-footer bg-white border-0">
@@ -422,10 +422,9 @@
             src="https://college-website-brown-one.vercel.app/assets/bakhtiyarpur-college-of-engineering-bakhtiarpur-patna-colleges-Z1Xp52eGd3.webp"
             class="card-img-top" alt="Course 03">
           <div class="card-body">
-            <h4 class="card-title fw-bold text-truncate">Government of Bihar</h4>
-            <p class="text-muted small">Research - Bihar, Patna</p>
-            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Doctoral degree (Ph.D.) can seek admission
-              in the relevant field.</p>
+            <h4 class="card-title fw-bold text-truncate">Research - Bihar, Patna</h4>
+            <p class="text-muted small">Government of Bihar</p>
+            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Doctoral degree (Ph.D.) can seek admission in the field in which he/she has passed his/her qualifying examination.            </p>
             <p><i class="far fa-calendar me-2"></i>27 Nov 2024 - 5 Mar 2025</p>
           </div>
           <div class="card-footer bg-white border-0">
