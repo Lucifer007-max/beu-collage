@@ -91,6 +91,7 @@ color: #0676BD !important;
 }
 .start-20  {
   left: 50px;
+  bottom: 10px !important;
 }
 // .skiptranslate {
 //   display: none !important;
@@ -105,7 +106,7 @@ color: #0676BD !important;
 @media (max-width:600px) {
 
   #google_translate_element{
-    right:20px;
+    right:10px;
   }
 }
 
