@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { environment } from 'src/environments/environment';
 import { ApiService } from 'src/service/api.service';
 declare const $: any;
 
@@ -17,22 +18,55 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
   testimonialList: any = [];
   courseList: any = [];
   merchandiesList: any = [];
-  // testimonials:any;
+  notice:any =[];
+  noticeBoard:any =[];
+  importLink:any =[];
+  baseUrl:String = environment.imgUrl;
+
   isSliderInitialized: boolean = false;
   constructor(private service: ApiService) { }
 
 
   ngOnInit(): void {
     this.getBanner();
-    this.getCourse();
-    this.getTestimonial();
-    this.getMerchandies();
+    this.getNotice();
+    this.getNoticeBoard();
+    this.getImportantLink();
+    // this.getTestimonial();
+    // this.getMerchandies();
   }
 
   getBanner() {
     this.service.bannerGet().subscribe((res: any) => {
-      this.bannerList = res;
+      this.bannerList = res.data;
     })
+  }
+  getNotice() {
+    this.service.noticeGet().subscribe((res) => {
+      this.notice = res.data[0].notice
+    });
+  }
+  getNoticeBoard() {
+    this.service.noticeBoardGet().subscribe((res:any) => {
+      this.noticeBoard = res.data[0].board
+      // if (res.data) {
+      //   this.noticeForm.patchValue({
+      //     id: res.data[0].id, // Set ID
+      //     notice: res.data[0].board // Set Notice content
+      //   });
+      // }
+    });
+  }
+  getImportantLink() {
+    this.service.importantLinkGet().subscribe((res: any) => {
+      this.importLink = res.data[0].board
+      // if (res.data) {
+      //   this.noticeForm.patchValue({
+      //     id: res.data[0].id, // Set ID
+      //     implinks: res.data[0].implinks // Set Notice content
+      //   });
+      // }
+    });
   }
   getCourse() {
     this.service.courseGet().subscribe((res: any) => {

@@ -5,6 +5,7 @@ import { GradientConfig } from 'src/app/app-config';
 
 // bootstrap
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-right',
@@ -30,7 +31,7 @@ export class NavRightComponent implements DoCheck {
   gradientConfig = GradientConfig;
 
   // constructor
-  constructor() {
+  constructor(private router:  Router) {
     this.visibleUserList = false;
     this.chatMessage = false;
   }
@@ -40,7 +41,10 @@ export class NavRightComponent implements DoCheck {
     this.friendId = friendID;
     this.chatMessage = !this.chatMessage;
   }
-
+  handleLogout(){
+    sessionStorage.clear();
+    this.router.navigate(['/admin'])
+  }
   ngDoCheck() {
     if (document.querySelector('body')?.classList.contains('elite-rtl')) {
       this.gradientConfig.isRtlLayout = true;

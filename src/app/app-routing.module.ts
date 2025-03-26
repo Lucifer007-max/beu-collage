@@ -75,7 +75,7 @@ const routes: Routes = [
       },
       {
         path: 'admin',
-        loadComponent: () => import('./admin/login/login.component')
+        loadComponent: () => import('./admin/authentication/sign-in/sign-in.component')
       },
     ]
   },
@@ -89,26 +89,21 @@ const routes: Routes = [
       {
         path: 'admin/dashboard',
         loadComponent: () => import('./admin/dashboard/dash-analytics/dash-analytics.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
-        path: 'admin/add-course',
-        loadComponent: () => import('./admin/course/add-course/add-course.component'),
-        // canActivate: [AuthGuard]
-      },
-      {
-        path: 'admin/add-student',
-        loadComponent: () => import('./admin/students/add-student/add-student.component'),
+        path: 'admin/add-notice',
+        loadComponent: () => import('./admin/notice/notice.component'),
         // canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-banner',
         loadComponent: () => import('./admin/banner/banner.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
-        path: 'admin/add-testimonial',
-        loadComponent: () => import('./admin/testimonial/testimonial.component'),
+        path: 'admin/add-notice-board',
+        loadComponent: () => import('./admin/notice-board/notice-board.component'),
         // canActivate: [AuthGuard]
       },
       {

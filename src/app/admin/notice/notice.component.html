@@ -1,0 +1,15 @@
+<app-card cardTitle="Add Notice" [options]="false">
+  <form [formGroup]="noticeForm">
+    <div class="row">
+      <div class="mb-3 col-lg-6">
+        <angular-editor id="editor2"  [config]="editorConfig" formControlName="notice"></angular-editor>
+        <input type="hidden" formControlName="id" />
+      </div>
+    </div>
+    <button type="submit" class="btn col-2 btn-primary" (click)="Add()" *ngIf="this.loader == false">Add</button>
+    <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </form>
+</app-card>
+

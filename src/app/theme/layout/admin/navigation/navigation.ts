@@ -60,22 +60,22 @@ export const NavigationItems: NavigationItem[] = [
         title: 'Banner Mangement',
         type: 'item',
         url: '/admin/add-banner',
-        external: true
+        external: false
       },
-      // {
-      //   id: 'menu-level-2.2',
-      //   title: 'Testimonial Management',
-      //   type: 'item',
-      //   url: '/admin/add-testimonial',
-      //   external: true
-      // // },
-      // {
-      //   id: 'course',
-      //   title: 'Merchandise Management',
-      //   type: 'item',
-      //   url: '/admin/merchandise-management',
-      //   icon: 'feather icon-cloth'
-      // },
+      {
+        id: 'menu-level-2.2',
+        title: 'Notice Management',
+        type: 'item',
+        url: '/admin/add-notice',
+        external: false
+      },
+      {
+        id: 'notice-borad',
+        title: 'Notice Board Management',
+        type: 'item',
+        url: '/admin/add-notice-board',
+        // icon: 'feather icon-cloth'
+      },
     ]
   }
   // {

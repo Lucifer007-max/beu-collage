@@ -65,7 +65,7 @@ File: style.css
 @import 'scss/themes/custom';
 
 .nav-link {
-  color: #fff !important;
+  // color: #fff !important;
   font-size: 15px;
 }
 
@@ -110,3 +110,23 @@ color: #0676BD !important;
   }
 }
 
+#notice-board li{
+  background: #FAF2BA !important;
+}
+
+@media (min-width:768px) {
+
+  .custom_postion {
+    position: relative;
+    top: -100px;
+  }
+
+  .custom_list {
+    top: 15px;
+      position: sticky;
+      width: 90%;
+  }
+}
+.custom_postion {
+  margin-bottom: 40px;
+}

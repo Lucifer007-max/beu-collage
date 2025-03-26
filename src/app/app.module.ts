@@ -32,7 +32,11 @@ import { ApiService, AuthInterceptorProvider } from 'src/service/api.service';
 import { AuthGuard } from 'src/guard/authguard.guard';
 import { StudentComponent } from './theme/layout/student/student.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { AboutComponent } from './admin/about/about.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+// import { NoticeBoardComponent } from './admin/notice-board/notice-board.component';
+// import { NoticeComponent } from './admin/notice/notice.component';
+
+// import { AboutComponent } from './admin/about/about.component';
 // import { ActComponent } from './pages/act/act.component';
 // import { CircularComponent } from './pages/circular/circular.component';
 // import { NotificationComponent } from './pages/notification/notification.component';
@@ -61,7 +65,9 @@ import { AboutComponent } from './admin/about/about.component';
     NavGroupComponent,
     NotFoundComponent,
     StudentComponent,
-    AboutComponent,
+    // NoticeBoardComponent,
+    // NoticeComponent,
+    // AboutComponent,
     // ActComponent,
     // CircularComponent,
     // NotificationComponent,
@@ -71,7 +77,7 @@ import { AboutComponent } from './admin/about/about.component';
 
 
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule, NgMultiSelectDropDownModule.forRoot()
+  imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule,AngularEditorModule, NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
     AuthInterceptorProvider,

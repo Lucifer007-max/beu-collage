@@ -25,7 +25,58 @@
 </section>
 
 
+
 <section class="py-5">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-3 custom_postion">
+        <div class="list-group custom_list">
+          <a [routerLink]="'/'" [routerLinkActive]="'active'"  class="list-group-item list-group-item-action">Home</a>
+          <a [routerLink]="'/organization/chancellor'"  [routerLinkActive]="'active'" class="list-group-item list-group-item-action">cChancellor</a>
+          <a [routerLink]="'/organization/vice-chancellor'" [routerLinkActive]="'active'"  class="list-group-item list-group-item-action">Vice Chancellor</a>
+        </div>
+      </div>
+
+      <!-- Content Section -->
+      <div class="col-lg-9 d-flex align-items-start position-relative">
+        <div class="profile-card row" *ngIf="this.router.url === '/organization/chancellor'">
+          <div class="profile-img col-12 col-lg-6 col-md-6 col-sm-12">
+            <img src="https://th.bing.com/th/id/OIP.s-8aQLaDtm3fUvIjPF8a8QHaFj?rs=1&pid=ImgDetMain" alt="Profile Image">
+          </div>
+          <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+            <h2 class="name">Shri Nitish Kumar</h2>
+            <i class="designation">Hon’ble Chief Minister, Bihar - Cum - Chancellor <br> (Bihar Engineering University)</i>
+          </div>
+        </div>
+        <div class="profile-card row" *ngIf="this.router.url === '/organization/vice-chancellor'">
+          <div class="profile-img col-12 col-lg-6 col-md-6 col-sm-12">
+            <img src="https://i1.rgstatic.net/ii/profile.image/1020399039037441-1620293497466_Q512/Suresh-Verma-6.jpg" alt="Profile Image">
+          </div>
+          <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+            <h2 class="name">Prof. Suresh Kant Verma </h2>
+            <i class="designation">Vice- Chancellor<br></i>
+            <p><small>
+                Prof Suresh Kant Verma is currently serving as Vice Chancellor, Bihar Engineering University, Patna, Bihar.
+                Prior to this, he was Deputy Director, National Institute of Technology, Patna. He holds B.Sc (Engg.), M.Sc
+                (Engg.) and Ph.D (Engg.) from BIT, Sindri, Ranchi University, Ranchi. His Specialization is Heat Power
+                Engineering. His area of research includes Solar Energy, Stirling Cycle Engine and Computational Fluid
+                Dynamics. He has also contributed in the development of NIT Patna by taking responsibility at key positions
+                like Head of the Department (Mechanical Engineering), Dean (Student Welfare), Dean (Academic) and Chairman
+                (ACoFAR). He is Fellow of the Institution of Engineers (India). He has also the membership of Professional
+                Societies like, Indian Society of Mechanical Engineers, Indian Society for Technical Education, Solar Energy
+                Society of India and American Society of Mechanical Engineers. He has published the research papers in the
+                National and International Journals and also has presented papers in the International and National
+                conferences. He has guided M.Sc (Engg.) / M.Tech and Ph.D research scholars.
+
+              </small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <section class="py-5">
   <div class="container">
     <div class="profile-card row" *ngIf="this.router.url === '/organization/chancellor'">
       <div class="profile-img col-12 col-lg-6 col-md-6 col-sm-12">
@@ -60,7 +111,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 <app-footer></app-footer>

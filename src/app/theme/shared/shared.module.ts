@@ -20,6 +20,7 @@ import { NgbDropdownModule, NgbNavModule, NgbModule } from '@ng-bootstrap/ng-boo
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { BreadcrumbComponent } from './common/breadcrumb/breadcrumb.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { BreadcrumbComponent } from './common/breadcrumb/breadcrumb.component';
     NgClickOutsideDirective,
     HeaderComponent,
     FooterComponent,
+    AngularEditorModule
     // SpinnerComponent
 
   ],

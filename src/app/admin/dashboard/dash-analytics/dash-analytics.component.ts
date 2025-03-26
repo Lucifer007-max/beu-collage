@@ -24,6 +24,7 @@ import {
   ApexMarkers
 } from 'ng-apexcharts';
 import { ApiService } from 'src/service/api.service';
+import { Router } from '@angular/router';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries | ApexNonAxisChartSeries;
@@ -60,7 +61,7 @@ export default class DashAnalyticsComponent {
   chartOptions_3!: Partial<ChartOptions>;
 
   // constructor
-  constructor(private service: ApiService) {
+  constructor(private service: ApiService,private router:  Router) {
     this.chartOptions = {
       chart: {
         height: 205,
@@ -247,8 +248,13 @@ export default class DashAnalyticsComponent {
     };
     this.getCourse()
     this.getBanner()
+
+    // var a = sessionStorage.getItem('token');
+    // if(!a){
+    //   this.router.navigate(['/'])
+    // }
   }
-  
+
 
   images = [
     {

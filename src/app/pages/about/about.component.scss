@@ -1,9 +1,9 @@
 .vision-card {
-  max-width: 800px;
-  margin: auto;
-  border-radius: 10px;
+  // max-width: 800px;
+  // margin: auto;
+  // border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .vision-header {
   background: linear-gradient(90deg, #00587a, #008891);
@@ -14,7 +14,7 @@
   font-size: 20px;
 }
 .vision-body {
-  background: white;
+  background:transparent;
   padding: 20px;
   font-size: 16px;
   color: #333;
@@ -25,3 +25,13 @@
 .vision-body li {
   margin-bottom: 10px;
 }
+
+
+.list-group {
+  border: 0;
+  border-left: 3px solid #4099ff;
+  border: -r;
+  border-radius: 0;
+}
+
+

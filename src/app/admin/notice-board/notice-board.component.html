@@ -1,0 +1,28 @@
+<app-card cardTitle=" " [options]="false">
+  <div class="row">
+    <div class="mb-3 col-lg-6">
+      <form [formGroup]="noticeForm">
+        <h4 class="border-bottom mb-2">Notice Board</h4>
+        <angular-editor id="editor2" [config]="editorConfig" formControlName="notice"></angular-editor>
+        <input type="hidden" formControlName="id" />
+        <button type="submit" class="btn col-2 mt-3 btn-primary" (click)="Add()"
+          *ngIf="this.loader == false">Add</button>
+        <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </form>
+    </div>
+    <div class="mb-3 col-lg-6">
+      <form [formGroup]="importnatLinks">
+        <h4 class="border-bottom mb-2">Impotant Links</h4>
+        <angular-editor id="editor3" [config]="editorConfig" formControlName="implinks"></angular-editor>
+        <input type="hidden" formControlName="id" />
+        <button type="submit" class="btn col-2 mt-3 btn-primary" (click)="AddLinks()"
+          *ngIf="this.loader == false">Add</button>
+        <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</app-card>

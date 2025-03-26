@@ -18,7 +18,7 @@ export default class SignInComponent implements OnInit {
   constructor(private API: ApiService, private FB: FormBuilder, private router:  Router) {
     var a = sessionStorage.getItem('token');
     if(a){
-      this.router.navigate(['/dashboard'])
+      this.router.navigate(['/admin/dashboard'])
     }
   }
 
@@ -37,9 +37,10 @@ export default class SignInComponent implements OnInit {
       "password": this.formData.value.password,
     }
     this.API.adminAuth(JsonBody).subscribe((res: any) => {
-      this.API.SuccessSnackbar(res.msg);
+      console.log(res)
+      this.API.SuccessSnackbar("Welcome "+res.firstName+" You have login successfully");
       sessionStorage.setItem('token' , res.token)
-      this.router.navigate(['/dashboard'])
+      this.router.navigate(['/admin/dashboard'])
     },(err) => {
       this.API.ErrorSnackbar(err.message)
     })

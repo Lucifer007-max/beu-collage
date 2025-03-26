@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 // import { SharedModule } from 'src/app/theme/shared/shared.module';
 
@@ -8,7 +8,7 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
   selector: 'app-chancellor',
   templateUrl: './chancellor.component.html',
   standalone: true,
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, RouterModule],
 
   styleUrls: ['./chancellor.component.scss']
 })

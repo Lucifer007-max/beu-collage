@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { environment } from 'src/environments/environment';
 import { ApiService } from 'src/service/api.service';
 
 @Component({
@@ -16,13 +17,15 @@ export default class BannerComponent {
   wfile: File | any = null;
   bannerList:any;
   loader:boolean = false;
+  baseUrl:String = environment.imgUrl;
+
   constructor(private FB: FormBuilder, private service:ApiService) { }
 
   ngOnInit(): void {
     this.getBanner()
     {
       this.bannerForm = this.FB.group({
-        bannerTitle: ['', Validators.required],
+        // bannerTitle: ['', Validators.required],
         bannerImage: ['', Validators.required],
       })
     }
@@ -37,8 +40,8 @@ export default class BannerComponent {
   addBanner(){
   this.loader =  true;
    const payLoad = {
-      "title":this.bannerForm.value.bannerTitle,
-      "image":this.wfile,
+      // "title":this.bannerForm.value.bannerTitle,
+      "bannerPath":this.wfile,
    }
    this.service.bannerService(payLoad).subscribe((res:any) => {
     if(res.status){
@@ -57,8 +60,8 @@ export default class BannerComponent {
 
   getBanner(){
     this.service.bannerGet().subscribe((res:any)=> {
-      this.bannerList = res;
-      console.log(res)
+      console.log(res.data)
+      this.bannerList = res.data;
     })
   }
 
