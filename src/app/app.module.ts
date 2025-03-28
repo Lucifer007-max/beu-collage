@@ -33,6 +33,8 @@ import { AuthGuard } from 'src/guard/authguard.guard';
 import { StudentComponent } from './theme/layout/student/student.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+// import { MetorComponent } from './admin/metor/metor.component';
+// import { EventsComponent } from './admin/events/events.component';
 // import { NoticeBoardComponent } from './admin/notice-board/notice-board.component';
 // import { NoticeComponent } from './admin/notice/notice.component';
 
@@ -65,6 +67,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NavGroupComponent,
     NotFoundComponent,
     StudentComponent,
+    // MetorComponent,
+    // EventsComponent,
     // NoticeBoardComponent,
     // NoticeComponent,
     // AboutComponent,

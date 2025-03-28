@@ -1,7 +1,7 @@
 <app-card cardTitle="Add Notice" [options]="false">
   <form [formGroup]="noticeForm">
     <div class="row">
-      <div class="mb-3 col-lg-6">
+      <div class="mb-3 col-lg-10">
         <angular-editor id="editor2"  [config]="editorConfig" formControlName="notice"></angular-editor>
         <input type="hidden" formControlName="id" />
       </div>
@@ -11,5 +11,62 @@
       <span class="sr-only">Loading...</span>
     </div>
   </form>
+
+
+  
+  
+  
+  
+</app-card>
+
+
+
+
+<app-card cardTitle="Alerts List" [options]="false">
+  <form [formGroup]="alertForm">
+    <div class="row">
+      <div class="mb-3 col-lg-10">
+        <label for="title">Title</label>
+        <input type="text" id="title" class="form-control" formControlName="alertstitle" />
+  
+        <label for="subtitle" class="mt-2">Subtitle</label>
+        <input type="text" id="subtitle" class="form-control" formControlName="alertsubtitle" />
+  
+        <label for="url" class="mt-2">URL</label>
+        <input type="text" id="url" class="form-control" formControlName="alertsurl" />
+        <input type="hidden" id="id1" class="form-control" formControlName="id1" />
+  
+      </div>
+    </div>
+  
+    <div >
+      <button type="submit" class="btn col-2 btn-primary" (click)="Submit()" *ngIf="!loader2">{{this.isUpadte ? "Update" : "Add"}}</button>
+    </div>
+    <div class="spinner-border text-dark" role="status" *ngIf="loader2">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </form>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Alert Title</th>
+        <th scope="col">Alert SubTitle</th>
+        <th scope="col">Alert URL</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of this.alerts; index as i">
+        <th scope="row">{{i+1}} </th>
+        <td>{{list.alertstitle}}</td>
+        <td>{{list.alertsubtitle}}</td>
+        <td>{{list.alertsurl}}</td>
+        <!-- <td><img src="{{baseUrl}}{{list.bannerPath}}" width="auto" height="100px"/></td> -->
+        <td><a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)"><i class="fa fa-trash"></i></a> &nbsp; <a class="btn btn-danger btn-sm" (click)="handleEdit(list)"><i class="fa fa-pen"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+
 </app-card>
 

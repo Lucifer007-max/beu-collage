@@ -76,6 +76,20 @@ export const NavigationItems: NavigationItem[] = [
         url: '/admin/add-notice-board',
         // icon: 'feather icon-cloth'
       },
+      {
+        id: 'event-data',
+        title: 'Event Management',
+        type: 'item',
+        url: '/admin/add-events',
+        // icon: 'feather icon-cloth'
+      },
+      {
+        id: 'Mentor-data',
+        title: 'Mentor Management',
+        type: 'item',
+        url: '/admin/add-mentor',
+        // icon: 'feather icon-cloth'
+      },
     ]
   }
   // {

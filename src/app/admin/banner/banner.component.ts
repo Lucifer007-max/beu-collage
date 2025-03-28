@@ -46,6 +46,7 @@ export default class BannerComponent {
    this.service.bannerService(payLoad).subscribe((res:any) => {
     if(res.status){
       this.getBanner()
+      this.bannerForm.reset()
       this.service.SuccessSnackbar(res.message)
       this.loader =  false;
     }else {

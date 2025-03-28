@@ -84,6 +84,33 @@ export class ApiService {
     return this.httpClient.put(`${this.baseUrl}notice/add-notice/${id}`, payload, { headers })
       .pipe(catchError(this.handleError.bind(this)));
   }
+  alertServiceUpdate(id:number, payload: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    });
+
+    return this.httpClient.put(`${this.baseUrl}notice/update-alerts/${id}`, payload, { headers })
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  alertService(id:number, payload: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    });
+
+    return this.httpClient.post(`${this.baseUrl}notice/add-alerts`, payload, { headers })
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  eventService(id:number, payload: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    });
+
+    return this.httpClient.put(`${this.baseUrl}notice/add-events/${id}`, payload, { headers })
+      .pipe(catchError(this.handleError.bind(this)));
+  }
   noticeBoardService(id:number, payload: any): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -104,6 +131,14 @@ export class ApiService {
   }
   noticeGet(): Observable<any> {
     return this.httpClient.get(this.baseUrl + 'notice/get-notice')
+     .pipe(catchError(this.handleError.bind(this)));
+  }
+  alertsGet(): Observable<any> {
+    return this.httpClient.get(this.baseUrl + 'notice/get-alerts')
+     .pipe(catchError(this.handleError.bind(this)));
+  }
+  eventsGet(): Observable<any> {
+    return this.httpClient.get(this.baseUrl + 'notice/get-events')
      .pipe(catchError(this.handleError.bind(this)));
   }
   noticeBoardGet(): Observable<any> {
@@ -137,6 +172,18 @@ export class ApiService {
     }
 
     return this.httpClient.post(this.baseUrl + 'Testimonial', formData)
+     .pipe(catchError(this.handleError.bind(this)));
+  }
+  MnetorService(payload:any): Observable<any> {
+    const formData: FormData = new FormData();
+    for (const key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        formData.append(key, payload[key]);
+        console.log(key, payload[key])
+      }
+    }
+
+    return this.httpClient.post(this.baseUrl + 'mentor/add-mentor', formData)
      .pipe(catchError(this.handleError.bind(this)));
   }
   MerchandiesService(payload:any): Observable<any> {
@@ -183,12 +230,20 @@ export class ApiService {
   }
 
 
-  merchandesGet(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + 'Merchandies')
+  mentorGet(): Observable<any> {
+    return this.httpClient.get(this.baseUrl + 'mentor/get-mentor')
      .pipe(catchError(this.handleError.bind(this)));
   }
+  // mentorGet(): Observable<any> {
+  //   return this.httpClient.get(this.baseUrl + 'Merchandies')
+  //    .pipe(catchError(this.handleError.bind(this)));
+  // }
   bannerDelete(id: number): Observable<any> {
     return this.httpClient.delete(this.baseUrl + 'banner/delete-banner/' + id)
+     .pipe(catchError(this.handleError.bind(this)));
+  }
+  alertDelete(id: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + 'notice/delete-alerts/' + id)
      .pipe(catchError(this.handleError.bind(this)));
   }
 

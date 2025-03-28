@@ -17,10 +17,11 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
   bannerList: any;
   testimonialList: any = [];
   courseList: any = [];
-  merchandiesList: any = [];
+  mentorList: any = [];
   notice:any =[];
   noticeBoard:any =[];
   importLink:any =[];
+  events:any =[];
   baseUrl:String = environment.imgUrl;
 
   isSliderInitialized: boolean = false;
@@ -32,6 +33,9 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     this.getNotice();
     this.getNoticeBoard();
     this.getImportantLink();
+    this.getEvents();
+    this.getAlerts();
+    this.getMetor()
     // this.getTestimonial();
     // this.getMerchandies();
   }
@@ -68,14 +72,25 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
       // }
     });
   }
+  getEvents() {
+    this.service.eventsGet().subscribe((res) => {
+      // if (res.data) {
+      this.events = res.data[0].events
+      //   this.eventForm.patchValue({
+      //     id: res.data[0].id, // Set ID
+      //     events: res.data[0].events // Set Notice content
+      //   });
+      // }
+    });
+  }
   getCourse() {
     this.service.courseGet().subscribe((res: any) => {
       this.courseList = res;
     })
   }
-  getMerchandies() {
-    this.service.merchandesGet().subscribe((res: any) => {
-      this.merchandiesList = res;
+  getMetor() {
+    this.service.mentorGet().subscribe((res: any) => {
+      this.mentorList = res.data;
     })
   }
   getTestimonial() {
@@ -85,6 +100,18 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     });
   }
 
+  alerts: any = []
+  getAlerts() {
+    this.service.alertsGet().subscribe((res) => {
+      if (res.data) {
+        this.alerts = res.data
+        // this.noticeForm.patchValue({
+        //   id: res.data[0].id, // Set ID
+        //   notice: res.data[0].notice // Set Notice content
+        // });
+      }
+    });
+  }
   initializeSlider() {
     $('.testimonial-slider').slick({
       dots: true,

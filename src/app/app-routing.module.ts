@@ -26,7 +26,7 @@ const routes: Routes = [
         loadComponent: () => import('./pages/home/home.component'),
       },
       {
-        path: 'about',
+        path: 'about/vision',
         loadComponent: () => import('./pages/about/about.component'),
       },
       {
@@ -38,10 +38,62 @@ const routes: Routes = [
         loadComponent: () => import('./pages/about/about.component'),
       },
       {
+        path: 'about/university-act',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
+        path: 'about/regulations',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
+        path: 'about/noida-campus',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
+        path: 'about/university-logo',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
+        path: 'about/annual-report',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
+        path: 'about/history',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
+        path: 'about/data-privacy-policy',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
         path: 'organization/chancellor',
         // loadComponent: () => import('./pages/chancellor/chancellor.component'),
         loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
 
+      },
+      {
+        path: 'organization/pro-vice-chancellor',
+        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
+      },
+      {
+        path: 'organization/executive-council',
+        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
+      },
+      {
+        path: 'organization/academic-council',
+        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
+      },
+      {
+        path: 'organization/finance-committee',
+        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
+      },
+      {
+        path: 'organization/examination-committee',
+        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
+      },
+      {
+        path: 'organization/building-works-committee',
+        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
       },
       {
         path: 'organization/vice-chancellor',
@@ -107,8 +159,13 @@ const routes: Routes = [
         // canActivate: [AuthGuard]
       },
       {
-        path: 'admin/merchandise-management',
-        loadComponent: () => import('./admin/merchandise/merchandise.component'),
+        path: 'admin/add-events',
+        loadComponent: () => import('./admin/events/events.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-mentor',
+        loadComponent: () => import('./admin/mentor/mentor.component'),
         // canActivate: [AuthGuard]
       },
     ]

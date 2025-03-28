@@ -26,8 +26,11 @@ export default class AboutComponent {
       this.pageTitle = 'Mission';
     } else if (url === '/about/objective') {
       this.pageTitle = 'Objective';
-    } else {
+    } else if(url === "about/vision") {
       this.pageTitle = 'Vision';
+    }else {
+      this.pageTitle = url.split('/')[2].toUpperCase() + "Comning Soon";
+
     }
   }
 

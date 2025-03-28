@@ -169,8 +169,8 @@
           Notices:
         </div>
         <div class="overflow-hidden flex-grow-1">
-          <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
-            <span [innerHTML]="this.notice" style="color:#000"></span>
+          <marquee id="notice_marquee" behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
+            <div [innerHTML]="this.notice" style="color:#000"></div>
           </marquee>
 
         </div>
@@ -226,28 +226,40 @@
 
 <section class="container-fluid bg-primarylight">
   <div class="row align-items-center  text-white py-4 rounded">
-    <!-- Undergraduate Admissions -->
-    <div class="col-md-5 text-center py-3">
-      <h2 class="h4 fw-bold font-secondary-color">Admissions 2024-2025</h2>
-      <hr class="mx-auto w-75 border-1 border-white">
-      <p class="fs-5 font-secondary-color">URL:
-        <a href="#" class=" text-decoration-none">BIU2024-2025</a>
-      </p>
-    </div>
 
-    <!-- Divider -->
-    <div class="col-md-2 text-center d-none d-md-block d-lg-block d-xl-block d-sm-none">
-      <div class="border-start border-white border-3 mx-auto h-75"></div>
-    </div>
 
-    <!-- Ph.D. Admissions -->
-    <div class="col-md-5 text-center py-3">
-      <h2 class="h4 fw-bold font-secondary-color">Ph.D. Admissions 2024-2025</h2>
-      <hr class="mx-auto w-75 border-1 border-white">
-      <p class="fs-5 font-secondary-color">URL:
-        <a href="#" class=" text-decoration-none">BIUPhd.D.2024-2025</a>
-      </p>
+
+    <div *ngIf="alerts && alerts.length > 0; else noAlerts">
+      <ng-container *ngFor="let alert of alerts; let i = index">
+        <div class="col-md-5 text-center py-3">
+          <h2 class="h4 fw-bold font-secondary-color">{{ alert.alertstitle }}</h2>
+          <hr class="mx-auto w-75 border-1 border-white">
+          <p class="fs-5 font-secondary-color">
+            URL:
+            <a [href]="alert.alertsurl" class="text-decoration-none" target="_blank">
+              {{ alert.alertsubtitle }}
+            </a>
+          </p>
+        </div>
+    
+        <!-- Add the divider after each item except the last one -->
+        <div 
+          class="col-md-2 text-center d-none d-md-block d-lg-block d-xl-block d-sm-none" 
+          *ngIf="i !== alerts.length - 1">
+          <div class="border-start border-white border-3 mx-auto h-75"></div>
+        </div>
+      </ng-container>
     </div>
+    
+    <!-- Show this when there are no alerts -->
+    <ng-template #noAlerts>
+      <div class="text-center py-4">
+        <h3 class="text-muted">No alerts for now</h3>
+      </div>
+    </ng-template>
+    
+
+
   </div>
 </section>
 
@@ -332,7 +344,7 @@
         <h2 class="text-center fw-bold text-primary">Our Mentors</h2>
         <div class="bg-primary mx-auto my-3" style="height: 1px; width: 90%;"></div>
         <div class="row g-3">
-          <div class="col-12 d-flex align-items-center border-bottom pb-2">
+          <!-- <div class="col-12 d-flex align-items-center border-bottom pb-2">
             <img src="https://college-website-brown-one.vercel.app/assets/CM.png" class="img-fluid me-3"
               style="width: 100px; height: 120px;" alt="Chancellor">
             <div>
@@ -358,7 +370,17 @@
               <p class="text-muted mb-1">Vice Chancellor</p>
               <i class="text-muted">Bihar Engineering University</i>
             </div>
+          </div> -->
+          <div *ngFor="let mentor of mentorList" class="col-12 d-flex align-items-center border-bottom pb-2">
+            <img [src]="baseUrl+'/uploads/' + mentor.mentorImage" class="img-fluid me-3"
+              style="width: 100px; height: 120px;" alt="{{ mentor.mentortitle }}">
+            <div>
+              <h5 class="fw-bold mb-1">{{ mentor.mentortitle }}</h5>
+              <p class="text-muted mb-1">{{ mentor.role }}</p>
+              <i class="text-muted">{{ mentor.position }}</i>
+            </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -513,44 +535,9 @@
   </div>
 
   <div class="container my-4 h-40 overflow-hidden">
-    <ul class="list-unstyled overflow-hidden" id="college-events">
-      <li class="d-flex gap-3 align-items-center py-2 text-muted small">
-        <!-- <img src="./assets/double-quote.png" alt="" class="img-fluid" style="width: 25px;"> -->
-        <!-- <i class="fa fa-quote"></i> -->
-        <i class="fa fa-quote-left"></i>
-        "Five-Day National Workshop on Research Methodology" on February 24, 2025, to March 1, 2025 at
-        Ashoka Institute of Technology And Management
-      </li>
+    <ul class="list-unstyled overflow-hidden" id="college-events" [innerHTML]="this.events">
 
-      <li class="d-flex gap-3 align-items-center py-2 text-muted small">
-        <!-- <img src="./assets/double-quote.png" alt="" class="img-fluid" style="width: 25px;"> -->
-        <i class="fa fa-quote-left"></i>
-        Apeejay Festival of Ideas by ignited Minds: 21st and 22nd Feb 2025
-        <div class="badge bg-danger text-white px-2 py-1">NEW</div>
-      </li>
-
-      <li class="d-flex gap-3 align-items-center py-2 text-muted small">
-        <!-- <img src="./assets/double-quote.png" alt="" class="img-fluid" style="width: 25px;"> -->
-        <i class="fa fa-quote-left"></i>
-        CIPET: IPT-Lucknow is organizing the 16th International Conference on Advancements in Polymeric
-        Materials (APM-2025) on the theme "Advancements in the Petrochemical Sector & Empowering Sustainable
-        Development Leading to 'Viksit Bharat'", : 8th to 10th March, 2025
-      </li>
-
-      <li class="d-flex gap-3 align-items-center py-2 text-muted small">
-        <!-- <img src="./assets/double-quote.png" alt="" class="img-fluid" style="width: 25px;"> -->
-        <i class="fa fa-quote-left"></i>
-        "Transformative Trends in Drug Discovery and Delivery: Exploring Next-Generation Therapeutics and
-        Technologies": 21st and 22nd March 2025
-        <div class="badge bg-danger text-white px-2 py-1">NEW</div>
-      </li>
-
-      <li class="d-flex gap-3 align-items-center py-2 text-muted small">
-        <!-- <img src="./assets/double-quote.png" alt="" class="img-fluid" style="width: 25px;"> -->
-        <i class="fa fa-quote-left"></i>
-        Apeejay Festival of Ideas by ignited Minds: 21st and 22nd Feb 2025
-        <div class="badge bg-danger text-white px-2 py-1">NEW</div>
-      </li>
+    
     </ul>
   </div>
 </section>

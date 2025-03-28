@@ -135,3 +135,10 @@ color: #0676BD !important;
   border-left: 5px solid #4099ff;
   border-radius: 0;
 }
+
+#notice_marquee > div  span  ul li  ol{
+  display: flex;
+}
+#notice_marquee  br {
+  display: none;
+}
