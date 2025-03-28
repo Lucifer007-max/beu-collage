@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { AngularEditorConfig, AngularEditorModule } from '@kolkov/angular-editor';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -20,6 +20,7 @@ export default class NoticeBoardComponent implements OnInit {
   noticeForm: any = FormGroup;
   importnatLinks: any = FormGroup;
   loader: boolean = false;
+  loader2: boolean = false;
   noticeList: any = [];
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -55,6 +56,7 @@ export default class NoticeBoardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNotice()
+    this.getImportantLink()
     {
       this.noticeForm = this.FB.group({
         id: [''],
@@ -78,14 +80,15 @@ export default class NoticeBoardComponent implements OnInit {
         });
       }
     });
-    this.service.importantLinkGet().subscribe((res: any) => {
-      if (res.data) {
-        this.importnatLinks.patchValue({
-          id: res.data[0].id, // Set ID
-          implinks: res.data[0].board // Set Notice content
-        });
-      }
-    });
+    // this.service.importantLinkGet().subscribe((res: any) => {
+    //   console.log(res)
+    //   if (res.data) {
+    //     this.importnatLinks.patchValue({
+    //       id: res.data[0].id, // Set ID
+    //       implinks: res.data[0].board // Set Notice content
+    //     });
+    //   }
+    // });
   }
   Add() {
     this.loader = true;
@@ -109,8 +112,20 @@ export default class NoticeBoardComponent implements OnInit {
     })
   }
 
+  getImportantLink() {
+    this.service.importantLinkGet().subscribe((res: any) => {
+      // console.log(res)
+      if (res.data) {
+        this.importnatLinks.patchValue({
+          id: res.data[0].id, // Set ID
+          implinks: res.data[0].implinks // Set Notice content
+        });
+      }
+    });
+  }
+
   AddLinks() {
-    this.loader = true;
+    this.loader2 = true;
     const payLoad = {
       // "id":this.noticeForm.value.id,
       "implinks": this.importnatLinks.value.implinks,
@@ -118,17 +133,38 @@ export default class NoticeBoardComponent implements OnInit {
     }
     this.service.importantLinksService(this.noticeForm.value.id, payLoad).subscribe((res: any) => {
       if (res.status) {
-        this.getNotice()
+        this.getImportantLink()
         this.service.SuccessSnackbar(res.message)
-        this.loader = false;
+        this.loader2 = false;
       } else {
         this.service.SuccessSnackbar('something went wrong...!!')
-        this.loader = false;
+        this.loader2 = false;
       }
     }, (err: any) => {
       this.service.ErrorSnackbar(err.message);
-      this.loader = false;
+      this.loader2 = false;
     })
+  }
+
+  @ViewChild('copyContent', { static: false }) copyContent!: ElementRef;
+  copySuccess: boolean = false;
+
+  copyToClipboard() {
+    const el = this.copyContent.nativeElement;
+    const range = document.createRange();
+    range.selectNode(el);
+    window.getSelection()?.removeAllRanges();
+    window.getSelection()?.addRange(range);
+
+    try {
+      document.execCommand('copy');
+      this.copySuccess = true;
+      setTimeout(() => (this.copySuccess = false), 2000); // Hide success message after 2s
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+
+    window.getSelection()?.removeAllRanges();
   }
 
 }

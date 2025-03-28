@@ -63,7 +63,7 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
   }
   getImportantLink() {
     this.service.importantLinkGet().subscribe((res: any) => {
-      this.importLink = res.data[0].board
+      this.importLink = res.data[0].implinks
       // if (res.data) {
       //   this.noticeForm.patchValue({
       //     id: res.data[0].id, // Set ID
