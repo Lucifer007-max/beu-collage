@@ -126,7 +126,7 @@ export default class NoticeComponent implements OnInit {
       : this.service.alertService(this.alertForm.value.id1, payLoad);
   
     request.subscribe(
-      (res: any) => {this.handleResponse(res), this.alertForm.reset(), this.isUpadte = false},
+      (res: any) => {this.handleResponse(res), this.alertForm.reset(), this.isUpadte = false,this.getAlerts()},
       (err) => this.handleError(err)
     );
   }

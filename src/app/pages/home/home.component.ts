@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewChecked, AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { environment } from 'src/environments/environment';
 import { ApiService } from 'src/service/api.service';
 declare const $: any;
+import * as bootstrap from 'bootstrap';
+
 
 @Component({
   selector: 'app-home',
@@ -91,6 +93,7 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
   getMetor() {
     this.service.mentorGet().subscribe((res: any) => {
       this.mentorList = res.data;
+      console.log(res.data)
     })
   }
   getTestimonial() {
@@ -187,10 +190,25 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     }
   }
 
+  @ViewChild('carousel', { static: false }) carousel!: ElementRef;
   ngAfterViewInit() {
     this.autoScroll("important-information");
     this.autoScroll("notice-board");
     this.autoScroll("college-events");
+    // ngAfterViewInit() {
+      setTimeout(() => {
+        console.log('screoll acrtive')
+        if (this.carousel) {
+          new bootstrap.Carousel(this.carousel.nativeElement, {
+            interval: 3000, // Change slide every 3 seconds
+            ride: 'carousel'
+          });
+        }
+      }, 1000); // Delay to ensure DOM is fully loaded
+    // }
   }
 
+
+  // ngAfterViewInit() {
+  // }
 }

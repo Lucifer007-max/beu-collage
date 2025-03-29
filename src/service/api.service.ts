@@ -210,6 +210,10 @@ export class ApiService {
     return this.httpClient.delete(this.baseUrl + 'Merchandies/' + id)
      .pipe(catchError(this.handleError.bind(this)));
   }
+  mentorDelete(id: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + 'mentor/delete-mentor/' + id)
+     .pipe(catchError(this.handleError.bind(this)));
+  }
 
   courseGet(): Observable<any> {
     return this.httpClient.get(this.baseUrl + 'Course')

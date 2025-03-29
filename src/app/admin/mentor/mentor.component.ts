@@ -20,7 +20,7 @@ export default class MerchandiseComponent {
   mentorList:any
   imgUrl = environment.imgUrl
   constructor(private service: ApiService, private FB: FormBuilder) {
-    this.mentorGet();
+    this.mentorGets();
    }
 
 
@@ -33,9 +33,9 @@ export default class MerchandiseComponent {
     });
   }
   handleDelete(id:number){
-    this.service.merchandiesDelete(id).subscribe((res) => {
+    this.service.mentorDelete(id).subscribe((res) => {
       // console.log(res)
-      this.mentorGet()
+      this.mentorGets()
       this.service.SuccessSnackbar(res.message);
       } ,(err) => {
         this.service.ErrorSnackbar(err.message);
@@ -58,7 +58,7 @@ export default class MerchandiseComponent {
         if (res.status) {
           this.service.SuccessSnackbar(res.message);
           this.mentorForm.reset()
-          this.mentorGet()
+          this.mentorGets()
         } else {
           this.service.ErrorSnackbar('Something went wrong...!!');
         }
@@ -81,9 +81,9 @@ export default class MerchandiseComponent {
     }
   }
 
-  mentorGet(){
+  mentorGets(){
     this.service.mentorGet().subscribe((res:any) => {
-      this.mentorList = res
+      this.mentorList = res.data
     })
   }
 }

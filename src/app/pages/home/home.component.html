@@ -78,7 +78,7 @@
       </div>
     </div>
 
-    <div id="carouselExampleCaptions" class="col-lg-6 col-md-6 col-sm-12 p-0 carousel slide">
+    <div id="carouselExampleCaptions"  #carousel class="col-lg-6 col-md-6 col-sm-12 p-0 carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button *ngFor="let banner of bannerList; let i = index" type="button"
           [attr.data-bs-target]="'#carouselExampleCaptions'" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
@@ -372,7 +372,7 @@
             </div>
           </div> -->
           <div *ngFor="let mentor of mentorList" class="col-12 d-flex align-items-center border-bottom pb-2">
-            <img [src]="baseUrl+'/uploads/' + mentor.mentorImage" class="img-fluid me-3"
+            <img [src]="baseUrl+ mentor.mentorImage" class="img-fluid me-3"
               style="width: 100px; height: 120px;" alt="{{ mentor.mentortitle }}">
             <div>
               <h5 class="fw-bold mb-1">{{ mentor.mentortitle }}</h5>

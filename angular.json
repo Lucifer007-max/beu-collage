@@ -42,7 +42,8 @@
               "node_modules/@kolkov/angular-editor/themes/default.scss"
             ],
             "scripts": [
-              "node_modules/apexcharts/dist/apexcharts.min.js"
+              "node_modules/apexcharts/dist/apexcharts.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
@@ -117,7 +118,7 @@
               "src/styles.scss",
               "node_modules/@kolkov/angular-editor/themes/default.scss"
             ],
-            "scripts": []
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
           }
         },
         "lint": {

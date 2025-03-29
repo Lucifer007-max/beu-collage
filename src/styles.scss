@@ -130,7 +130,7 @@ color: #0676BD !important;
 .custom_postion {
   margin-bottom: 40px;
 }
-.list-group {
+.custom_postion .list-group {
   border: 0;
   border-left: 5px solid #4099ff;
   border-radius: 0;
@@ -147,3 +147,7 @@ color: #0676BD !important;
 
   color: #fff !important;
 }
+#important-information .list-group-item{
+  background: inherit !important;
+
+} 
