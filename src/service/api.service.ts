@@ -186,6 +186,30 @@ export class ApiService {
     return this.httpClient.post(this.baseUrl + 'mentor/add-mentor', formData)
      .pipe(catchError(this.handleError.bind(this)));
   }
+  fileService(payload: any): Observable<any> {
+    console.log(payload)
+    const formData: any = new FormData();
+
+    for (const key in payload) {
+        if (payload.hasOwnProperty(key)) {
+            // Ensure file is handled correctly
+            if (payload[key] instanceof File) {
+                formData.append(key, payload[key], payload[key].name); // Append file with its original name
+            } else {
+                formData.append(key, payload[key]);
+            }
+        }
+    }
+
+    // Debugging: Print FormData content
+    for (const pair of formData.entries()) {
+        console.log(pair[0], pair[1]); // Logs each key-value pair
+    }
+
+    return this.httpClient.post(this.baseUrl + 'doc/add-file', formData)
+        .pipe(catchError(this.handleError.bind(this)));
+}
+
   MerchandiesService(payload:any): Observable<any> {
     const formData: FormData = new FormData();
     for (const key in payload) {
@@ -220,6 +244,12 @@ export class ApiService {
      .pipe(catchError(this.handleError.bind(this)));
   }
 
+
+  getdownloadableFile(type:string) {
+    return this.httpClient.delete(`${this.baseUrl}file${type}`)
+    .pipe(catchError(this.handleError.bind(this)));
+  }
+
   courseGetById(id: number): Observable<any> {
     return this.httpClient.get(this.baseUrl + 'Course/' + id)
      .pipe(catchError(this.handleError.bind(this)));
@@ -236,6 +266,10 @@ export class ApiService {
 
   mentorGet(): Observable<any> {
     return this.httpClient.get(this.baseUrl + 'mentor/get-mentor')
+     .pipe(catchError(this.handleError.bind(this)));
+  }
+  fileGet(type:string): Observable<any> {
+    return this.httpClient.get(this.baseUrl + `doc/getFiles?type=${type}`)
      .pipe(catchError(this.handleError.bind(this)));
   }
   // mentorGet(): Observable<any> {

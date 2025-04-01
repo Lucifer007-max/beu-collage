@@ -1,0 +1,62 @@
+<app-card cardTitle="{{this.router.url.split('/')[2].split('-')[1].toUpperCase()}} Add" [options]="false" >
+
+  <form [formGroup]="fileForm" (ngSubmit)="handleSubmit()">
+    <div class="row">
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">{{this.router.url.split('/')[2].split('-')[1].toUpperCase()}} Files</label>
+        <input type="file" class="form-control" (change)="onFileSelect($event)" accept=".pdf" formControlName="file" >
+        <input type="hidden" value="acts" class="form-control" formControlName="type">
+      </div>
+    </div>
+
+    <button type="submit" class="btn col-2 btn-primary" *ngIf="!loader">Add</button>
+    <div class="spinner-border text-dark" role="status" *ngIf="loader">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </form>
+
+
+</app-card>
+
+
+<app-card cardTitle="{{this.router.url.split('/')[2].split('-')[1].toUpperCase()}} List" [options]="false">
+  <table class="table" >
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Files</th>
+        <!-- <th scope="col">Action</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of List; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          <a *ngIf="router.url.split('/')[2].split('-')[1] === 'acts'" [href]="imgUrl + list.actsFile" target="_blank">
+            {{ list.actsFile }} WW
+          </a>
+          <a *ngIf="router.url.split('/')[2].split('-')[1] === 'circular'" [href]="imgUrl + list.circularFile" target="_blank">
+            {{ list.circularFile }} AA
+          </a>
+          <a *ngIf="router.url.split('/')[2].split('-')[1] === 'notification'" [href]="imgUrl + list.notificationFile" target="_blank">
+            {{ list.notificationFile }}
+          </a>
+          <a *ngIf="router.url.split('/')[2].split('-')[1] === 'downloads'" [href]="imgUrl + list.downloadsFile" target="_blank">
+            {{ list.downloadsFile }} FF
+          </a>
+          <a *ngIf="router.url.split('/')[2].split('-')[1] === 'minutes'" [href]="imgUrl + list.minutesFile" target="_blank">
+            {{ list.minutesFile }} KK
+          </a>
+          <a *ngIf="router.url.split('/')[2].split('-')[1] === 'letter'" [href]="imgUrl + list.letterFile" target="_blank">
+            {{ list.letterFile }} PP
+          </a>
+          <a *ngIf="router.url.split('/')[2].split('-')[1] === 'curriculum'" [href]="imgUrl + list.curriculumFile" target="_blank">
+            {{ list.curriculumFile }}
+          </a>
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</app-card>

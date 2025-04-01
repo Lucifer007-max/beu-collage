@@ -1,0 +1,89 @@
+<app-header></app-header>
+
+<section class="position-relative w-100"
+  style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
+  <!-- Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
+
+  <!-- Content -->
+  <div
+    class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+    <h1 class="fs-2 fw-bold text-light">{{this.router.url.split('/')[1].toUpperCase()}}</h1>
+
+    <nav class="mt-2">
+      <ul class="breadcrumb bg-primary">
+        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+        <!-- <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li> -->
+        <li class="breadcrumb-item active text-white" aria-current="page">{{this.router.url.split('/')[1] }}</li>
+      </ul>
+    </nav>
+
+    <!-- Divider -->
+    <div class="border-top border-white mt-2" style="width: 100%; opacity: 0.6;"></div>
+  </div>
+</section>
+<div class="container">
+  <table class="table table-bordered table-striped my-5">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Files</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of List; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          <p *ngIf="flag === 'acts'">
+            {{ list.actsFile }}
+          </p>
+          <p *ngIf="flag === 'circular'">
+            {{ list.circularFile }}
+          </p>
+          <p *ngIf="flag === 'notification'">
+            {{ list.notificationFile }}
+          </p>
+          <p *ngIf="flag === 'downloads'">
+            {{ list.downloadsFile }}
+          </p>
+          <p *ngIf="flag === 'minutes'">
+            {{ list.minutesFile }}
+          </p>
+          <p *ngIf="flag === 'letter'">
+            {{ list.letterFile }}
+          </p>
+          <p *ngIf="flag === 'curriculum'">
+            {{ list.curriculumFile }}
+          </p>
+        </td>
+        <td>
+          <a *ngIf="flag === 'acts'" [href]="imgUrl + list.actsFile" target="_blank">
+            View
+          </a>
+          <a *ngIf="flag === 'circular'" [href]="imgUrl + list.circularFile" target="_blank">
+            View
+          </a>
+          <a *ngIf="flag === 'notification'" [href]="imgUrl + list.notificationFile" target="_blank">
+            View
+          </a>
+          <a *ngIf="flag === 'downloads'" [href]="imgUrl + list.downloadsFile" target="_blank">
+            View
+          </a>
+          <a *ngIf="flag === 'minutes'" [href]="imgUrl + list.minutesFile" target="_blank">
+            View
+          </a>
+          <a *ngIf="flag === 'letter'" [href]="imgUrl + list.letterFile" target="_blank">
+            View
+          </a>
+          <a *ngIf="flag === 'curriculum'" [href]="imgUrl + list.curriculumFile" target="_blank">
+            View
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<app-footer></app-footer>

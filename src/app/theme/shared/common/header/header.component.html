@@ -59,6 +59,28 @@
       </button>
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
+          <li
+            *ngFor="let item of menuItems"
+            class="nav-item text-light"
+            [ngClass]="{ 'dropdown': item.subItems.length > 0 }"
+            (mouseenter)="onMouseEnter(item)"
+            (mouseleave)="onMouseLeave(item)"
+            (click)="toggleDropdown(item, $event)"
+          >
+            <a class="nav-link "  [ngClass]="{ 'dropdown-toggle': item.subItems.length > 0 }" href="#" role="button">
+              {{ item.title }}
+            </a>
+            <ul class="dropdown-menu" [ngClass]="{'show': item.isOpen}" *ngIf="item.subItems.length > 0">
+              <li *ngFor="let subItem of item.subItems">
+                <a class="dropdown-item" [routerLink]="subItem.link">{{ subItem.label }}</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
           <li class="nav-item text-light"><a class="nav-link" href="#">Home</a></li>
           <li class="nav-item text-light dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About Us</a>
@@ -81,8 +103,6 @@
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Organization
               Structure</a>
             <ul class="dropdown-menu">
-              <!-- <li><a class="dropdown-item" [routerLink]="'/organization/chancellor'">Chancellor</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/organization/vice-chancellor'">Vice Chancellor</a></li> -->
               <li><a class="dropdown-item" [routerLink]="'/organization/chancellor'">Chancellor</a></li>
               <li><a class="dropdown-item" [routerLink]="'/organization/vice-chancellor'">Vice Chancellor</a></li>
               <li><a class="dropdown-item" [routerLink]="'/organization/pro-vice-chancellor'">Pro Vice Chancellor</a></li>
@@ -100,8 +120,6 @@
           <li class="nav-item text-light dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"> Addmission</a>
             <ul class="dropdown-menu">
-              <!-- <li><a class="dropdown-item" [routerLink]="'/organization/chancellor'">Chancellor</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/organization/vice-chancellor'">Vice Chancellor</a></li> -->
               <li><a class="dropdown-item" [routerLink]="'/organization/chancellor'">Bachelors</a></li>
               <li><a class="dropdown-item" [routerLink]="'/organization/vice-chancellor'">Masters</a></li>
               <li><a class="dropdown-item" [routerLink]="'/organization/vice-chancellor'">Doctoral (Ph.D)</a></li>
@@ -122,22 +140,50 @@
                 <li><a class="dropdown-item" href="#">Grace Rule in CBCS System</a></li>
                 <li><a class="dropdown-item" href="#">Detained Rule in CBCS System</a></li>
                 <li><a class="dropdown-item" href="#">Question Bank Portal</a></li>
-            </ul>
-        </li>
-          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Act'">Act</a></li>
-          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Circular'">Circular</a></li>
-          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Notification'">Notification</a></li>
-          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Letter'">Letter</a></li>
-          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Gallery'">Gallery</a></li>
-          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/UHV'">UHV</a></li>
-          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/IQAC'">IQAC</a></li>
-          <li class="nav-item text-light dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Results</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Annual Report</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">Lokpal Orders</a></li>
+                <li><a class="dropdown-item" [routerLink]="'/annual-report'">Annual Report</a></li>
+                <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">Lokpal Orders</a></li>
+                <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">One-View display of Student Result Data</a></li>
+                <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">Ph.D.</a></li>
+                <li><a class="dropdown-item" [routerLink]="'/annual-report'">Merit List of Students</a></li>
             </ul>
           </li>
+          <li class="nav-item text-light dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reports</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Annual Report</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">BEU Magzine</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">Financial Report</a></li>
+            </ul>
+          </li>
+          <li class="nav-item text-light dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Service</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Document Verification</a></li>
+            </ul>
+          </li>
+          <li class="nav-item text-light dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">RTI</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Public Information Ofiicers & contact no.</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Format of Application</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Mandatory Disclosure</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Download act</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item text-light dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">KNOW MORE</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="'/UHV'">UHV</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/IQAC'">IQAC</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/Act'">Act</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/Circular'">Circular</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/Notification'">Notification</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/Letter'">Letter</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/Gallery'">Gallery</a></li>
+            </ul>
+          </li>
+
           <li class="nav-item text-light dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Lokpal</a>
             <ul class="dropdown-menu">
@@ -146,7 +192,7 @@
             </ul>
           </li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </nav>
 </header>

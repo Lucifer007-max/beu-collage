@@ -91,6 +91,63 @@ export const NavigationItems: NavigationItem[] = [
         // icon: 'feather icon-cloth'
       },
     ]
+  },
+  {
+    id: 'banner',
+    title: 'File Mangement',
+    type: 'collapse',
+    icon: 'feather icon-menu',
+    children: [
+      {
+        id: 'menu-level-2.1',
+        title: 'Acts Mangement',
+        type: 'item',
+        url: '/admin/add-acts',
+        external: false
+      },
+      {
+        id: 'menu-level-2.2',
+        title: 'Circular Mangement',
+        type: 'item',
+        url: '/admin/add-circular',
+        external: false
+      },
+      {
+        id: 'menu-level-2.3',
+        title: 'Notification Mangement',
+        type: 'item',
+        url: '/admin/add-notification',
+        external: false
+      },
+      {
+        id: 'menu-level-2.4',
+        title: 'Downloads Mangement',
+        type: 'item',
+        url: '/admin/add-downloads',
+        external: false
+      },
+      {
+        id: 'menu-level-2.5',
+        title: 'Minutes Mangement',
+        type: 'item',
+        url: '/admin/add-minutes',
+        external: false
+      },
+      {
+        id: 'menu-level-2.6',
+        title: 'Letter Mangement',
+        type: 'item',
+        url: '/admin/add-letter',
+        external: false
+      },
+      {
+        id: 'menu-level-2.7',
+        title: 'Curriculum Mangement',
+        type: 'item',
+        url: '/admin/add-curriculum',
+        external: false
+      },
+    ]
   }
   // {
   //   id: 'ui-component',

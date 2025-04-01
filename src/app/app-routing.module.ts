@@ -102,6 +102,39 @@ const routes: Routes = [
 
       },
       {
+        path: 'acts',
+        loadComponent: () => import('./pages/documents/documents.component')
+      },
+      {
+        path: 'circular',
+        loadComponent: () => import('./pages/documents/documents.component')
+      },
+      {
+        path: 'notification',
+        loadComponent: () => import('./pages/documents/documents.component')
+      },
+      {
+        path: 'downloads',
+        loadComponent: () => import('./pages/documents/documents.component')
+      },
+      {
+        path: 'minutes',
+        loadComponent: () => import('./pages/documents/documents.component')
+      },
+      {
+        path: 'letter',
+        loadComponent: () => import('./pages/documents/documents.component')
+      },
+      {
+        path: 'curriculum',
+        loadComponent: () => import('./pages/documents/documents.component')
+      },
+
+
+
+
+
+      {
         path: 'Act',
         loadComponent: () => import('./pages/act/act.component').then(m => m.ActComponent)
       },
@@ -166,6 +199,41 @@ const routes: Routes = [
       {
         path: 'admin/add-mentor',
         loadComponent: () => import('./admin/mentor/mentor.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-acts',
+        loadComponent: () => import('./admin/fileupload/fileupload.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-circular',
+        loadComponent: () => import('./admin/fileupload/fileupload.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-notification',
+        loadComponent: () => import('./admin/fileupload/fileupload.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-downloads',
+        loadComponent: () => import('./admin/fileupload/fileupload.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-minutes',
+        loadComponent: () => import('./admin/fileupload/fileupload.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-letter',
+        loadComponent: () => import('./admin/fileupload/fileupload.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-curriculum',
+        loadComponent: () => import('./admin/fileupload/fileupload.component'),
         // canActivate: [AuthGuard]
       },
     ]
