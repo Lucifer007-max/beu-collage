@@ -3,6 +3,16 @@
   <form [formGroup]="fileForm" (ngSubmit)="handleSubmit()">
     <div class="row">
       <div class="mb-3 col-lg-6">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control" formControlName="title" >
+        <input type="hidden" value="acts" class="form-control" formControlName="title">
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Description</label>
+        <input type="text" class="form-control"  formControlName="desc" >
+        <input type="hidden" value="acts" class="form-control" formControlName="desc">
+      </div>
+      <div class="mb-3 col-lg-6">
         <label class="form-label">{{this.router.url.split('/')[2].split('-')[1].toUpperCase()}} Files</label>
         <input type="file" class="form-control" (change)="onFileSelect($event)" accept=".pdf" formControlName="file" >
         <input type="hidden" value="acts" class="form-control" formControlName="type">
@@ -25,36 +35,50 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Files</th>
-        <!-- <th scope="col">Action</th> -->
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let list of List; index as i">
         <th scope="row">{{ i + 1 }}</th>
+        <th scope="row">{{ list.title }}</th>
+        <th scope="row">{{ list.desc }}</th>
         <td>
           <a *ngIf="router.url.split('/')[2].split('-')[1] === 'acts'" [href]="imgUrl + list.actsFile" target="_blank">
-            {{ list.actsFile }} WW
+            {{ list.actsFile }}
           </a>
           <a *ngIf="router.url.split('/')[2].split('-')[1] === 'circular'" [href]="imgUrl + list.circularFile" target="_blank">
-            {{ list.circularFile }} AA
+            {{ list.circularFile }}
           </a>
           <a *ngIf="router.url.split('/')[2].split('-')[1] === 'notification'" [href]="imgUrl + list.notificationFile" target="_blank">
             {{ list.notificationFile }}
           </a>
           <a *ngIf="router.url.split('/')[2].split('-')[1] === 'downloads'" [href]="imgUrl + list.downloadsFile" target="_blank">
-            {{ list.downloadsFile }} FF
+            {{ list.downloadsFile }}
           </a>
           <a *ngIf="router.url.split('/')[2].split('-')[1] === 'minutes'" [href]="imgUrl + list.minutesFile" target="_blank">
-            {{ list.minutesFile }} KK
+            {{ list.minutesFile }}
           </a>
           <a *ngIf="router.url.split('/')[2].split('-')[1] === 'letter'" [href]="imgUrl + list.letterFile" target="_blank">
-            {{ list.letterFile }} PP
+            {{ list.letterFile }}
           </a>
           <a *ngIf="router.url.split('/')[2].split('-')[1] === 'curriculum'" [href]="imgUrl + list.curriculumFile" target="_blank">
             {{ list.curriculumFile }}
           </a>
         </td>
+        <td>
 
+          <button class="btn btn-sm btn-danger" *ngIf="list.idDeleted === 0" (click)="handleDelete(list.id,1)"><i *ngIf="!this.loaders" class="fa fa-trash"></i>
+            <div class="spinner-border" role="status" *ngIf="this.loaders">
+              <span class="sr-only">Loading...</span>
+            </div>
+
+
+          </button>
+          <button class="btn btn-sm btn-success" *ngIf="list.idDeleted === 1" (click)="handleDelete(list.id,0)"><i class="fa fa-check"></i></button>
+        </td>
       </tr>
 
     </tbody>

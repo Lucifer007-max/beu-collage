@@ -272,10 +272,19 @@ export class ApiService {
     return this.httpClient.get(this.baseUrl + `doc/getFiles?type=${type}`)
      .pipe(catchError(this.handleError.bind(this)));
   }
+  fileGetAdmin(type:string): Observable<any> {
+    return this.httpClient.get(this.baseUrl + `doc/getFilesadmin?type=${type}`)
+     .pipe(catchError(this.handleError.bind(this)));
+  }
   // mentorGet(): Observable<any> {
   //   return this.httpClient.get(this.baseUrl + 'Merchandies')
   //    .pipe(catchError(this.handleError.bind(this)));
   // }
+  fileDelete(id: number, type: string,value:number): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl}doc/deletFiles?id=${id}&type=${type}&value=${value}`)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+
   bannerDelete(id: number): Observable<any> {
     return this.httpClient.delete(this.baseUrl + 'banner/delete-banner/' + id)
      .pipe(catchError(this.handleError.bind(this)));

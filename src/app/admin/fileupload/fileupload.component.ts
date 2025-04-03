@@ -19,7 +19,7 @@ export default class FileuploadComponent {
   List: any;
   imgUrl: any = environment.imgUrl;
   selectedFile: any; // Store selected file
-
+  loaders:boolean = false;
   constructor(private service: ApiService, private FB: FormBuilder, public router: Router) {
     this.getFile();
     console.log(this.router.url.split('/')[2].split('-')[1].toUpperCase())
@@ -28,6 +28,8 @@ export default class FileuploadComponent {
   ngOnInit() {
     this.fileForm = this.FB.group({
       file: [null, Validators.required],
+      title: [null, Validators.required],
+      desc: [null, Validators.required],
       type: [this.router.url.split('/')[2].split('-')[1], Validators.required], // Default type
     });
   }
@@ -65,6 +67,8 @@ export default class FileuploadComponent {
       formData.append("file", this.selectedFile, this.selectedFile.name);
     }
     formData.append("type", this.fileForm.value.type);
+    formData.append("title", this.fileForm.value.title);
+    formData.append("desc", this.fileForm.value.desc);
 
     // Debugging: Check if FormData has values
     // for (const) {
@@ -72,7 +76,10 @@ export default class FileuploadComponent {
     // }
     const payload = {
       file: this.selectedFile,
-      type: this.fileForm.value.type
+      type: this.fileForm.value.type,
+      title: this.fileForm.value.title,
+      desc: this.fileForm.value.desc
+
     }
     this.service.fileService(payload).subscribe(
       (res: any) => {
@@ -96,8 +103,19 @@ export default class FileuploadComponent {
 
   // Fetch files list
   getFile() {
-    this.service.fileGet(this.router.url.split('/')[2].split('-')[1]).subscribe((res: any) => {
+    this.service.fileGetAdmin(this.router.url.split('/')[2].split('-')[1]).subscribe((res: any) => {
       this.List = res;
+    });
+  }
+
+
+
+  handleDelete(id:number,value:number) {
+    this.loaders = true;
+    this.service.fileDelete(id,this.router.url.split('/')[2].split('-')[1],value).subscribe((res: any) => {
+      this.List = res;
+      this.loaders = false;
+      this.getFile()
     });
   }
 }

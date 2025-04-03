@@ -60,7 +60,6 @@ export default class DocumentsComponent {
   }
 
   getFile(url: string) {
-
     this.apiService.fileGet(url).subscribe((res: any) => {
       this.List = res;
     });

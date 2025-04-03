@@ -25,14 +25,17 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Files</th>
-        <th scope="col">Action</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th  style="width: 100px;">Download</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let list of List; index as i">
         <th scope="row">{{ i + 1 }}</th>
-        <td>
+        <th scope="row">{{list.title}}</th>
+        <th scope="row">{{list.desc}}</th>
+        <!-- <td>
           <p *ngIf="flag === 'acts'"  >
             {{ list.actsFile }}
           </p>
@@ -54,7 +57,7 @@
           <p *ngIf="flag === 'curriculum'" >
             {{ list.curriculumFile }}
           </p>
-        </td>
+        </td> -->
         <td>
           <a *ngIf="flag === 'acts'" [href]="imgUrl + list.actsFile">
            View
