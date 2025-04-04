@@ -32,6 +32,13 @@ export const NavigationItems: NavigationItem[] = [
         url: '/admin/dashboard',
         icon: 'feather icon-home'
       },
+      {
+        id: 'affiliation',
+        title: 'Affiliation',
+        type: 'item',
+        url: '/admin/add-affiliation',
+        icon: 'feather icon-home'
+      },
       // // {
       // //   id: 'student',
       // //   title: 'Add Student',

@@ -1,0 +1,79 @@
+<app-card cardTitle="Affiliation Add" [options]="false">
+
+  <form [formGroup]="fileForm" (ngSubmit)="handleSubmit()">
+    <div class="row">
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Collage Name</label>
+        <input type="text" class="form-control" formControlName="title">
+        <input type="hidden" value="acts" class="form-control" formControlName="title">
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Site URL</label>
+        <input type="text" class="form-control" formControlName="url">
+        <!-- <input type="hidden" value="acts" class="form-control" formControlName="desc"> -->
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Type</label>
+        <select class="form-select form-control" formControlName="tyoe" (change)="handleChange($event)">
+          <option value="1">Private </option>
+          <option value="2">Government </option>
+        </select>
+        <!-- <input type="text" class="form-control" formControlName="url"> -->
+        <!-- <input type="hidden" value="acts" class="form-control" formControlName="desc"> -->
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Affiliation Document</label>
+        <input type="file" class="form-control" (change)="onFileSelect($event)" accept=".pdf" formControlName="file">
+        <input type="hidden" value="acts" class="form-control" formControlName="type">
+      </div>
+    </div>
+
+    <button type="submit" class="btn col-2 btn-primary" *ngIf="!loader">Add</button>
+    <div class="spinner-border text-dark" role="status" *ngIf="loader">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </form>
+
+
+</app-card>
+
+
+
+
+<app-card cardTitle="Affiliation List" [options]="false">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Files</th>
+        <th scope="col">Title</th>
+        <th scope="col">URL</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of List?.data; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <th scope="row"><a [href]="imgUrl+list.file">{{ list.file }}</a></th>
+        <th scope="row">{{ list.title }}</th>
+        <th scope="row"><a [href]="list.url">{{ list.url }}</a></th>
+        <td>
+
+          <!-- <button class="btn btn-sm btn-danger" *ngIf="list.idDeleted === 0" (click)="handleDelete(list.id,1)"><i
+              *ngIf="!this.loaders" class="fa fa-trash"></i>
+            <div class="spinner-border" role="status" *ngIf="this.loaders">
+              <span class="sr-only">Loading...</span>
+            </div>
+
+
+          </button>
+          <button class="btn btn-sm btn-success" *ngIf="list.idDeleted === 1" (click)="handleDelete(list.id,0)"><i
+              class="fa fa-check"></i></button> -->
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+   <!-- Pagination Controls -->
+
+</app-card>

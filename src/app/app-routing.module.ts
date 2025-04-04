@@ -132,7 +132,10 @@ const routes: Routes = [
 
 
 
-
+      {
+        path: 'Affiliation',
+        loadComponent: () => import('./pages/affiliation/affiliation.component').then(c => c.AffiliationComponent)
+      },
 
       {
         path: 'Act',
@@ -162,6 +165,7 @@ const routes: Routes = [
         path: 'admin',
         loadComponent: () => import('./admin/authentication/sign-in/sign-in.component')
       },
+
     ]
   },
 
@@ -234,6 +238,11 @@ const routes: Routes = [
       {
         path: 'admin/add-curriculum',
         loadComponent: () => import('./admin/fileupload/fileupload.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-affiliation',
+        loadComponent: () => import('./admin/affilation/affilation.component'),
         // canActivate: [AuthGuard]
       },
     ]

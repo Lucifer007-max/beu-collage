@@ -54,7 +54,7 @@ export class HeaderComponent implements AfterViewInit{
     },
     {
       title: "Affiliation",
-      link: "https://aktu.ac.in/pdf/affiliation_080715.pdf",
+      link: "/Affiliation",
       isOpen: false,
       subItems: []
     },

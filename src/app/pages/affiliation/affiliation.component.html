@@ -1,0 +1,65 @@
+<app-header></app-header>
+<section class="position-relative w-100"
+    style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
+    <!-- Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
+
+    <!-- Content -->
+    <div
+        class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+        <h1 class="fs-2 fw-bold text-light">Letter</h1>
+
+        <nav class="mt-2">
+            <ul class="breadcrumb bg-primary">
+                <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Letter</li>
+            </ul>
+        </nav>
+
+        <!-- Divider -->
+        <div class="border-top border-white mt-2" style="width: 100%; opacity: 0.6;"></div>
+    </div>
+</section>
+
+
+
+<div class="container mt-4">
+  <div class="mb-3 col-lg-6 d-flex align-baseline">
+    <label class="form-label mt-2 px-3">Filter: </label>
+    <select class="form-select form-control" formControlName="tyoe" (change)="handleChange($event)">
+      <option value="" selected>All </option>
+      <option value="1">Private </option>
+      <option value="2">Government </option>
+    </select>
+    <!-- <input type="text" class="form-control" formControlName="url"> -->
+    <!-- <input type="hidden" value="acts" class="form-control" formControlName="desc"> -->
+  </div>
+  <table class="table table-hover table-striped table-bordered" *ngIf="list.length > 0">
+    <thead>
+      <tr>
+        <th style="width: 20px;">#</th>
+        <th >Title</th>
+        <th>URL</th>
+        <th style="width: 150px;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let listItem of list; index as i">
+        <td>{{ i + 1 }}</td>
+        <td>{{ listItem.title }}</td>
+        <td><a [href]="listItem.url">{{ listItem.url }}</a></td>
+        <td><a class="btn btn-outline-primary" [href]="imgUrl + listItem.file"><i class="fa fa-cloud-download"></i> Download</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Show this if there's no data -->
+  <div *ngIf="noData" class="text-center text-muted">
+    <div class="alert bg-danger">
+      No records found for this type.
+    </div>
+  </div>
+</div>
+
+
+<app-footer></app-footer>
