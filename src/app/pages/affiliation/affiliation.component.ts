@@ -14,17 +14,25 @@ import { ApiService } from 'src/service/api.service';
 export class AffiliationComponent {
   list:any =[];
   noData: boolean = false;
-  imgUrl = environment.imgUrl
+  imgUrl = environment.imgUrl;
+  selectedType: any = '';
+  selectedSession: any = '';
+
   constructor(public service:ApiService) {
-    this.getList('')
+    this.getList('','')
   }
 
-  getList(type: any) {
-    this.list = []; // Optional: clears previous data while loading
-    this.service.affiliationGet(type).subscribe((res: any) => {
+  getList(type: any, session: any) {
+    this.list = [];
+    this.noData = false;
+
+    const payload: any = {};
+    if (type) payload.type = type;
+    if (session) payload.session = session;
+
+    this.service.affiliationGet(payload).subscribe((res: any) => {
       if (res?.length > 0) {
         this.list = res;
-        this.noData = false;
       } else {
         this.list = [];
         this.noData = true;
@@ -32,9 +40,18 @@ export class AffiliationComponent {
     });
   }
 
+
+
   handleChange(e: any) {
-    const selectedValue = e.target.value;
-    this.getList(selectedValue)
+    this.selectedType = e.target.value;
+    this.getList(this.selectedType, this.selectedSession);
   }
+
+  onDateSelect(event: any) {
+    const year = event.target.value.split('-')[0];
+    this.selectedSession = year;
+    this.getList(this.selectedType, this.selectedSession);
+  }
+
 }
 

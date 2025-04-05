@@ -26,6 +26,10 @@
         <input type="file" class="form-control" (change)="onFileSelect($event)" accept=".pdf" formControlName="file">
         <input type="hidden" value="acts" class="form-control" formControlName="type">
       </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Session</label>
+        <input type="month" class="form-control" (change)="onDateSelect($event)" accept=".pdf" formControlName="file">
+      </div>
     </div>
 
     <button type="submit" class="btn col-2 btn-primary" *ngIf="!loader">Add</button>
@@ -48,6 +52,7 @@
         <th scope="col">Files</th>
         <th scope="col">Title</th>
         <th scope="col">URL</th>
+        <th scope="col">Session</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -57,6 +62,7 @@
         <th scope="row"><a [href]="imgUrl+list.file">{{ list.file }}</a></th>
         <th scope="row">{{ list.title }}</th>
         <th scope="row"><a [href]="list.url">{{ list.url }}</a></th>
+        <th scope="row">{{ list.session }}</th>
         <td>
 
           <!-- <button class="btn btn-sm btn-danger" *ngIf="list.idDeleted === 0" (click)="handleDelete(list.id,1)"><i

@@ -35,6 +35,7 @@ export default class AffilationComponent {
       title: [null, Validators.required],
       url: [null, Validators.required],
       type: [null, Validators.required],
+      session:[null, Validators.required]
     });
   }
   getPageNumbers(): number[] {
@@ -84,6 +85,15 @@ export default class AffilationComponent {
 
   }
 
+  onDateSelect(event: any) {
+    const fullValue = event.target.value; // e.g., "2025-01"
+    const year = fullValue.split('-')[0]; // Extract "2025"
+    this.fileForm.patchValue({
+      session: year
+    });
+    // this.fileForm.get('file')?.setValue(year);
+  }
+
   handleSubmit() {
     this.loader = true;
 
@@ -91,7 +101,8 @@ export default class AffilationComponent {
       file: this.selectedFile,
       title: this.fileForm.value.title,
       url: this.fileForm.value.url,
-      type: this.fileForm.value.type
+      type: this.fileForm.value.type,
+      session: this.fileForm.value.session
     }
     this.service.affiliationService(payload).subscribe(
       (res: any) => {
@@ -101,7 +112,7 @@ export default class AffilationComponent {
           this.selectedFile = null;
           this.getFile();
         } else {
-          this.service.ErrorSnackbar('Something went wrong...!!');
+          this.service.ErrorSnackbar(res);
         }
         this.loader = false;
       },

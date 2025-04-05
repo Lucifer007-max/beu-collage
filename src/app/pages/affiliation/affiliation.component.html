@@ -24,15 +24,21 @@
 
 
 <div class="container mt-4">
-  <div class="mb-3 col-lg-6 d-flex align-baseline">
-    <label class="form-label mt-2 px-3">Filter: </label>
-    <select class="form-select form-control" formControlName="tyoe" (change)="handleChange($event)">
-      <option value="" selected>All </option>
-      <option value="1">Private </option>
-      <option value="2">Government </option>
-    </select>
-    <!-- <input type="text" class="form-control" formControlName="url"> -->
-    <!-- <input type="hidden" value="acts" class="form-control" formControlName="desc"> -->
+  <div class="row">
+    <div class="mb-3 col-lg-6 d-flex align-baseline">
+      <label class="form-label mt-2 px-3">Filter: </label>
+      <select class="form-select form-control" formControlName="tyoe" (change)="handleChange($event)">
+        <option value="" selected>All</option>
+        <option value="1">Private </option>
+        <option value="2">Government </option>
+      </select>
+      <!-- <input type="text" class="form-control" formControlName="url"> -->
+      <!-- <input type="hidden" value="acts" class="form-control" formControlName="desc"> -->
+    </div>
+    <div class="mb-3 col-lg-6  d-flex align-baseline">
+      <label class="form-label mt-2 px-3">Session: </label>
+      <input type="month" class="form-control" (change)="onDateSelect($event)" accept=".pdf" formControlName="file">
+    </div>
   </div>
   <table class="table table-hover table-striped table-bordered" *ngIf="list.length > 0">
     <thead>
@@ -40,7 +46,8 @@
         <th style="width: 20px;">#</th>
         <th >Title</th>
         <th>URL</th>
-        <th style="width: 150px;">Action</th>
+        <th style="width: 150px;">Session</th>
+        <th style="width: 150px;">Download</th>
       </tr>
     </thead>
     <tbody>
@@ -48,6 +55,7 @@
         <td>{{ i + 1 }}</td>
         <td>{{ listItem.title }}</td>
         <td><a [href]="listItem.url">{{ listItem.url }}</a></td>
+        <td>{{ listItem.session }}</td>
         <td><a class="btn btn-outline-primary" [href]="imgUrl + listItem.file"><i class="fa fa-cloud-download"></i> Download</a></td>
       </tr>
     </tbody>

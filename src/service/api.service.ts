@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HTTP_INTERCEPTORS, HttpClient, HttpHeaders } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
@@ -137,10 +137,15 @@ export class ApiService {
     return this.httpClient.get(this.baseUrl + 'notice/get-alerts')
       .pipe(catchError(this.handleError.bind(this)));
   }
-  affiliationGet(type:any): Observable<any> {
-    return this.httpClient.get(this.baseUrl + 'affiliation/get-affilation-users?type='+type)
+  affiliationGet(filters: any): Observable<any> {
+    const params = new HttpParams()
+      .set('type', filters.type || '')
+      .set('session', filters.session || '');
+
+    return this.httpClient.get(this.baseUrl + 'affiliation/get-affilation-users', { params })
       .pipe(catchError(this.handleError.bind(this)));
   }
+
   eventsGet(): Observable<any> {
     return this.httpClient.get(this.baseUrl + 'notice/get-events')
       .pipe(catchError(this.handleError.bind(this)));
