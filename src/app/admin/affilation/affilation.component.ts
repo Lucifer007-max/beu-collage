@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { ApiService } from 'src/service/api.service';
@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./affilation.component.scss']
 })
 export default class AffilationComponent {
+  @ViewChild('formSection') formSection!: ElementRef;
   fileForm: any = FormGroup;
   loader: boolean = false;
   List: any;
@@ -23,8 +24,11 @@ export default class AffilationComponent {
   currentPage: number = 1;
   pageSize: number = 10;
   totalPages: number = 1;
-
-
+  loaders: boolean = false;
+  selectedFileName = '';
+  selectedSession = '';
+  isUpdate: boolean = false;
+  listId: any;
   constructor(private service: ApiService, private FB: FormBuilder, public router: Router) {
     this.getFile();
   }
@@ -35,7 +39,7 @@ export default class AffilationComponent {
       title: [null, Validators.required],
       url: [null, Validators.required],
       type: [null, Validators.required],
-      session:[null, Validators.required]
+      session: [null, Validators.required]
     });
   }
   getPageNumbers(): number[] {
@@ -58,6 +62,7 @@ export default class AffilationComponent {
 
       this.selectedFile = file; // Store file
       console.log(file, this.selectedFile)
+      this.selectedFileName = file.name
       this.fileForm.patchValue({ file: file });
     }
   }
@@ -91,6 +96,7 @@ export default class AffilationComponent {
     this.fileForm.patchValue({
       session: year
     });
+    this.selectedSession = ''
     // this.fileForm.get('file')?.setValue(year);
   }
 
@@ -98,13 +104,15 @@ export default class AffilationComponent {
     this.loader = true;
 
     const payload = {
-      file: this.selectedFile,
+      file: this.selectedFile || this.selectedFileName,
       title: this.fileForm.value.title,
       url: this.fileForm.value.url,
       type: this.fileForm.value.type,
       session: this.fileForm.value.session
     }
-    this.service.affiliationService(payload).subscribe(
+
+    const service = this.isUpdate ? this.service.affiliationUpdateService(payload, this.listId) : this.service.affiliationService(payload)
+    service.subscribe(
       (res: any) => {
         if (res.status) {
           this.service.SuccessSnackbar(res.message);
@@ -121,7 +129,31 @@ export default class AffilationComponent {
         this.loader = false;
       }
     );
+
+  }
+
+  handleDelete(id: number, value: number) {
+    this.loaders = true;
+    this.service.affiliationDelete(id, value).subscribe((res: any) => {
+      this.List = res;
+      this.loaders = false;
+      this.getFile()
+    });
   }
 
 
+  handleEdit(data: any) {
+    this.fileForm.patchValue({
+      title: data.title,
+      url: data.url,
+      type: data.type,
+    });
+    this.listId = data.id
+    this.selectedSession = data.session
+    this.selectedFileName = data.file;
+    setTimeout(() => {
+      this.formSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    this.isUpdate = true
+  }
 }

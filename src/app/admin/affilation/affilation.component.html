@@ -1,6 +1,6 @@
 <app-card cardTitle="Affiliation Add" [options]="false">
 
-  <form [formGroup]="fileForm" (ngSubmit)="handleSubmit()">
+  <form [formGroup]="fileForm" (ngSubmit)="handleSubmit()" #formSection>
     <div class="row">
       <div class="mb-3 col-lg-6">
         <label class="form-label">Collage Name</label>
@@ -10,29 +10,28 @@
       <div class="mb-3 col-lg-6">
         <label class="form-label">Site URL</label>
         <input type="text" class="form-control" formControlName="url">
-        <!-- <input type="hidden" value="acts" class="form-control" formControlName="desc"> -->
       </div>
       <div class="mb-3 col-lg-6">
         <label class="form-label">Type</label>
-        <select class="form-select form-control" formControlName="tyoe" (change)="handleChange($event)">
+        <select class="form-select form-control" formControlName="type" (change)="handleChange($event)">
           <option value="1">Private </option>
           <option value="2">Government </option>
         </select>
-        <!-- <input type="text" class="form-control" formControlName="url"> -->
-        <!-- <input type="hidden" value="acts" class="form-control" formControlName="desc"> -->
       </div>
       <div class="mb-3 col-lg-6">
         <label class="form-label">Affiliation Document</label>
+        <div class="text-info" *ngIf="selectedFileName">Selected File: {{ selectedFileName }}</div>
         <input type="file" class="form-control" (change)="onFileSelect($event)" accept=".pdf" formControlName="file">
         <input type="hidden" value="acts" class="form-control" formControlName="type">
       </div>
       <div class="mb-3 col-lg-6">
         <label class="form-label">Session</label>
+        <div class="text-info" *ngIf="selectedSession">Selected Session: {{ selectedSession }}</div>
         <input type="month" class="form-control" (change)="onDateSelect($event)" accept=".pdf" formControlName="file">
       </div>
     </div>
 
-    <button type="submit" class="btn col-2 btn-primary" *ngIf="!loader">Add</button>
+    <button type="submit" class="btn col-2 btn-primary" *ngIf="!loader">{{isUpdate ? "Upadate" : "Add"}}</button>
     <div class="spinner-border text-dark" role="status" *ngIf="loader">
       <span class="sr-only">Loading...</span>
     </div>
@@ -52,6 +51,7 @@
         <th scope="col">Files</th>
         <th scope="col">Title</th>
         <th scope="col">URL</th>
+        <th scope="col">Type</th>
         <th scope="col">Session</th>
         <th scope="col">Action</th>
       </tr>
@@ -59,27 +59,26 @@
     <tbody>
       <tr *ngFor="let list of List?.data; index as i">
         <th scope="row">{{ i + 1 }}</th>
-        <th scope="row"><a [href]="imgUrl+list.file">{{ list.file }}</a></th>
+        <th scope="row"><a [href]="imgUrl+list.file" target="_blank">{{ list.file }}</a></th>
         <th scope="row">{{ list.title }}</th>
-        <th scope="row"><a [href]="list.url">{{ list.url }}</a></th>
+        <th scope="row"><a [href]="list.url" target="_blank">{{ list.url }}</a></th>
+        <th scope="row">{{ list.type === "1" ? "Private"  : "Government"}}</th>
         <th scope="row">{{ list.session }}</th>
         <td>
 
-          <!-- <button class="btn btn-sm btn-danger" *ngIf="list.idDeleted === 0" (click)="handleDelete(list.id,1)"><i
-              *ngIf="!this.loaders" class="fa fa-trash"></i>
-            <div class="spinner-border" role="status" *ngIf="this.loaders">
-              <span class="sr-only">Loading...</span>
-            </div>
-
-
+          <button class="btn btn-sm btn-danger" *ngIf="list.idDeleted === 0" (click)="handleDelete(list.id,1)"><i
+              class="fa fa-trash"></i>
           </button>
           <button class="btn btn-sm btn-success" *ngIf="list.idDeleted === 1" (click)="handleDelete(list.id,0)"><i
-              class="fa fa-check"></i></button> -->
+              class="fa fa-check"></i></button>
+          &nbsp;
+          &nbsp;
+          <button class="btn btn-sm btn-info" (click)="handleEdit(list)"><i class="fa fa-pen"></i></button>
         </td>
       </tr>
 
     </tbody>
   </table>
-   <!-- Pagination Controls -->
+  <!-- Pagination Controls -->
 
 </app-card>

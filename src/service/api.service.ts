@@ -225,6 +225,21 @@ export class ApiService {
     return this.httpClient.post(this.baseUrl + 'affiliation/add-affilation', formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
+  affiliationUpdateService(payload: any, id:number): Observable<any> {
+    const formData: any = new FormData();
+    for (const key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        // Ensure file is handled correctly
+        if (payload[key] instanceof File) {
+          formData.append(key, payload[key], payload[key].name); // Append file with its original name
+        } else {
+          formData.append(key, payload[key]);
+        }
+      }
+    }
+    return this.httpClient.put(this.baseUrl + 'affiliation/update-affilation/'+id, formData)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
 
   MerchandiesService(payload: any): Observable<any> {
     const formData: FormData = new FormData();
@@ -302,6 +317,10 @@ export class ApiService {
   // }
   fileDelete(id: number, type: string, value: number): Observable<any> {
     return this.httpClient.delete(`${this.baseUrl}doc/deletFiles?id=${id}&type=${type}&value=${value}`)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  affiliationDelete(id: number,  value: number): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl}affiliation/affilation-delete?id=${id}&value=${value}`)
       .pipe(catchError(this.handleError.bind(this)));
   }
 
