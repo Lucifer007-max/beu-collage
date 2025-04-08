@@ -45,7 +45,7 @@
         <ng-container *ngIf="pressList && pressList.length > 0; else noVideos">
           <ul class="custom_listing">
             <li class="col-lg-4 col-md-4 col-sm-12 img-fluid my-3" *ngFor="let item of pressList">
-              <a [href]="imgurl+item.pressFile">
+              <a [href]="imgurl+item.pressFile" target="_blank">
                 <i class="fa fa-angle-double-right"></i> {{item.pressTitle}}
               </a>
             </li>

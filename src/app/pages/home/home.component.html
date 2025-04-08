@@ -54,7 +54,8 @@
           </div>
         </div>
         <div class="card-body p-2 overflow-hidden h-40" style="background: #FAF2BA">
-          <ul id="notice-board" class="list-group list-group-flush notice-board overflow-hidden" [innerHTML]="this.noticeBoard">
+          <ul id="notice-board" class="list-group list-group-flush notice-board overflow-hidden"
+            [innerHTML]="this.noticeBoard">
 
 
 
@@ -78,7 +79,8 @@
       </div>
     </div>
 
-    <div id="carouselExampleCaptions"  #carousel class="col-lg-6 col-md-6 col-sm-12 p-0 carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleCaptions" #carousel class="col-lg-6 col-md-6 col-sm-12 p-0 carousel slide"
+      data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button *ngFor="let banner of bannerList; let i = index" type="button"
           [attr.data-bs-target]="'#carouselExampleCaptions'" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
@@ -87,9 +89,7 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item" *ngFor="let banner of bannerList; let i = index" [class.active]="i === 0">
-          <img
-          [src]="baseUrl + banner.bannerPath"
-            class="d-block w-100 height_banner" alt="...">
+          <img [src]="baseUrl + banner.bannerPath" class="d-block w-100 height_banner" alt="...">
           <div class="carousel-caption d-none">
             <h5>Slide {{i + 1}} label</h5>
             <p class="text-dark">Some representative placeholder content for slide {{i + 1}}.</p>
@@ -110,7 +110,8 @@
 
     <div class="col-lg-3 col-md-3 col-sm-12  p-0 border-0" style="background: rgb(191, 219, 254)">
       <div class="card shadow-sm shadow-none m-0">
-        <div class="card-header text-white d-flex justify-content-between align-items-center p-2" style="background: #0676BD">
+        <div class="card-header text-white d-flex justify-content-between align-items-center p-2"
+          style="background: #0676BD">
           <h5 class="mb-0 text-white">IMPORTANT LINKS</h5>
           <div>
             <button class="btn btn-outline-primary btn-sm text-white">
@@ -123,7 +124,8 @@
           </div>
         </div>
         <div class="card-body p-2 overflow-hidden h-40" style="background: rgb(191, 219, 254)">
-          <ul id="important-information" class="list-group list-group-flush overflow-hidden" style="background: rgb(191, 219, 254)" [innerHTML]="importLink" >
+          <ul id="important-information" class="list-group list-group-flush overflow-hidden"
+            style="background: rgb(191, 219, 254)" [innerHTML]="importLink">
             <!-- <li class="list-group-item d-flex align-items-center p-2" style="background: rgb(191, 219, 254)">
               <i class="fa fa-arrow-right text-primary me-2"></i>
               <a href="#" class="text-decoration-none text-dark">U.P. Governor Website</a>
@@ -169,7 +171,8 @@
           Notices:
         </div>
         <div class="overflow-hidden flex-grow-1">
-          <marquee id="notice_marquee" behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();">
+          <marquee id="notice_marquee" behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();"
+            onmouseout="this.start();">
             <div [innerHTML]="this.notice" style="color:#000"></div>
           </marquee>
 
@@ -243,8 +246,7 @@
         </div>
 
         <!-- Add the divider after each item except the last one -->
-        <div
-          class="col-md-2 text-center d-none d-md-block d-lg-block d-xl-block d-sm-none"
+        <div class="col-md-2 text-center d-none d-md-block d-lg-block d-xl-block d-sm-none"
           *ngIf="i !== alerts.length - 1">
           <div class="border-start border-white border-3 mx-auto h-75"></div>
         </div>
@@ -372,8 +374,8 @@
             </div>
           </div> -->
           <div *ngFor="let mentor of mentorList" class="col-12 d-flex align-items-center border-bottom pb-2">
-            <img [src]="baseUrl+ mentor.mentorImage" class="img-fluid me-3"
-              style="width: 100px; height: 120px;" alt="{{ mentor.mentortitle }}">
+            <img [src]="baseUrl+ mentor.mentorImage" class="img-fluid me-3" style="width: 100px; height: 120px;"
+              alt="{{ mentor.mentortitle }}">
             <div>
               <h5 class="fw-bold mb-1">{{ mentor.mentortitle }}</h5>
               <p class="text-muted mb-1">{{ mentor.role }}</p>
@@ -402,7 +404,8 @@
           <div class="card-body">
             <h4 class="card-title fw-bold text-truncate">Under Graduate - Bihar, Patna</h4>
             <p class="text-muted small">Government of Bihar</p>
-            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Bachelors degree can choose from our Programme B.Tech.
+            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Bachelors degree can choose from our
+              Programme B.Tech.
             </p>
             <p><i class="far fa-calendar me-2"></i>27 Nov 2024 - 5 Mar 2025</p>
           </div>
@@ -421,7 +424,8 @@
           <div class="card-body">
             <h4 class="card-title fw-bold text-truncate">Post Graduate - Bihar, Patna</h4>
             <p class="text-muted small">Government of Bihar</p>
-            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Masters degree can choose from our ProgrammeM.Tech.
+            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Masters degree can choose from our
+              ProgrammeM.Tech.
             </p>
             <p><i class="far fa-calendar me-2"></i>27 Nov 2024 - 5 Mar 2025</p>
           </div>
@@ -440,7 +444,8 @@
           <div class="card-body">
             <h4 class="card-title fw-bold text-truncate">Research - Bihar, Patna</h4>
             <p class="text-muted small">Government of Bihar</p>
-            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Doctoral degree (Ph.D.) can seek admission in the field in which he/she has passed his/her qualifying examination.            </p>
+            <p><i class="fas fa-graduation-cap me-2"></i>Students seeking a Doctoral degree (Ph.D.) can seek admission
+              in the field in which he/she has passed his/her qualifying examination. </p>
             <p><i class="far fa-calendar me-2"></i>27 Nov 2024 - 5 Mar 2025</p>
           </div>
           <div class="card-footer bg-white border-0">
@@ -478,43 +483,45 @@
 
 <section class="media-gallery">
   <div class="container">
-      <h2 class="text-center text-primary fw-bold mb-4">Media Gallery</h2>
-      <!-- <hr class="w-25 mx-auto border-danger"> -->
+    <h2 class="text-center text-primary fw-bold mb-4">Media Gallery</h2>
+    <!-- <hr class="w-25 mx-auto border-danger"> -->
     <div class="bg-primary mx-auto" style="height: 1px; width: 100%;"></div>
 
 
-      <div class="row g-4 mt-4">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="gallery-item">
-                  <img src="https://aktu.ac.in/images/img/picicon.png" alt="Pictures">
-                  <!-- <p class="gallery-title">PICTURES</p> -->
-              </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="gallery-item">
-                <a [routerLink]="'/media/videos'">
-
-                  <img src="	https://aktu.ac.in/images/img/videoicon.png" alt="Videos">
-                </a>
-                  <!-- <p class="gallery-title">VIDEOS</p> -->
-              </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="gallery-item">
-                  <img src="	https://aktu.ac.in/images/img/media.png" alt="Media">
-                  <!-- <p class="gallery-title">MEDIA</p> -->
-              </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="gallery-item">
-                  <img src="https://aktu.ac.in/images/img/picon.png" alt="Publication">
-                  <!-- <p class="gallery-title">PUBLICATION</p> -->
-              </div>
-          </div>
+    <div class="row g-4 mt-4">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="gallery-item">
+          <img src="https://aktu.ac.in/images/img/picicon.png" alt="Pictures">
+          <!-- <p class="gallery-title">PICTURES</p> -->
+        </div>
       </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="gallery-item">
+          <a [routerLink]="'/media/videos'">
+
+            <img src="	https://aktu.ac.in/images/img/videoicon.png" alt="Videos">
+          </a>
+          <!-- <p class="gallery-title">VIDEOS</p> -->
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="gallery-item">
+          <img src="	https://aktu.ac.in/images/img/media.png" alt="Media">
+          <!-- <p class="gallery-title">MEDIA</p> -->
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="gallery-item">
+          <a [routerLink]="'/media/publication'">
+            <img src="https://aktu.ac.in/images/img/picon.png" alt="Publication">
+            <!-- <p class="gallery-title">PUBLICATION</p> -->
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
