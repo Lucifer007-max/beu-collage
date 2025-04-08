@@ -1,0 +1,11 @@
+.custom_listing{
+  padding: 0;
+  list-style: none;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+.custom_listing  li:hover {
+  transition: 0.5s all;
+  transform: translate(12px);
+}

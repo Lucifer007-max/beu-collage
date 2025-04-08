@@ -84,6 +84,16 @@ export class ApiService {
     return this.httpClient.put(`${this.baseUrl}notice/add-notice/${id}`, payload, { headers })
       .pipe(catchError(this.handleError.bind(this)));
   }
+
+  videosService(id: number = 0, payload: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json'
+    });
+
+    return this.httpClient.put(`${this.baseUrl}publication/add-video/${id}`, payload, { headers })
+      .pipe(catchError(this.handleError.bind(this)));
+  }
   alertServiceUpdate(id: number, payload: any): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -195,6 +205,22 @@ export class ApiService {
     return this.httpClient.post(this.baseUrl + 'mentor/add-mentor', formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
+  // PressService(payload: any): Observable<any> {
+  PressService(payload: any): Observable<any> {
+    const formData: any = new FormData();
+    for (const key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        // Ensure file is handled correctly
+        if (payload[key] instanceof File) {
+          formData.append(key, payload[key], payload[key].name); // Append file with its original name
+        } else {
+          formData.append(key, payload[key]);
+        }
+      }
+    }
+    return this.httpClient.post(this.baseUrl + 'publication/add-press', formData)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
   fileService(payload: any): Observable<any> {
     const formData: any = new FormData();
     for (const key in payload) {
@@ -225,7 +251,7 @@ export class ApiService {
     return this.httpClient.post(this.baseUrl + 'affiliation/add-affilation', formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
-  affiliationUpdateService(payload: any, id:number): Observable<any> {
+  affiliationUpdateService(payload: any, id: number): Observable<any> {
     const formData: any = new FormData();
     for (const key in payload) {
       if (payload.hasOwnProperty(key)) {
@@ -237,7 +263,7 @@ export class ApiService {
         }
       }
     }
-    return this.httpClient.put(this.baseUrl + 'affiliation/update-affilation/'+id, formData)
+    return this.httpClient.put(this.baseUrl + 'affiliation/update-affilation/' + id, formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
 
@@ -259,6 +285,14 @@ export class ApiService {
   }
   testimonialDelete(id: number): Observable<any> {
     return this.httpClient.delete(this.baseUrl + 'Testimonial/' + id)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  pressDelete(id: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + 'publication/delete-press/' + id)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  VideoDelete(id: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + 'publication/delete-video/' + id)
       .pipe(catchError(this.handleError.bind(this)));
   }
   merchandiesDelete(id: number): Observable<any> {
@@ -293,6 +327,14 @@ export class ApiService {
     return this.httpClient.get(this.baseUrl + 'Testimonial')
       .pipe(catchError(this.handleError.bind(this)));
   }
+  pressGet(): Observable<any> {
+    return this.httpClient.get(this.baseUrl + 'publication/get-press')
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  videosGet(): Observable<any> {
+    return this.httpClient.get(this.baseUrl + 'publication/get-videos')
+      .pipe(catchError(this.handleError.bind(this)));
+  }
 
 
   mentorGet(): Observable<any> {
@@ -319,7 +361,7 @@ export class ApiService {
     return this.httpClient.delete(`${this.baseUrl}doc/deletFiles?id=${id}&type=${type}&value=${value}`)
       .pipe(catchError(this.handleError.bind(this)));
   }
-  affiliationDelete(id: number,  value: number): Observable<any> {
+  affiliationDelete(id: number, value: number): Observable<any> {
     return this.httpClient.delete(`${this.baseUrl}affiliation/affilation-delete?id=${id}&value=${value}`)
       .pipe(catchError(this.handleError.bind(this)));
   }

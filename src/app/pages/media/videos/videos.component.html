@@ -1,0 +1,72 @@
+<app-header></app-header>
+
+<!-- Hero Section -->
+<section class="position-relative w-100"
+  style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
+  <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-75"></div>
+
+  <div
+    class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+    <h1 class="fs-2 fw-bold text-light">{{pageTitle}}</h1>
+    <nav class="mt-2">
+      <ul class="breadcrumb bg-transparent">
+        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li>
+        <li class="breadcrumb-item active text-white" aria-current="page">{{pageTitle}}</li>
+      </ul>
+    </nav>
+    <div class="border-top border-white mt-2 w-100 opacity-50"></div>
+  </div>
+</section>
+
+
+
+<section class="py-5">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-3 custom_postion">
+        <div class="list-group custom_list">
+          <a [routerLink]="'/media/videos'" [routerLinkActive]="'active'"
+            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Videos</a>
+          <a [routerLink]="'/media/pictures'" [routerLinkActive]="'active'"
+            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Pictures</a>
+          <a [routerLink]="'/media/media'" [routerLinkActive]="'active'"
+            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Media</a>
+          <a [routerLink]="'/media/publication'" [routerLinkActive]="'active'"
+            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Publication</a>
+
+        </div>
+      </div>
+      <!-- Content Section -->
+      <div class="col-lg-9 row position-relative">
+
+        <!-- If videos exist -->
+        <ng-container *ngIf="videosList && videosList.length > 0; else noVideos">
+          <div class="col-lg-4 col-md-4 col-sm-12 img-fluid my-3" *ngFor="let item of videosList">
+            <article class="gallery-item">
+              <iframe width="100%" height="400px"
+                [src]="'https://www.youtube.com/embed/' + item.videoURL.split('/')[3].split('=')[1] | dataFilter:'resourceUrl'"
+                frameborder="0" allowfullscreen>
+              </iframe>
+            </article>
+          </div>
+        </ng-container>
+
+        <!-- Else block -->
+        <ng-template #noVideos>
+          <div class="col-12 text-center my-5">
+            <div class="alert alert-warning" role="alert">
+              No videos available now.
+            </div>
+          </div>
+        </ng-template>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<app-footer></app-footer>

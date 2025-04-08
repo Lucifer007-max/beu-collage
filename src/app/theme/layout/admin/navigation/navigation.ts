@@ -155,7 +155,32 @@ export const NavigationItems: NavigationItem[] = [
         external: false
       },
     ]
-  }
+  },
+
+  {
+    id: 'banner',
+    title: 'Media Mangement',
+    type: 'collapse',
+    icon: 'feather icon-menu',
+    children: [
+      {
+        id: 'menu-level-2.1',
+        title: 'Video Mangement',
+        type: 'item',
+        url: '/admin/add-videos',
+        external: false
+      },
+      {
+        id: 'menu-level-2.1',
+        title: 'Publication Mangement',
+        type: 'item',
+        url: '/admin/add-publication',
+        external: false
+      },
+
+    ]
+  },
+
   // {
   //   id: 'ui-component',
   //   title: 'Ui Component',

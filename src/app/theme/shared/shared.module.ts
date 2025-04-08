@@ -36,7 +36,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NgClickOutsideDirective,
     HeaderComponent,
     FooterComponent,
-    AngularEditorModule
+    AngularEditorModule,
+    // DataFilterPipe
     // SpinnerComponent
 
   ],
@@ -54,8 +55,9 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NgScrollbarModule,
     NgClickOutsideDirective,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    // DataFilterPipe
   ],
-  declarations: [DataFilterPipe, SpinnerComponent,  ],
+  declarations: [ SpinnerComponent,  ],
 })
 export class SharedModule {}

@@ -1,0 +1,42 @@
+<app-card cardTitle="Create Video" [options]="false" >
+
+  <form  [formGroup]="videosForm" (ngSubmit)="handleSubmit()">
+    <div class="row">
+      <div class="mb-3 col-lg-6">
+        <label for="" class="form-label">Video Url <small class="text-info">URL must be <b>Youtube Video Link</b></small></label>
+        <input type="text" class="form-control" formControlName="url">
+      </div>
+    </div>
+    <button type="submit" (click)="handleSubmit()" class="btn col-2 btn-primary" *ngIf="this.loader == false">Add</button>
+    <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </form>
+
+</app-card>
+
+
+<app-card cardTitle="Video List" [options]="false">
+  <table class="table" *ngIf="this.videosList.length > 0;else elsePart">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Video URL</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of this.videosList; index as i">
+        <th scope="row">{{i+1}} </th>
+        <td><a [href]="list.videoURL" target="_blank">{{list.videoURL}}</a></td>
+        <td><a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)"><i class="fa fa-trash"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #elsePart>
+    <div class="alert alert-danger" role="alert">
+      There is no course created yet !
+    </div>
+  </ng-template>
+
+</app-card>

@@ -1,0 +1,49 @@
+<app-card cardTitle="Create Press" [options]="false" >
+
+  <form  [formGroup]="publicationForm" (ngSubmit)="handleSubmit()">
+    <div class="row">
+      <div class="mb-3 col-lg-6">
+        <label for="" class="form-label">Title</label>
+        <input type="text" class="form-control" formControlName="title">
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label"> File</label>
+        <input type="file" class="form-control" (change)="onFileSelect($event)" accept=".pdf" formControlName="file" >
+        <input type="hidden" value="acts" class="form-control" formControlName="type">
+      </div>
+    </div>
+    <button type="submit" (click)="handleSubmit()" class="btn col-2 btn-primary" *ngIf="this.loader == false">Add</button>
+    <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </form>
+
+</app-card>
+
+
+<app-card cardTitle="Press List" [options]="false">
+  <table class="table" *ngIf="this.publicationList.length > 0;else elsePart">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">File</th>
+        <th scope="col">Title</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of this.publicationList; index as i">
+        <th scope="row">{{i+1}} </th>
+        <th scope="row">{{list.pressTitle}} </th>
+        <td><a [href]="list.pressFile" target="_blank">{{list.pressFile}}</a></td>
+        <td><a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)"><i class="fa fa-trash"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #elsePart>
+    <div class="alert alert-danger" role="alert">
+      There is no course created yet !
+    </div>
+  </ng-template>
+
+</app-card>

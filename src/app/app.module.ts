@@ -33,6 +33,10 @@ import { AuthGuard } from 'src/guard/authguard.guard';
 import { StudentComponent } from './theme/layout/student/student.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+// import { VideosComponent } from './pages/media/videos/videos.component';
+// import { PublicationComponent } from './pages/media/publication/publication.component';
+// import { AdminVideosComponent } from './admin/media/admin-videos/admin-videos.component';
+// import { AdminPublicationComponent } from './admin/media/admin-publication/admin-publication.component';
 // import { AffiliationComponent } from './pages/affiliation/affiliation.component';
 // import { AffilationComponent } from './admin/affilation/affilation.component';
 // import { FileuploadComponent } from './admin/fileupload/fileupload.component';
@@ -71,6 +75,10 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NavGroupComponent,
     NotFoundComponent,
     StudentComponent,
+    // VideosComponent,
+    // PublicationComponent,
+    // AdminVideosComponent,
+    // AdminPublicationComponent,
     // AffiliationComponent,
     // AffilationComponent,
     // FileuploadComponent,

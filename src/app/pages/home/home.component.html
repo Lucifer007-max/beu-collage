@@ -241,23 +241,23 @@
             </a>
           </p>
         </div>
-    
+
         <!-- Add the divider after each item except the last one -->
-        <div 
-          class="col-md-2 text-center d-none d-md-block d-lg-block d-xl-block d-sm-none" 
+        <div
+          class="col-md-2 text-center d-none d-md-block d-lg-block d-xl-block d-sm-none"
           *ngIf="i !== alerts.length - 1">
           <div class="border-start border-white border-3 mx-auto h-75"></div>
         </div>
       </ng-container>
     </div>
-    
+
     <!-- Show this when there are no alerts -->
     <ng-template #noAlerts>
       <div class="text-center py-4">
         <h3 class="text-muted">No alerts for now</h3>
       </div>
     </ng-template>
-    
+
 
 
   </div>
@@ -380,7 +380,7 @@
               <i class="text-muted">{{ mentor.position }}</i>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>
@@ -493,7 +493,10 @@
 
           <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="gallery-item">
+                <a [routerLink]="'/media/videos'">
+
                   <img src="	https://aktu.ac.in/images/img/videoicon.png" alt="Videos">
+                </a>
                   <!-- <p class="gallery-title">VIDEOS</p> -->
               </div>
           </div>
@@ -537,7 +540,7 @@
   <div class="container my-4 h-40 overflow-hidden">
     <ul class="list-unstyled overflow-hidden" id="college-events" [innerHTML]="this.events">
 
-    
+
     </ul>
   </div>
 </section>

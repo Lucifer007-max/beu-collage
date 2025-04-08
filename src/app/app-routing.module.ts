@@ -130,6 +130,14 @@ const routes: Routes = [
         loadComponent: () => import('./pages/documents/documents.component')
       },
 
+      {
+        path: 'media/videos',
+        loadComponent: () => import('./pages/media/videos/videos.component')
+      },
+      {
+        path: 'media/publication',
+        loadComponent: () => import('./pages/media/publication/publication.component')
+      },
 
 
       {
@@ -241,7 +249,18 @@ const routes: Routes = [
         // canActivate: [AuthGuard]
       },
       {
-        path: 'admin/add-affiliation',
+        path: 'admin/add-videos',
+        loadComponent: () => import('./admin/media/admin-videos/admin-videos.component'),
+        // canActivate: [AuthGuard]
+      },
+
+      {
+        path: 'admin/add-publication',
+        loadComponent: () => import('./admin/media/admin-publication/admin-publication.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-publication',
         loadComponent: () => import('./admin/affilation/affilation.component'),
         // canActivate: [AuthGuard]
       },
