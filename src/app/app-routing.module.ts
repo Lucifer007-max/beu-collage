@@ -260,7 +260,7 @@ const routes: Routes = [
         // canActivate: [AuthGuard]
       },
       {
-        path: 'admin/add-publication',
+        path: 'admin/add-affiliation',
         loadComponent: () => import('./admin/affilation/affilation.component'),
         // canActivate: [AuthGuard]
       },
