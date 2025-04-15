@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { AngularEditorConfig, AngularEditorModule } from '@kolkov/angular-editor';
@@ -91,5 +91,44 @@ export default class EventsComponent {
     })
   }
 
+  @ViewChild('copyContent', { static: false }) copyContent!: ElementRef;
+  @ViewChild('copyContentnew', { static: false }) copyContentnew!: ElementRef;
+  copySuccess: boolean = false;
 
+  copyToClipboard(type: string) {
+    if (type === "new") {
+      const el = this.copyContentnew.nativeElement;
+      const range = document.createRange();
+      range.selectNode(el);
+      window.getSelection()?.removeAllRanges();
+      window.getSelection()?.addRange(range);
+
+      try {
+        document.execCommand('copy');
+        this.copySuccess = true;
+        setTimeout(() => (this.copySuccess = false), 2000);
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
+
+      window.getSelection()?.removeAllRanges();
+    }
+    else {
+      const el = this.copyContent.nativeElement;
+      const range = document.createRange();
+      range.selectNode(el);
+      window.getSelection()?.removeAllRanges();
+      window.getSelection()?.addRange(range);
+
+      try {
+        document.execCommand('copy');
+        this.copySuccess = true;
+        setTimeout(() => (this.copySuccess = false), 2000);
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
+
+      window.getSelection()?.removeAllRanges();
+    }
+  }
 }

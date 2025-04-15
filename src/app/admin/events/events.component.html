@@ -1,4 +1,28 @@
 <app-card cardTitle="Add Events" [options]="false">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-6">
+        <button class="btn btn-primary mb-3" (click)="copyToClipboard('')">Copy HTML</button>
+        <ul class="list-group mb-5 ">
+          <div class="alert alert-info">
+            <li  #copyContent class="d-flex gap-3 align-items-center py-2 text-muted small">
+              <i class="fa fa-quote-left"></i>  Sample to the format data (Replace this with own data after paste it !) <img src="https://freepngimg.com/thumb/update_button/25530-9-update-button-image.png" width="50px" /> </li>
+          </div>
+        </ul>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-primary mb-3" (click)="copyToClipboard('new')">Copy HTML</button>
+        <ul class="list-group mb-5">
+          <div class="alert alert-info">
+            <li  #copyContentnew class="d-flex gap-3 align-items-center py-2 text-muted small">
+              <i class="fa fa-quote-left"></i> Sample to the format data (Replace this with own data after paste it !) <img src="https://aktu.ac.in/images/new_red.gif" /></li>
+          </div>
+        </ul>
+      </div>
+      <p *ngIf="copySuccess" class="text-success mt-2">Copied to clipboard!</p>
+    </div>
+
+  </div>
   <form [formGroup]="eventForm">
     <div class="row">
       <div class="mb-3 col-lg-10">

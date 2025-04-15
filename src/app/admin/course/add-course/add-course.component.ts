@@ -18,80 +18,58 @@ export default class AddCourseComponent {
   selectedItems: any;
   dropdownSettings: any;
   wfile: File | any = null;
-  tags:[] | any = [];
+  tags: [] | any = [];
   courseList: any;
   loader: boolean = false;
   sloader: boolean = false;
+  courseOptions: any = [];
+  id: number = 0
   constructor(private service: ApiService, private FB: FormBuilder) { }
   ngOnInit() {
     {
       this.courseForm = this.FB.group({
-        courseName: ['', Validators.required],
-        description: ['', Validators.required],
-        courseImage:['',Validators.required]
+        courseID: ['', Validators.required],
+        session: ['', Validators.required],
       })
     }
-    this.getCourse()
-
-    this.dropdownList = [
-      { "item_id": 1, "item_text": '11th Class' },
-      { "item_id": 2, "item_text": '12th Class' },
-      { "item_id": 3, "item_text": 'Dropper' },
-      { "item_id": 4, "item_text": '8th Class' },
-      { "item_id": 5, "item_text": '9th Class' },
-      { "item_id": 6, "item_text": '10th Class' },
-    ];
-
-    this.dropdownSettings = {
-      singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
-      // selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
-      allowSearchFilter: true
-    };
-    // this.getCourse()
+    this.getSession()
+    this.courseOptions = [
+      { "id": 1, title: 'B.Tech' },
+      { "id": 2, title: 'M.Tech' },
+      { "id": 3, title: 'PHD' }
+    ]
   }
   onItemSelect(item: any) {
-    console.log(item.item_text);
-    // Add the selected item's item_text to the tags array
-    this.tags.push(item.item_text);
-    console.log(this.tags);
+    console.log(item.target.value);
+    this.selectedItems = item.target.value
   }
 
-  onSelectAll(items: any) {
-    console.log(items);
-    this.tags = items.map((item: any) => item.item_text);
-    console.log(this.tags);
-  }
+
 
   handleSubmit() {
     if (this.courseForm.valid) {
-        this.sloader = true;
-        const payLoad = {
-            "title": this.courseForm.value.courseName,
-            "image": this.wfile,
-            "tag": this.tags,
-            "description": this.courseForm.value.description
+      this.sloader = true;
+      const payLoad = {
+        "courseID": this.selectedItems,
+        "session": this.courseForm.value.session,
+      }
+      this.service.coursesession(payLoad, this.id).subscribe((res: any) => {
+        if (res.status) {
+          this.getSession();
+          this.courseForm.reset()
+          this.service.SuccessSnackbar(res.message);
+        } else {
+          this.service.ErrorSnackbar('Something went wrong...!!');
         }
-        this.service.CourseService(payLoad).subscribe((res: any) => {
-            if (res.status) {
-                this.getCourse();
-                this.courseForm.reset()
-                this.service.SuccessSnackbar(res.message);
-            } else {
-                this.service.ErrorSnackbar('Something went wrong...!!');
-            }
-            this.sloader = false;
-        }, (err) => {
-            this.service.ErrorSnackbar(err.message);
-            this.sloader = false;
-        });
+        this.sloader = false;
+      }, (err) => {
+        this.service.ErrorSnackbar(err.message);
+        this.sloader = false;
+      });
     } else {
-        this.service.ErrorSnackbar('Form is invalid');
+      this.service.ErrorSnackbar('Form is invalid');
     }
-}
+  }
 
 
   onFileSelect(event: any): void {
@@ -113,12 +91,12 @@ export default class AddCourseComponent {
           //   console.error("Image dimensions are not 300x300 pixels");
           //   return;
           // } else {
-            this.wfile = file;
-            console.log(this.wfile);
-            this.courseForm.patchValue({
-              courseImage: file
-            });
-            this.courseForm.get('courseImage')?.updateValueAndValidity();
+          this.wfile = file;
+          console.log(this.wfile);
+          this.courseForm.patchValue({
+            courseImage: file
+          });
+          this.courseForm.get('courseImage')?.updateValueAndValidity();
           // }
         };
         img.src = e.target.result;
@@ -128,24 +106,24 @@ export default class AddCourseComponent {
   }
 
 
-  getCourse() {
-    this.service.courseGet().subscribe((res: any) => {
+  getSession() {
+    this.service.coursesessionGet().subscribe((res: any) => {
       this.courseList = res;
       // console.log(res.length)
     })
   }
 
-  handleDelete(id:number){
+  handleDelete(id: number) {
     this.loader = true;
     this.service.courseDelete(id).subscribe((res) => {
       // console.log(res)
-      this.getCourse()
+      this.getSession()
       this.service.SuccessSnackbar(res.message);
       this.loader = false;
-    } ,(err) => {
+    }, (err) => {
       this.service.ErrorSnackbar(err.message);
       this.loader = false;
-  })
+    })
   }
 }
 

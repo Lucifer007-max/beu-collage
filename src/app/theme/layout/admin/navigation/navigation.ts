@@ -103,7 +103,7 @@ export const NavigationItems: NavigationItem[] = [
     id: 'banner',
     title: 'File Mangement',
     type: 'collapse',
-    icon: 'feather icon-menu',
+    icon: 'feather icon-file',
     children: [
       {
         id: 'menu-level-2.1',
@@ -159,9 +159,39 @@ export const NavigationItems: NavigationItem[] = [
 
   {
     id: 'banner',
+    title: 'Course Mangement',
+    type: 'collapse',
+    icon: 'feather icon-file',
+    children: [
+      {
+        id: 'menu-level-2.1',
+        title: 'Session Mangement',
+        type: 'item',
+        url: '/admin/add-session',
+        external: false
+      },
+      {
+        id: 'menu-level-2.1',
+        title: 'Syllabus Mangement',
+        type: 'item',
+        url: '/admin/add-syllabus',
+        external: false
+      },
+      {
+        id: 'menu-level-2.1',
+        title: 'Upload Course',
+        type: 'item',
+        url: '/admin/upload-course',
+        external: false
+      },
+    ]
+  },
+
+  {
+    id: 'banner',
     title: 'Media Mangement',
     type: 'collapse',
-    icon: 'feather icon-menu',
+    icon: 'feather icon-image',
     children: [
       {
         id: 'menu-level-2.1',
@@ -175,6 +205,20 @@ export const NavigationItems: NavigationItem[] = [
         title: 'Publication Mangement',
         type: 'item',
         url: '/admin/add-publication',
+        external: false
+      },
+      {
+        id: 'menu-level-2.1',
+        title: 'Media Mangement',
+        type: 'item',
+        url: '/admin/add-media',
+        external: false
+      },
+      {
+        id: 'menu-level-2.1',
+        title: 'Photo Mangement',
+        type: 'item',
+        url: '/admin/add-photo',
         external: false
       },
 

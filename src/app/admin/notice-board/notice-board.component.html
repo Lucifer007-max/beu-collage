@@ -1,18 +1,32 @@
 <app-card cardTitle=" " [options]="false">
   <div class="row">
     <div class="col-12">
-      <!-- Button to Copy HTML -->
-      <button class="btn btn-primary mb-3" (click)="copyToClipboard()">Copy HTML</button>
+      <div class="row">
+        <div class="col-6">
+          <button class="btn btn-primary mb-3" (click)="copyToClipboard('')">Copy HTML</button>
+          <ul class="list-group">
+            <li #copyContent class="list-group-item font-secondary-color p-2">
+              <span class="fa fa-arrow-right font-secondary-color me-2"></span>
+              Sample to the format data (Replace this with own data after paste it !) <img src="https://freepngimg.com/thumb/update_button/25530-9-update-button-image.png" width="50px" />
+            </li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-primary mb-3" (click)="copyToClipboard('new')">Copy HTML</button>
+          <ul class="list-group">
+            <li #copyContentnew class="list-group-item font-secondary-color p-2">
+              <span class="fa fa-arrow-right font-secondary-color me-2"></span>
+              Sample to the format data (Replace this with own data after paste it !) <img
+                src="https://aktu.ac.in/images/new_red.gif" />
+            </li>
+          </ul>
+        </div>
+      </div>
 
-      <!-- HTML to Copy -->
-      <ul class="list-group">
-        <li #copyContent class="list-group-item font-secondary-color p-2">
-          <span class="fa fa-arrow-right font-secondary-color me-2"></span>
-          Sample to the format data (Replace this with own data after paste it !)
-        </li>
-      </ul>
 
-      <!-- Success Message -->
+
+
+
       <p *ngIf="copySuccess" class="text-success mt-2">Copied to clipboard!</p>
 
     </div>

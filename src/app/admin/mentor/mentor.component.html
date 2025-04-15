@@ -1,4 +1,4 @@
-<app-card cardTitle="Create Testimonial" [options]="false" >
+<!-- <app-card cardTitle="Create Testimonial" [options]="false" >
 
   <form [formGroup]="mentorForm" (ngSubmit)="handleSubmit()">
     <div class="row">
@@ -6,71 +6,100 @@
         <label class="form-label">Title</label>
         <input type="text" class="form-control" formControlName="mentortitle">
       </div>
-      
+
       <div class="mb-3 col-lg-6">
         <label class="form-label">Role</label>
         <input type="text" class="form-control" formControlName="role">
       </div>
-  
+
       <div class="mb-3 col-lg-6">
         <label class="form-label">Position</label>
         <input type="text" class="form-control" formControlName="position">
       </div>
-  
+
       <div class="mb-3 col-lg-6">
         <label class="form-label">Image</label>
         <input type="file" class="form-control" (change)="onFileSelect($event)">
       </div>
     </div>
-  
+
     <button type="submit" class="btn col-2 btn-primary" *ngIf="!loader">Add</button>
     <div class="spinner-border text-dark" role="status" *ngIf="loader">
       <span class="sr-only">Loading...</span>
     </div>
   </form>
-  
-
-</app-card>
 
 
-<app-card cardTitle="Course List" [options]="false">
-  <table class="table" >
+</app-card> -->
+
+<app-card cardTitle="Mentor List" [options]="false">
+  <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Role</th>
-        <th scope="col">Position</th>
-        <th scope="col">Image</th>
-        <th scope="col">Action</th>
+        <th>#</th>
+        <th>Title</th>
+        <th>Role</th>
+        <th>Position</th>
+        <th>Image</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let list of mentorList; index as i">
+      <tr *ngFor="let list of mentorList; let i = index">
         <th scope="row">{{ i + 1 }}</th>
-        <td>{{ list.mentortitle }}</td>
-        <td>{{ list.role }}</td>
-        <td>{{ list.position }}</td>
-        <td>
-          <img 
-            [src]="imgUrl + list.mentorImage" 
-            width="50px" 
-            height="50px"
-          />
+
+        <!-- Editable fields -->
+        <td *ngIf="editIndex === i">
+          <input type="text" class="form-control" [(ngModel)]="editableRow.mentortitle" />
         </td>
+        <td *ngIf="editIndex !== i">{{ list.mentortitle }}</td>
+
+        <td *ngIf="editIndex === i">
+          <input type="text" class="form-control" [(ngModel)]="editableRow.role" />
+        </td>
+        <td *ngIf="editIndex !== i">{{ list.role }}</td>
+
+        <td *ngIf="editIndex === i">
+          <input type="text" class="form-control" [(ngModel)]="editableRow.position" />
+        </td>
+        <td *ngIf="editIndex !== i">{{ list.position }}</td>
+
+        <td *ngIf="editIndex === i">
+          <input type="file" (change)="onFileChange($event)" />
+          <div *ngIf="previewImage">
+            <img [src]="previewImage" width="50px" height="50px" />
+          </div>
+        </td>
+        <td *ngIf="editIndex !== i">
+          <img [src]="imgUrl + list.mentorImage" width="50px" height="50px" />
+        </td>
+
         <td>
-          <a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)">
-            <i class="fa fa-trash"></i>
-          </a>
+          <!-- Show Edit/Delete when not editing -->
+          <ng-container *ngIf="editIndex !== i">
+            <a class="btn btn-primary btn-sm me-2" (click)="startEdit(i, list)">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a class="btn btn-danger btn-sm" *ngIf="list.isDeleted === '0'" (click)="handleDelete(list.id, '1')">
+              <i class="fa fa-trash"></i>
+            </a>
+            <a class="btn btn-success btn-sm"  *ngIf="list.isDeleted === '1'" (click)="handleDelete(list.id, '0')">
+              <i class="fa fa-check"></i>
+            </a>
+          </ng-container>
+
+          <!-- Show Update/Cancel when editing -->
+          <ng-container *ngIf="editIndex === i">
+            <a class="btn btn-success btn-sm me-2" (click)="updateRow(i)">
+              Update
+            </a>
+            <a class="btn btn-secondary btn-sm" (click)="cancelEdit()">
+              Cancel
+            </a>
+          </ng-container>
         </td>
       </tr>
-      
     </tbody>
   </table>
-  <!-- <ng-template #elsePart>
-    <div class="alert alert-danger" role="alert">
-      There is no course created yet !
-    </div>
-  </ng-template> -->
-
 </app-card>
+

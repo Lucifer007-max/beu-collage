@@ -1,0 +1,68 @@
+<app-card cardTitle="Upload Semester" [options]="false">
+  <form class="row" autocomplete="off" [formGroup]="syllabus" (ngSubmit)="handleSubmit()">
+    <div class="mb-3 col-lg-6">
+      <label class="form-label">Select Session</label>
+      <select class="form-select form-control" (change)="onItemSelect($event,'sessionYear')" formControlName="sessionYear">
+        <option *ngFor="let items of courseList" [value]="items.sessionID">{{items.session}}</option>
+      </select>
+    </div>
+    <div class="mb-3 col-lg-6">
+      <label class="form-label">Select Branch</label>
+      <select class="form-select form-control" (change)="onItemSelect($event, 'session')" formControlName="sessionID">
+        <option *ngFor="let items of syllabus" [value]="items.branchName">{{items.branchName}}</option>
+      </select>
+    </div>
+    <div class="mb-3 col-lg-6">
+      <label class="form-label">Select Semester</label>
+      <select class="form-select form-control" (change)="onItemSelect($event, 'sem')" formControlName="sessionID">
+        <option *ngFor="let items of semaster" [value]="items.id">{{items.title}}</option>
+      </select>
+    </div>
+    <div class="mb-3 col-lg-6">
+      <label for="" class="form-label">File</label>
+      <!-- <div class="text-info" *ngIf="selectedFileName">Selected File: {{ selectedFileName }}</div> -->
+      <input type="file" class="form-control"  (change)="onFileSelect($event)"  formControlName="bannerImage">
+    </div>
+
+  </form>
+  <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <a type="submit" *ngIf="this.loader == false" (click)="handleSubmit()" class="btn btn-primary w-25"
+    width="100px">Submit</a>
+
+</app-card>
+
+
+
+
+<app-card cardTitle="Semester List" [options]="false">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Session ID</th>
+        <th scope="col">Semester Name</th>
+        <th scope="col">File</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of this.dataList; index as i">
+        <th scope="row">{{i+1}} </th>
+        <td>
+         {{list.sessionID}}
+        </td>
+        <td>{{list.semester}} Semester</td>
+        <td>{{list.file}}</td>
+        <td>
+          <!-- <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
+            <span class="sr-only">Loading...</span>
+          </div> -->
+          <a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)" *ngIf="this.loader == false"><i
+              class="fa fa-trash"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</app-card>

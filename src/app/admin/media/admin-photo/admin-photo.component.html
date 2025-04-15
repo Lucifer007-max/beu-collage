@@ -1,0 +1,79 @@
+<app-card cardTitle="Create Photo" [options]="false">
+
+  <form [formGroup]="albumForm" (ngSubmit)="handleSubmit()">
+    <div class="row align-items-center">
+      <div class="mb-3 col-lg-6">
+        <label for="" class="form-label">Album Title</label>
+        <input type="text" class="form-control" formControlName="title">
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label for="" class="form-label">Album Tumbnail</label>
+        <input type="file" class="form-control" (change)="onFileSelect($event, 'thumbnail')" accept=".png" formControlName="thumbnail" >
+        <!-- <input type="text" class="form-control" formControlName="thumbnail"> -->
+      </div>
+      <button type="submit" (click)="handleSubmit()" class="btn col-2 btn-primary"
+        *ngIf="this.loader1 == false">Add</button>
+      <div class="spinner-border text-dark" role="status" *ngIf="this.loader1 == true">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </form>
+  <br />
+  <br />
+  <br />
+  <hr />
+  <br />
+  <br />
+  <br />
+  <form [formGroup]="albumallForm" (ngSubmit)="handleSubmit1()">
+    <div class="row">
+      <div class="mb-3 col-lg-6">
+        <label class="form-label"> Select Album</label>
+        <!-- <input type="file" class="form-control" (change)="onFileSelect($event)" accept=".pdf" formControlName="file"> -->
+         <select class="form-control form-select"  (change)="handleAlbum($event)"  fromControlName="albumID">
+          <option value="Select any album" selected>Select any album</option>
+          <option *ngFor="let item of this.albumList" [value]="item.id">{{item.title}}</option>
+         </select>
+        <!-- <input type="hidden" value="acts" class="form-control" formControlName="type"> -->
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Select Photo</label>
+        <input type="file" class="form-control" (change)="onFileSelect($event,'')" accept=".png" formControlName="file">
+        <!-- <input type="hidden" value="acts" class="form-control" formControlName="type"> -->
+      </div>
+    </div>
+    <button type="submit" (click)="handleSubmit1()" class="btn col-2 btn-primary" *ngIf="this.loader == false">Add</button>
+    <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </form>
+
+</app-card>
+
+
+<app-card cardTitle="Album List" [options]="false">
+  <table class="table" *ngIf="this.albumAllList.length > 0;else elsePart">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">File</th>
+        <th scope="col">Title</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of this.albumAllList; index as i">
+        <th scope="row">{{i+1}} </th>
+        <th scope="row">{{list?.album?.title}} </th>
+        <td><a [href]="imgURL+list.albumFile" target="_blank"><img [src]="imgURL+list.albumFile" class="w-100" /></a></td>
+        <td><a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)"><i class="fa fa-trash"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #elsePart>
+    <div class="alert alert-danger" role="alert">
+      There is no course created yet !
+    </div>
+  </ng-template>
+
+</app-card>

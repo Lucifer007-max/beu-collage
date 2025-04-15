@@ -10,7 +10,7 @@ declare var google: any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements AfterViewInit{
+export class HeaderComponent implements AfterViewInit {
 
 
 
@@ -31,7 +31,14 @@ export class HeaderComponent implements AfterViewInit{
         { label: "Objective", link: "/about/objective" },
         { label: "History", link: "/about/history" },
         { label: "University Act", link: "/about/university-act" },
-        { label: "Regulations (First, 2010)", link: "/about/regulations" },
+        {
+          title: "Regulations (First, 2010)",
+          isOpen: false,
+          subItems: [
+            { title: "UG", link: "/about/ug" },
+            { title: "PG", link: "/about/pg" },
+          ]
+        },
         { label: "Noida Campus", link: "/about/noida-campus" },
         { label: "University Logo", link: "/about/university-logo" },
         { label: "Annual Report 2016", link: "/about/annual-report" },
@@ -44,12 +51,12 @@ export class HeaderComponent implements AfterViewInit{
       subItems: [
         { label: "Chancellor", link: "/organization/chancellor" },
         { label: "Vice Chancellor", link: "/organization/vice-chancellor" },
-        { label: "Pro Vice Chancellor", link: "/organization/pro-vice-chancellor" },
+        // { label: "Pro Vice Chancellor", link: "/organization/pro-vice-chancellor" },
         { label: "Executive Council", link: "/organization/executive-council" },
         { label: "Academic Council", link: "/organization/academic-council" },
         { label: "Finance Committee", link: "/organization/finance-committee" },
-        { label: "Examination Committee", link: "/organization/examination-committee" },
-        { label: "Building & Works Committee", link: "/organization/building-works-committee" }
+        { label: "Examination Board", link: "/organization/examination-committee" },
+        // { label: "Building & Works Committee", link: "/organization/building-works-committee" }
       ]
     },
     {
@@ -60,9 +67,36 @@ export class HeaderComponent implements AfterViewInit{
     },
     {
       title: "Academics",
-      link: "/Academics",
+      link: null,
       isOpen: false,
-      subItems: []
+      subItems: [
+        { label: "Programmes", link: "/Academics/Programmes" },
+        { label: "NBA Accredited Programs", link: "/Academics/NBA-Accredited-Programs" },
+        { label: "Naac Programm", link: "/Academics/Naac-Programm" },
+        { label: "NIRF Ranking", link: "/Academics/NIRF-Ranking" },
+        { label: "Board of Studies", link: "/Academics/Board-of-Studies" },
+        { label: "Industry Consultation Committee", link: "/Academics/Industry-Consultation-Committee" },
+        { label: "Virtual Lab", link: "/Academics/Virtual-Lab" },
+        {
+          label: "Syllabus",
+          link: "/Academics/Syllabus",
+          subItems: [
+            { label: "PhD", link: "/academic/3" },
+            { label: "MTech", link: "/academic/2" },
+            { label: "BTech", link: "/academic/1" }
+          ]
+        },
+        { label: "Honours Degree MOOCs (NPTEL) Courses", link: "/Academics/Honours-Degree-MOOCs" },
+        { label: "Compendium", link: "/Academics/Compendium" },
+        { label: "Academic Calendar", link: "/Academics/Academic-Calendar" },
+        { label: "Publications", link: "/Academics/Publications" },
+        { label: "Faculty Development Programs (FDP)", link: "/Academics/FDP" },
+        { label: "E-Learning Resources", link: "/Academics/E-Learning-Resources" },
+        { label: "NPTEL Local Chapters", link: "/Academics/NPTEL-Local-Chapters" },
+        { label: "NPTEL Online Certification", link: "/Academics/NPTEL-Online-Certification" },
+        { label: "Value Education", link: "/Academics/Value-Education" },
+        { label: "ODOP Nodal Officer", link: "/Academics/ODOP-Nodal-Officer" }
+      ]
     },
     {
       title: "Admission",
@@ -139,15 +173,6 @@ export class HeaderComponent implements AfterViewInit{
         { label: "Minutes", link: "/minutes" },
         { label: "Letter", link: "/letter" },
         { label: "curriculum", link: "/curriculum" },
-        // { label: "IQAC", link: "/iqac" },
-        // { label: "Gallery", link: "/gallery" }
-//         Acts
-// Circular
-// Notification
-// Downloads
-// Minutes
-// Letter
-// Curriculum
       ]
     },
   ];
@@ -186,12 +211,12 @@ export class HeaderComponent implements AfterViewInit{
 
   // declare var google: any;
 
- translateLanguage(lang: any) {
-  if (lang) {
-    const translateInstance = new google.translate.TranslateElement();
-    translateInstance.translatePage(lang);
+  translateLanguage(lang: any) {
+    if (lang) {
+      const translateInstance = new google.translate.TranslateElement();
+      translateInstance.translatePage(lang);
+    }
   }
-}
   ngAfterViewInit(): void {
     this.loadGoogleTranslate();
   }
@@ -205,7 +230,7 @@ export class HeaderComponent implements AfterViewInit{
       script.async = true;
       document.body.appendChild(script);
       // function googleTranslateElementInit() {
-        // new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+      // new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
       // }
     } else {
       // this.initGoogleTranslate();

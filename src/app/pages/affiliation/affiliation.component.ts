@@ -17,9 +17,13 @@ export class AffiliationComponent {
   imgUrl = environment.imgUrl;
   selectedType: any = '';
   selectedSession: any = '';
-
+  selectedYear: number = new Date().getFullYear();
+  years: number[] = [];
   constructor(public service:ApiService) {
     this.getList('','')
+    for (let year = 2000; year <= 2090; year++) {
+      this.years.push(year);
+    }
   }
 
   getList(type: any, session: any) {
@@ -48,7 +52,7 @@ export class AffiliationComponent {
   }
 
   onDateSelect(event: any) {
-    const year = event.target.value.split('-')[0];
+    const year = event.target.value
     this.selectedSession = year;
     this.getList(this.selectedType, this.selectedSession);
   }

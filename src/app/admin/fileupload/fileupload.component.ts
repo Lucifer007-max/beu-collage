@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { ApiService } from 'src/service/api.service';
@@ -17,9 +17,11 @@ export default class FileuploadComponent {
   fileForm: any = FormGroup;
   loader: boolean = false;
   List: any;
+  id: any;
   imgUrl: any = environment.imgUrl;
   selectedFile: any; // Store selected file
-  loaders:boolean = false;
+  loaders: boolean = false;
+  selectedFileName: string = ''
   constructor(private service: ApiService, private FB: FormBuilder, public router: Router) {
     this.getFile();
     console.log(this.router.url.split('/')[2].split('-')[1].toUpperCase())
@@ -27,10 +29,10 @@ export default class FileuploadComponent {
 
   ngOnInit() {
     this.fileForm = this.FB.group({
-      file: [null, Validators.required],
+      // file: [null, Validators.required],
       title: [null, Validators.required],
       desc: [null, Validators.required],
-      type: [this.router.url.split('/')[2].split('-')[1], Validators.required], // Default type
+      type: [this.router.url.split('/')[2].split('-')[1]], // Default type
     });
   }
 
@@ -55,7 +57,8 @@ export default class FileuploadComponent {
 
   // Upload File
   handleSubmit() {
-    if (this.fileForm.invalid || !this.selectedFile) {
+    console.log(this.fileForm)
+    if (this.fileForm.invalid) {
       this.service.ErrorSnackbar('Form is invalid or no file selected');
       return;
     }
@@ -71,17 +74,15 @@ export default class FileuploadComponent {
     formData.append("desc", this.fileForm.value.desc);
 
     // Debugging: Check if FormData has values
-    // for (const) {
-    console.log(this.selectedFile); // Properly logs key-value pairs
-    // }
     const payload = {
-      file: this.selectedFile,
+      file: this.selectedFile ||  this.selectedFileName,
       type: this.fileForm.value.type,
       title: this.fileForm.value.title,
       desc: this.fileForm.value.desc
 
     }
-    this.service.fileService(payload).subscribe(
+    const service  = this.isUpdate ? this.service.fileUpdateService(this.id , payload) : this.service.fileService(payload)
+    service.subscribe(
       (res: any) => {
         if (res.status) {
           this.service.SuccessSnackbar(res.message);
@@ -110,12 +111,55 @@ export default class FileuploadComponent {
 
 
 
-  handleDelete(id:number,value:number) {
+  handleDelete(id: number, value: number) {
     this.loaders = true;
-    this.service.fileDelete(id,this.router.url.split('/')[2].split('-')[1],value).subscribe((res: any) => {
+    this.service.fileDelete(id, this.router.url.split('/')[2].split('-')[1], value).subscribe((res: any) => {
       this.List = res;
       this.loaders = false;
       this.getFile()
     });
+  }
+  @ViewChild('formSection') formSection!: ElementRef;
+  isUpdate: boolean = false;
+
+  handleEdit(data: any, type: any) {
+    console.log(data)
+    let selectedFile = '';
+    switch (this.router.url.split('/')[2].split('-')[1]) {
+      case 'acts':
+        selectedFile = data.actsFile;
+        break;
+      case 'circular':
+        selectedFile = data.circularFile;
+        break;
+      case 'notification':
+        selectedFile = data.notificationFile;
+        break;
+      case 'downloads':
+        selectedFile = data.downloadsFile;
+        break;
+      case 'minutes':
+        selectedFile = data.minutesFile;
+        break;
+      case 'letter':
+        selectedFile = data.letterFile;
+        break;
+      case 'curriculum':
+        selectedFile = data.curriculumFile;
+        break;
+    }
+  
+    this.fileForm.patchValue({
+      title: data.title,
+      desc: data.desc,
+      type: this.router.url.split('/')[2].split('-')[1]
+    });
+  this.id = data.id
+    this.selectedFileName = selectedFile; // now this will have correct file name
+  
+      setTimeout(() => {
+      this.formSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    this.isUpdate = true
   }
 }

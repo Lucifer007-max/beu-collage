@@ -28,9 +28,8 @@
           style="width: 5rem;">
       </div>
       <div class="text-center w-100">
-        <h2 class="h4 fw-bold">Bihar Engineering University, Patna, <span class="h5 fw-semibold">Bihar</span></h2>
-        <h2 class="h4 fw-bold">बिहार इंजीनियरिंग विश्वविद्यालय, पटना,<span class="h5 fw-semibold">बिहार</span>
-        </h2>
+        <h2 class="h4 fw-bold">Bihar Engineering University, Patna </h2>
+        <h2 class="h4 fw-bold">बिहार अभियंत्रण विश्‍वविद्यालय, पटना</h2>
       </div>
     </div>
 
@@ -59,25 +58,39 @@
       </button>
       <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">
+          <ng-container *ngTemplateOutlet="renderMenu; context: { items: menuItems }"></ng-container>
+        </ul>
+      </div>
+
+      <ng-template #renderMenu let-items="items">
+        <ng-container *ngFor="let item of items">
           <li
-            *ngFor="let item of menuItems"
             class="nav-item text-light"
-            [ngClass]="{ 'dropdown': item.subItems.length > 0 }"
+            [ngClass]="{ 'dropdown': item.subItems?.length > 0 }"
             (mouseenter)="onMouseEnter(item)"
             (mouseleave)="onMouseLeave(item)"
             (click)="toggleDropdown(item, $event)"
           >
-            <a class="nav-link "  [ngClass]="{ 'dropdown-toggle': item.subItems.length > 0 }" [routerLink]="item.link" role="button">
-              {{ item.title }}
+            <a
+              class="nav-link text-dark"
+              [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
+              [routerLink]="item.link || null"
+              role="button"
+            >
+              {{ item.title || item.label }}
             </a>
-            <ul class="dropdown-menu" [ngClass]="{'show': item.isOpen}" *ngIf="item.subItems.length > 0">
-              <li *ngFor="let subItem of item.subItems">
-                <a class="dropdown-item" [routerLink]="subItem.link">{{ subItem.label }}</a>
-              </li>
+
+            <ul class="dropdown-menu" [ngClass]="{ 'show': item.isOpen }" *ngIf="item.subItems?.length > 0">
+              <ng-container *ngTemplateOutlet="renderMenu; context: { items: item.subItems }"></ng-container>
             </ul>
           </li>
-        </ul>
-      </div>
+        </ng-container>
+      </ng-template>
+
+
+
+
+
 
       <!-- <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul class="navbar-nav">

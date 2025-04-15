@@ -26,8 +26,9 @@
       </div>
       <div class="mb-3 col-lg-6">
         <label class="form-label">Session</label>
-        <div class="text-info" *ngIf="selectedSession">Selected Session: {{ selectedSession }}</div>
-        <input type="month" class="form-control" (change)="onDateSelect($event)" accept=".pdf" formControlName="file">
+        <select class="form-control" [(ngModel)]="selectedYear" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+        </select>
       </div>
     </div>
 
@@ -62,7 +63,7 @@
         <th scope="row"><a [href]="imgUrl+list.file" target="_blank">{{ list.file }}</a></th>
         <th scope="row">{{ list.title }}</th>
         <th scope="row"><a [href]="list.url" target="_blank">{{ list.url }}</a></th>
-        <th scope="row">{{ list.type === "1" ? "Private"  : "Government"}}</th>
+        <th scope="row">{{ list.type === "1" ? "Private" : "Government"}}</th>
         <th scope="row">{{ list.session }}</th>
         <td>
 

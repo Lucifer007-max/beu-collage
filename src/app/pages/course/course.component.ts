@@ -19,7 +19,7 @@ export default class CourseComponent {
   URLresponse:any;
   URLId:any;
   constructor(private route: ActivatedRoute , private service : ApiService){
-    this.getCourse();
+    // this.getCourse();
     this.getTestimonial();
   }
 
@@ -36,11 +36,11 @@ export default class CourseComponent {
     })
   }
 
-  getCourse(){
-    this.service.courseGet().subscribe((res:any)=> {
-      this.courseList = res;
-    })
-  }
+  // getCourse(){
+  //   this.service.courseGet().subscribe((res:any)=> {
+  //     this.courseList = res;
+  //   })
+  // }
 
   getTestimonial() {
     this.service.testimonialGet().subscribe((res: any) => {

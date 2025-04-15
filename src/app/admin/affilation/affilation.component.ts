@@ -29,6 +29,11 @@ export default class AffilationComponent {
   selectedSession = '';
   isUpdate: boolean = false;
   listId: any;
+
+  selectedYear: number = new Date().getFullYear();
+  years: number[] = [];
+
+
   constructor(private service: ApiService, private FB: FormBuilder, public router: Router) {
     this.getFile();
   }
@@ -39,8 +44,14 @@ export default class AffilationComponent {
       title: [null, Validators.required],
       url: [null, Validators.required],
       type: [null, Validators.required],
-      session: [null, Validators.required]
+      // session: [null, Validators.required]
     });
+
+    for (let year = 2000; year <= 2090; year++) {
+      this.years.push(year);
+    }
+
+
   }
   getPageNumbers(): number[] {
     return Array.from({ length: this.totalPages }, (_, i) => i + 1);
@@ -90,15 +101,21 @@ export default class AffilationComponent {
 
   }
 
-  onDateSelect(event: any) {
-    const fullValue = event.target.value; // e.g., "2025-01"
-    const year = fullValue.split('-')[0]; // Extract "2025"
-    this.fileForm.patchValue({
-      session: year
-    });
-    this.selectedSession = ''
-    // this.fileForm.get('file')?.setValue(year);
+  // / Handle year change event
+  onYearChange() {
+    console.log("Selected Year:", this.selectedYear);
+    // You can add any additional logic you need to handle the change here
   }
+
+  // onDateSelect(event: any) {
+  //   const fullValue = event.target.value; // e.g., "2025-01"
+  //   const year = fullValue.split('-')[0]; // Extract "2025"
+  //   this.fileForm.patchValue({
+  //     session: year
+  //   });
+  //   this.selectedSession = ''
+  //   // this.fileForm.get('file')?.setValue(year);
+  // }
 
   handleSubmit() {
     this.loader = true;
@@ -108,9 +125,9 @@ export default class AffilationComponent {
       title: this.fileForm.value.title,
       url: this.fileForm.value.url,
       type: this.fileForm.value.type,
-      session: this.fileForm.value.session
+      session: this.selectedYear || this.selectedSession
     }
-
+    // console.log(payload)
     const service = this.isUpdate ? this.service.affiliationUpdateService(payload, this.listId) : this.service.affiliationService(payload)
     service.subscribe(
       (res: any) => {
@@ -148,6 +165,8 @@ export default class AffilationComponent {
       url: data.url,
       type: data.type,
     });
+    this.selectedYear = data.session;
+    console.log(data)
     this.listId = data.id
     this.selectedSession = data.session
     this.selectedFileName = data.file;
@@ -156,4 +175,6 @@ export default class AffilationComponent {
     }, 100);
     this.isUpdate = true
   }
+
+
 }

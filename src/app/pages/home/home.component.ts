@@ -85,13 +85,13 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
       // }
     });
   }
-  getCourse() {
-    this.service.courseGet().subscribe((res: any) => {
-      this.courseList = res;
-    })
-  }
+  // getCourse() {
+  //   this.service.courseGet().subscribe((res: any) => {
+  //     this.courseList = res;
+  //   })
+  // }
   getMetor() {
-    this.service.mentorGet().subscribe((res: any) => {
+    this.service.mentoruserGet().subscribe((res: any) => {
       this.mentorList = res.data;
       console.log(res.data)
     })

@@ -1,16 +1,17 @@
 <app-card cardTitle="Add Banner" [options]="false">
-  <form [formGroup]="bannerForm">
+  <form [formGroup]="bannerForm"  #formSection>
     <div class="row">
-      <!-- <div class="mb-3 col-lg-6">
+      <div class="mb-3 col-lg-6">
         <label for="" class="form-label">Banner Title</label>
-        <input type="text" class="form-control" formControlName="bannerTitle"> -->
-      <!-- </div> -->
+        <input type="text" class="form-control" formControlName="bannerTitle">
+      </div>
       <div class="mb-3 col-lg-6">
         <label for="" class="form-label">Banner Image</label>
+        <div class="text-info" *ngIf="selectedFileName">Selected File: {{ selectedFileName }}</div>
         <input type="file" class="form-control"  (change)="onFileSelect($event)"  formControlName="bannerImage">
       </div>
     </div>
-    <button type="submit" class="btn col-2 btn-primary" (click)="addBanner()" *ngIf="this.loader == false">Add</button>
+    <button type="submit" class="btn col-2 btn-primary" (click)="addBanner()" *ngIf="this.loader == false">{{isUpdate ? "Update" : "Add"}}</button>
     <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
       <span class="sr-only">Loading...</span>
     </div>
@@ -22,7 +23,7 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <!-- <th scope="col">Banner Title</th> -->
+        <th scope="col">Banner Title</th>
         <th scope="col">Banner Image</th>
         <th scope="col">Action</th>
       </tr>
@@ -30,9 +31,9 @@
     <tbody>
       <tr *ngFor="let list of this.bannerList; index as i">
         <th scope="row">{{i+1}} </th>
-        <!-- <td>{{list.title}}</td> -->
+        <td>{{list.title}}</td>
         <td><img src="{{baseUrl}}{{list.bannerPath}}" width="auto" height="100px"/></td>
-        <td><a class="btn btn-danger btn-sm" (click)="handleDelete(list.bannerID)"><i class="fa fa-trash"></i></a></td>
+        <td><a class="btn btn-danger btn-sm" (click)="handleDelete(list.bannerID)"><i class="fa fa-trash"></i></a>&nbsp;<a class="btn btn-danger btn-sm" (click)="handleEdit(list)"><i class="fa fa-edit"></i></a></td>
       </tr>
     </tbody>
   </table>

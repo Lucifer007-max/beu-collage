@@ -15,16 +15,16 @@ import { ApiService } from 'src/service/api.service';
 export default class MerchandiseComponent {
   wfile: File | any = null;
   loader: boolean = false;
-  testimonialList:any;
-  mentorForm:any;
-  mentorList:any
+  testimonialList: any;
+  mentorForm: any;
+  mentorList: any
   imgUrl = environment.imgUrl
   constructor(private service: ApiService, private FB: FormBuilder) {
     this.mentorGets();
-   }
+  }
 
 
-   ngOnInit() {
+  ngOnInit() {
     this.mentorForm = this.FB.group({
       mentorImage: ['', Validators.required], // Image Upload
       mentortitle: ['', Validators.required], // Title
@@ -32,18 +32,17 @@ export default class MerchandiseComponent {
       position: ['', Validators.required], // Position
     });
   }
-  handleDelete(id:number){
-    this.service.mentorDelete(id).subscribe((res) => {
+
+  handleDelete(id: number,value:string) {
+    this.service.mentorDelete(id,value).subscribe((res) => {
       // console.log(res)
       this.mentorGets()
-      this.service.SuccessSnackbar(res.message);
-      } ,(err) => {
-        this.service.ErrorSnackbar(err.message);
-        this.loader = false;
+      this.service.SuccessSnackbar(res.data.message);
+    }, (err) => {
+      this.service.ErrorSnackbar(err.message);
+      this.loader = false;
     })
   }
-
-
 
   handleSubmit() {
     if (this.mentorForm.valid) {
@@ -72,8 +71,6 @@ export default class MerchandiseComponent {
     }
   }
 
-
-
   onFileSelect(event: any) {
     const file = event.target.files[0];
     if (file) {
@@ -81,9 +78,66 @@ export default class MerchandiseComponent {
     }
   }
 
-  mentorGets(){
-    this.service.mentorGet().subscribe((res:any) => {
+  mentorGets() {
+    this.service.mentorGet().subscribe((res: any) => {
       this.mentorList = res.data
     })
   }
+
+  editIndex: number | null = null;
+  editableRow: any = {};
+  previewImage: string | null = null;
+  selectedFile: File | null = null;
+
+  onFileChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      // this.mentorForm.patchValue({ mentorImage: file });
+      this.selectedFile = file
+
+    }
+  }
+
+  startEdit(index: number, row: any) {
+    this.editIndex = index;
+    this.editableRow = { ...row }; // clone the row
+    this.previewImage = this.imgUrl + row.mentorImage;
+  }
+
+  cancelEdit() {
+    this.editIndex = null;
+    this.editableRow = {};
+    this.previewImage = null;
+    this.selectedFile = null;
+  }
+
+  updateRow(index: number) {
+    const updatedData = { ...this.editableRow };
+
+    if (this.selectedFile) {
+      updatedData.mentorImage = this.selectedFile;
+    }
+
+    this.mentorList[index] = updatedData;
+
+    console.log(updatedData, this.mentorList[index])
+
+    this.service.mentorUpdateService(this.mentorList[index]).subscribe((res: any) => {
+      if (res.status) {
+        this.service.SuccessSnackbar(res?.data?.message);
+        // this.mentorForm.reset()
+        this.mentorGets()
+        this.cancelEdit();
+
+      } else {
+        this.service.ErrorSnackbar('Something went wrong...!!');
+      }
+      this.loader = false;
+    }, (err) => {
+      this.service.ErrorSnackbar(err.message);
+      this.loader = false;
+    });
+  }
+
+
 }

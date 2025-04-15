@@ -1,0 +1,53 @@
+<app-header></app-header>
+<section class="position-relative w-100"
+  style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
+  <!-- Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
+
+  <!-- Content -->
+  <div
+    class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+    <h1 class="fs-2 fw-bold text-light">Letter</h1>
+
+    <nav class="mt-2">
+      <ul class="breadcrumb bg-primary">
+        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+        <li class="breadcrumb-item active text-white" aria-current="page">Letter</li>
+      </ul>
+    </nav>
+
+    <!-- Divider -->
+    <div class="border-top border-white mt-2" style="width: 100%; opacity: 0.6;"></div>
+  </div>
+</section>
+
+
+<!-- Main Content Section -->
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <!-- Sidebar -->
+      <div class="col-lg-12">
+        <table class="table table-responsive table-striped table-hover table-bordered">
+            <thead>
+              <tr>
+                <th style="width: 300px;">Branch Name</th>
+                <th style="width: 250px;">Branch Code</th>
+                <th >File</th>
+              </tr>
+            </thead>
+            <tbody>
+             <tr *ngFor="let group of dataList">
+              <td>{{group.branchName}}</td>
+              <td>{{group.branchCode}}</td>
+              <td><a [href]="group.file" class="btn btn-outline-primary" >Semester {{group.semester}} <i class="fa fa-cloud-download"></i></a></td>
+             </tr>
+            </tbody>
+          
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

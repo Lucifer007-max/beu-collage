@@ -5,37 +5,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <!-- Banner Section (Left) -->
-    <!-- <div class="col-lg-7 col-12 p-0"> -->
-    <!-- <div id="carouselExampleCaptions" class="carousel slide d-none">
-      <div class="carousel-indicators">
-        <button *ngFor="let banner of bannerList; let i = index" type="button"
-          [attr.data-bs-target]="'#carouselExampleCaptions'" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
-          [attr.aria-current]="i === 0 ? 'true' : null" [attr.aria-label]="'Slide ' + (i + 1)">
-        </button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item" *ngFor="let banner of bannerList; let i = index" [class.active]="i === 0">
-          <img
-            [src]="'https://paramapi.getmocktest.com/'+banner.imagePath.replace('wwwroot\\', '').replace('/\\/g', '/')"
-            class="d-block w-100 height_banner" alt="...">
-          <div class="carousel-caption d-none">
-            <h5>Slide {{i + 1}} label</h5>
-            <p class="text-dark">Some representative placeholder content for slide {{i + 1}}.</p>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div> -->
+
 
     <div class="col-lg-3 col-md-3 col-sm-12  p-0" style="background: #FAF2BA">
       <div class="card m-0 shadow-sm shadow-none">
@@ -57,23 +27,6 @@
           <ul id="notice-board" class="list-group list-group-flush notice-board overflow-hidden"
             [innerHTML]="this.noticeBoard">
 
-
-
-            <!-- <li class="list-group-item font-secondary-color p-2" style="background: #FAF2BA">
-              <i class="fa fa-arrow-right font-secondary-color me-2"></i>
-              Walk-in Interview for Guest Faculty Recruitment 2024-25 - REC, Basti, Pratapgarh, Gonda, and Mirzapur
-            </li>
-            <li class="list-group-item font-secondary-color d-flex justify-content-between align-items-center p-2" style="background: #FAF2BA">
-              <div>
-                <i class="fa fa-arrow-right font-secondary-color me-2"></i>
-                Screening Result for Teaching Post at AKTU Lucknow
-              </div>
-              <span class="badge bg-danger">NEW</span>
-            </li>
-            <li class="list-group-item font-secondary-color p-2" style="background: #FAF2BA">
-              <i class="fa fa-arrow-right font-secondary-color me-2"></i>
-              Screening Result for Teaching Post in U.P. Institute
-            </li> -->
           </ul>
         </div>
       </div>
@@ -90,9 +43,8 @@
       <div class="carousel-inner">
         <div class="carousel-item" *ngFor="let banner of bannerList; let i = index" [class.active]="i === 0">
           <img [src]="baseUrl + banner.bannerPath" class="d-block w-100 height_banner" alt="...">
-          <div class="carousel-caption d-none">
-            <h5>Slide {{i + 1}} label</h5>
-            <p class="text-dark">Some representative placeholder content for slide {{i + 1}}.</p>
+          <div class="carousel-caption" *ngIf="banner.title">
+            <h5>{{banner.title}}</h5>
           </div>
         </div>
       </div>
@@ -373,15 +325,24 @@
               <i class="text-muted">Bihar Engineering University</i>
             </div>
           </div> -->
-          <div *ngFor="let mentor of mentorList" class="col-12 d-flex align-items-center border-bottom pb-2">
-            <img [src]="baseUrl+ mentor.mentorImage" class="img-fluid me-3" style="width: 100px; height: 120px;"
-              alt="{{ mentor.mentortitle }}">
-            <div>
-              <h5 class="fw-bold mb-1">{{ mentor.mentortitle }}</h5>
-              <p class="text-muted mb-1">{{ mentor.role }}</p>
-              <i class="text-muted">{{ mentor.position }}</i>
+          <div *ngIf="mentorList.length > 0; else noMentor">
+            <div *ngFor="let mentor of mentorList" class="col-12 d-flex align-items-center border-bottom pb-2">
+              <img [src]="baseUrl + mentor.mentorImage" class="img-fluid me-3" style="width: 100px; height: 120px;" alt="{{ mentor.mentortitle }}">
+              <div>
+                <h5 class="fw-bold mb-1">{{ mentor.mentortitle }}</h5>
+                <p class="text-muted mb-1">{{ mentor.role }}</p>
+                <i class="text-muted">{{ mentor.position }}</i>
+              </div>
             </div>
           </div>
+
+          <ng-template #noMentor>
+            <div class="text-center text-muted py-4">
+              <p>No mentor is there.</p>
+            </div>
+          </ng-template>
+
+
 
         </div>
       </div>

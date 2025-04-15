@@ -138,6 +138,14 @@ const routes: Routes = [
         path: 'media/publication',
         loadComponent: () => import('./pages/media/publication/publication.component')
       },
+      {
+        path: 'media/media',
+        loadComponent: () => import('./pages/media/media/media.component')
+      },
+      {
+        path: 'media/pictures',
+        loadComponent: () => import('./pages/media/pictures/pictures.component')
+      },
 
 
       {
@@ -169,6 +177,16 @@ const routes: Routes = [
         path: 'course/:id',
         loadComponent: () => import('./pages/course-details/course-details.component'),
       },
+      {
+        path: 'academic/:id',
+        loadComponent: () => import('./pages/academics/academics.component'),
+      },
+      {
+        path: 'academic/session/:id',
+        loadComponent: () => import('./pages/academic-session/academic-session.component'),
+      },
+
+
       {
         path: 'admin',
         loadComponent: () => import('./admin/authentication/sign-in/sign-in.component')
@@ -262,6 +280,31 @@ const routes: Routes = [
       {
         path: 'admin/add-affiliation',
         loadComponent: () => import('./admin/affilation/affilation.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-media',
+        loadComponent: () => import('./admin/media/admin-media/admin-media.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-photo',
+        loadComponent: () => import('./admin/media/admin-photo/admin-photo.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-session',
+        loadComponent: () => import('./admin/course/add-course/add-course.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-syllabus',
+        loadComponent: () => import('./admin/course/add-syllabus/add-syllabus.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/upload-course',
+        loadComponent: () => import('./admin/course/course-upload/course-upload.component'),
         // canActivate: [AuthGuard]
       },
     ]

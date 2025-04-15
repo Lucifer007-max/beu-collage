@@ -142,10 +142,24 @@ color: #0676BD !important;
 #notice_marquee  br {
   display: none;
 }
+@media (max-width:768px) {
+
+  #navbarNav .nav-link 
+    {
+    width: 120px;
+    min-width: 280px;
+  }
+  .dropdown-menu > li, .dropdown-menu > .dropdown-item {
+    width: 250px !important;
+  }
+}
 
 #navbarNav .nav-link {
 
   color: #fff !important;
+}
+#navbarNav .dropdown-menu{
+  background: #0676bd !important;
 }
 #important-information .list-group-item{
   background: inherit !important;

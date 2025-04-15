@@ -246,7 +246,7 @@ export default class DashAnalyticsComponent {
         }
       }
     };
-    this.getCourse()
+    // this.getCourse()
     this.getBanner()
 
     // var a = sessionStorage.getItem('token');
@@ -275,11 +275,11 @@ export default class DashAnalyticsComponent {
   ];
 
 
-  getCourse(){
-    this.service.courseGet().subscribe((res:any)=> {
-      this.courseCount = res.length;
-    })
-  }
+  // getCourse(){
+  //   this.service.courseGet().subscribe((res:any)=> {
+  //     this.courseCount = res.length;
+  //   })
+  // }
 
   getBanner(){
     this.service.bannerGet().subscribe((res:any)=> {

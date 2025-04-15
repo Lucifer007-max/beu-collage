@@ -33,6 +33,14 @@ import { AuthGuard } from 'src/guard/authguard.guard';
 import { StudentComponent } from './theme/layout/student/student.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+// import { AcademicSessionComponent } from './pages/academic-session/academic-session.component';
+// import { AcademicsComponent } from './pages/academics/academics.component';
+// import { CourseUploadComponent } from './admin/course/course-upload/course-upload.component';
+// import { AddSyllabusComponent } from './admin/course/add-syllabus/add-syllabus.component';
+// import { PicturesComponent } from './pages/media/pictures/pictures.component';
+// import { AdminPhotoComponent } from './admin/media/admin-photo/admin-photo.component';
+// import { MediaComponent } from './pages/media/media/media.component';
+// import { AdminMediaComponent } from './admin/media/admin-media/admin-media.component';
 // import { VideosComponent } from './pages/media/videos/videos.component';
 // import { PublicationComponent } from './pages/media/publication/publication.component';
 // import { AdminVideosComponent } from './admin/media/admin-videos/admin-videos.component';
@@ -74,7 +82,15 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NavCollapseComponent,
     NavGroupComponent,
     NotFoundComponent,
-    StudentComponent,
+    // AcademicSessionComponent,
+    // StudentComponent,
+    // AcademicsComponent,
+    // CourseUploadComponent,
+    // AddSyllabusComponent,
+    // PicturesComponent,
+    // AdminPhotoComponent,
+    // MediaComponent,
+    // AdminMediaComponent,
     // VideosComponent,
     // PublicationComponent,
     // AdminVideosComponent,

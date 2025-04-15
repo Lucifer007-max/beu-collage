@@ -147,24 +147,46 @@ export default class NoticeBoardComponent implements OnInit {
   }
 
   @ViewChild('copyContent', { static: false }) copyContent!: ElementRef;
+  @ViewChild('copyContentnew', { static: false }) copyContentnew!: ElementRef;
   copySuccess: boolean = false;
 
-  copyToClipboard() {
-    const el = this.copyContent.nativeElement;
-    const range = document.createRange();
-    range.selectNode(el);
-    window.getSelection()?.removeAllRanges();
-    window.getSelection()?.addRange(range);
+  copyToClipboard(type: string) {
+    if (type === "new") {
+      const el = this.copyContentnew.nativeElement;
+      const range = document.createRange();
+      range.selectNode(el);
+      window.getSelection()?.removeAllRanges();
+      window.getSelection()?.addRange(range);
 
-    try {
-      document.execCommand('copy');
-      this.copySuccess = true;
-      setTimeout(() => (this.copySuccess = false), 2000); // Hide success message after 2s
-    } catch (err) {
-      console.error('Failed to copy:', err);
+      try {
+        document.execCommand('copy');
+        this.copySuccess = true;
+        setTimeout(() => (this.copySuccess = false), 2000); // Hide success message after 2s
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
+
+      window.getSelection()?.removeAllRanges();
+
+    } else {
+      const el = this.copyContent.nativeElement;
+      const range = document.createRange();
+      range.selectNode(el);
+      window.getSelection()?.removeAllRanges();
+      window.getSelection()?.addRange(range);
+
+      try {
+        document.execCommand('copy');
+        this.copySuccess = true;
+        setTimeout(() => (this.copySuccess = false), 2000); // Hide success message after 2s
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
+
+      window.getSelection()?.removeAllRanges();
+
+
     }
-
-    window.getSelection()?.removeAllRanges();
   }
 
 }
