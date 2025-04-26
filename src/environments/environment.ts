@@ -7,11 +7,11 @@ import packageInfo from '../../package.json';
 export const environment = {
   appVersion: packageInfo.version,
   production: false,
-  imgUrl: 'http://localhost:9001/',
-  // apiUrl: 'https://beu.anantdrishti.com/v1/',
-  // backendUrl : 'https://beu.anantdrishti.com/v1/',
-  apiUrl: 'http://localhost:9001/v1/',
-  backendUrl : 'http://localhost:9001/v1/',
+  imgUrl: 'https://beu.anantdrishti.com/',
+  apiUrl: 'https://beu.anantdrishti.com/v1/',
+  backendUrl : 'https://beu.anantdrishti.com/v1/',
+  // apiUrl: 'http://localhost:9001/v1/',
+  // backendUrl : 'http://localhost:9001/v1/',
 };
 
 /*
