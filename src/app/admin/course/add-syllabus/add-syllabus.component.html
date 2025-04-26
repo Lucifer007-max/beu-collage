@@ -1,9 +1,15 @@
 <app-card cardTitle="Create Syllabus" [options]="false">
   <form class="row" autocomplete="off" [formGroup]="syllabus" (ngSubmit)="handleSubmit()" #formSection>
-    <div class="mb-3 col-lg-6">
+    <!-- <div class="mb-3 col-lg-6">
       <label class="form-label">Select Session</label>
       <select class="form-select form-control" (change)="onItemSelect($event)" formControlName="sessionID">
         <option *ngFor="let items of courseList" [value]="items.sessionID">{{items.session}}</option>
+      </select>
+    </div> -->
+    <div class="mb-3 col-lg-6">
+      <label class="form-label">Select Course</label>
+      <select class="form-select form-control" (change)="onItemSelect($event)" formControlName="courseID">
+        <option *ngFor="let items of courseOptions" [value]="items.id">{{items.title}}</option>
       </select>
     </div>
     <div class="mb-3 col-lg-6">
@@ -23,7 +29,7 @@
     <span class="sr-only">Loading...</span>
   </div>
   <a type="submit" (click)="handleSubmit()" class="btn btn-primary w-25" *ngIf="this.sloader == false"
-    width="100px">Submit</a>
+    width="100px">{{this.isUpdate ? "Update" : "Submit"}}</a>
 
 </app-card>
 
@@ -36,7 +42,7 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Session ID</th>
+        <th scope="col">Course Name</th>
         <th scope="col">Branch Name</th>
         <th scope="col">Branch Code</th>
         <th scope="col">Action</th>
@@ -46,17 +52,20 @@
       <tr *ngFor="let list of this.syllabusList; index as i">
         <th scope="row">{{i+1}} </th>
         <td>
-         {{list.sessionID}}
+            <span *ngIf="list.courseID === '1'">B.Tech</span>
+            <span *ngIf="list.courseID === '2'">M.Tech</span>
+            <span *ngIf="list.courseID === '3'">PHD</span>
+
         </td>
         <td>{{list.branchName}}</td>
         <td>{{list.branchCode}}</td>
         <td>
-          <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
-            <span class="sr-only">Loading...</span>
-          </div>
-          <a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)" *ngIf="this.loader == false"><i
-              class="fa fa-trash"></i></a>
-        
+
+          <a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)"><i
+              class="fa fa-trash"></i></a>&nbsp;
+          <a class="btn btn-info btn-sm" (click)="handleEdit(list)"><i
+              class="fa fa-edit"></i></a>
+
         </td>
       </tr>
     </tbody>

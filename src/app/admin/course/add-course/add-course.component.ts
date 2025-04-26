@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { IDropdownSettings, NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ApiService } from 'src/service/api.service';
@@ -28,7 +28,7 @@ export default class AddCourseComponent {
   ngOnInit() {
     {
       this.courseForm = this.FB.group({
-        courseID: ['', Validators.required],
+        courseID: [null],
         session: ['', Validators.required],
       })
     }
@@ -124,6 +124,21 @@ export default class AddCourseComponent {
       this.service.ErrorSnackbar(err.message);
       this.loader = false;
     })
+  }
+
+  @ViewChild('formSection') formSection!: ElementRef;
+  isUpdate: boolean = false;
+
+  handleEdit(data: any) {
+    console.log(data)
+    this.courseForm.patchValue({
+      session: data.session,
+    })
+    this.id = data.id
+    setTimeout(() => {
+      this.formSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    this.isUpdate = true
   }
 }
 

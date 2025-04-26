@@ -1,5 +1,5 @@
 <app-card cardTitle="Create Session" [options]="false">
-  <form class="row" autocomplete="off" [formGroup]="courseForm" (ngSubmit)="handleSubmit()">
+  <form class="row" autocomplete="off" [formGroup]="courseForm" (ngSubmit)="handleSubmit()" #formSection>
     <div class="mb-3 col-lg-6">
       <label class="form-label">Select Course</label>
       <select class="form-select form-control" (change)="onItemSelect($event)" formControlName="courseID">
@@ -24,7 +24,6 @@
 
 <app-card cardTitle="Session List" [options]="false">
   <table class="table">
-    <!-- *ngIf="this.courseList.length > 0;else elsePart" -->
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -34,20 +33,28 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let list of this.courseList; index as i">
-        <th scope="row">{{i+1}} </th>
+      <!-- Show fallback if courseList is empty -->
+      <tr *ngIf="courseList.length === 0">
+        <td colspan="4" class="text-center text-muted">No records found</td>
+      </tr>
+
+      <!-- Otherwise show data -->
+      <tr *ngFor="let list of courseList; index as i">
+        <th scope="row">{{ i + 1 }}</th>
         <td>
-          <span *ngIf="list.courseID ===1 ">B.Tech</span>
-          <span *ngIf="list.courseID ===2 ">M.Tech</span>
-          <span *ngIf="list.courseID ===3 ">PHD</span>
+          <span *ngIf="list.courseID === 1">B.Tech</span>
+          <span *ngIf="list.courseID === 2">M.Tech</span>
+          <span *ngIf="list.courseID === 3">PHD</span>
         </td>
-        <td>{{list.session}}</td>
+        <td>{{ list.session }}</td>
         <td>
-          <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
-            <span class="sr-only">Loading...</span>
-          </div>
-          <a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)" *ngIf="this.loader == false"><i
-              class="fa fa-trash"></i></a>
+          <a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)">
+            <i class="fa fa-trash"></i>
+          </a>
+          &nbsp;
+          <a class="btn btn-info btn-sm" (click)="handleEdit(list)">
+            <i class="fa fa-edit"></i>
+          </a>
         </td>
       </tr>
     </tbody>

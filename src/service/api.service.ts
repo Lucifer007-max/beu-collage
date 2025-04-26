@@ -223,11 +223,11 @@ export class ApiService {
   }
 
 
-  coursesession(payload: any, id: number = 0): Observable<any> {
+  coursesession(payload: any, id: number): Observable<any> {
     return this.httpClient.put(this.baseUrl + `course/add-course-session/${id}`, payload)
       .pipe(catchError(this.handleError.bind(this)));
   }
-  coursesyllabus(payload: any, id: number = 0): Observable<any> {
+  coursesyllabus(payload: any, id: number): Observable<any> {
     return this.httpClient.put(this.baseUrl + `course/add-course-syllabus/${id}`, payload)
       .pipe(catchError(this.handleError.bind(this)));
   }
@@ -376,6 +376,21 @@ export class ApiService {
     return this.httpClient.put(this.baseUrl + 'banner/update-banner/' + id, formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
+  courseUpdateService(payload: any, id: number): Observable<any> {
+    const formData: any = new FormData();
+    for (const key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        // Ensure file is handled correctly
+        if (payload[key] instanceof File) {
+          formData.append(key, payload[key], payload[key].name); // Append file with its original name
+        } else {
+          formData.append(key, payload[key]);
+        }
+      }
+    }
+    return this.httpClient.put(this.baseUrl + 'course/update-course-file/' + id, formData)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
   mentorUpdateService(payload: any): Observable<any> {
     const formData: any = new FormData();
     for (const key in payload) {
@@ -405,7 +420,7 @@ export class ApiService {
       .pipe(catchError(this.handleError.bind(this)));
   }
   courseDelete(id: number): Observable<any> {
-    return this.httpClient.delete(this.baseUrl + 'Course/' + id)
+    return this.httpClient.delete(this.baseUrl + 'course/delete-course-session/' + id)
       .pipe(catchError(this.handleError.bind(this)));
   }
   courseSyllabus(id: number): Observable<any> {
@@ -442,7 +457,7 @@ export class ApiService {
       .pipe(catchError(this.handleError.bind(this)));
   }
   coursesyllabusGet(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + 'course/get-course-syllabus')
+    return this.httpClient.get(this.baseUrl + `course/get-course-syllabus`)
       .pipe(catchError(this.handleError.bind(this)));
   }
 
@@ -481,8 +496,8 @@ export class ApiService {
     return this.httpClient.get(this.baseUrl + 'publication/get-album')
       .pipe(catchError(this.handleError.bind(this)));
   }
-  courseFileGet(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + 'course/get-course-file')
+  courseFileGet(id:any): Observable<any> {
+    return this.httpClient.get(this.baseUrl + `course/get-course-file?${id}`)
       .pipe(catchError(this.handleError.bind(this)));
   }
   albumGetAll(): Observable<any> {

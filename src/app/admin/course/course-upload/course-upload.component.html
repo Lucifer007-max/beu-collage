@@ -1,34 +1,50 @@
 <app-card cardTitle="Upload Semester" [options]="false">
-  <form class="row" autocomplete="off" [formGroup]="syllabus" (ngSubmit)="handleSubmit()">
+  <form class="row" autocomplete="off" [formGroup]="courseForm" (ngSubmit)="handleSubmit()" #formSection>
+    <!-- Course Dropdown -->
+    <!-- Select Course Dropdown -->
     <div class="mb-3 col-lg-6">
-      <label class="form-label">Select Session</label>
-      <select class="form-select form-control" (change)="onItemSelect($event,'sessionYear')" formControlName="sessionYear">
-        <option *ngFor="let items of courseList" [value]="items.sessionID">{{items.session}}</option>
+      <label class="form-label">Select Course</label>
+      <select class="form-select form-control" (change)="onCourseChange($event)" formControlName="courseID">
+        <option *ngFor="let course of courseOptions" [value]="course.id">{{ course.title }}</option>
       </select>
     </div>
+
+    <!-- Select Branch Dropdown -->
     <div class="mb-3 col-lg-6">
       <label class="form-label">Select Branch</label>
-      <select class="form-select form-control" (change)="onItemSelect($event, 'session')" formControlName="sessionID">
-        <option *ngFor="let items of syllabus" [value]="items.branchName">{{items.branchName}}</option>
+      <select class="form-select form-control" (change)="onItemSelect($event,'branch')" [disabled]="isDisable"
+        formControlName="sessionID">
+        <option *ngFor="let branch of filteredBranches" [value]="branch.sessionID">{{ branch.branchName }}</option>
       </select>
     </div>
+
+
+    <!-- Session Dropdown (Filtered by Course) -->
+    <div class="mb-3 col-lg-6">
+      <label class="form-label">Select Session</label>
+      <select class="form-select form-control" (change)="onSessionChange($event)" formControlName="sessionYear">
+        <option *ngFor="let session of filteredSessions" [value]="session.session">{{ session.session }}</option>
+      </select>
+    </div>
+    <!-- Branch Dropdown -->
+
     <div class="mb-3 col-lg-6">
       <label class="form-label">Select Semester</label>
-      <select class="form-select form-control" (change)="onItemSelect($event, 'sem')" formControlName="sessionID">
+      <select class="form-select form-control" (change)="onItemSelect($event, 'sem')" formControlName="semID">
         <option *ngFor="let items of semaster" [value]="items.id">{{items.title}}</option>
       </select>
     </div>
     <div class="mb-3 col-lg-6">
       <label for="" class="form-label">File</label>
-      <!-- <div class="text-info" *ngIf="selectedFileName">Selected File: {{ selectedFileName }}</div> -->
-      <input type="file" class="form-control"  (change)="onFileSelect($event)"  formControlName="bannerImage">
+      <div class="text-info" *ngIf="selectedFileName">Selected File: {{ selectedFileName }}</div>
+      <input type="file" class="form-control" (change)="onFileSelect($event)" accept=".pdf" formControlName="file">
     </div>
 
   </form>
-  <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
+  <div class="spinner-border text-dark" role="status" *ngIf="this.loader === true">
     <span class="sr-only">Loading...</span>
   </div>
-  <a type="submit" *ngIf="this.loader == false" (click)="handleSubmit()" class="btn btn-primary w-25"
+  <a type="submit" *ngIf="this.loader === false" (click)="handleSubmit()" class="btn btn-primary w-25"
     width="100px">Submit</a>
 
 </app-card>
@@ -37,6 +53,19 @@
 
 
 <app-card cardTitle="Semester List" [options]="false">
+  <!-- <div class="mb-3 col-lg-6">
+    <label class="form-label">Select Branch</label>
+    <select class="form-select form-control" (change)="onItemSelect($event, 'branchfilter')">
+      <option *ngFor="let branch of cousteListsyllabus" [value]="branch.branchCode">{{ branch.branchName }}</option>
+    </select>
+  </div> -->
+  <div class="mb-3 col-lg-3">
+    <label class="form-label">Filter By Course : </label>
+    <select class="form-select form-control col-4" (change)="filterChnage('course',$event)">
+      <option *ngFor="let course of courseOptions" [value]="course.id">{{ course.title }}</option>
+    </select>
+  </div>
+
   <table class="table">
     <thead>
       <tr>
@@ -51,7 +80,7 @@
       <tr *ngFor="let list of this.dataList; index as i">
         <th scope="row">{{i+1}} </th>
         <td>
-         {{list.sessionID}}
+          {{list.sessionID}}
         </td>
         <td>{{list.semester}} Semester</td>
         <td>{{list.file}}</td>
@@ -59,8 +88,9 @@
           <!-- <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
             <span class="sr-only">Loading...</span>
           </div> -->
-          <a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)" *ngIf="this.loader == false"><i
-              class="fa fa-trash"></i></a>
+          <a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)"><i class="fa fa-trash"></i></a>
+          &nbsp;
+          <a class="btn btn-info btn-sm" (click)="handleEdit(list)"><i class="fa fa-edit"></i></a>
         </td>
       </tr>
     </tbody>

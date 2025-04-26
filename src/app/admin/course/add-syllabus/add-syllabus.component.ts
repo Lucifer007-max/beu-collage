@@ -28,13 +28,19 @@ export default class AddSyllabusComponent {
   ngOnInit() {
     {
       this.syllabus = this.FB.group({
-        sessionID: ['', Validators.required],
+        courseID: ['', Validators.required],
         branchCode: ['', Validators.required],
         branchName: ['', Validators.required],
       })
     }
     this.getSessionList();
     this.getSyllabusList();
+
+    this.courseOptions = [
+      { "id": 1, title: 'B.Tech' },
+      { "id": 2, title: 'M.Tech' },
+      { "id": 3, title: 'PHD' }
+    ]
   }
   onItemSelect(item: any) {
     console.log(item.target.value);
@@ -47,7 +53,7 @@ export default class AddSyllabusComponent {
     if (this.syllabus.valid) {
       this.sloader = true;
       const payLoad = {
-        "sessionID": this.selectedItems,
+        "courseID": this.selectedItems,
         "branchCode": this.syllabus.value.branchCode,
         "branchName": this.syllabus.value.branchName,
       }
@@ -101,12 +107,14 @@ export default class AddSyllabusComponent {
   isUpdate: boolean = false;
 
   handleEdit(data: any) {
-    console.log(data)
+    console.log(data,this.syllabus)
+
     this.syllabus.patchValue({
-      sessionID: data.sessionID,
+      courseID: data.courseID,
       branchCode: data.branchCode,
       branchName: data.branchName
     })
+    this.id = data.id
     setTimeout(() => {
       this.formSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }, 100);
