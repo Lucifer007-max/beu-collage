@@ -224,6 +224,13 @@ export const NavigationItems: NavigationItem[] = [
 
     ]
   },
+  {
+    id: 'profile',
+    title: 'Profile',
+    type: 'item',
+    url: '/admin/profile',
+    icon: 'feather icon-user'
+  },
 
   // {
   //   id: 'ui-component',

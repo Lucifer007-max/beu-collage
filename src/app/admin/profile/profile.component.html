@@ -1,0 +1,41 @@
+<app-card cardTitle="Update Password" [options]="false">
+  <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="mb-3 col-lg-10">
+        <label for="currentPassword">Current Password</label>
+        <input
+          type="password"
+          id="currentPassword"
+          class="form-control"
+          formControlName="currentPassword"
+        />
+
+        <label for="newPassword" class="mt-2">New Password</label>
+        <input
+          type="password"
+          id="newPassword"
+          class="form-control"
+          formControlName="newPassword"
+        />
+
+        <label for="confirmPassword" class="mt-2">Confirm New Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          class="form-control"
+          formControlName="confirmPassword"
+        />
+      </div>
+    </div>
+
+    <div>
+      <button type="submit" class="btn col-2 btn-primary" (click)="onSubmit()" *ngIf="!loading">
+        Update Password
+      </button>
+    </div>
+
+    <div class="spinner-border text-dark" role="status" *ngIf="loading">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </form>
+</app-card>

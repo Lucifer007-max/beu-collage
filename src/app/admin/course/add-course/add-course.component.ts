@@ -133,6 +133,7 @@ export default class AddCourseComponent {
     console.log(data)
     this.courseForm.patchValue({
       session: data.session,
+      courseID:data.courseID
     })
     this.id = data.id
     setTimeout(() => {

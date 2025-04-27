@@ -40,8 +40,10 @@ export default class SignInComponent implements OnInit {
       console.log(res)
       this.API.SuccessSnackbar("Welcome "+res.firstName+" You have login successfully");
       sessionStorage.setItem('token' , res.token)
+      sessionStorage.setItem('id' , res.id)
       this.router.navigate(['/admin/dashboard'])
     },(err) => {
+      console.log(err)
       this.API.ErrorSnackbar(err.message)
     })
   }

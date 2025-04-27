@@ -560,7 +560,14 @@ export class ApiService {
       .pipe(catchError(this.handleError.bind(this)));
   }
 
+
+  updatePassword(data: { id: any; currentPassword: string; newPassword: string }): Observable<any> {
+    return this.httpClient.put(`${this.baseUrl}client/update-password`, data);
+  }
+
+
   handleError(error: any): Observable<never> {
+    console.log(error?.error)
     let errorMessage = 'An unknown error occurred!';
     if (error.error instanceof ErrorEvent) {
       // Client-side errors
@@ -570,7 +577,7 @@ export class ApiService {
       if (error.error.errors) {
         errorMessage = Object.values(error.error.errors).flat().join(' ');
       } else {
-        errorMessage = error.error.title || errorMessage;
+        errorMessage = error.error.message || errorMessage;
       }
     }
     console.error(errorMessage);

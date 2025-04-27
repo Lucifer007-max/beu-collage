@@ -33,6 +33,7 @@ import { AuthGuard } from 'src/guard/authguard.guard';
 import { StudentComponent } from './theme/layout/student/student.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+// import { ProfileComponent } from './admin/profile/profile.component';
 // import { AcademicSessionComponent } from './pages/academic-session/academic-session.component';
 // import { AcademicsComponent } from './pages/academics/academics.component';
 // import { CourseUploadComponent } from './admin/course/course-upload/course-upload.component';
@@ -82,6 +83,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NavCollapseComponent,
     NavGroupComponent,
     NotFoundComponent,
+    // ProfileComponent,
     // AcademicSessionComponent,
     // StudentComponent,
     // AcademicsComponent,

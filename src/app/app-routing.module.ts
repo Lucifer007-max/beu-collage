@@ -307,6 +307,11 @@ const routes: Routes = [
         loadComponent: () => import('./admin/course/course-upload/course-upload.component'),
         // canActivate: [AuthGuard]
       },
+      {
+        path: 'admin/profile',
+        loadComponent: () => import('./admin/profile/profile.component'),
+        // canActivate: [AuthGuard]
+      },
     ]
   },
 
