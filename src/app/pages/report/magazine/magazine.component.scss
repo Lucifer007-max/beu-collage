@@ -1,0 +1,40 @@
+.report-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.report-item {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  transition: background 0.3s ease;
+}
+
+.report-item:last-child {
+  border-bottom: none;
+}
+
+.report-item:hover {
+  background-color: #f9f9f9;
+}
+
+.report-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.report-link:hover .report-title {
+  color: #007BFF;
+}
+
+.report-title {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.report-icon {
+  font-size: 0.9rem;
+}
