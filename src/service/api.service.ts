@@ -271,6 +271,37 @@ export class ApiService {
     return this.httpClient.post(this.baseUrl + 'publication/add-press', formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
+
+  ReportService(payload: any): Observable<any> {
+    const formData: any = new FormData();
+    for (const key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        // Ensure file is handled correctly
+        if (payload[key] instanceof File) {
+          formData.append(key, payload[key], payload[key].name); // Append file with its original name
+        } else {
+          formData.append(key, payload[key]);
+        }
+      }
+    }
+    return this.httpClient.post(this.baseUrl + 'report/add-report', formData)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  MagzineService(payload: any): Observable<any> {
+    const formData: any = new FormData();
+    for (const key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        // Ensure file is handled correctly
+        if (payload[key] instanceof File) {
+          formData.append(key, payload[key], payload[key].name); // Append file with its original name
+        } else {
+          formData.append(key, payload[key]);
+        }
+      }
+    }
+    return this.httpClient.post(this.baseUrl + 'report/add-magzine', formData)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
   albumALlService(payload: any): Observable<any> {
     const formData: any = new FormData();
     for (const key in payload) {
@@ -435,6 +466,14 @@ export class ApiService {
     return this.httpClient.delete(this.baseUrl + 'publication/delete-press/' + id)
       .pipe(catchError(this.handleError.bind(this)));
   }
+  reportDelete(id: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + 'report/delete-report/' + id)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  magzineDelete(id: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + 'report/delete-magzine/' + id)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
   albumDelete(id: number): Observable<any> {
     return this.httpClient.delete(this.baseUrl + 'publication/delete-albumall/' + id)
       .pipe(catchError(this.handleError.bind(this)));
@@ -490,6 +529,14 @@ export class ApiService {
   }
   pressGet(): Observable<any> {
     return this.httpClient.get(this.baseUrl + 'publication/get-press')
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  reportGet(): Observable<any> {
+    return this.httpClient.get(this.baseUrl + 'report/get-report')
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  magzineGet(): Observable<any> {
+    return this.httpClient.get(this.baseUrl + 'report/get-magzine')
       .pipe(catchError(this.handleError.bind(this)));
   }
   albumGet(): Observable<any> {

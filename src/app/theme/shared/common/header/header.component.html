@@ -1,5 +1,5 @@
 <header class="w-100">
-  <!-- <div class="d-flex justify-content-center align-items-center border-bottom border-primary border-dashed bg-light text-primary fw-semibold small">
+  <div class="d-flex justify-content-center align-items-center border-bottom border-primary border-dashed bg-light text-primary fw-semibold small">
     <ul class="d-flex list-unstyled m-0">
       <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/'">Home</li>
 
@@ -11,10 +11,12 @@
       <li class="px-3 py-2 cursor-pointer hover-text-warning"><div id="google_translate_element"></div></li>
 
     </ul>
-  </div> -->
+  </div>
 
-  <div class="container py-3 d-flex flex-column flex-lg-row align-items-lg-center justify-content-between">
-    <div class="d-flex flex-column flex-lg-row align-items-center gap-3 w-100">
+  <div class="">
+    <!-- container p-0 m-0 d-flex flex-column flex-lg-row align-items-lg-center justify-content-between -->
+    <div class="d-none flex-column flex-lg-row align-items-center gap-3 w-100">
+
       <div class="d-flex justify-content-center">
         <!-- Image for Mobile View -->
         <img src="https://iplfans.in/beu/images/beu_logo.jpeg" alt="BEU Logo"
@@ -32,25 +34,16 @@
         <h2 class="h4 fw-bold">बिहार अभियंत्रण विश्‍वविद्यालय, पटना</h2>
       </div>
     </div>
-
+    <img src="../../../../../assets/logo.png" class="w-100 p-0" />
     <!-- Image for Desktop View -->
-    <img src="https://college-website-brown-one.vercel.app/assets/governmentOfBihar.webp" alt="governmentOfBihar logo"
-      class="img-fluid   d-none d-sm-none d-md-block d-lg-block d-xl-block" style="width: 4rem;">
+    <!-- <img src="https://college-website-brown-one.vercel.app/assets/governmentOfBihar.webp" alt="governmentOfBihar logo"
+      class="img-fluid   d-none d-sm-none d-md-block d-lg-block d-xl-block" style="width: 4rem;"> -->
 
     <div id="google_translate_element"></div>
-    <!-- <select class="form-control" (change)="translateLanguage($event)">
-      <option value="">Select Language</option>
-      <option value="en">English</option>
-      <option value="hi">Hindi</option>
-      <option value="fr">French</option>
-      <option value="es">Spanish</option>
-      <option value="ar">Arabic</option>
-    </select> -->
-
   </div>
 
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-primary p-1">
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary p-0">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +58,7 @@
       <ng-template #renderMenu let-items="items">
         <ng-container *ngFor="let item of items">
           <li
-            class="nav-item text-light"
+            class="nav-item"
             [ngClass]="{ 'dropdown': item.subItems?.length > 0 }"
             (mouseenter)="onMouseEnter(item)"
             (mouseleave)="onMouseLeave(item)"
@@ -92,120 +85,7 @@
 
 
 
-      <!-- <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item text-light"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item text-light dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About Us</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="'/about/vision'">Vision</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/about/mission'">Mission</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/about/objective'">Objective</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/about/history'">History</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/about/vision-mission'">Vision and Mission</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/about/university-act'">University Act</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/about/regulations'">Regulations (First, 2010)</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/about/noida-campus'">Noida Campus</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/about/university-logo'">University Logo</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/about/annual-report'">Annual Report 2016</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/about/data-privacy-policy'">AKTU Data Privacy Policy</a></li>
 
-            </ul>
-          </li>
-          <li class="nav-item text-light dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Organization
-              Structure</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="'/organization/chancellor'">Chancellor</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/organization/vice-chancellor'">Vice Chancellor</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/organization/pro-vice-chancellor'">Pro Vice Chancellor</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/organization/executive-council'">Executive Council</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/organization/academic-council'">Academic Council</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/organization/finance-committee'">Finance Committee</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/organization/examination-committee'">Examination Committee</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/organization/building-works-committee'">Building & Works Committee</a></li>
-
-            </ul>
-          </li>
-          <li class="nav-item text-light"><a class="nav-link" href="https://aktu.ac.in/pdf/affiliation_080715.pdf"
-              target="_blank">Affiliation</a></li>
-          <li class="nav-item text-light"><a class="nav-link" [routerLink]="'/Academics'">Academics</a></li>
-          <li class="nav-item text-light dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"> Addmission</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="'/organization/chancellor'">Bachelors</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/organization/vice-chancellor'">Masters</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/organization/vice-chancellor'">Doctoral (Ph.D)</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                Examination
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Branch Codes</a></li>
-                <li><a class="dropdown-item" href="#">Course Codes</a></li>
-                <li><a class="dropdown-item" href="#">Subject Code & Paper ID</a></li>
-                <li><a class="dropdown-item" href="#">Examination Centre</a></li>
-                <li><a class="dropdown-item" href="#">Examination Schedule</a></li>
-                <li><a class="dropdown-item" href="#">UFM Rules</a></li>
-                <li><a class="dropdown-item" href="#">Revaluation Rules</a></li>
-                <li><a class="dropdown-item" href="#">Grace Rule in CBCS System</a></li>
-                <li><a class="dropdown-item" href="#">Detained Rule in CBCS System</a></li>
-                <li><a class="dropdown-item" href="#">Question Bank Portal</a></li>
-                <li><a class="dropdown-item" [routerLink]="'/annual-report'">Annual Report</a></li>
-                <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">Lokpal Orders</a></li>
-                <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">One-View display of Student Result Data</a></li>
-                <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">Ph.D.</a></li>
-                <li><a class="dropdown-item" [routerLink]="'/annual-report'">Merit List of Students</a></li>
-            </ul>
-          </li>
-          <li class="nav-item text-light dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Reports</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Annual Report</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">BEU Magzine</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">Financial Report</a></li>
-            </ul>
-          </li>
-          <li class="nav-item text-light dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Service</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Document Verification</a></li>
-            </ul>
-          </li>
-          <li class="nav-item text-light dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">RTI</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Public Information Ofiicers & contact no.</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Format of Application</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Mandatory Disclosure</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/annual-report'">Download act</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item text-light dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">KNOW MORE</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="'/UHV'">UHV</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/IQAC'">IQAC</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/Act'">Act</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/Circular'">Circular</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/Notification'">Notification</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/Letter'">Letter</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/Gallery'">Gallery</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item text-light dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Lokpal</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" [routerLink]="'/appointment-of-lokpal'">Appointment of Lokpal</a></li>
-              <li><a class="dropdown-item" [routerLink]="'/lokpal-orders'">Lokpal Orders</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div> -->
     </div>
   </nav>
 </header>

@@ -185,7 +185,14 @@ const routes: Routes = [
         path: 'academic/session/:id',
         loadComponent: () => import('./pages/academic-session/academic-session.component'),
       },
-
+      {
+        path: 'annual-report',
+        loadComponent: () => import('./pages/report/report-view/report-view.component'),
+      },
+      {
+        path: 'magazine',
+        loadComponent: () => import('./pages/report/magazine/magazine.component'),
+      },
 
       {
         path: 'admin',
@@ -308,8 +315,18 @@ const routes: Routes = [
         // canActivate: [AuthGuard]
       },
       {
-        path: 'admin/profile',
-        loadComponent: () => import('./admin/profile/profile.component'),
+        path: 'admin/add-annual-report',
+        loadComponent: () => import('./admin/report/annual-report/annual-report.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-magazine',
+        loadComponent: () => import('./admin/report/magazine/magazine.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-financial',
+        loadComponent: () => import('./admin/report/financial-report/financial-report.component'),
         // canActivate: [AuthGuard]
       },
     ]

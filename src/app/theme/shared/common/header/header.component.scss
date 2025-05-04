@@ -63,7 +63,7 @@
 }
 .social-list li a{
   font-size: 15px;
-  color: #fff;
+  // color: #fff;
   margin: 0 5px;
 }
 .cart_count {
@@ -135,4 +135,61 @@ color: #fff;
   .h4 , .h5 {
     font-size: 14px;
   }
+}
+
+
+
+/* General nav link styling */
+.navbar-nav .nav-link {
+  position: relative;
+  padding: 10px 15px;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+/* Underline animation on hover */
+// .navbar-nav .nav-link::before {
+//   content: "";
+//   position: absolute;
+//   bottom: 5px;
+//   left: 0;
+//   width: 0;
+//   height: 2px;
+//   background-color: #0d6efd;
+//   transition: width 0.3s ease;
+// }
+
+.navbar-nav .nav-link:hover::before {
+  // width: 100%;
+}
+
+/* Dropdown menu animation */
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  display: block !important; /* Keep block so Angular can toggle 'show' class */
+}
+
+/* When 'show' is toggled by Angular */
+.dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  width: 300px;
+}
+
+/* Nav item hover background */
+.navbar-nav .nav-item:hover > .nav-link {
+  color: #032455 !important;
+  background-color: #012346;
+  // border-radius: 5px;
+}
+
+/* Optional: Submenu nesting */
+.dropdown-menu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 0.1rem;
 }

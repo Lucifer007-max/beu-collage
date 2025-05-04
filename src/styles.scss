@@ -144,7 +144,7 @@ color: #0676BD !important;
 }
 @media (max-width:768px) {
 
-  #navbarNav .nav-link 
+  #navbarNav .nav-link
     {
     width: 120px;
     min-width: 280px;
@@ -169,4 +169,10 @@ color: #0676BD !important;
 .spinner-border{
   width:20px;
   height:20px;
+}
+
+@media (min-width: 1200px) {
+  .container-xl, .container-lg, .container-md, .container-sm, .container {
+      max-width: 1260px !important;
+  }
 }

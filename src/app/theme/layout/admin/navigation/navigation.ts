@@ -157,35 +157,35 @@ export const NavigationItems: NavigationItem[] = [
     ]
   },
 
-  {
-    id: 'banner',
-    title: 'Course Mangement',
-    type: 'collapse',
-    icon: 'feather icon-file',
-    children: [
-      {
-        id: 'menu-level-2.1',
-        title: 'Session Mangement',
-        type: 'item',
-        url: '/admin/add-session',
-        external: false
-      },
-      {
-        id: 'menu-level-2.1',
-        title: 'Syllabus Mangement',
-        type: 'item',
-        url: '/admin/add-syllabus',
-        external: false
-      },
-      {
-        id: 'menu-level-2.1',
-        title: 'Upload Course',
-        type: 'item',
-        url: '/admin/upload-course',
-        external: false
-      },
-    ]
-  },
+  // {
+  //   id: 'banner',
+  //   title: 'Course Mangement',
+  //   type: 'collapse',
+  //   icon: 'feather icon-file',
+  //   children: [
+  //     {
+  //       id: 'menu-level-2.1',
+  //       title: 'Session Mangement',
+  //       type: 'item',
+  //       url: '/admin/add-session',
+  //       external: false
+  //     },
+  //     {
+  //       id: 'menu-level-2.1',
+  //       title: 'Syllabus Mangement',
+  //       type: 'item',
+  //       url: '/admin/add-syllabus',
+  //       external: false
+  //     },
+  //     {
+  //       id: 'menu-level-2.1',
+  //       title: 'Upload Course',
+  //       type: 'item',
+  //       url: '/admin/upload-course',
+  //       external: false
+  //     },
+  //   ]
+  // },
 
   {
     id: 'banner',
@@ -222,6 +222,32 @@ export const NavigationItems: NavigationItem[] = [
         external: false
       },
 
+    ]
+  },
+  {
+    id: 'report',
+    title: 'Report Mangement',
+    type: 'collapse',
+    icon: 'feather icon-file',
+    children: [
+      {
+        id: 'report-2.1',
+        title: 'Annual Report',
+        type: 'item',
+        url: '/admin/add-annual-report',
+      },
+      {
+        id: 'report-2.2',
+        title: 'Magazine Mangement',
+        type: 'item',
+        url: '/admin/add-magazine',
+      },
+      {
+        id: 'report-2.3',
+        title: 'Financial Mangement',
+        type: 'item',
+        url: '/admin/add-financial',
+      }
     ]
   },
   {

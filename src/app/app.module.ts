@@ -30,38 +30,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from 'src/interceptors/admin/interceptors.service';
 import { ApiService, AuthInterceptorProvider } from 'src/service/api.service';
 import { AuthGuard } from 'src/guard/authguard.guard';
-import { StudentComponent } from './theme/layout/student/student.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-// import { ProfileComponent } from './admin/profile/profile.component';
-// import { AcademicSessionComponent } from './pages/academic-session/academic-session.component';
-// import { AcademicsComponent } from './pages/academics/academics.component';
-// import { CourseUploadComponent } from './admin/course/course-upload/course-upload.component';
-// import { AddSyllabusComponent } from './admin/course/add-syllabus/add-syllabus.component';
-// import { PicturesComponent } from './pages/media/pictures/pictures.component';
-// import { AdminPhotoComponent } from './admin/media/admin-photo/admin-photo.component';
-// import { MediaComponent } from './pages/media/media/media.component';
-// import { AdminMediaComponent } from './admin/media/admin-media/admin-media.component';
-// import { VideosComponent } from './pages/media/videos/videos.component';
-// import { PublicationComponent } from './pages/media/publication/publication.component';
-// import { AdminVideosComponent } from './admin/media/admin-videos/admin-videos.component';
-// import { AdminPublicationComponent } from './admin/media/admin-publication/admin-publication.component';
-// import { AffiliationComponent } from './pages/affiliation/affiliation.component';
-// import { AffilationComponent } from './admin/affilation/affilation.component';
-// import { FileuploadComponent } from './admin/fileupload/fileupload.component';
-// import { DocumentsComponent } from './pages/documents/documents.component';
-// import { MetorComponent } from './admin/metor/metor.component';
-// import { EventsComponent } from './admin/events/events.component';
-// import { NoticeBoardComponent } from './admin/notice-board/notice-board.component';
-// import { NoticeComponent } from './admin/notice/notice.component';
-
-// import { AboutComponent } from './admin/about/about.component';
-// import { ActComponent } from './pages/act/act.component';
-// import { CircularComponent } from './pages/circular/circular.component';
-// import { NotificationComponent } from './pages/notification/notification.component';
-// import { LetterComponent } from './pages/letter/letter.component';
-// import { ChancellorComponent } from './pages/organization/chancellor/chancellor.component';
-// import { LoginComponent } from './admin/login/login.component';
+// import { MagazineComponent } from './pages/report/magazine/magazine.component';
+// import { ReportViewComponent } from './pages/report/report-view/report-view.component';
 
 
 @NgModule({
@@ -83,6 +55,12 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NavCollapseComponent,
     NavGroupComponent,
     NotFoundComponent,
+    // MagazineComponent,
+    // ReportViewComponent,
+
+    // AnnualReportComponent,
+    // MagazineComponent,
+    // FinancialReportComponent,
     // ProfileComponent,
     // AcademicSessionComponent,
     // StudentComponent,

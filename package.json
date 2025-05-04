@@ -28,6 +28,7 @@
     "@kolkov/angular-editor": "^3.0.0-beta.0",
     "@ng-bootstrap/ng-bootstrap": "^15.1.0",
     "@popperjs/core": "^2.11.8",
+    "accessibility": "^6.0.7",
     "angular-froala-wysiwyg": "^4.2.1",
     "angular-scroll-animate": "^0.9.9",
     "apexcharts": "^3.41.0",

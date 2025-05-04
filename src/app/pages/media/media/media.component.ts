@@ -20,6 +20,7 @@ export default class MediaComponent {
   mediaList: any;
   constructor(private service: ApiService,public router: Router) {
     this.getMedia();
+    
     console.log("Current URL:", this.router.url);
   }
 

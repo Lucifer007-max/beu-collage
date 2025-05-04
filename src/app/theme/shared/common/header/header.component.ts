@@ -133,7 +133,7 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: [
         { label: "Annual Report", link: "/annual-report" },
-        { label: "BEU Magazine", link: "/beu-magazine" },
+        { label: "BEU Magazine", link: "/magazine" },
         { label: "Financial Report", link: "/financial-report" }
       ]
     },
