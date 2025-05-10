@@ -39,10 +39,12 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/aos/dist/aos.css",
               "node_modules/@kolkov/angular-editor/themes/default.scss"
             ],
             "scripts": [
               "node_modules/apexcharts/dist/apexcharts.min.js",
+              "node_modules/aos/dist/aos.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
@@ -116,9 +118,10 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/aos/dist/aos.css",
               "node_modules/@kolkov/angular-editor/themes/default.scss"
             ],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js", "node_modules/aos/dist/aos.js"]
           }
         },
         "lint": {

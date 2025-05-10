@@ -245,6 +245,18 @@ export class HeaderComponent implements AfterViewInit {
       );
     }
   }
+
+  showBackToTop = false;
+
+  // Listen to window scroll
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.showBackToTop = window.pageYOffset > 300;
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
 
 (window as any).googleTranslateElementInit = () => {

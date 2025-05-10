@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { environment } from 'src/environments/environment';
 import { ApiService } from 'src/service/api.service';
 declare const $: any;
 import * as bootstrap from 'bootstrap';
+import * as AOS from 'aos';
 
 
 @Component({
@@ -20,17 +21,29 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
   testimonialList: any = [];
   courseList: any = [];
   mentorList: any = [];
-  notice:any =[];
-  noticeBoard:any =[];
-  importLink:any =[];
-  events:any =[];
-  baseUrl:String = environment.imgUrl;
+  notice: any = [];
+  noticeBoard: any = [];
+  importLink: any = [];
+  events: any = [];
+  baseUrl: String = environment.imgUrl;
 
   isSliderInitialized: boolean = false;
-  constructor(private service: ApiService) { }
+  constructor(private service: ApiService) {
+
+
+  }
 
 
   ngOnInit(): void {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: false,
+      mirror: true,
+      offset: 120,
+      throttleDelay: 99,
+      debounceDelay: 50
+    });
     this.getBanner();
     this.getNotice();
     this.getNoticeBoard();
@@ -53,7 +66,7 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     });
   }
   getNoticeBoard() {
-    this.service.noticeBoardGet().subscribe((res:any) => {
+    this.service.noticeBoardGet().subscribe((res: any) => {
       this.noticeBoard = res.data[0].board
       // if (res.data) {
       //   this.noticeForm.patchValue({
@@ -192,23 +205,43 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
 
   @ViewChild('carousel', { static: false }) carousel!: ElementRef;
   ngAfterViewInit() {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: false,
+      mirror: true,
+      offset: 120,
+      throttleDelay: 99,
+      debounceDelay: 50
+    });
     this.autoScroll("important-information");
     this.autoScroll("notice-board");
     this.autoScroll("college-events");
     // ngAfterViewInit() {
-      setTimeout(() => {
-        console.log('screoll acrtive')
-        if (this.carousel) {
-          new bootstrap.Carousel(this.carousel.nativeElement, {
-            interval: 3000, // Change slide every 3 seconds
-            ride: 'carousel'
-          });
-        }
-      }, 1000); // Delay to ensure DOM is fully loaded
+    setTimeout(() => {
+      console.log('screoll acrtive')
+      if (this.carousel) {
+        new bootstrap.Carousel(this.carousel.nativeElement, {
+          interval: 3000, // Change slide every 3 seconds
+          ride: 'carousel'
+        });
+      }
+    }, 1000); // Delay to ensure DOM is fully loaded
     // }
   }
 
 
   // ngAfterViewInit() {
   // }
+
+  @ViewChild('exampleModal') exampleModal!: ElementRef;
+
+  handleModal() {
+    const modalElement = this.exampleModal?.nativeElement;
+    if (modalElement) {
+      modalElement.style.display = 'none';
+    }
+  }
+
+
 }

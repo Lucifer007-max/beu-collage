@@ -1,5 +1,5 @@
 <header class="w-100">
-  <div class="d-flex justify-content-center align-items-center border-bottom border-primary border-dashed bg-light text-primary fw-semibold small">
+  <div class="d-flex justify-content-center align-items-center border-bottom border-primary border-dashed bg-light text-primary fw-semibold small" style="height: 27px;">
     <ul class="d-flex list-unstyled m-0">
       <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/'">Home</li>
 
@@ -101,3 +101,14 @@
     <p class="mb-0">Call Us: XXXX-XXX-XXX</p>
   </div>
 </div>
+
+
+
+<!-- back-to-top button -->
+<button
+  class="back-to-top"
+  (click)="scrollToTop()"
+  *ngIf="showBackToTop"
+>
+  ↑ Back to Top
+</button>

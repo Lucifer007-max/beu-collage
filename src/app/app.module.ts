@@ -32,8 +32,7 @@ import { ApiService, AuthInterceptorProvider } from 'src/service/api.service';
 import { AuthGuard } from 'src/guard/authguard.guard';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-// import { MagazineComponent } from './pages/report/magazine/magazine.component';
-// import { ReportViewComponent } from './pages/report/report-view/report-view.component';
+import {NgsRevealModule} from 'ngx-scrollreveal';
 
 
 @NgModule({
@@ -55,45 +54,11 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NavCollapseComponent,
     NavGroupComponent,
     NotFoundComponent,
-    // MagazineComponent,
-    // ReportViewComponent,
 
-    // AnnualReportComponent,
-    // MagazineComponent,
-    // FinancialReportComponent,
-    // ProfileComponent,
-    // AcademicSessionComponent,
-    // StudentComponent,
-    // AcademicsComponent,
-    // CourseUploadComponent,
-    // AddSyllabusComponent,
-    // PicturesComponent,
-    // AdminPhotoComponent,
-    // MediaComponent,
-    // AdminMediaComponent,
-    // VideosComponent,
-    // PublicationComponent,
-    // AdminVideosComponent,
-    // AdminPublicationComponent,
-    // AffiliationComponent,
-    // AffilationComponent,
-    // FileuploadComponent,
-    // DocumentsComponent,
-    // MetorComponent,
-    // EventsComponent,
-    // NoticeBoardComponent,
-    // NoticeComponent,
-    // AboutComponent,
-    // ActComponent,
-    // CircularComponent,
-    // NotificationComponent,
-    // LetterComponent,
-    // ChancellorComponent,
-    // LoginComponent,
 
 
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule,AngularEditorModule, NgMultiSelectDropDownModule.forRoot()
+  imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule,AngularEditorModule, NgMultiSelectDropDownModule.forRoot(),
   ],
   providers: [
     AuthInterceptorProvider,

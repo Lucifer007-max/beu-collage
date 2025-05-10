@@ -193,3 +193,26 @@ color: #fff;
   left: 100%;
   margin-left: 0.1rem;
 }
+
+
+
+
+
+.back-to-top {
+  position: fixed;
+  bottom: 5px;
+  right: 60px;
+  background-color: #032455;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+}

@@ -115,7 +115,7 @@
 
 
 
-<div class="container-fluid">
+<div class="container-fluid" data-aos="fade-up">
   <div class="row">
     <div class="col-12 p-0">
       <article class="d-flex align-items-center border-top border-bottom border-1 border-primary px-2">
@@ -178,15 +178,14 @@
   }
 </style>
 
-
-<section class="container-fluid bg-primarylight">
-  <div class="row align-items-center  text-white py-4 rounded">
-
-
+<section class="container-fluid bg-primarylight" data-aos="fade-up">
+  <div class="row align-items-center text-white py-4 rounded">
 
     <div *ngIf="alerts && alerts.length > 0; else noAlerts">
       <ng-container *ngFor="let alert of alerts; let i = index">
-        <div class="col-md-5 text-center py-3">
+
+        <!-- Animated Alert Block -->
+        <div class="col-md-5 text-center py-3" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="800">
           <h2 class="h4 fw-bold font-secondary-color">{{ alert.alertstitle }}</h2>
           <hr class="mx-auto w-75 border-1 border-white">
           <p class="fs-5 font-secondary-color">
@@ -197,28 +196,27 @@
           </p>
         </div>
 
-        <!-- Add the divider after each item except the last one -->
+        <!-- Animated Divider (only between elements) -->
         <div class="col-md-2 text-center d-none d-md-block d-lg-block d-xl-block d-sm-none"
-          *ngIf="i !== alerts.length - 1">
+             *ngIf="i !== alerts.length - 1"
+             data-aos="fade-left" data-aos-delay="200">
           <div class="border-start border-white border-3 mx-auto h-75"></div>
         </div>
+
       </ng-container>
     </div>
 
     <!-- Show this when there are no alerts -->
     <ng-template #noAlerts>
-      <div class="text-center py-4">
+      <div class="text-center py-4" data-aos="fade-up">
         <h3 class="text-muted">No alerts for now</h3>
       </div>
     </ng-template>
 
-
-
   </div>
 </section>
 
-
-<section class="bg-white py-5">
+<section class="bg-white py-5" data-aos="fade-up">
   <div class="container">
     <div class="row justify-content-center">
       <!-- Student Section -->
@@ -295,7 +293,8 @@
 
       <!-- Our Mentors Section -->
       <div class="col-md-6 p-3">
-        <h2 class="text-start fw-bold text-primary">OUR MENTOR</h2>
+        <h2 class="text-start fw-bold text-primary">OUR MENTOR
+        </h2>
         <div class="bg-primary mx-auto my-3" style="height: 1px; width: 100%;"></div>
         <div class="row g-3">
           <div *ngIf="mentorList.length > 0; else noMentor">
@@ -326,7 +325,7 @@
 
 <section class="bg-light py-5">
   <div class="container">
-    <h2 class="text-center text-primary fw-semibold mb-3">Program Details</h2>
+    <h2 class="text-center text-primary fw-semibold mb-3">PROGRAM DETAILS</h2>
     <div class="bg-primary mx-auto mb-4" style="height: 1px; width: 100%;"></div>
 
     <div class="row g-4">
@@ -343,7 +342,7 @@
           </div>
         </div>
       </div> -->
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-right">
         <div class="custom-card">
           <div class="icon-wrapper">
             <i class="fa fa-graduation-cap"></i>
@@ -362,7 +361,7 @@
       </div>
 
 
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-right">
         <div class="custom-card">
           <div class="icon-wrapper">
             <i class="fa fa-graduation-cap"></i>
@@ -379,7 +378,7 @@
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-4" data-aos="fade-right">
         <div class="custom-card">
           <div class="icon-wrapper">
             <i class="fa fa-graduation-cap"></i>
@@ -399,9 +398,9 @@
   </div>
 </section>
 
-<section class="bg-light py-5">
+<section class="bg-light py-5" data-aos="fade-up">
   <div class="container">
-    <h2 class="text-center text-primary fw-semibold mb-3">Affiliated With</h2>
+    <h2 class="text-center text-primary fw-semibold mb-3">AFFILIATED WITH</h2>
     <div class="bg-primary mx-auto" style="height: 1px; width: 100%;"></div>
 
     <div class="row justify-content-center mt-4">
@@ -423,9 +422,9 @@
 
 
 
-<section class="media-gallery">
+<section class="media-gallery" data-aos="fade-up">
   <div class="container">
-    <h2 class="text-center text-primary fw-bold mb-4">Media Gallery</h2>
+    <h2 class="text-center text-primary fw-bold mb-4">MEDIA GALLERY</h2>
     <!-- <hr class="w-25 mx-auto border-danger"> -->
     <div class="bg-primary mx-auto" style="height: 1px; width: 100%;"></div>
 
@@ -467,7 +466,7 @@
   </div>
 </section>
 
-<section class="bg-warning-subtle pb-4">
+<section class="bg-warning-subtle pb-4" data-aos="fade-up">
   <div class="bg-warning">
 
     <div class="container">
@@ -495,14 +494,34 @@
 </section>
 
 
-<div class="position-fixed  translate-middle-y d-flex gap-2 rotate-n90">
+<div class="position-fixed  translate-middle-y d-flex gap-2 rotate-n90" data-aos="fade-up">
   <button class="btn btn-primary shadow-sm px-4 py-2">
     Minutes
   </button>
   <button class="btn btn-primary shadow-sm px-4 py-2">
     BEU ERP
   </button>
+</div><!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade show"  #exampleModal id="exampleModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="handleModal()"></button>
+      </div>
+      <div class="modal-body">
+        <iframe src="https://sample-files.com/downloads/documents/pdf/basic-text.pdf" height="500px" width="100%" frameborder="0"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 
 <app-footer></app-footer>
