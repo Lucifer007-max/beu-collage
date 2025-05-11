@@ -96,8 +96,10 @@ color: #0676BD !important;
 // .skiptranslate {
 //   display: none !important;
 // }
-._access {
-  top: 40pc !important;
+@media (max-width:600px) {
+  ._access {
+    top: 40pc !important;
+  }
 }
 
 #google_translate_element{
@@ -114,7 +116,7 @@ color: #0676BD !important;
 }
 
 #notice-board li{
-  background: #FAF2BA !important;
+  background: rgb(191, 219, 254) !important;
 }
 
 @media (min-width:768px) {

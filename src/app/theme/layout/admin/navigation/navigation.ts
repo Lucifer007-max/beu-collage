@@ -254,7 +254,7 @@ export const NavigationItems: NavigationItem[] = [
     id: 'profile',
     title: 'Profile',
     type: 'item',
-    url: '/admin/profile',
+    url: '/admin/profile-update',
     icon: 'feather icon-user'
   },
 

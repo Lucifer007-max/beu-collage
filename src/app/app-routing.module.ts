@@ -329,6 +329,11 @@ const routes: Routes = [
         loadComponent: () => import('./admin/report/financial-report/financial-report.component'),
         // canActivate: [AuthGuard]
       },
+      {
+        path: 'admin/profile-update',
+        loadComponent: () => import('./admin/profile/profile.component'),
+        // canActivate: [AuthGuard]
+      },
     ]
   },
 

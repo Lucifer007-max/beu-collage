@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ApiService } from 'src/service/api.service';
 import { environment } from 'src/environments/environment';
 
@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './documents.component.html',
   styleUrls: ['./documents.component.scss'],
   standalone: true,
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, RouterModule],
 })
 export default class DocumentsComponent {
   imgUrl: any = environment.imgUrl
