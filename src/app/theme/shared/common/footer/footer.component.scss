@@ -84,3 +84,10 @@
 .social-icon.youtube:hover {
   color: #FF0000; /* YouTube Red */
 }
+
+@media (max-width:600px) {
+  footer{
+    padding-bottom: 80px !important;
+  }
+
+}
