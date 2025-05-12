@@ -1,4 +1,4 @@
-<app-card cardTitle="Create Testimonial" [options]="false" >
+<app-card cardTitle="Create Testimonial" [options]="false" style="display:none;">
 
   <form [formGroup]="mentorForm" (ngSubmit)="handleSubmit()">
     <div class="row">
@@ -83,7 +83,7 @@
             <a class="btn btn-danger btn-sm" *ngIf="list.isDeleted === '0'" (click)="handleDelete(list.id, '1')">
               <i class="fa fa-trash"></i>
             </a>
-            <a class="btn btn-success btn-sm"  *ngIf="list.isDeleted === '1'" (click)="handleDelete(list.id, '0')">
+            <a class="btn btn-success btn-sm" *ngIf="list.isDeleted === '1'" (click)="handleDelete(list.id, '0')">
               <i class="fa fa-check"></i>
             </a>
           </ng-container>
@@ -102,4 +102,3 @@
     </tbody>
   </table>
 </app-card>
-
