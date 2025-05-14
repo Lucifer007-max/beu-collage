@@ -33,6 +33,7 @@ import { AuthGuard } from 'src/guard/authguard.guard';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import {NgsRevealModule} from 'ngx-scrollreveal';
+// import { ModalComponent } from './admin/modal/modal.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import {NgsRevealModule} from 'ngx-scrollreveal';
     NavCollapseComponent,
     NavGroupComponent,
     NotFoundComponent,
+    // ModalComponent,
 
 
 

@@ -29,7 +29,7 @@ export class HeaderComponent implements AfterViewInit {
         { label: "Vision", link: "/about/vision" },
         { label: "Mission", link: "/about/mission" },
         { label: "Objective", link: "/about/objective" },
-        { label: "History", link: "/about/history" },
+        // { label: "History", link: "/about/history" },
         { label: "University Act", link: "/about/university-act" },
         {
           title: "Regulations (First, 2010)",
@@ -39,10 +39,10 @@ export class HeaderComponent implements AfterViewInit {
             { title: "PG", link: "/about/pg" },
           ]
         },
-        { label: "Noida Campus", link: "/about/noida-campus" },
+        // { label: "Noida Campus", link: "/about/noida-campus" },
         { label: "University Logo", link: "/about/university-logo" },
-        { label: "Annual Report 2016", link: "/about/annual-report" },
-        { label: "AKTU Data Privacy Policy", link: "/about/data-privacy-policy" }
+        // { label: "Annual Report 2016", link: "/about/annual-report" },
+        // { label: "AKTU Data Privacy Policy", link: "/about/data-privacy-policy" }
       ]
     },
     {

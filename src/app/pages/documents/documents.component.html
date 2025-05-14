@@ -64,7 +64,7 @@
           <tr *ngFor="let list of List; index as i">
             <th scope="row">{{ i + 1 }}</th>
             <th scope="row">{{list.title}}</th>
-            <th scope="row">{{list.desc}} 
+            <th scope="row">{{list.desc}}
               <ng-container *ngIf="list.createdAt === list.updatedAt; else updatedBlock">
                 <!-- <img src="your-image-path.png" alt="new" /> -->
                 <img src="https://aktu.ac.in/images/new_red.gif" width="50px"/>
@@ -73,28 +73,28 @@
                 <img src="https://freepngimg.com/thumb/update_button/25530-9-update-button-image.png" width="50px"/>
               </ng-template>
             </th>
-    
+
             <td>
-              <a *ngIf="flag === 'acts'" [href]="imgUrl + list.actsFile">
-                View
+              <a *ngIf="flag === 'acts'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.actsFile">
+                <i class="fa fa-file-download"></i> Download
               </a>
-              <a *ngIf="flag === 'circular'" [href]="imgUrl + list.circularFile">
-                View
+              <a *ngIf="flag === 'circular'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.circularFile">
+                <i class="fa fa-file-download"></i> Download
               </a>
-              <a *ngIf="flag === 'notification'" [href]="imgUrl + list.notificationFile">
-                View
+              <a *ngIf="flag === 'notification'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.notificationFile">
+                <i class="fa fa-file-download"></i> Download
               </a>
-              <a *ngIf="flag === 'downloads'" [href]="imgUrl + list.downloadsFile">
-                View
+              <a *ngIf="flag === 'downloads'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.downloadsFile">
+                <i class="fa fa-file-download"></i> Download
               </a>
-              <a *ngIf="flag === 'minutes'" [href]="imgUrl + list.minutesFile">
-                View
+              <a *ngIf="flag === 'minutes'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.minutesFile">
+                <i class="fa fa-file-download"></i> Download
               </a>
-              <a *ngIf="flag === 'letter'" [href]="imgUrl + list.letterFile">
-                View
+              <a *ngIf="flag === 'letter'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.letterFile">
+                <i class="fa fa-file-download"></i> Download
               </a>
-              <a *ngIf="flag === 'curriculum'" [href]="imgUrl + list.curriculumFile">
-                View
+              <a *ngIf="flag === 'curriculum'" target="_blank" class="btn btn-primary btn-sm" [href]="imgUrl + list.curriculumFile">
+                <i class="fa fa-file-download"></i> Download
               </a>
             </td>
           </tr>

@@ -26,7 +26,7 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
   importLink: any = [];
   events: any = [];
   baseUrl: String = environment.imgUrl;
-
+  imagePreview:any;
   isSliderInitialized: boolean = false;
   constructor(private service: ApiService) {
 
@@ -51,10 +51,14 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     this.getEvents();
     this.getAlerts();
     this.getMetor()
-    // this.getTestimonial();
+    this.getModal();
     // this.getMerchandies();
   }
-
+  getModal() {
+      this.service.modalGet().subscribe((res: any) => {
+        this.imagePreview = res.data[0].modalUrl;
+    });
+  }
   getBanner() {
     this.service.bannerGet().subscribe((res: any) => {
       this.bannerList = res.data;

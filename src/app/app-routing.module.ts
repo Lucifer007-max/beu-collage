@@ -219,6 +219,11 @@ const routes: Routes = [
         // canActivate: [AuthGuard]
       },
       {
+        path: 'admin/add-modal',
+        loadComponent: () => import('./admin/modal/modal.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
         path: 'admin/add-banner',
         loadComponent: () => import('./admin/banner/banner.component'),
         canActivate: [AuthGuard]

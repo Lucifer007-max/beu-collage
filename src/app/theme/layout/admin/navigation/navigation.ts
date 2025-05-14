@@ -97,6 +97,13 @@ export const NavigationItems: NavigationItem[] = [
         url: '/admin/add-mentor',
         // icon: 'feather icon-cloth'
       },
+      {
+        id: 'Modal-data',
+        title: 'Modal Management',
+        type: 'item',
+        url: '/admin/add-modal',
+        // icon: 'feather icon-cloth'
+      },
     ]
   },
   {
