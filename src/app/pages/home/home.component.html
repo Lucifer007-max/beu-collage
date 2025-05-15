@@ -13,15 +13,15 @@
         <div class="card-header d-flex justify-content-between align-items-center p-2" style="background: #0676BD">
           <h5 class="mb-0 text-light  ">Notice Board</h5>
           <div>
-            <button class="btn btn-outline-dark btn-sm" style="color: #fd992e">
+            <!-- <button class="btn btn-outline-dark btn-sm" style="color: #fff">
 
               <i class="fa fa-angle-down" (click)="moveDown('notice-board')"></i>
             </button>
             &nbsp;
 
-            <button class="btn btn-outline-dark btn-sm" style="color: #fd992e">
+            <button class="btn btn-outline-dark btn-sm" style="color: #fff">
               <i class="fa fa-angle-up" (click)="moveUp('notice-board')"></i>
-            </button>
+            </button> -->
           </div>
         </div>
         <div class="card-body p-2 overflow-hidden h-40" style="background: rgb(191, 219, 254)">
@@ -77,13 +77,13 @@
           style="background: #0676BD">
           <h5 class="mb-0 text-white">IMPORTANT LINKS</h5>
           <div>
-            <button class="btn btn-outline-primary btn-sm text-white">
+            <!-- <button class="btn btn-outline-primary btn-sm text-white">
               <i class="fa fa-angle-down" (click)="moveDown('important-information')"></i>
             </button>
             &nbsp;
             <button class="btn btn-outline-primary btn-sm text-white">
               <i class="fa fa-angle-up" (click)="moveUp('important-information')"></i>
-            </button>
+            </button> -->
           </div>
         </div>
         <div class="card-body p-2 overflow-hidden h-40" style="background: rgb(191, 219, 254)">
@@ -172,8 +172,32 @@
   }
 </style>
 
-<section class="container-fluid bg-primarylight" data-aos="fade-up">
-  <div class="row align-items-center text-white py-4 rounded">
+<section class="container-fluid bg-primarylight py-5" data-aos="fade-up">
+  <div class="beu-section ">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2>About Bihar Engineering University</h2>
+        <p>
+          Bihar Engineering University (BEU), Patna is a state-run public university established by the
+          Government of Bihar to oversee and coordinate engineering education across the state. The
+          university aims to ensure uniform academic standards, promote research and innovation, and
+          facilitate quality technical education.
+        </p>
+        <p>
+          BEU serves as an affiliating university for numerous engineering colleges across Bihar, streamlining
+          curriculum development, examination processes, and academic governance. The university is
+          committed to fostering a culture of excellence and skill development to meet the demands of
+          industry and society.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <img src="https://wallpapercave.com/wp/wp8774869.jpg" alt="BEU Campus" class="beu-image" />
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row align-items-center text-white py-4 rounded d-none">
 
     <div *ngIf="alerts && alerts.length > 0; else noAlerts">
       <ng-container *ngFor="let alert of alerts; let i = index">
@@ -424,27 +448,31 @@
 
     <div class="row g-4 mt-4">
       <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="gallery-item">
-          <img src="https://aktu.ac.in/images/img/picicon.png" alt="Pictures">
-          <!-- <p class="gallery-title">PICTURES</p> -->
-        </div>
+        <a [routerLink]="'/media/pictures'">
+          <div class="gallery-item">
+            <img src="https://aktu.ac.in/images/img/picicon.png" alt="Pictures">
+            <!-- <p class="gallery-title">PICTURES</p> -->
+          </div>
+        </a>
       </div>
 
       <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="gallery-item">
-          <a [routerLink]="'/media/videos'">
+        <a [routerLink]="'/media/videos'">
+          <div class="gallery-item">
 
             <img src="	https://aktu.ac.in/images/img/videoicon.png" alt="Videos">
-          </a>
-          <!-- <p class="gallery-title">VIDEOS</p> -->
-        </div>
+            <!-- <p class="gallery-title">VIDEOS</p> -->
+          </div>
+        </a>
       </div>
 
       <div class="col-lg-3 col-md-6 col-sm-6">
-        <div class="gallery-item">
-          <img src="	https://aktu.ac.in/images/img/media.png" alt="Media">
-          <!-- <p class="gallery-title">MEDIA</p> -->
-        </div>
+        <a [routerLink]="'/media/media'">
+          <div class="gallery-item">
+            <img src="	https://aktu.ac.in/images/img/media.png" alt="Media">
+            <!-- <p class="gallery-title">MEDIA</p> -->
+          </div>
+        </a>
       </div>
 
       <div class="col-lg-3 col-md-6 col-sm-6">
@@ -468,12 +496,12 @@
         <h3 class="fw-bold text-primary text-center fs-5 fs-md-4 m-0">
           College Events
         </h3>
-        <div class="d-flex gap-2 align-items-center text-warning fs-5 fw-bold">
+        <!-- <div class="d-flex gap-2 align-items-center text-warning fs-5 fw-bold">
           <button class="border-0 bg-transparent" (click)="moveDown('college-events')"><i
               class="fa fa-angle-down"></i></button>
           <button class="border-0 bg-transparent" (click)="moveUp('college-events')"><i
               class="fa fa-angle-up"></i></button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -498,7 +526,7 @@
 
 <!-- Modal -->
 <div class="modal fade show" #exampleModal id="exampleModal" data-bs-backdrop="static" tabindex="-1"
-  aria-labelledby="exampleModalLabel" aria-hidden="true"  style="display: block;">
+  aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -509,7 +537,7 @@
       <div class="modal-body">
         <!-- <iframe src="https://sample-files.com/downloads/documents/pdf/basic-text.pdf" height="500px" width="100%"
           frameborder="0"></iframe> -->
-          <img [src]="baseUrl+this.imagePreview" class="w-100"/>
+        <img [src]="baseUrl+this.imagePreview" class="w-100" />
       </div>
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
