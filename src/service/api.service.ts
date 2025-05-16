@@ -175,12 +175,22 @@ export class ApiService {
       .pipe(catchError(this.handleError.bind(this)));
   }
   noticeBoardService(id: number, payload: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`,
-      'Content-Type': 'application/json'
-    });
+    // const headers = new HttpHeaders({
+    //   'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    //   'Content-Type': 'application/json'
+    // });
 
-    return this.httpClient.put(`${this.baseUrl}notice/add-notice-board/${id}`, payload, { headers })
+    // return this.httpClient.put(`${this.baseUrl}notice/add-notice-board/${id}`, payload, { headers })
+    //   .pipe(catchError(this.handleError.bind(this)));
+    const formData: FormData = new FormData();
+    for (const key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        formData.append(key, payload[key]);
+        console.log(key, payload[key])
+      }
+    }
+
+    return this.httpClient.post(this.baseUrl + 'notice/add-notice-board', formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
   importantLinksService(id: number, payload: any): Observable<any> {

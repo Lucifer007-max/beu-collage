@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
 import { environment } from 'src/environments/environment';
@@ -26,7 +26,7 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
   importLink: any = [];
   events: any = [];
   baseUrl: String = environment.imgUrl;
-  imagePreview:any;
+  imagePreview: any;
   isSliderInitialized: boolean = false;
   constructor(private service: ApiService) {
 
@@ -55,8 +55,8 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     // this.getMerchandies();
   }
   getModal() {
-      this.service.modalGet().subscribe((res: any) => {
-        this.imagePreview = res.data[0].modalUrl;
+    this.service.modalGet().subscribe((res: any) => {
+      this.imagePreview = res.data[0].modalUrl;
     });
   }
   getBanner() {
@@ -160,19 +160,45 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     });
   }
 
+  // moveUp(listId: string) {
+  //   const list = document.getElementById(listId) || document.createElement('ul');
+  //   const items = list?.children;
+
+  //   if (items.length === 0) return;
+
+  //   const firstItem = items[0] as HTMLElement;
+  //   const height = firstItem.offsetHeight * -1;
+  //   list.style.transition = "transform 0.5s ease-in-out";
+  //   list.style.transform = `translateY(${height}px)`;
+  //   setTimeout(() => {
+  //     list.appendChild(items[0].cloneNode(true));
+  //     list.removeChild(items[0]);
+  //     list.style.transition = "none";
+  //     list.style.transform = "translateY(0)";
+  //   }, 500);
+  // }
   moveUp(listId: string) {
-    const list = document.getElementById(listId) || document.createElement('ul');
-    const items = list?.children;
+    const list = document.getElementById(listId);
+    if (!list) return;
+
+    // Use querySelectorAll to ensure we grab live li elements
+    const items = list.querySelectorAll('li');
 
     if (items.length === 0) return;
 
     const firstItem = items[0] as HTMLElement;
     const height = firstItem.offsetHeight * -1;
+
     list.style.transition = "transform 0.5s ease-in-out";
     list.style.transform = `translateY(${height}px)`;
+
+    // Wait for the transition to finish
     setTimeout(() => {
-      list.appendChild(items[0].cloneNode(true));
-      list.removeChild(items[0]);
+      // Move the first item to the end
+      list.appendChild(firstItem.cloneNode(true));
+      list.removeChild(firstItem);
+
+      // Reset styles
       list.style.transition = "none";
       list.style.transform = "translateY(0)";
     }, 500);
@@ -206,7 +232,7 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
       this.isSliderInitialized = true;
     }
   }
-
+  @ViewChildren('slicedImage') slicedImages!: QueryList<ElementRef>;
   @ViewChild('carousel', { static: false }) carousel!: ElementRef;
   ngAfterViewInit() {
     AOS.init({
@@ -231,7 +257,24 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
         });
       }
     }, 1000); // Delay to ensure DOM is fully loaded
-    // }
+    this.slicedImages.forEach(containerRef => {
+      const container = containerRef.nativeElement as HTMLElement;
+      const imgSrc = container.getAttribute('data-image');
+
+      for (let i = 0; i < 8; i++) {
+        const slice = document.createElement('div');
+        slice.style.flex = '1';
+        slice.style.backgroundImage = `url(${imgSrc})`;
+        slice.style.backgroundSize = 'cover';
+        slice.style.backgroundPosition = `${(i / 8) * 100}% center`;
+        slice.style.animation = 'sliceIn 1s forwards';
+        slice.style.transform = 'translateY(-100%)';
+        slice.style.opacity = '0';
+        slice.style.transitionDelay = `${i * 0.1}s`; // Optional staggered effect
+        container.appendChild(slice);
+      }
+    });
+
   }
 
 

@@ -178,7 +178,9 @@ li.px-3.py-2.cursor-pointer.hover-text-warning {
   transform: translateY(0);
   transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
-  display: block !important; /* Keep block so Angular can toggle 'show' class */
+  // display: block !important;
+  position: absolute !important;
+  /* Keep block so Angular can toggle 'show' class */
 }
 
 /* When 'show' is toggled by Angular */
@@ -188,7 +190,9 @@ li.px-3.py-2.cursor-pointer.hover-text-warning {
   pointer-events: auto;
   width: 300px;
 }
-
+.navbar-expand-md .navbar-nav .dropdown-menu {
+  position: absolute !important;
+}
 /* Nav item hover background */
 .navbar-nav .nav-item:hover > .nav-link {
   color: #032455 !important;

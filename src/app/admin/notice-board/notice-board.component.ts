@@ -61,6 +61,7 @@ export default class NoticeBoardComponent implements OnInit {
       this.noticeForm = this.FB.group({
         id: [''],
         notice: ['', Validators.required],
+        urlType: ['text'], // Default is 'text'
       })
     }
     {
@@ -70,32 +71,33 @@ export default class NoticeBoardComponent implements OnInit {
       })
     }
   }
-
+  wfile:any;
+  onFileSelect(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      this.wfile = event.target.files[0];
+      console.log(this.wfile)
+    }
+  }
+  boardData:any;
   getNotice() {
     this.service.noticeBoardGet().subscribe((res: any) => {
       if (res.data) {
-        this.noticeForm.patchValue({
-          id: res.data[0].id, // Set ID
-          notice: res.data[0].board // Set Notice content
-        });
+        console.log(res)
+        this.boardData = res.data
       }
     });
-    // this.service.importantLinkGet().subscribe((res: any) => {
-    //   console.log(res)
-    //   if (res.data) {
-    //     this.importnatLinks.patchValue({
-    //       id: res.data[0].id, // Set ID
-    //       implinks: res.data[0].board // Set Notice content
-    //     });
-    //   }
-    // });
   }
+
+  onUrlTypeChange(value: string): void {
+    this.noticeForm.get('urlType')?.setValue(value);
+  }
+
   Add() {
     this.loader = true;
     const payLoad = {
       // "id":this.noticeForm.value.id,
       "board": this.noticeForm.value.notice,
-      // "notice":this.wfile,
+      "link":this.wfile,
     }
     this.service.noticeBoardService(this.noticeForm.value.id, payLoad).subscribe((res: any) => {
       if (res.status) {

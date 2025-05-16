@@ -1,6 +1,6 @@
 <app-card cardTitle=" " [options]="false">
   <div class="row">
-    <div class="col-12">
+    <!-- <div class="col-12">
       <div class="row">
         <div class="col-6">
           <button class="btn btn-primary mb-3" (click)="copyToClipboard('')">Copy HTML</button>
@@ -22,18 +22,40 @@
           </ul>
         </div>
       </div>
-
-
-
-
-
       <p *ngIf="copySuccess" class="text-success mt-2">Copied to clipboard!</p>
+    </div> -->
 
-    </div>
-    <div class="mb-3 col-lg-6">
+
+    <div class="mb-3 col-lg-12">
       <form [formGroup]="noticeForm">
         <h4 class="border-bottom mb-2">Notice Board</h4>
-        <angular-editor id="editor2" [config]="editorConfig" formControlName="notice"></angular-editor>
+
+        <label>Notice Title</label>
+        <input type="text" formControlName="notice" class="form-control" />
+
+        <label>Notice URL</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" formControlName="urlType" value="text" id="urlText" (change)="onUrlTypeChange('text')" [checked]="noticeForm.get('urlType').value === 'text'"/>
+          <label class="form-check-label" for="urlText">
+            Text URL
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" formControlName="urlType" value="file" id="urlFile" (change)="onUrlTypeChange('file')" [checked]="noticeForm.get('urlType').value === 'file'"/>
+          <label class="form-check-label" for="urlFile">
+            File URL
+          </label>
+        </div>
+
+        <!-- Conditionally render the input based on radio button selection -->
+        <ng-container *ngIf="noticeForm.get('urlType').value === 'text'">
+          <input type="text" formControlName="notice-url" class="form-control" />
+        </ng-container>
+
+        <ng-container *ngIf="noticeForm.get('urlType').value === 'file'">
+          <input type="file" formControlName="notice-url" (change)="onFileSelect($event)" class="form-control" />
+        </ng-container>
+
         <input type="hidden" formControlName="id" />
         <button type="submit" class="btn col-2 mt-3 btn-primary" (click)="Add()"
           *ngIf="this.loader == false">Add</button>
@@ -42,17 +64,43 @@
         </div>
       </form>
     </div>
-    <div class="mb-3 col-lg-6">
-      <form [formGroup]="importnatLinks">
-        <h4 class="border-bottom mb-2">Impotant Links</h4>
-        <angular-editor id="editor3" [config]="editorConfig" formControlName="implinks"></angular-editor>
-        <input type="hidden" formControlName="id" />
-        <button type="submit" class="btn col-2 mt-3 btn-primary" (click)="AddLinks()"
-          *ngIf="this.loader2 == false">Add</button>
-        <div class="spinner-border text-dark" role="status" *ngIf="this.loader2 == true">
-          <span class="sr-only">Loading...</span>
-        </div>
-      </form>
-    </div>
+
+
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Board</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of boardData">
+          <td>{{ item.id }}</td>
+          <td>
+            <!-- <ul class="list-group" [innerHTML]="item.board"></ul> -->
+             {{item.board}}
+          </td>
+          <td>{{ item.createdAt | date: 'medium' }}</td>
+          <td>{{ item.updatedAt | date: 'medium' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</app-card>
+
+<app-card>
+  <div class="mb-3 col-lg-12">
+    <form [formGroup]="importnatLinks">
+      <h4 class="border-bottom mb-2">Impotant Links</h4>
+      <angular-editor id="editor3" [config]="editorConfig" formControlName="implinks"></angular-editor>
+      <input type="hidden" formControlName="id" />
+      <button type="submit" class="btn col-2 mt-3 btn-primary" (click)="AddLinks()"
+        *ngIf="this.loader2 == false">Add</button>
+      <div class="spinner-border text-dark" role="status" *ngIf="this.loader2 == true">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </form>
   </div>
 </app-card>

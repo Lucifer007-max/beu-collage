@@ -482,3 +482,40 @@ img.d-block.w-100.height_banner {
       margin-top: 20px;
     }
   }
+
+
+
+
+  .sliced-image {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .sliced-image::before,
+  .sliced-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+
+  .sliced-image > div {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    animation: sliceIn 1s forwards;
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  @keyframes sliceIn {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

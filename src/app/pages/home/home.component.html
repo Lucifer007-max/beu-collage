@@ -10,10 +10,11 @@
     <div class="col-lg-3 col-md-3 col-sm-12 order-sm-2 order-md-1 order-lg-1 order-xl-1  p-0 order-2"
       style="background: rgb(191, 219, 254)">
       <div class="card m-0 shadow-sm shadow-none">
-        <div class="card-header d-flex justify-content-between align-items-center p-2" style="background: #0676BD">
-          <h5 class="mb-0 text-light  ">Notice Board</h5>
-          <div>
-            <!-- <button class="btn btn-outline-dark btn-sm" style="color: #fff">
+        <div class="card-header d-flex justify-content-between align-items-center p-2"
+          style="background: #0676BD; border-radius: 0 ;">
+          <h5 class=" text-light my-1">Notice Board</h5>
+          <!-- <div>
+            <button class="btn btn-outline-dark btn-sm" style="color: #fff">
 
               <i class="fa fa-angle-down" (click)="moveDown('notice-board')"></i>
             </button>
@@ -21,8 +22,8 @@
 
             <button class="btn btn-outline-dark btn-sm" style="color: #fff">
               <i class="fa fa-angle-up" (click)="moveUp('notice-board')"></i>
-            </button> -->
-          </div>
+            </button>
+          </div> -->
         </div>
         <div class="card-body p-2 overflow-hidden h-40" style="background: rgb(191, 219, 254)">
           <ul *ngIf="noticeBoard" id="notice-board" class="list-group list-group-flush notice-board overflow-hidden"
@@ -41,30 +42,29 @@
       </div>
     </div>
 
-    <div id="carouselExampleCaptions" #carousel
-      class="col-lg-6 col-md-6 col-sm-12 order-sm-1 order-md-2 order-lg-2 order-xl-2 p-0 carousel slide   order-1 custom-carousel-effect"
+    <div id="slicingCarousel" #carousel
+      class="col-lg-6 col-md-6 col-sm-12 order-sm-1 order-md-2 order-lg-2 order-xl-2 p-0 carousel slide   order-1 "
       data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button *ngFor="let banner of bannerList; let i = index" type="button"
-          [attr.data-bs-target]="'#carouselExampleCaptions'" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
+          [attr.data-bs-target]="'#slicingCarousel'" [attr.data-bs-slide-to]="i" [class.active]="i === 0"
           [attr.aria-current]="i === 0 ? 'true' : null" [attr.aria-label]="'Slide ' + (i + 1)">
         </button>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item" *ngFor="let banner of bannerList; let i = index" [class.active]="i === 0">
-          <img [src]="baseUrl + banner.bannerPath" class="d-block w-100 height_banner" alt="...">
+          <img [src]="baseUrl + banner.bannerPath" class="d-block w-100 height_banner sliced-image" alt="..."
+            #slicedImage />
           <div class="carousel-caption" *ngIf="banner.title">
             <h5>{{banner.title}}</h5>
           </div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#slicingCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#slicingCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
@@ -74,8 +74,8 @@
       style="background: rgb(191, 219, 254)">
       <div class="card shadow-sm shadow-none m-0">
         <div class="card-header text-white d-flex justify-content-between align-items-center p-2"
-          style="background: #0676BD">
-          <h5 class="mb-0 text-white">IMPORTANT LINKS</h5>
+          style="background: #0676BD;border-radius: 0 ;">
+          <h5 class=" text-white my-1">IMPORTANT LINKS</h5>
           <div>
             <!-- <button class="btn btn-outline-primary btn-sm text-white">
               <i class="fa fa-angle-down" (click)="moveDown('important-information')"></i>
@@ -112,7 +112,7 @@
 <div class="container-fluid" data-aos="fade-up">
   <div class="row">
     <div class="col-12 p-0">
-      <article class="d-flex align-items-center border-top border-bottom border-1 border-primary px-2">
+      <article class="d-flex align-items-center border-top border-bottom border-1 border-primary">
         <div class="bg-primary text-white px-3 py-2 fw-bold">
           Notices:
         </div>
@@ -174,24 +174,27 @@
 
 <section class="container-fluid bg-primarylight py-5" data-aos="fade-up">
   <div class="beu-section ">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <h2>About Bihar Engineering University</h2>
-        <p>
-          Bihar Engineering University (BEU), Patna is a state-run public university established by the
-          Government of Bihar to oversee and coordinate engineering education across the state. The
-          university aims to ensure uniform academic standards, promote research and innovation, and
-          facilitate quality technical education.
-        </p>
-        <p>
-          BEU serves as an affiliating university for numerous engineering colleges across Bihar, streamlining
-          curriculum development, examination processes, and academic governance. The university is
-          committed to fostering a culture of excellence and skill development to meet the demands of
-          industry and society.
-        </p>
-      </div>
-      <div class="col-lg-6">
-        <img src="https://wallpapercave.com/wp/wp8774869.jpg" alt="BEU Campus" class="beu-image" />
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h4 class="text-muted">About Us</h4>
+          <h2 class="text-primary"> Bihar Engineering University</h2>
+          <p>
+            Bihar Engineering University (BEU), Patna is a state-run public university established by the
+            Government of Bihar to oversee and coordinate engineering education across the state. The
+            university aims to ensure uniform academic standards, promote research and innovation, and
+            facilitate quality technical education.
+          </p>
+          <p>
+            BEU serves as an affiliating university for numerous engineering colleges across Bihar, streamlining
+            curriculum development, examination processes, and academic governance. The university is
+            committed to fostering a culture of excellence and skill development to meet the demands of
+            industry and society.
+          </p>
+        </div>
+        <div class="col-lg-6">
+          <img src="https://wallpapercave.com/wp/wp8774869.jpg" alt="BEU Campus" class="beu-image" />
+        </div>
       </div>
     </div>
   </div>
@@ -233,7 +236,7 @@
   </div>
 </section>
 
-<section class="bg-white py-5" data-aos="fade-up">
+<section class="bg-white py-3" data-aos="fade-up">
   <div class="container">
     <div class="row justify-content-center">
       <!-- Student Section -->
@@ -243,11 +246,13 @@
         <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4  g-3 justify-content-center">
           <!-- Student Cards -->
           <div class="col text-center">
-            <div class="border-bottom border-primary pb-2 cursor-pointer shine-effect custom-card-box">
-              <img src="https://college-website-brown-one.vercel.app/assets/computer.png" class="img-fluid mb-2 w-50"
-                alt="One View">
-              <p class="fw-semibold text-dark">One View</p>
-            </div>
+            <a href="https://beu.intelliexams.com/beuexams/LoginScreens/LoginPage.aspx" target="_blank">
+              <div class="border-bottom border-primary pb-2 cursor-pointer shine-effect custom-card-box">
+                <img src="https://college-website-brown-one.vercel.app/assets/computer.png" class="img-fluid mb-2 w-50"
+                  alt="One View">
+                <p class="fw-semibold text-dark">One View</p>
+              </div>
+            </a>
           </div>
           <div class="col text-center">
             <div class="border-bottom border-primary pb-2 cursor-pointer shine-effect custom-card-box">
@@ -515,12 +520,15 @@
 </section>
 
 
-<div class="position-fixed  translate-middle-y d-flex gap-2 rotate-n90" data-aos="fade-up">
-  <button class="btn btn-primary shadow-sm px-4 py-2">
+<div class="position-fixed  translate-middle-y d-flex gap-2 rotate-n90">
+  <button class="btn btn-primary shadow-sm px-4 py-2 opacity-0">
     Minutes
   </button>
   <button class="btn btn-primary shadow-sm px-4 py-2">
-    BEU ERP
+    <a href="https://beu.intelliexams.com/beuexams/LoginScreens/frmStudentLoginPage.aspx" target="_blank"
+      class="text-light">
+      BEU ERP
+    </a>
   </button>
 </div><!-- Button trigger modal -->
 
