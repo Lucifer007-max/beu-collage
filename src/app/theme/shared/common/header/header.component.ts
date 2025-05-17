@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, HostListener } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 declare var google: any;
 
@@ -30,13 +30,14 @@ export class HeaderComponent implements AfterViewInit {
         { label: "Mission", link: "/about/mission" },
         { label: "Objective", link: "/about/objective" },
         // { label: "History", link: "/about/history" },
-        { label: "University Act", link: "/about/university-act" },
+        { label: "University Act & Statutes", link: "/about/university-act" },
         {
-          title: "Regulations (First, 2010)",
+          title: "Regulations",
           isOpen: false,
           subItems: [
             { title: "UG", link: "/about/ug" },
             { title: "PG", link: "/about/pg" },
+            { title: "PHD", link: "/about/phd" },
           ]
         },
         // { label: "Noida Campus", link: "/about/noida-campus" },
@@ -46,7 +47,7 @@ export class HeaderComponent implements AfterViewInit {
       ]
     },
     {
-      title: "Organization Structure",
+      title: "Governance",
       isOpen: false,
       subItems: [
         { label: "Chancellor", link: "/organization/chancellor" },
@@ -72,7 +73,7 @@ export class HeaderComponent implements AfterViewInit {
       subItems: [
         { label: "Programmes", link: "/Academics/Programmes" },
         { label: "NBA Accredited Programs", link: "/Academics/NBA-Accredited-Programs" },
-        { label: "Naac Programm", link: "/Academics/Naac-Programm" },
+        // { label: "Naac Programm", link: "/Academics/Naac-Programm" },
         { label: "NIRF Ranking", link: "/Academics/NIRF-Ranking" },
         { label: "Board of Studies", link: "/Academics/Board-of-Studies" },
         { label: "Industry Consultation Committee", link: "/Academics/Industry-Consultation-Committee" },
@@ -86,8 +87,8 @@ export class HeaderComponent implements AfterViewInit {
             { label: "BTech", link: "/academic/1" }
           ]
         },
-        { label: "Honours Degree MOOCs (NPTEL) Courses", link: "/Academics/Honours-Degree-MOOCs" },
-        { label: "Compendium", link: "/Academics/Compendium" },
+        // { label: "Honours Degree MOOCs (NPTEL) Courses", link: "/Academics/Honours-Degree-MOOCs" },
+        // { label: "Compendium", link: "/Academics/Compendium" },
         { label: "Academic Calendar", link: "/Academics/Academic-Calendar" },
         { label: "Publications", link: "/Academics/Publications" },
         { label: "Faculty Development Programs (FDP)", link: "/Academics/FDP" },
@@ -95,7 +96,7 @@ export class HeaderComponent implements AfterViewInit {
         { label: "NPTEL Local Chapters", link: "/Academics/NPTEL-Local-Chapters" },
         { label: "NPTEL Online Certification", link: "/Academics/NPTEL-Online-Certification" },
         { label: "Value Education", link: "/Academics/Value-Education" },
-        { label: "ODOP Nodal Officer", link: "/Academics/ODOP-Nodal-Officer" }
+        // { label: "ODOP Nodal Officer", link: "/Academics/ODOP-Nodal-Officer" }
       ]
     },
     {
@@ -112,20 +113,20 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: [
         { label: "Branch Codes", link: "#" },
-        { label: "Course Codes", link: "#" },
-        { label: "Subject Code & Paper ID", link: "#" },
+        // { label: "Course Codes", link: "#" },
+        // { label: "Subject Code & Paper ID", link: "#" },
         { label: "Examination Centre", link: "#" },
         { label: "Examination Schedule", link: "#" },
         { label: "UFM Rules", link: "#" },
         { label: "Revaluation Rules", link: "#" },
-        { label: "Grace Rule in CBCS System", link: "#" },
-        { label: "Detained Rule in CBCS System", link: "#" },
+        // { label: "Grace Rule in CBCS System", link: "#" },
+        // { label: "Detained Rule in CBCS System", link: "#" },
         { label: "Question Bank Portal", link: "#" },
-        { label: "Annual Report", link: "/annual-report" },
-        { label: "Lokpal Orders", link: "/lokpal-orders" },
-        { label: "One-View display of Student Result Data", link: "#" },
-        { label: "Ph.D.", link: "/phd" },
-        { label: "Merit List of Students", link: "#" }
+        // { label: "Annual Report", link: "/annual-report" },
+        // { label: "Lokpal Orders", link: "/lokpal-orders" },
+        // { label: "One-View display of Student Result Data", link: "#" },
+        // { label: "Ph.D.", link: "/phd" },
+        // { label: "Merit List of Students", link: "#" }
       ]
     },
     {
@@ -133,8 +134,8 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: [
         { label: "Annual Report", link: "/annual-report" },
-        { label: "BEU Magazine", link: "/magazine" },
-        { label: "Financial Report", link: "/financial-report" }
+        // { label: "BEU Magazine", link: "/magazine" },
+        // { label: "Financial Report", link: "/financial-report" }
       ]
     },
     {
@@ -167,7 +168,7 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: [
         { label: "Act", link: "/acts" },
-        { label: "Circular", link: "/circular" },
+        // { label: "Circular", link: "/circular" },
         { label: "Notification", link: "/notification" },
         { label: "Downloads", link: "/downloads" },
         { label: "Minutes", link: "/minutes" },
@@ -257,6 +258,26 @@ export class HeaderComponent implements AfterViewInit {
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+
+  isNavbarOpen = false;
+
+  @ViewChild('navbarCollapse') navbarCollapse!: ElementRef;
+
+  toggleNavbar() {
+    this.isNavbarOpen = !this.isNavbarOpen;
+
+    if (this.navbarCollapse) {
+      const el = this.navbarCollapse.nativeElement;
+
+      if (this.isNavbarOpen) {
+        const scrollHeight = el.scrollHeight;
+        el.style.height = scrollHeight + 'px';
+      } else {
+        el.style.height = '0';
+      }
+    }
+  }
 }
 
 (window as any).googleTranslateElementInit = () => {
@@ -264,6 +285,9 @@ export class HeaderComponent implements AfterViewInit {
     { pageLanguage: 'en', includedLanguages: 'hi,es,fr,de,ar,zh', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
     'google_translate_element'
   );
+
+
+
 
 
 

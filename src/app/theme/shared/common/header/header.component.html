@@ -46,11 +46,12 @@
 
   <nav class="navbar navbar-expand-md navbar-dark bg-primary p-0">
     <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false"  (click)="toggleNavbar()" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav"  [ngClass]="{ 'open': isNavbarOpen, 'closed': !isNavbarOpen }"   #navbarCollapse
+        >
         <ul class="navbar-nav">
           <ng-container *ngTemplateOutlet="renderMenu; context: { items: menuItems }"></ng-container>
         </ul>

@@ -193,6 +193,21 @@ export class ApiService {
     return this.httpClient.post(this.baseUrl + 'notice/add-notice-board', formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
+
+  noticeBoardServiceUpdate(id: number, payload: any): Observable<any> {
+    const formData: FormData = new FormData();
+
+    for (const key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        formData.append(key, payload[key]);
+        console.log(key, payload[key]); // for debugging
+      }
+    }
+
+    return this.httpClient.put(this.baseUrl + `notice/add-notice-board/${id}`, formData)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+
   importantLinksService(id: number, payload: any): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -223,9 +238,9 @@ export class ApiService {
     return this.httpClient.get(this.baseUrl + 'notice/get-events')
       .pipe(catchError(this.handleError.bind(this)));
   }
-  noticeBoardGet(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + 'notice/get-notice-board')
-      .pipe(catchError(this.handleError.bind(this)));
+  noticeBoardGet(params?:any): Observable<any> {
+    return this.httpClient.get(this.baseUrl + 'notice/get-notice-board?isimportant='+params)
+    .pipe(catchError(this.handleError.bind(this)));
   }
   importantLinkGet(): Observable<any> {
     return this.httpClient.get(this.baseUrl + 'notice/get-important-links')

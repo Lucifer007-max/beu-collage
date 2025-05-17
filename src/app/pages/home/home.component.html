@@ -12,7 +12,8 @@
       <div class="card m-0 shadow-sm shadow-none">
         <div class="card-header d-flex justify-content-between align-items-center p-2"
           style="background: #0676BD; border-radius: 0 ;">
-          <h5 class=" text-light my-1">Notice Board</h5>
+          <h5 class=" text-light my-1
+          ">Notice Board</h5>
           <!-- <div>
             <button class="btn btn-outline-dark btn-sm" style="color: #fff">
 
@@ -27,7 +28,18 @@
         </div>
         <div class="card-body p-2 overflow-hidden h-40" style="background: rgb(191, 219, 254)">
           <ul *ngIf="noticeBoard" id="notice-board" class="list-group list-group-flush notice-board overflow-hidden"
-            [innerHTML]="this.noticeBoard">
+            >
+            <li *ngFor="let item of noticeBoard" class="list-group-item font-secondary-color p-2">
+              <span class="fa fa-arrow-right font-secondary-color me-2"></span>&nbsp;
+
+              <ng-container *ngIf="item.link; else plainText">
+                <a [href]="item.link" target="_blank" rel="noopener noreferrer">{{ item.board }}</a>
+              </ng-container>
+
+              <ng-template #plainText>
+                {{ item.board }}
+              </ng-template>
+            </li>
 
           </ul>
           <div *ngIf="!noticeBoard" class="placeholder-glow">
@@ -265,7 +277,9 @@
             <div class="border-bottom border-primary pb-2 cursor-pointer shine-effect custom-card-box">
               <img src="https://college-website-brown-one.vercel.app/assets/customer.png" class="img-fluid mb-2 w-50"
                 alt="KYC">
-              <p class="fw-semibold text-dark">KYC</p>
+              <p class="fw-semibold text-dark">
+                <small>Know your collage</small>
+              </p>
             </div>
           </div>
           <div class="col text-center">
@@ -370,10 +384,9 @@
             <i class="fa fa-graduation-cap"></i>
           </div>
           <div class="custom-card-body">
-            <h4 class="custom-title">Under Graduate - Bihar, Patna</h4>
+            <h4 class="custom-title">Under Graduate</h4>
             <p class="custom-text">
-              Students seeking a Bachelor's degree can choose from our Programmes like B. Pharma, B. Tech, BHMCT,
-              B.Arch, BFAD etc.
+              Students seeking a Bachelor's degree can choose from our Programme  B.Tech etc.
             </p>
           </div>
           <div class="custom-card-footer">
@@ -389,10 +402,10 @@
             <i class="fa fa-graduation-cap"></i>
           </div>
           <div class="custom-card-body">
-            <h4 class="custom-title">Post Graduate - Bihar, Patna</h4>
+            <h4 class="custom-title">Post Graduate </h4>
             <p class="custom-text">
               Students seeking a Masters degree can choose from our
-              ProgrammeM.Tech. </p>
+              Programme M.Tech. </p>
           </div>
           <div class="custom-card-footer">
             <a href="#" class="custom-btn">Explore Course</a>
@@ -406,7 +419,7 @@
             <i class="fa fa-graduation-cap"></i>
           </div>
           <div class="custom-card-body">
-            <h4 class="custom-title">Research - Bihar, Patna</h4>
+            <h4 class="custom-title">Research</h4>
             <p class="custom-text"> Students seeking a Doctoral degree (Ph.D.) can seek admission
               in the field in which he/she has passed his/her qualifying examination. </p>
           </div>

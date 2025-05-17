@@ -178,7 +178,7 @@ li.px-3.py-2.cursor-pointer.hover-text-warning {
   transform: translateY(0);
   transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
-  // display: block !important;
+  display: block !important;
   position: absolute !important;
   /* Keep block so Angular can toggle 'show' class */
 }
@@ -228,4 +228,15 @@ li.px-3.py-2.cursor-pointer.hover-text-warning {
 
 .back-to-top:hover {
   opacity: 1;
+}
+
+
+.navbar-collapse {
+  overflow: hidden;
+  transition: height 0.4s ease;
+  height: 0!important;
+}
+
+.navbar-collapse.open {
+  height: 100% !important; /* or auto via dynamic calculation */
 }

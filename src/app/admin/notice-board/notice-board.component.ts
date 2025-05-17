@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/service/api.service';
 import { CardComponent } from "../../theme/shared/components/card/card.component";
 import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-notice-board',
@@ -51,7 +52,7 @@ export default class NoticeBoardComponent implements OnInit {
     ]
   };
 
-
+  imgUrl = environment.imgUrl
   constructor(private FB: FormBuilder, private service: ApiService) { }
 
   ngOnInit(): void {
@@ -61,6 +62,7 @@ export default class NoticeBoardComponent implements OnInit {
       this.noticeForm = this.FB.group({
         id: [''],
         notice: ['', Validators.required],
+        noticeurl: [''],
         urlType: ['text'], // Default is 'text'
       })
     }
@@ -97,7 +99,7 @@ export default class NoticeBoardComponent implements OnInit {
     const payLoad = {
       // "id":this.noticeForm.value.id,
       "board": this.noticeForm.value.notice,
-      "link":this.wfile,
+      "link":this.wfile || this.noticeForm.value.noticeurl,
     }
     this.service.noticeBoardService(this.noticeForm.value.id, payLoad).subscribe((res: any) => {
       if (res.status) {
@@ -112,6 +114,32 @@ export default class NoticeBoardComponent implements OnInit {
       this.service.ErrorSnackbar(err.message);
       this.loader = false;
     })
+  }
+  toggleImportant(item: any): void {
+    this.loader = true;
+
+    // Toggle between 1 and 0
+    const updatedImportant = item.isimportant === 1 ? 0 : 1;
+
+    const payload = {
+      isimportant: updatedImportant
+    };
+
+    this.service.noticeBoardServiceUpdate(item.id, payload).subscribe({
+      next: (res: any) => {
+        if (res.status) {
+          item.isimportant = updatedImportant; // Reflect change in UI
+          this.service.SuccessSnackbar(res.message);
+        } else {
+          this.service.SuccessSnackbar('Something went wrong...!!');
+        }
+        this.loader = false;
+      },
+      error: (err: any) => {
+        this.service.ErrorSnackbar(err.message);
+        this.loader = false;
+      }
+    });
   }
 
   getImportantLink() {

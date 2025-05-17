@@ -70,9 +70,8 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     });
   }
   getNoticeBoard() {
-    this.service.noticeBoardGet().subscribe((res: any) => {
-      this.noticeBoard = res.data[0].board
-      // if (res.data) {
+    this.service.noticeBoardGet(1).subscribe((res: any) => {
+      this.noticeBoard = res.data      // if (res.data) {
       //   this.noticeForm.patchValue({
       //     id: res.data[0].id, // Set ID
       //     notice: res.data[0].board // Set Notice content

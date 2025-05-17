@@ -151,11 +151,15 @@ color: #0676BD !important;
 
   #navbarNav .nav-link
     {
-    width: 120px;
+    width: 100%;
     min-width: 280px;
   }
   .dropdown-menu > li, .dropdown-menu > .dropdown-item {
     width: 250px !important;
+  }
+  .dropdown-menu.show {
+    opacity: 1;
+    transform: translate(100px, 0) !important ;
   }
 }
 
