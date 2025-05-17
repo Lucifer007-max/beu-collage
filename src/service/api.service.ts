@@ -209,12 +209,23 @@ export class ApiService {
   }
 
   importantLinksService(id: number, payload: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`,
-      'Content-Type': 'application/json'
-    });
+    // const headers = new HttpHeaders({
+    //   'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    //   'Content-Type': 'application/json'
+    // });
 
-    return this.httpClient.put(`${this.baseUrl}notice/add-important-links/${id}`, payload, { headers })
+    // return this.httpClient.put(`${this.baseUrl}notice/add-important-links/${id}`, payload, { headers })
+    // .pipe(catchError(this.handleError.bind(this)));
+    const formData: FormData = new FormData();
+
+    for (const key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        formData.append(key, payload[key]);
+        console.log(key, payload[key]); // for debugging
+      }
+    }
+
+    return this.httpClient.post(this.baseUrl + `notice/add-important-links/${id}`, formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
   noticeGet(): Observable<any> {
@@ -238,9 +249,9 @@ export class ApiService {
     return this.httpClient.get(this.baseUrl + 'notice/get-events')
       .pipe(catchError(this.handleError.bind(this)));
   }
-  noticeBoardGet(params?:any): Observable<any> {
-    return this.httpClient.get(this.baseUrl + 'notice/get-notice-board?isimportant='+params)
-    .pipe(catchError(this.handleError.bind(this)));
+  noticeBoardGet(params?: any): Observable<any> {
+    return this.httpClient.get(this.baseUrl + 'notice/get-notice-board?isimportant=' + params)
+      .pipe(catchError(this.handleError.bind(this)));
   }
   importantLinkGet(): Observable<any> {
     return this.httpClient.get(this.baseUrl + 'notice/get-important-links')
@@ -649,6 +660,10 @@ export class ApiService {
 
   bannerDelete(id: number): Observable<any> {
     return this.httpClient.delete(this.baseUrl + 'banner/delete-banner/' + id)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  noticeDelete(id: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + 'notice/delete-notice-board/' + id)
       .pipe(catchError(this.handleError.bind(this)));
   }
   alertDelete(id: number): Observable<any> {

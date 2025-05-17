@@ -70,17 +70,19 @@ export default class NoticeBoardComponent implements OnInit {
       this.importnatLinks = this.FB.group({
         id: [''],
         implinks: ['', Validators.required],
+        linkurl: [''],
+        urlType: ['text']
       })
     }
   }
-  wfile:any;
+  wfile: any;
   onFileSelect(event: any) {
     if (event.target.files && event.target.files[0]) {
       this.wfile = event.target.files[0];
       console.log(this.wfile)
     }
   }
-  boardData:any;
+  boardData: any;
   getNotice() {
     this.service.noticeBoardGet().subscribe((res: any) => {
       if (res.data) {
@@ -99,13 +101,15 @@ export default class NoticeBoardComponent implements OnInit {
     const payLoad = {
       // "id":this.noticeForm.value.id,
       "board": this.noticeForm.value.notice,
-      "link":this.wfile || this.noticeForm.value.noticeurl,
+      "link": this.wfile || this.noticeForm.value.noticeurl,
     }
     this.service.noticeBoardService(this.noticeForm.value.id, payLoad).subscribe((res: any) => {
       if (res.status) {
         this.getNotice()
         this.service.SuccessSnackbar(res.message)
         this.loader = false;
+        this.wfile = null
+        this.noticeForm.reset()
       } else {
         this.service.SuccessSnackbar('something went wrong...!!')
         this.loader = false;
@@ -141,15 +145,17 @@ export default class NoticeBoardComponent implements OnInit {
       }
     });
   }
-
+  importantLinksData: any;
   getImportantLink() {
     this.service.importantLinkGet().subscribe((res: any) => {
       // console.log(res)
       if (res.data) {
-        this.importnatLinks.patchValue({
-          id: res.data[0].id, // Set ID
-          implinks: res.data[0].implinks // Set Notice content
-        });
+        this.importantLinksData = res.data
+
+        // this.importnatLinks.patchValue({
+        //   id: res.data[0].id, // Set ID
+        //   implinks: res.data[0].implinks // Set Notice content
+        // // });
       }
     });
   }
@@ -159,7 +165,8 @@ export default class NoticeBoardComponent implements OnInit {
     const payLoad = {
       // "id":this.noticeForm.value.id,
       "implinks": this.importnatLinks.value.implinks,
-      // "notice":this.wfile,
+      "link": this.newFile || this.importnatLinks.value.linkurl,
+
     }
     this.service.importantLinksService(this.noticeForm.value.id, payLoad).subscribe((res: any) => {
       if (res.status) {
@@ -216,6 +223,33 @@ export default class NoticeBoardComponent implements OnInit {
       window.getSelection()?.removeAllRanges();
 
 
+    }
+  }
+
+
+  handleDelete(id: number) {
+    this.service.noticeDelete(id).subscribe((res) => {
+      console.log(res)
+      this.getNotice()
+      this.service.SuccessSnackbar(res.message)
+    })
+  }
+
+  handleDeleteLink(id: number) {
+
+  }
+
+
+  onUrlTypeChangeLinks(type: string) {
+    this.importnatLinks.get('urlType')?.setValue(type);
+    this.importnatLinks.get('linkurl')?.reset();
+  }
+
+  newFile: any
+  onFileSelectLink(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      this.newFile = event.target.files[0];
+      // console.log(this.wfile)
     }
   }
 
