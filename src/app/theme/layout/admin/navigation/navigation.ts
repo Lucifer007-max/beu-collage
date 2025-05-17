@@ -84,6 +84,13 @@ export const NavigationItems: NavigationItem[] = [
         // icon: 'feather icon-cloth'
       },
       {
+        id: 'notice-borad',
+        title: 'Important Link Management',
+        type: 'item',
+        url: '/admin/add-links',
+        // icon: 'feather icon-cloth'
+      },
+      {
         id: 'event-data',
         title: 'Event Management',
         type: 'item',
@@ -126,13 +133,13 @@ export const NavigationItems: NavigationItem[] = [
         url: '/admin/add-circular',
         external: false
       },
-      {
-        id: 'menu-level-2.3',
-        title: 'Notification Mangement',
-        type: 'item',
-        url: '/admin/add-notification',
-        external: false
-      },
+      // {
+      //   id: 'menu-level-2.3',
+      //   title: 'Notification Mangement',
+      //   type: 'item',
+      //   url: '/admin/add-notification',
+      //   external: false
+      // },
       {
         id: 'menu-level-2.4',
         title: 'Downloads Mangement',
@@ -243,18 +250,18 @@ export const NavigationItems: NavigationItem[] = [
         type: 'item',
         url: '/admin/add-annual-report',
       },
-      {
-        id: 'report-2.2',
-        title: 'Magazine Mangement',
-        type: 'item',
-        url: '/admin/add-magazine',
-      },
-      {
-        id: 'report-2.3',
-        title: 'Financial Mangement',
-        type: 'item',
-        url: '/admin/add-financial',
-      }
+      // {
+      //   id: 'report-2.2',
+      //   title: 'Magazine Mangement',
+      //   type: 'item',
+      //   url: '/admin/add-magazine',
+      // },
+      // {
+      //   id: 'report-2.3',
+      //   title: 'Financial Mangement',
+      //   type: 'item',
+      //   url: '/admin/add-financial',
+      // }
     ]
   },
   {

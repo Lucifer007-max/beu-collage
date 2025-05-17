@@ -168,12 +168,13 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: [
         { label: "Act", link: "/acts" },
-        // { label: "Circular", link: "/circular" },
+        { label: "Circular", link: "/circular" },
+        { label: "Important Links", link: "/links" },
         { label: "Notification", link: "/notification" },
         { label: "Downloads", link: "/downloads" },
         { label: "Minutes", link: "/minutes" },
         { label: "Letter", link: "/letter" },
-        { label: "curriculum", link: "/curriculum" },
+        // { label: "curriculum", link: "/curriculum" },
       ]
     },
   ];
@@ -185,6 +186,7 @@ export class HeaderComponent implements AfterViewInit {
 
   onMouseEnter(item: any) {
     if (!this.isMobile) {
+      console.log(item)
       item.isOpen = true;
     }
   }

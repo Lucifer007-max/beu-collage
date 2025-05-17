@@ -114,6 +114,10 @@ const routes: Routes = [
         loadComponent: () => import('./pages/documents/documents.component')
       },
       {
+        path: 'links',
+        loadComponent: () => import('./pages/documents/documents.component')
+      },
+      {
         path: 'downloads',
         loadComponent: () => import('./pages/documents/documents.component')
       },
@@ -222,6 +226,11 @@ const routes: Routes = [
         path: 'admin/add-modal',
         loadComponent: () => import('./admin/modal/modal.component'),
         // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/add-links',
+        loadComponent: () => import('./admin/importantlink/importantlink.component'),
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-banner',

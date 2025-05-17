@@ -7,7 +7,7 @@
   <div class="row">
 
 
-    <div class="col-lg-3 col-md-3 col-sm-12 order-sm-2 order-md-1 order-lg-1 order-xl-1  p-0 order-2"
+    <div class="col-lg-3 col-md-3 col-sm-12 order-sm-2 order-md-1 order-lg-1 order-xl-1  p-0 order-2 position-relative"
       style="background: rgb(191, 219, 254)">
       <div class="card m-0 shadow-sm shadow-none">
         <div class="card-header d-flex justify-content-between align-items-center p-2"
@@ -27,13 +27,13 @@
           </div> -->
         </div>
         <div class="card-body p-2 overflow-hidden h-40" style="background: rgb(191, 219, 254)">
-          <ul *ngIf="noticeBoard" id="notice-board" class="list-group list-group-flush notice-board overflow-hidden"
+          <!-- <ul *ngIf="noticeBoard" id="notice-board" class="list-group list-group-flush notice-board overflow-hidden"
             >
             <li *ngFor="let item of noticeBoard" class="list-group-item font-secondary-color p-2">
               <span class="fa fa-arrow-right font-secondary-color me-2"></span>&nbsp;
 
               <ng-container *ngIf="item.link; else plainText">
-                <a [href]="item.link" target="_blank" rel="noopener noreferrer">{{ item.board }}</a>
+                <a [href]="baseUrl+item.link" target="_blank" rel="noopener noreferrer">{{ item.board }}</a>
               </ng-container>
 
               <ng-template #plainText>
@@ -41,7 +41,32 @@
               </ng-template>
             </li>
 
-          </ul>
+          </ul> -->
+          <marquee *ngIf="noticeBoard.length !== 0" direction="up" behavior="scroll" scrollamount="2" onmouseover="this.stop();"
+            onmouseout="this.start();" height="200" id="new_marguw">
+            <ul *ngIf="noticeBoard" class="list-group list-group-flush notice-board">
+              <li *ngFor="let item of noticeBoard" class="list-group-item font-secondary-color p-2"
+                style="background: rgb(191, 219, 254);">
+                <span class="fa fa-arrow-right font-secondary-color me-2"></span>&nbsp;
+
+                <ng-container *ngIf="item.link; else plainText">
+                  <a 
+                  [href]="item.link.endsWith('.pdf') ? baseUrl + item.link : item.link" 
+                  target="_blank" 
+                  rel="noopener noreferrer">
+                  {{ item.board }}
+                </a>
+                
+                </ng-container>
+
+                <ng-template #plainText>
+                  {{ item.board }}
+                </ng-template>
+              </li>
+            </ul>
+          </marquee>
+          <div *ngIf="noticeBoard.length=== 0">No Data Found</div>
+
           <div *ngIf="!noticeBoard" class="placeholder-glow">
             <p class="placeholder my-2 py-2 w-100"></p>
             <p class="placeholder my-2 py-2 w-100"></p>
@@ -49,13 +74,14 @@
             <p class="placeholder my-2 py-2 w-100"></p>
             <p class="placeholder my-2 py-2 w-100"></p>
           </div>
-
         </div>
       </div>
+      <a [routerLink]="'/notification'" class="position-absolute right-0 btn btn_view">View More <i
+          class="fa fa-angle-double-right "></i></a>
     </div>
 
     <div id="slicingCarousel" #carousel
-      class="col-lg-6 col-md-6 col-sm-12 order-sm-1 order-md-2 order-lg-2 order-xl-2 p-0 carousel slide   order-1 "
+      class="col-lg-6 col-md-6 col-sm-12 order-sm-1 order-md-2 order-lg-2 order-xl-2 p-0 carousel slide custom-carousel-effect order-1"
       data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button *ngFor="let banner of bannerList; let i = index" type="button"
@@ -82,7 +108,8 @@
       </button>
     </div>
 
-    <div class="col-lg-3 col-md-3 col-sm-12 order-sm-3 order-md-3 order-lg-3 order-xl-3  p-0 border-0 order-3"
+    <div
+      class="col-lg-3 col-md-3 col-sm-12 order-sm-3 order-md-3 order-lg-3 order-xl-3  p-0 border-0 order-3 position-relative"
       style="background: rgb(191, 219, 254)">
       <div class="card shadow-sm shadow-none m-0">
         <div class="card-header text-white d-flex justify-content-between align-items-center p-2"
@@ -100,9 +127,46 @@
         </div>
         <div class="card-body p-2 overflow-hidden h-40" style="background: rgb(191, 219, 254)">
 
-          <ul *ngIf="importLink" id="important-information" class="list-group list-group-flush overflow-hidden"
+          <!-- <ul *ngIf="importLink" id="important-information" class="list-group list-group-flush overflow-hidden"
             style="background: rgb(191, 219, 254)" [innerHTML]="importLink">
-          </ul>
+          </ul> -->
+          <!-- <ul *ngIf="importLink" id="important-information"
+            class="list-group list-group-flush notice-board overflow-hidden">
+            <li *ngFor="let item of importLink" class="list-group-item font-secondary-color p-2">
+              <span class="fa fa-arrow-right font-secondary-color me-2"></span>&nbsp;
+
+              <ng-container *ngIf="item.linkurl; else plainText">
+                <a [href]="baseUrl + item.linkurl" target="_blank" rel="noopener noreferrer">
+                  {{ item.linktitle }}
+                </a>
+              </ng-container>
+
+              <ng-template #plainText>
+                {{ item.linktitle }}
+              </ng-template>
+            </li>
+          </ul> -->
+
+          <marquee *ngIf="importLink.length !== 0" direction="up" behavior="scroll" scrollamount="2" onmouseover="this.stop();"
+            onmouseout="this.start();" height="200" id="new_marguw">
+            <ul *ngIf="importLink" class="list-group list-group-flush notice-board overflow-hidden">
+              <li *ngFor="let item of importLink" class="list-group-item font-secondary-color p-2"
+                style="background: rgb(191, 219, 254)">
+                <span class="fa fa-arrow-right font-secondary-color me-2"></span>&nbsp;
+
+                <ng-container *ngIf="item.linkurl; else plainText">
+                  <a  [href]="item.linkurl.endsWith('.pdf') ? baseUrl + item.linkurl : item.linkurl"  target="_blank" rel="noopener noreferrer">
+                    {{ item.linktitle }}
+                  </a>
+                </ng-container>
+
+                <ng-template #plainText>
+                  {{ item.linktitle }}
+                </ng-template>
+              </li>
+            </ul>
+          </marquee>
+          <div *ngIf="importLink.length === 0">No Data Found</div>
 
           <div *ngIf="!importLink" class="placeholder-glow">
             <p class="placeholder my-2 py-2 w-100"></p>
@@ -113,6 +177,9 @@
           </div>
         </div>
       </div>
+      <a [routerLink]="'/links'" class="position-absolute left-0 btn btn_view">View More <i
+          class="fa fa-angle-double-right "></i></a>
+
     </div>
 
     <!-- </div> -->
@@ -189,8 +256,8 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
-          <h4 class="text-muted">About Us</h4>
-          <h2 class="text-primary"> Bihar Engineering University</h2>
+
+          <h2 class="text-primary"> <span class="text-muted fs-4">About</span> Bihar Engineering University</h2>
           <p>
             Bihar Engineering University (BEU), Patna is a state-run public university established by the
             Government of Bihar to oversee and coordinate engineering education across the state. The
@@ -205,7 +272,8 @@
           </p>
         </div>
         <div class="col-lg-6">
-          <img src="https://wallpapercave.com/wp/wp8774869.jpg" alt="BEU Campus" class="beu-image" />
+          <img src="../../../assets/about.jpeg" alt="BEU Campus" class="beu-image" />
+          <h5 class="mt-3 border-top text-center pt-3">First Convocation</h5>
         </div>
       </div>
     </div>
@@ -214,10 +282,9 @@
 
   <div class="row align-items-center text-white py-4 rounded d-none">
 
-    <div *ngIf="alerts && alerts.length > 0; else noAlerts">
+    <!-- <div *ngIf="alerts && alerts.length > 0; else noAlerts">
       <ng-container *ngFor="let alert of alerts; let i = index">
 
-        <!-- Animated Alert Block -->
         <div class="col-md-5 text-center py-3" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="800">
           <h2 class="h4 fw-bold font-secondary-color">{{ alert.alertstitle }}</h2>
           <hr class="mx-auto w-75 border-1 border-white">
@@ -229,21 +296,20 @@
           </p>
         </div>
 
-        <!-- Animated Divider (only between elements) -->
         <div class="col-md-2 text-center d-none d-md-block d-lg-block d-xl-block d-sm-none"
           *ngIf="i !== alerts.length - 1" data-aos="fade-left" data-aos-delay="200">
           <div class="border-start border-white border-3 mx-auto h-75"></div>
         </div>
 
       </ng-container>
-    </div>
+    </div> -->
 
     <!-- Show this when there are no alerts -->
-    <ng-template #noAlerts>
+    <!-- <ng-template #noAlerts>
       <div class="text-center py-4" data-aos="fade-up">
         <h3 class="text-muted">No alerts for now</h3>
       </div>
-    </ng-template>
+    </ng-template> -->
 
   </div>
 </section>
@@ -278,7 +344,9 @@
               <img src="https://college-website-brown-one.vercel.app/assets/customer.png" class="img-fluid mb-2 w-50"
                 alt="KYC">
               <p class="fw-semibold text-dark">
-                <small>Know your collage</small>
+                <small>
+                  Know Your Collage
+                </small>
               </p>
             </div>
           </div>
@@ -386,7 +454,7 @@
           <div class="custom-card-body">
             <h4 class="custom-title">Under Graduate</h4>
             <p class="custom-text">
-              Students seeking a Bachelor's degree can choose from our Programme  B.Tech etc.
+              Students seeking a Bachelor's degree can choose from our Programme B.Tech etc.
             </p>
           </div>
           <div class="custom-card-footer">
@@ -440,16 +508,18 @@
 
     <div class="row justify-content-center mt-4">
       <div class="col-6 col-md-3 text-center">
-        <img src="https://college-website-brown-one.vercel.app/assets/AICTE.png" class="img-fluid w-75" alt="AICTE">
+        <img src="https://www.ncerc.ac.in/content/img/acrdt/aicte.png" class="img-fluid w-75" alt="AICTE">
       </div>
       <div class="col-6 col-md-3 text-center">
-        <img src="https://college-website-brown-one.vercel.app/assets/AISHE.png" class="img-fluid w-75" alt="AISHE">
+        <img src="https://www.prtgc.ac.in/wp-content/uploads/2022/05/aishe-logo.png" class="img-fluid w-75" alt="AISHE">
       </div>
       <div class="col-6 col-md-3 text-center">
-        <img src="https://college-website-brown-one.vercel.app/assets/NPTEL.png" class="img-fluid w-75" alt="NPTEL">
+        <img src="https://www.kindpng.com/picc/m/152-1520962_nptel-logo-hd-png-download.png" class="img-fluid w-75"
+          alt="NPTEL">
       </div>
       <div class="col-6 col-md-3 text-center">
-        <img src="https://college-website-brown-one.vercel.app/assets/UGC.png" class="img-fluid w-75" alt="UGC">
+        <img src="https://cybervidyapeeth.in/static/cybervidyapeeth/img/banner-img/ugc-logo2.png" class="img-fluid w-75"
+          alt="UGC">
       </div>
     </div>
   </div>
@@ -510,10 +580,10 @@
 
     <div class="container">
 
-      <div class="d-flex justify-content-between align-items-center px-3 py-2">
-        <h3 class="fw-bold text-primary text-center fs-5 fs-md-4 m-0">
-          College Events
-        </h3>
+      <div class="d-flex justify-content-center align-items-center px-3 py-2">
+        <h2 class="fw-bold text-primary text-center fs-5 fs-md-4 m-0">
+          COLLAGE EVENT
+        </h2>
         <!-- <div class="d-flex gap-2 align-items-center text-warning fs-5 fw-bold">
           <button class="border-0 bg-transparent" (click)="moveDown('college-events')"><i
               class="fa fa-angle-down"></i></button>
@@ -550,15 +620,15 @@
   aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Notification</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-          (click)="handleModal()"></button>
-      </div>
+      <!-- <div class="modal-header"> -->
+      <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Notification</h1> -->
+      <!-- </div> -->
       <div class="modal-body">
+        <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"
+          (click)="handleModal()"></button>
         <!-- <iframe src="https://sample-files.com/downloads/documents/pdf/basic-text.pdf" height="500px" width="100%"
           frameborder="0"></iframe> -->
-        <img [src]="baseUrl+this.imagePreview" class="w-100" />
+        <img [src]="baseUrl+this.imagePreview" class="d-block m-auto w-75" />
       </div>
       <!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -15,10 +15,13 @@ import { environment } from 'src/environments/environment';
 export default class DocumentsComponent {
   imgUrl: any = environment.imgUrl
   List: any = [];
-  flag: string = ""
+  flag: string = "";
+  noticeBoard: any = [];
+  importantLinksData: any = [];
+  baseUrl= environment.imgUrl;
   constructor(public router: Router, public apiService: ApiService) {
     this.setPageTitle(this.router.url.split('/')[1]);
-    this.flag = this.router.url.split('/')[1];
+    this.router.url.split('/')[1]= this.flag;
     console.log("Current URL:", this.router.url.split('/')[1]);
   }
 
@@ -33,7 +36,13 @@ export default class DocumentsComponent {
         console.log("Navigated to Circular Page");
         break;
       case 'notification':
-        this.getFile(url)
+        // this.getFile(url)
+        this.getNoticeBoard()
+        console.log("Navigated to Notification Page");
+        break;
+      case 'links':
+        // this.getFile(url)
+        this.getImportantLink()
         console.log("Navigated to Notification Page");
         break;
       case 'download':
@@ -63,6 +72,22 @@ export default class DocumentsComponent {
     this.apiService.fileGet(url).subscribe((res: any) => {
       this.List = res;
     });
+  }
+
+  getNoticeBoard() {
+    this.apiService.noticeBoardGet().subscribe((res: any) => {
+      this.noticeBoard = res;
+    });
+  }
+
+  getImportantLink() {
+    this.apiService.importantLinkGet().subscribe((res: any) => {
+      this.importantLinksData = res
+    });
+  }
+  get showSection(): boolean {
+    const path = this.router.url.split('/')[1];
+    return path !== 'notification' && path !== 'links';
   }
 
 }

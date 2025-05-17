@@ -19,7 +19,6 @@ import { environment } from 'src/environments/environment';
 })
 export default class NoticeBoardComponent implements OnInit {
   noticeForm: any = FormGroup;
-  importnatLinks: any = FormGroup;
   loader: boolean = false;
   loader2: boolean = false;
   noticeList: any = [];
@@ -57,23 +56,16 @@ export default class NoticeBoardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNotice()
-    this.getImportantLink()
+    // this.getImportantLink()
     {
       this.noticeForm = this.FB.group({
         id: [''],
         notice: ['', Validators.required],
         noticeurl: [''],
-        urlType: ['text'], // Default is 'text'
+        urlType: [''], // Default is 'text'
       })
     }
-    {
-      this.importnatLinks = this.FB.group({
-        id: [''],
-        implinks: ['', Validators.required],
-        linkurl: [''],
-        urlType: ['text']
-      })
-    }
+
   }
   wfile: any;
   onFileSelect(event: any) {
@@ -85,10 +77,10 @@ export default class NoticeBoardComponent implements OnInit {
   boardData: any;
   getNotice() {
     this.service.noticeBoardGet().subscribe((res: any) => {
-      if (res.data) {
-        console.log(res)
-        this.boardData = res.data
-      }
+      // if (res.data) {
+      console.log(res)
+      this.boardData = res
+      // }
     });
   }
 
@@ -120,7 +112,7 @@ export default class NoticeBoardComponent implements OnInit {
     })
   }
   toggleImportant(item: any): void {
-    this.loader = true;
+    // this.loader = true;
 
     // Toggle between 1 and 0
     const updatedImportant = item.isimportant === 1 ? 0 : 1;
@@ -137,7 +129,7 @@ export default class NoticeBoardComponent implements OnInit {
         } else {
           this.service.SuccessSnackbar('Something went wrong...!!');
         }
-        this.loader = false;
+        // this.loader = false;
       },
       error: (err: any) => {
         this.service.ErrorSnackbar(err.message);
@@ -146,42 +138,8 @@ export default class NoticeBoardComponent implements OnInit {
     });
   }
   importantLinksData: any;
-  getImportantLink() {
-    this.service.importantLinkGet().subscribe((res: any) => {
-      // console.log(res)
-      if (res.data) {
-        this.importantLinksData = res.data
 
-        // this.importnatLinks.patchValue({
-        //   id: res.data[0].id, // Set ID
-        //   implinks: res.data[0].implinks // Set Notice content
-        // // });
-      }
-    });
-  }
 
-  AddLinks() {
-    this.loader2 = true;
-    const payLoad = {
-      // "id":this.noticeForm.value.id,
-      "implinks": this.importnatLinks.value.implinks,
-      "link": this.newFile || this.importnatLinks.value.linkurl,
-
-    }
-    this.service.importantLinksService(this.noticeForm.value.id, payLoad).subscribe((res: any) => {
-      if (res.status) {
-        this.getImportantLink()
-        this.service.SuccessSnackbar(res.message)
-        this.loader2 = false;
-      } else {
-        this.service.SuccessSnackbar('something went wrong...!!')
-        this.loader2 = false;
-      }
-    }, (err: any) => {
-      this.service.ErrorSnackbar(err.message);
-      this.loader2 = false;
-    })
-  }
 
   @ViewChild('copyContent', { static: false }) copyContent!: ElementRef;
   @ViewChild('copyContentnew', { static: false }) copyContentnew!: ElementRef;
@@ -235,22 +193,7 @@ export default class NoticeBoardComponent implements OnInit {
     })
   }
 
-  handleDeleteLink(id: number) {
-
-  }
 
 
-  onUrlTypeChangeLinks(type: string) {
-    this.importnatLinks.get('urlType')?.setValue(type);
-    this.importnatLinks.get('linkurl')?.reset();
-  }
-
-  newFile: any
-  onFileSelectLink(event: any) {
-    if (event.target.files && event.target.files[0]) {
-      this.newFile = event.target.files[0];
-      // console.log(this.wfile)
-    }
-  }
 
 }

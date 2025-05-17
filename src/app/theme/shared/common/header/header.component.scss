@@ -112,7 +112,7 @@ color: #fff;
 }
 li.px-3.py-2.border-end.border-primary.cursor-pointer.hover-text-warning,
 li.px-3.py-2.cursor-pointer.hover-text-warning {
-  padding: 0 !important;
+  padding: 6px !important;
 }
 }
 
@@ -230,13 +230,20 @@ li.px-3.py-2.cursor-pointer.hover-text-warning {
   opacity: 1;
 }
 
-
-.navbar-collapse {
-  overflow: hidden;
-  transition: height 0.4s ease;
-  height: 0!important;
+@media (max-width:768px) {
+  
+  .navbar-collapse {
+    overflow: hidden;
+    transition: height 0.4s ease;
+    height: 0!important;
+  }
+  
+  .navbar-collapse.open {
+    height: 100% !important; /* or auto via dynamic calculation */
+  }
 }
 
-.navbar-collapse.open {
-  height: 100% !important; /* or auto via dynamic calculation */
+
+.navbar .btn_navss{
+  justify-content: end;
 }

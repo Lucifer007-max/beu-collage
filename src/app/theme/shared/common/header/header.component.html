@@ -1,4 +1,4 @@
-<header class="w-100">
+<header class="w-100" >
   <div class="d-flex b-sm-flex d-lg-flex d-md-flex justify-content-center align-items-center border-bottom border-primary border-dashed bg-light text-primary fw-semibold small" style="height: 27px;">
     <ul class="d-flex list-unstyled m-0">
       <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/'">Home</li>
@@ -45,13 +45,13 @@
 
 
   <nav class="navbar navbar-expand-md navbar-dark bg-primary p-0">
-    <div class="container">
+    <div class="container btn_navss">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false"  (click)="toggleNavbar()" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav"  [ngClass]="{ 'open': isNavbarOpen, 'closed': !isNavbarOpen }"   #navbarCollapse
-        >
+>
         <ul class="navbar-nav">
           <ng-container *ngTemplateOutlet="renderMenu; context: { items: menuItems }"></ng-container>
         </ul>

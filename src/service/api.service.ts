@@ -208,6 +208,21 @@ export class ApiService {
       .pipe(catchError(this.handleError.bind(this)));
   }
 
+  importantLinkServiceUpdate(id: number, payload: any): Observable<any> {
+    const formData: FormData = new FormData();
+
+    for (const key in payload) {
+      if (payload.hasOwnProperty(key)) {
+        formData.append(key, payload[key]);
+        console.log(key, payload[key]); // for debugging
+      }
+    }
+
+    return this.httpClient.put(this.baseUrl + `notice/update-important-links/${id}`, formData)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+
+
   importantLinksService(id: number, payload: any): Observable<any> {
     // const headers = new HttpHeaders({
     //   'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -225,7 +240,7 @@ export class ApiService {
       }
     }
 
-    return this.httpClient.post(this.baseUrl + `notice/add-important-links/${id}`, formData)
+    return this.httpClient.post(this.baseUrl + `notice/add-important-links`, formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
   noticeGet(): Observable<any> {
@@ -250,12 +265,25 @@ export class ApiService {
       .pipe(catchError(this.handleError.bind(this)));
   }
   noticeBoardGet(params?: any): Observable<any> {
-    return this.httpClient.get(this.baseUrl + 'notice/get-notice-board?isimportant=' + params)
-      .pipe(catchError(this.handleError.bind(this)));
+    let url = this.baseUrl + 'notice/get-notice-board';
+    if (params !== undefined && params !== null) {
+      url += `?isimportant=${params}`;
+    }
+    return this.httpClient.get(url).pipe(
+      catchError(this.handleError.bind(this))
+    );
   }
-  importantLinkGet(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + 'notice/get-important-links')
-      .pipe(catchError(this.handleError.bind(this)));
+
+  importantLinkGet(params?:any): Observable<any> {
+    let url = this.baseUrl + 'notice/get-important-links';
+    if (params !== undefined && params !== null) {
+      url += `?isimportant=${params}`;
+    }
+    return this.httpClient.get(url).pipe(
+      catchError(this.handleError.bind(this))
+    );
+    // return this.httpClient.get(this.baseUrl + 'notice/get-important-links')
+    //   .pipe(catchError(this.handleError.bind(this)));
   }
 
 

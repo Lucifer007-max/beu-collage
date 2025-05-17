@@ -36,6 +36,9 @@
         <a [routerLink]="'/notification'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
           <span class="text-primary mx-3">»</span>Notification
         </a>
+        <a [routerLink]="'/links'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>Important Links
+        </a>
         <a [routerLink]="'/downloads'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
           <span class="text-primary mx-3">»</span>Downloads
         </a>
@@ -50,63 +53,131 @@
         </a>
       </div>
     </div>
-    <div class="col-lg-9">
-      <table class="table table-bordered table-striped my-5" *ngIf="List?.length > 0; else noData">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th style="width: 100px;">Download</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let list of List; index as i">
-            <th scope="row">{{ i + 1 }}</th>
-            <th scope="row">{{list.title}}</th>
-            <th scope="row">{{list.desc}}
-              <ng-container *ngIf="list.createdAt === list.updatedAt; else updatedBlock">
-                <!-- <img src="your-image-path.png" alt="new" /> -->
-                <img src="https://aktu.ac.in/images/new_red.gif" width="50px"/>
-              </ng-container>
-              <ng-template #updatedBlock>
-                <img src="https://freepngimg.com/thumb/update_button/25530-9-update-button-image.png" width="50px"/>
-              </ng-template>
-            </th>
+    <div class="col-lg-9" >
+      <!-- {{this.flag}} -->
+      <div *ngIf="showSection">
+        <table class="table table-bordered table-striped my-5" >
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th style="width: 100px;">Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of List; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <th scope="row">{{list.title}}</th>
+              <th scope="row">{{list.desc}}
+                <ng-container *ngIf="list.createdAt === list.updatedAt; else updatedBlock">
+                  <!-- <img src="your-image-path.png" alt="new" /> -->
+                  <img src="https://aktu.ac.in/images/new_red.gif" width="50px"/>
+                </ng-container>
+                <ng-template #updatedBlock>
+                  <img src="https://freepngimg.com/thumb/update_button/25530-9-update-button-image.png" width="50px"/>
+                </ng-template>
+              </th>
 
-            <td>
-              <a *ngIf="flag === 'acts'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.actsFile">
-                <i class="fa fa-file-download"></i> Download
-              </a>
-              <a *ngIf="flag === 'circular'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.circularFile">
-                <i class="fa fa-file-download"></i> Download
-              </a>
-              <a *ngIf="flag === 'notification'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.notificationFile">
-                <i class="fa fa-file-download"></i> Download
-              </a>
-              <a *ngIf="flag === 'downloads'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.downloadsFile">
-                <i class="fa fa-file-download"></i> Download
-              </a>
-              <a *ngIf="flag === 'minutes'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.minutesFile">
-                <i class="fa fa-file-download"></i> Download
-              </a>
-              <a *ngIf="flag === 'letter'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.letterFile">
-                <i class="fa fa-file-download"></i> Download
-              </a>
-              <a *ngIf="flag === 'curriculum'" target="_blank" class="btn btn-primary btn-sm" [href]="imgUrl + list.curriculumFile">
-                <i class="fa fa-file-download"></i> Download
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              <td>
+                <a *ngIf="flag === 'acts'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.actsFile">
+                  <i class="fa fa-file-download"></i> Download
+                </a>
+                <a *ngIf="flag === 'circular'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.circularFile">
+                  <i class="fa fa-file-download"></i> Download
+                </a>
+                <a *ngIf="flag === 'notification'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.notificationFile">
+                  <i class="fa fa-file-download"></i> Download
+                </a>
+                <a *ngIf="flag === 'downloads'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.downloadsFile">
+                  <i class="fa fa-file-download"></i> Download
+                </a>
+                <a *ngIf="flag === 'minutes'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.minutesFile">
+                  <i class="fa fa-file-download"></i> Download
+                </a>
+                <a *ngIf="flag === 'letter'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.letterFile">
+                  <i class="fa fa-file-download"></i> Download
+                </a>
+                <a *ngIf="flag === 'curriculum'" target="_blank" class="btn btn-primary btn-sm" [href]="imgUrl + list.curriculumFile">
+                  <i class="fa fa-file-download"></i> Download
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <ng-template #noData>
+          <p class="text-center text-danger my-5">No data available</p>
+        </ng-template> -->
+      </div>
+      <div *ngIf="this.router.url.split('/')[1] === 'notification'">
+        <table class="table table-bordered table-striped my-5">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Date</th>
+              <th scope="col">Notification</th>
+              <th scope="col">Link</th>
+              <!-- <th style="width: 100px;"></th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of this.noticeBoard; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ list.createdAt | date: 'medium' }}</td>
+              <td>{{ list.board ?? '--' }}</td>
+              <td>
+                <a *ngIf="list.link" [href]="baseUrl + list.link" target="_blank" rel="noopener noreferrer">
+                  {{ list.link ?? '--'}}
+                </a>
+                <!-- <ng-container *ngIf="list.createdAt === list.updatedAt; else updatedBlock">
+                  <img src="https://aktu.ac.in/images/new_red.gif" width="50px" alt="new" class="ms-2"/>
+                </ng-container>
+                <ng-template #updatedBlock>
+                  <img src="https://freepngimg.com/thumb/update_button/25530-9-update-button-image.png" width="50px" alt="updated" class="ms-2"/>
+                </ng-template> -->
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+      <div *ngIf="this.router.url.split('/')[1] === 'links'">
+        <table class="table table-bordered table-striped my-5">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Date</th>
+              <th scope="col">Notification</th>
+              <th scope="col">Link</th>
+              <!-- <th style="width: 100px;"></th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of this.importantLinksData; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ list.createdAt | date: 'medium' }}</td>
+              <td>{{ list.linktitle ?? '--' }}</td>
+              <td>
+                <a *ngIf="list.linkurl" [href]="baseUrl + list.linkurl" target="_blank" rel="noopener noreferrer">
+                  {{ list.linkurl ?? '--' }}
+                </a>
+                <!-- <ng-container *ngIf="list.createdAt === list.updatedAt; else updatedBlock">
+                  <img src="https://aktu.ac.in/images/new_red.gif" width="50px" alt="new" class="ms-2"/>
+                </ng-container>
+                <ng-template #updatedBlock>
+                  <img src="https://freepngimg.com/thumb/update_button/25530-9-update-button-image.png" width="50px" alt="updated" class="ms-2"/>
+                </ng-template> -->
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
     </div>
   </div>
 
 
-  <ng-template #noData>
-    <p class="text-center text-danger my-5">No data available</p>
-  </ng-template>
+
 </div>
 
 

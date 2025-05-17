@@ -71,7 +71,7 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
   }
   getNoticeBoard() {
     this.service.noticeBoardGet(1).subscribe((res: any) => {
-      this.noticeBoard = res.data      // if (res.data) {
+      this.noticeBoard = res      // if (res.data) {
       //   this.noticeForm.patchValue({
       //     id: res.data[0].id, // Set ID
       //     notice: res.data[0].board // Set Notice content
@@ -80,8 +80,8 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     });
   }
   getImportantLink() {
-    this.service.importantLinkGet().subscribe((res: any) => {
-      this.importLink = res.data[0].implinks
+    this.service.importantLinkGet(1).subscribe((res: any) => {
+      this.importLink = res
       // if (res.data) {
       //   this.noticeForm.patchValue({
       //     id: res.data[0].id, // Set ID
