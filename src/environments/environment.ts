@@ -7,13 +7,14 @@ import packageInfo from '../../package.json';
 export const environment = {
   appVersion: packageInfo.version,
   production: false,
-  imgUrl: 'https://beu.anantdrishti.com/',
-  // apiUrl: 'https://beu.anantdrishti.com/v1/',
-  // backendUrl : 'https://beu.anantdrishti.com/v1/',
-  apiUrl: 'https://beu.anantdrishti.com/v1/',
-  backendUrl : 'https://beu.anantdrishti.com/v1/',
+  imgUrl: 'https://beu-prod.anantdrishti.com/',
+  // apiUrl: 'https://beu-prod.anantdrishti.com/v1/',
+  // backendUrl : 'https://beu-prod.anantdrishti.com/v1/',
+  apiUrl: 'https://beu-prod.anantdrishti.com/v1/',
+  backendUrl : 'https://beu-prod.anantdrishti.com/v1/',
 };
-
+// prod === 'https://prod.anantdrishti.com/v1/'
+// dev ==='https://beu-prod.anantdrishti.com/v1/'
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
