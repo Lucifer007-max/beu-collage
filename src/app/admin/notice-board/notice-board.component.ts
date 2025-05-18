@@ -50,7 +50,9 @@ export default class NoticeBoardComponent implements OnInit {
       ['fontSize']
     ]
   };
-
+  @ViewChild('formSection') formSection!: ElementRef;
+  isUpdate: boolean = false;
+  id: any = null;
   imgUrl = environment.imgUrl
   constructor(private FB: FormBuilder, private service: ApiService) { }
 
@@ -95,13 +97,15 @@ export default class NoticeBoardComponent implements OnInit {
       "board": this.noticeForm.value.notice,
       "link": this.wfile || this.noticeForm.value.noticeurl,
     }
-    this.service.noticeBoardService(this.noticeForm.value.id, payLoad).subscribe((res: any) => {
+    this.service.noticeBoardService(this.id, payLoad).subscribe((res: any) => {
       if (res.status) {
         this.getNotice()
         this.service.SuccessSnackbar(res.message)
         this.loader = false;
+        this.id = null
         this.wfile = null
-        this.noticeForm.reset()
+        this.noticeForm.reset();
+        this.selectedFileName = '';
       } else {
         this.service.SuccessSnackbar('something went wrong...!!')
         this.loader = false;
@@ -194,6 +198,18 @@ export default class NoticeBoardComponent implements OnInit {
   }
 
 
+  selectedFileName: any;
+  handleEdit(data: any) {
+    console.log(data)
+
+    data.link.endsWith('.pdf') ? (this.selectedFileName = data.linkurl, this.noticeForm.patchValue({ urlType: 'file', notice: data.board })) :
+      this.noticeForm.patchValue({ urlType: 'text', noticeurl: data.link, notice: data.board })
+    this.id = data.id
+    setTimeout(() => {
+      this.formSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    this.isUpdate = true
+  }
 
 
 }

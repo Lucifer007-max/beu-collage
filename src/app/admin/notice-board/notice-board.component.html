@@ -1,5 +1,5 @@
 <app-card cardTitle="Notice Board" [options]="false">
-  <div class="row">
+  <div class="row" #formSection>
     <!-- <div class="col-12">
       <div class="row">
         <div class="col-6">
@@ -59,12 +59,14 @@
         </ng-container>
 
         <ng-container *ngIf="noticeForm.get('urlType').value === 'file'">
+          <div *ngIf="this.selectedFileName">{{this.selectedFileName}}</div>
+
           <input type="file" formControlName="noticeurl" (change)="onFileSelect($event)" accept=".pdf" class="form-control" />
         </ng-container>
 
         <input type="hidden" formControlName="id" />
         <button type="submit" class="btn col-2 mt-3 btn-primary" (click)="Add()"
-          *ngIf="this.loader == false">Add</button>
+          *ngIf="this.loader == false">{{isUpdate ? 'Update' :'Add'}}</button>
         <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
           <span class="sr-only">Loading...</span>
         </div>
@@ -101,6 +103,10 @@
           <td><a [href]="imgUrl+item.link">{{ item.link ?? '--' }}</a></td>
           <td><a class="btn btn-danger btn-sm" (click)="handleDelete(item.id)"><i class="fa fa-trash"></i></a>&nbsp;
             <!-- <a class="btn btn-danger btn-sm" (click)="handleEdit(list)"><i class="fa fa-edit"></i></a> -->
+            &nbsp;
+            <a class="btn btn-info btn-sm" (click)="handleEdit(item)">
+              <i class="fa fa-pen"></i>
+            </a>
           </td>
         </tr>
       </tbody>

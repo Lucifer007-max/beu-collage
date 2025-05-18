@@ -1,6 +1,6 @@
 <app-card cardTitle="Important Links" [options]="false">
   <div class="mb-3 col-lg-12">
-    <form [formGroup]="importnatLinks">
+    <form [formGroup]="importnatLinks" #formSection>
       <!-- <h4 class="border-bottom mb-2">Important Links</h4> -->
 
       <label>Link Title</label>
@@ -44,13 +44,14 @@
       </ng-container>
 
       <ng-container *ngIf="importnatLinks.get('urlType').value === 'file'">
+        <div *ngIf="this.selectedFileName">{{this.selectedFileName}}</div>
         <input type="file" formControlName="linkurl" (change)="onFileSelectLink($event)" class="form-control" />
       </ng-container>
 
       <input type="hidden" formControlName="id" />
 
       <button type="submit" class="btn col-2 mt-3 btn-primary" (click)="AddLinks()" *ngIf="!loader2">
-        Add
+        {{this.isUpdate ? "Update" : 'Add'}}
       </button>
       <div class="spinner-border text-dark" role="status" *ngIf="loader2">
         <span class="sr-only">Loading...</span>
@@ -94,6 +95,10 @@
         <td>
           <a class="btn btn-danger btn-sm" (click)="handleDeleteLink(link.id)">
             <i class="fa fa-trash"></i>
+          </a>
+          &nbsp;
+          <a class="btn btn-info btn-sm" (click)="handleEdit(link)">
+            <i class="fa fa-pen"></i>
           </a>
         </td>
       </tr>

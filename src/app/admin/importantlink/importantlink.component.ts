@@ -20,7 +20,9 @@ export default class ImportantlinkComponent {
   loader2: boolean = false;
   importantLinksData: any;
   imgUrl = environment.imgUrl
-
+  @ViewChild('formSection') formSection!: ElementRef;
+  isUpdate: boolean = false;
+  id: any = null;
   constructor(private FB: FormBuilder, private service: ApiService) {
     this.getImportantLink()
     {
@@ -73,16 +75,22 @@ export default class ImportantlinkComponent {
     const payLoad = {
       // "id":this.noticeForm.value.id,
       "linktitle": this.importnatLinks.value.implinks,
-      "linkurl": this.newFile || this.importnatLinks.value.linkurl,
-
+      "linkurl": (this.newFile ?? this.selectedFileName) || this.importnatLinks.value.linkurl,
+      // ...(this.isUpdate && { id: this.id })
     }
-    this.service.importantLinksService(0, payLoad).subscribe((res: any) => {
+    // if (this.isUpdate) {
+    //   payLoad.id = this.id;
+    // }
+
+    this.service.importantLinksService(this.id, payLoad).subscribe((res: any) => {
       if (res.status) {
         this.getImportantLink()
         this.service.SuccessSnackbar(res.message)
         this.loader2 = false;
         this.newFile = '';
+        this.id = null
         this.importnatLinks.reset();
+        this.selectedFileName = '';
       } else {
         this.service.SuccessSnackbar('something went wrong...!!')
         this.loader2 = false;
@@ -108,6 +116,19 @@ export default class ImportantlinkComponent {
     this.service.importantLinkGet().subscribe((res: any) => {
       this.importantLinksData = res
     });
+  }
+
+  selectedFileName: any;
+  handleEdit(data: any) {
+    console.log(data)
+
+    data.linkurl.endsWith('.pdf') ? (this.selectedFileName = data.linkurl, this.importnatLinks.patchValue({ urlType: 'file', implinks: data.linktitle })) :
+      this.importnatLinks.patchValue({ urlType: 'text', linkurl: data.linkurl, implinks: data.linktitle })
+    this.id = data.id
+    setTimeout(() => {
+      this.formSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    this.isUpdate = true
   }
 
 }

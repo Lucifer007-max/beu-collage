@@ -189,8 +189,11 @@ export class ApiService {
         console.log(key, payload[key])
       }
     }
-
-    return this.httpClient.post(this.baseUrl + 'notice/add-notice-board', formData)
+    let url = this.baseUrl + 'notice/add-notice-board';
+    if (id !== undefined && id !== null) {
+      url += `?id=${id}`;
+    }
+    return this.httpClient.post(url, formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
 
@@ -239,8 +242,11 @@ export class ApiService {
         console.log(key, payload[key]); // for debugging
       }
     }
-
-    return this.httpClient.post(this.baseUrl + `notice/add-important-links`, formData)
+    let url = this.baseUrl + 'notice/add-important-links';
+    if (id !== undefined && id !== null) {
+      url += `?id=${id}`;
+    }
+    return this.httpClient.post(url, formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
   noticeGet(): Observable<any> {
@@ -274,7 +280,7 @@ export class ApiService {
     );
   }
 
-  importantLinkGet(params?:any): Observable<any> {
+  importantLinkGet(params?: any): Observable<any> {
     let url = this.baseUrl + 'notice/get-important-links';
     if (params !== undefined && params !== null) {
       url += `?isimportant=${params}`;
