@@ -130,7 +130,7 @@
               <td>{{ list.noticedate ?? '--' }}</td>
               <td>{{ list.board ?? '--' }}</td>
               <td>
-                <a *ngIf="list.link" [href]="baseUrl + list.link" target="_blank" rel="noopener noreferrer">
+                <a *ngIf="list.link" [href]="list.link.endsWith('.pdf') ? baseUrl + list.link : list.link" target="_blank" rel="noopener noreferrer">
                   <i class="fa fa-eye"></i> View
                 </a>
                 <!-- <ng-container *ngIf="list.createdAt === list.updatedAt; else updatedBlock">
@@ -162,7 +162,8 @@
               <td>{{ list.createdAt | date: 'medium' }}</td>
               <td>{{ list.linktitle ?? '--' }}</td>
               <td>
-                <a *ngIf="list.linkurl" [href]="baseUrl + list.linkurl" target="_blank" rel="noopener noreferrer">
+                {{list.linkurl.endsWith('.pdf')}}
+                <a *ngIf="list.linkurl" [href]="list.linkurl.endsWith('.pdf') ? baseUrl + list.linkurl : list.linkurl " target="_blank" rel="noopener noreferrer">
                   <i class="fa fa-eye"></i> View
                   <!-- {{ list.linkurl ?? '--' }} -->
                 </a>
