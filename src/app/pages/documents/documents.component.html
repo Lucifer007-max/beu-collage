@@ -123,7 +123,7 @@
           <tbody>
             <tr *ngFor="let list of this.noticeBoard; index as i">
               <th scope="row">{{ i + 1 }}</th>
-              <td>{{ list.createdAt | date: 'medium' }}</td>
+              <td>{{ list.noticedate ?? '--' }}</td>
               <td>{{ list.board ?? '--' }}</td>
               <td>
                 <a *ngIf="list.link" [href]="baseUrl + list.link" target="_blank" rel="noopener noreferrer">

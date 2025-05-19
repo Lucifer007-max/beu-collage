@@ -29,14 +29,22 @@
     <div class="mb-3 col-lg-12">
       <form [formGroup]="noticeForm">
         <!-- <h4 class="border-bottom mb-2">Notice Board</h4> -->
-
-        <label>Notice Title</label>
-        <input type="text" formControlName="notice" class="form-control" />
+        <div class="row">
+          <div class="col-6">
+            <label>Notice Title</label>
+            <input type="text" formControlName="notice" class="form-control" />
+          </div>
+          <div class="col-6">
+            <label>Notice Date</label>
+            <input type="date" formControlName="noticedate" class="form-control" />
+          </div>
+        </div>
 
         <label class="mt-3">Notice URL</label>
         <div class="d-flex my-3">
           <div class="form-check d-block">
-            <input class="form-check-input" type="radio" formControlName="urlType" value="text" id="urlText" (change)="onUrlTypeChange('text')" [checked]="noticeForm.get('urlType').value === 'text'"/>
+            <input class="form-check-input" type="radio" formControlName="urlType" value="text" id="urlText"
+              (change)="onUrlTypeChange('text')" [checked]="noticeForm.get('urlType').value === 'text'" />
             <label class="form-check-label" for="urlText">
               Text URL
             </label>
@@ -45,7 +53,8 @@
           &nbsp;
           &nbsp;
           <div class="form-check d-block">
-            <input class="form-check-input" type="radio" formControlName="urlType" value="file" id="urlFile" (change)="onUrlTypeChange('file')" [checked]="noticeForm.get('urlType').value === 'file'"/>
+            <input class="form-check-input" type="radio" formControlName="urlType" value="file" id="urlFile"
+              (change)="onUrlTypeChange('file')" [checked]="noticeForm.get('urlType').value === 'file'" />
             <label class="form-check-label" for="urlFile">
               File URL
             </label>
@@ -61,12 +70,13 @@
         <ng-container *ngIf="noticeForm.get('urlType').value === 'file'">
           <div *ngIf="this.selectedFileName">{{this.selectedFileName}}</div>
 
-          <input type="file" formControlName="noticeurl" (change)="onFileSelect($event)" accept=".pdf" class="form-control" />
+          <input type="file" formControlName="noticeurl" (change)="onFileSelect($event)" accept=".pdf"
+            class="form-control" />
         </ng-container>
 
         <input type="hidden" formControlName="id" />
-        <button type="submit" class="btn col-2 mt-3 btn-primary" (click)="Add()"
-          *ngIf="this.loader == false">{{isUpdate ? 'Update' :'Add'}}</button>
+        <button type="submit" class="btn col-2 mt-3 btn-primary" (click)="Add()" *ngIf="this.loader == false">{{isUpdate
+          ? 'Update' :'Add'}}</button>
         <div class="spinner-border text-dark" role="status" *ngIf="this.loader == true">
           <span class="sr-only">Loading...</span>
         </div>
@@ -80,26 +90,22 @@
           <th>ID</th>
           <th>Board</th>
           <th>Important</th>
-          <th>Created Date</th>
+          <th>Notice Date</th>
           <th>File/Link</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of boardData">
-          <td>{{ item.id }}</td>
+        <tr *ngFor="let item of boardData; index as i ">
+          <td>{{ i +1}}</td>
           <td>
             <!-- <ul class="list-group" [innerHTML]="item.board"></ul> -->
-             {{item.board}}
+            {{item.board}}
           </td>
           <td>
-            <input
-              type="checkbox"
-              [checked]="item.isimportant === 1"
-              (change)="toggleImportant(item)"
-            />
+            <input type="checkbox" [checked]="item.isimportant === 1" (change)="toggleImportant(item)" />
           </td>
-          <td>{{ item.createdAt | date: 'medium' }}</td>
+          <td>{{ item.noticedate ?? '--' }}</td>
           <td><a [href]="imgUrl+item.link">{{ item.link ?? '--' }}</a></td>
           <td><a class="btn btn-danger btn-sm" (click)="handleDelete(item.id)"><i class="fa fa-trash"></i></a>&nbsp;
             <!-- <a class="btn btn-danger btn-sm" (click)="handleEdit(list)"><i class="fa fa-edit"></i></a> -->
@@ -113,4 +119,3 @@
     </table>
   </div>
 </app-card>
-

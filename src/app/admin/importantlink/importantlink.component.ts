@@ -103,7 +103,11 @@ export default class ImportantlinkComponent {
 
 
   handleDeleteLink(id: number) {
-
+    this.service.importantLinkDelete(id).subscribe((res) => {
+      console.log(res)
+      this.getImportantLink()
+      this.service.SuccessSnackbar(res.message)
+    })
   }
 
 

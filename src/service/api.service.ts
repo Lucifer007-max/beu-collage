@@ -581,6 +581,7 @@ export class ApiService {
       .pipe(catchError(this.handleError.bind(this)));
   }
 
+
   coursesessionGet(): Observable<any> {
     return this.httpClient.get(this.baseUrl + 'course/get-course-session')
       .pipe(catchError(this.handleError.bind(this)));
@@ -698,6 +699,10 @@ export class ApiService {
   }
   noticeDelete(id: number): Observable<any> {
     return this.httpClient.delete(this.baseUrl + 'notice/delete-notice-board/' + id)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+  importantLinkDelete(id: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + 'notice/delete-important-links/' + id)
       .pipe(catchError(this.handleError.bind(this)));
   }
   alertDelete(id: number): Observable<any> {

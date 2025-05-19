@@ -65,6 +65,7 @@ export default class NoticeBoardComponent implements OnInit {
         notice: ['', Validators.required],
         noticeurl: [''],
         urlType: [''], // Default is 'text'
+        noticedate:['']
       })
     }
 
@@ -93,7 +94,7 @@ export default class NoticeBoardComponent implements OnInit {
   Add() {
     this.loader = true;
     const payLoad = {
-      // "id":this.noticeForm.value.id,
+      "noticedate":this.noticeForm.value.noticedate,
       "board": this.noticeForm.value.notice,
       "link": this.wfile || this.noticeForm.value.noticeurl,
     }
