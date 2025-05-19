@@ -1,18 +1,37 @@
 <div class="row">
   <!-- order-card start -->
-  <div class="col-md-6 col-xl-3" >
-    <app-card [hidHeader]="true" cardClass="bg-c-blue order-card">
-      <h6 class="text-white">Total Users</h6>
-      <h2 class="text-end text-white"
-        ><i class="feather icon-user float-start"></i><span>{{this.courseCount ?? 0}}</span>
+  <div class="col-md-6 col-xl-3">
+    <app-card [hidHeader]="true" cardClass="bg-c-green order-card">
+      <a routerLink="'/admin/add-banner'">
+        <h6 class="text-white">Total Banner</h6>
+        <h2 class="text-end text-white"><i class="feather icon-image float-start"></i><span>{{this.bannerCount ??
+            0}}</span>
+        </h2>
+      </a>
+    </app-card>
+  </div>
+  <div class="col-md-6 col-xl-3">
+    <a routerLink="'/admin/add-affiliation'">
+      <app-card [hidHeader]="true" cardClass="bg-c-blue order-card">
+        <h6 class="text-white">Total Affiliation</h6>
+        <h2 class="text-end text-white"><i class="feather icon-user float-start"></i><span>{{this.affiliation ??
+            0}}</span>
+        </h2>
+      </app-card>
+    </a>
+  </div>
+  <div class="col-md-6 col-xl-3">
+    <app-card [hidHeader]="true" cardClass="bg-c-green oorder-card">
+      <h6 class="text-white">Total Notice Board</h6>
+      <h2 class="text-end text-white"><i class="fa fa-note-sticky float-start"></i><span>{{this.noticeBoardCount ??
+          0}}</span>
       </h2>
     </app-card>
   </div>
-  <div class="col-md-6 col-xl-3" >
-    <app-card [hidHeader]="true" cardClass="bg-c-green order-card">
-      <h6 class="text-white">Total Banner</h6>
-      <h2 class="text-end text-white"
-        ><i class="feather icon-image float-start"></i><span>{{this.bannerCount ??  0}}</span>
+  <div class="col-md-6 col-xl-3">
+    <app-card [hidHeader]="true" cardClass="bg-c-blue order-card">
+      <h6 class="text-white">Total Important Link</h6>
+      <h2 class="text-end text-white"><i class="fa fa-link float-start"></i><span>{{this.impLinkCount ?? 0}}</span>
       </h2>
     </app-card>
   </div>
@@ -20,7 +39,7 @@
 
   <!-- account-section start -->
   <div class="col-xl-12 col-md-12">
-    <app-card cardTitle="Unique Visitor" [options]="false">
+    <!-- <app-card cardTitle="Unique Visitor" [options]="false">
       <apx-chart
         [chart]="chartOptions.chart!"
         [dataLabels]="chartOptions.dataLabels!"
@@ -32,11 +51,11 @@
         [markers]="chartOptions.markers!"
         [yaxis]="chartOptions.yaxis!"
       ></apx-chart>
-    </app-card>
+    </app-card> -->
   </div>
 
   <div>
-    <div class="col-xl-6 col-md-12 d-none">
+    <!-- <div class="col-xl-6 col-md-12 d-none">
       <div class="row">
         <div class="col-md-6">
           <app-card [hidHeader]="true">
@@ -153,11 +172,11 @@
         <p class="m-b-20">Your main list is growing</p>
         <button class="btn btn-success btn-sm btn-round">Check Theme Out</button>
       </app-card>
-    </div>
+    </div> -->
     <!-- account-section end -->
 
     <!-- conversion-section start -->
-    <div class="col-lg-4 col-md-12  d-none">
+    <!-- <div class="col-lg-4 col-md-12  d-none">
       <app-card [hidHeader]="true" footerClass="border border-top-0 p-0 overflow-hidden" [isCardFooter]="true">
         <h6>Conversions</h6>
         <h4 class="m-0"
@@ -183,8 +202,8 @@
         <div class="app-card-footer"> </div>
       </app-card>
     </div>
-    <div class="col-lg-8 col-md-12 d-none">
-      <app-card cardTitle="Activity Feed" blockClass="m-t-10" [options]="false">
+    <div class="col-lg-8 col-md-12 d-none"> -->
+    <!-- <app-card cardTitle="Activity Feed" blockClass="m-t-10" [options]="false">
         <ul class="feed-blog ps-0">
           <li class="active-feed">
             <div class="feed-user-img">
@@ -228,12 +247,12 @@
             >
           </li>
         </ul>
-      </app-card>
-    </div>
+      </app-card> -->
   </div>
-  <!-- conversion-section end -->
-  <div class="col-md-12">
-    <app-card cardTitle="Campaign Monitor" cardClass="tab-card tab-content" blockClass="nav-fill" [options]="false">
+</div>
+<!-- conversion-section end -->
+<div class="col-md-12">
+  <!-- <app-card cardTitle="Campaign Monitor" cardClass="tab-card tab-content" blockClass="nav-fill" [options]="false">
       <ul ngbNav #nav="ngbNav" aria-busy="true" class="nav-pills">
         <li [ngbNavItem]="1" class="flex">
           <a ngbNavLink><i class="fa fa-home m-r-10"></i>Home</a>
@@ -263,6 +282,6 @@
         </li>
       </ul>
       <div [ngbNavOutlet]="nav" class="mt-2"></div>
-    </app-card>
-  </div>
+    </app-card> -->
+  <!-- </div> -->
 </div>

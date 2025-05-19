@@ -11,7 +11,7 @@
     <nav class="mt-2">
       <ul class="breadcrumb bg-transparent">
         <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
-        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li>
+        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Media</a></li>
         <li class="breadcrumb-item active text-white" aria-current="page">{{pageTitle}}</li>
       </ul>
     </nav>
@@ -41,21 +41,21 @@
       <!-- Content Section -->
       <div class="col-lg-9 row position-relative">
         <!-- If videos exist -->
-        <ng-container *ngIf="albumList && albumList.length > 0; else noVideos">
-          <div class="row">
-            <div
-              class="col-lg-4 col-md-6 col-sm-12 my-3"
-              *ngFor="let item of albumList"
-            >
-              <div class="media-card">
-                <a [routerLink]="item.id">
-                  <img [src]="imgurl + item.thumbnail" class="media-image" />
-                </a>
-                <h5>{{item.title}}</h5>
+        <div class="row">
+          <ng-container *ngIf="albumList && albumList.length > 0; else noVideos">
+            <div class="col-lg-4 col-md-4 col-sm-12" *ngFor="let item of albumList">
+              <div class="media-card card">
+                <div class ="card-body">
+                  <a [routerLink]="item.id">
+                    <img [src]="imgurl + item.thumbnail" class="media- w-100" />
+                  </a>
+                  <h5 class="card-title text-center my-2">{{item.title}}</h5>
+                </div>
               </div>
+
             </div>
-          </div>
-        </ng-container>
+          </ng-container>
+        </div>
 
         <!-- Else block -->
         <ng-template #noVideos>

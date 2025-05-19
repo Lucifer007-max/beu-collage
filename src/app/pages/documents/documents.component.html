@@ -61,6 +61,8 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Title</th>
+              <th scope="col">{{this.router.url.split('/')[1] === 'letter' ? 'Letter' : 'Document'}} Date</th>
+              <th scope="col">{{this.router.url.split('/')[1] === 'letter' ? 'Letter' : 'Document'}} Number</th>
               <th scope="col">Description</th>
               <th style="width: 100px;">Download</th>
             </tr>
@@ -69,6 +71,8 @@
             <tr *ngFor="let list of List; index as i">
               <th scope="row">{{ i + 1 }}</th>
               <th scope="row">{{list.title}}</th>
+              <th scope="row">{{list.docdate ?? '--'}}</th>
+              <th scope="row">{{list.docnumber ?? '--'}}</th>
               <th scope="row">{{list.desc}}
                 <ng-container *ngIf="list.createdAt === list.updatedAt; else updatedBlock">
                   <!-- <img src="your-image-path.png" alt="new" /> -->
@@ -80,25 +84,25 @@
               </th>
 
               <td>
-                <a *ngIf="flag === 'acts'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.actsFile">
+                <a *ngIf="this.router.url.split('/')[1] === 'acts'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.actsFile">
                   <i class="fa fa-file-download"></i> Download
                 </a>
-                <a *ngIf="flag === 'circular'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.circularFile">
+                <a *ngIf="this.router.url.split('/')[1] === 'circular'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.circularFile">
                   <i class="fa fa-file-download"></i> Download
                 </a>
-                <a *ngIf="flag === 'notification'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.notificationFile">
+                <!-- <a *ngIf="this.router.url.split('/')[1] === 'notification'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.notificationFile">
+                  <i class="fa fa-file-download"></i> Download
+                </a> -->
+                <a *ngIf="this.router.url.split('/')[1] === 'downloads'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.downloadsFile">
                   <i class="fa fa-file-download"></i> Download
                 </a>
-                <a *ngIf="flag === 'downloads'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.downloadsFile">
+                <a *ngIf="this.router.url.split('/')[1] === 'minutes'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.minutesFile">
                   <i class="fa fa-file-download"></i> Download
                 </a>
-                <a *ngIf="flag === 'minutes'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.minutesFile">
+                <a *ngIf="this.router.url.split('/')[1] === 'letter'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.letterFile">
                   <i class="fa fa-file-download"></i> Download
                 </a>
-                <a *ngIf="flag === 'letter'" target="_blank" class="btn btn-sucess btn-sm" [href]="imgUrl + list.letterFile">
-                  <i class="fa fa-file-download"></i> Download
-                </a>
-                <a *ngIf="flag === 'curriculum'" target="_blank" class="btn btn-primary btn-sm" [href]="imgUrl + list.curriculumFile">
+                <a *ngIf="this.router.url.split('/')[1] === 'curriculum'" target="_blank" class="btn btn-primary btn-sm" [href]="imgUrl + list.curriculumFile">
                   <i class="fa fa-file-download"></i> Download
                 </a>
               </td>
@@ -127,7 +131,7 @@
               <td>{{ list.board ?? '--' }}</td>
               <td>
                 <a *ngIf="list.link" [href]="baseUrl + list.link" target="_blank" rel="noopener noreferrer">
-                  {{ list.link ?? '--'}}
+                  <i class="fa fa-eye"></i> View
                 </a>
                 <!-- <ng-container *ngIf="list.createdAt === list.updatedAt; else updatedBlock">
                   <img src="https://aktu.ac.in/images/new_red.gif" width="50px" alt="new" class="ms-2"/>
@@ -159,7 +163,8 @@
               <td>{{ list.linktitle ?? '--' }}</td>
               <td>
                 <a *ngIf="list.linkurl" [href]="baseUrl + list.linkurl" target="_blank" rel="noopener noreferrer">
-                  {{ list.linkurl ?? '--' }}
+                  <i class="fa fa-eye"></i> View
+                  <!-- {{ list.linkurl ?? '--' }} -->
                 </a>
                 <!-- <ng-container *ngIf="list.createdAt === list.updatedAt; else updatedBlock">
                   <img src="https://aktu.ac.in/images/new_red.gif" width="50px" alt="new" class="ms-2"/>

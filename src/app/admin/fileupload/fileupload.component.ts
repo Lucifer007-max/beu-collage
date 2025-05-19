@@ -32,6 +32,8 @@ export default class FileuploadComponent {
       // file: [null, Validators.required],
       title: [null, Validators.required],
       desc: [null, Validators.required],
+      docdate: [null],
+      docnumber: [null],
       type: [this.router.url.split('/')[2].split('-')[1]], // Default type
     });
   }
@@ -72,16 +74,20 @@ export default class FileuploadComponent {
     formData.append("type", this.fileForm.value.type);
     formData.append("title", this.fileForm.value.title);
     formData.append("desc", this.fileForm.value.desc);
+    formData.append("docdate", this.fileForm.value.docdate);
+    formData.append("docnumber", this.fileForm.value.docnumber);
 
     // Debugging: Check if FormData has values
     const payload = {
-      file: this.selectedFile ||  this.selectedFileName,
+      file: this.selectedFile || this.selectedFileName,
       type: this.fileForm.value.type,
       title: this.fileForm.value.title,
-      desc: this.fileForm.value.desc
+      desc: this.fileForm.value.desc,
+      docdate: this.fileForm.value.docdate,
+      docnumber: this.fileForm.value.docnumber
 
     }
-    const service  = this.isUpdate ? this.service.fileUpdateService(this.id , payload) : this.service.fileService(payload)
+    const service = this.isUpdate ? this.service.fileUpdateService(this.id, payload) : this.service.fileService(payload)
     service.subscribe(
       (res: any) => {
         if (res.status) {
@@ -148,16 +154,17 @@ export default class FileuploadComponent {
         selectedFile = data.curriculumFile;
         break;
     }
-  
+
     this.fileForm.patchValue({
       title: data.title,
       desc: data.desc,
+      docdate: data.docdate,
+      docnumber: data.docnumber,
       type: this.router.url.split('/')[2].split('-')[1]
     });
-  this.id = data.id
+    this.id = data.id
     this.selectedFileName = selectedFile; // now this will have correct file name
-  
-      setTimeout(() => {
+    setTimeout(() => {
       this.formSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }, 100);
     this.isUpdate = true

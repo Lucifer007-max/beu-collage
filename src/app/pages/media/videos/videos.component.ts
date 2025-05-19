@@ -18,7 +18,8 @@ export default class VideosComponent {
   videosList:any;
   constructor(public router: Router,private service: ApiService) {
     this.getVideos();
-    console.log("Current URL:", this.router.url);
+    this.pageTitle = this.router.url.split('/')[2].toUpperCase();
+    console.log("Current URL:", this.router.url.split('/')[2]);
   }
 
   getVideos() {

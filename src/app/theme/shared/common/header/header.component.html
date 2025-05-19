@@ -1,13 +1,12 @@
 <header class="w-100" >
   <div class="d-flex b-sm-flex d-lg-flex d-md-flex justify-content-center align-items-center border-bottom border-primary border-dashed bg-light text-primary fw-semibold small" style="height: 27px;">
     <ul class="d-flex list-unstyled m-0">
-      <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/'">Home</li>
-
+      <!-- <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/'">Home</li> -->
+      <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning">Tender</li>
       <li class="px-3 py-2 border-start border-end border-primary cursor-pointer hover-text-warning">Fee Structure</li>
       <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/Placement'">Placement</li>
       <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/Recruitment'">Recruitment</li>
       <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/Faq'">FAQ</li>
-      <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning">Tender</li>
       <li class="px-3 py-2 cursor-pointer hover-text-warning">Contact Us</li>
       <li class="px-3 py-2 cursor-pointer hover-text-warning"><div id="google_translate_element"></div></li>
 
@@ -35,7 +34,10 @@
         <h2 class="h4 fw-bold">बिहार अभियंत्रण विश्‍वविद्यालय, पटना</h2>
       </div>
     </div>
-    <img src="../../../../../assets/logo.png" class="w-100 p-0" />
+    <a routerLink="/">
+
+      <img src="../../../../../assets/logo.png" class="w-100 p-0" />
+    </a>
     <!-- Image for Desktop View -->
     <!-- <img src="https://college-website-brown-one.vercel.app/assets/governmentOfBihar.webp" alt="governmentOfBihar logo"
       class="img-fluid   d-none d-sm-none d-md-block d-lg-block d-xl-block" style="width: 4rem;"> -->

@@ -8,6 +8,16 @@
         <input type="hidden" value="acts" class="form-control" formControlName="title">
       </div>
       <div class="mb-3 col-lg-6">
+        <label class="form-label">{{this.router.url.split('/')[2].split('-')[1] === 'letter' ? 'Letter' : 'Document'}} Number</label>
+        <input type="text" class="form-control" formControlName="docnumber" >
+        <input type="hidden" value="acts" class="form-control" formControlName="title">
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Document Date</label>
+        <input type="date" class="form-control" formControlName="docdate" >
+        <input type="hidden" value="date" class="form-control" formControlName="title">
+      </div>
+      <div class="mb-3 col-lg-6">
         <label class="form-label">Description</label>
         <input type="text" class="form-control"  formControlName="desc" >
         <input type="hidden" value="acts" class="form-control" formControlName="desc">
@@ -38,6 +48,8 @@
         <th scope="col">#</th>
         <th scope="col">Files</th>
         <th scope="col">Title</th>
+        <th scope="col">{{this.router.url.split('/')[2].split('-')[1] === 'letter' ? 'Letter' : 'Document'}} Number</th>
+        <th scope="col">Date</th>
         <th scope="col">Description</th>
         <th scope="col">Action</th>
       </tr>
@@ -45,8 +57,10 @@
     <tbody>
       <tr *ngFor="let list of List; index as i">
         <th scope="row">{{ i + 1 }}</th>
-        <th scope="row">{{ list.title }}</th>
-        <th scope="row">{{ list.desc }}</th>
+        <th scope="row">{{ list.title ?? '--' }}</th>
+        <th scope="row">{{ list.docnumber ?? '-' }}</th>
+        <th scope="row">{{ list.docdate ?? '--' }}</th>
+        <th scope="row">{{ list.desc ?? '--' }}</th>
         <td>
           <a *ngIf="router.url.split('/')[2].split('-')[1] === 'acts'" [href]="imgUrl + list.actsFile" target="_blank">
             {{ list.actsFile }}

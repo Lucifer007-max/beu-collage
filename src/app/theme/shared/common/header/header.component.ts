@@ -50,6 +50,13 @@ export class HeaderComponent implements AfterViewInit {
       title: "Governance",
       isOpen: false,
       subItems: [
+        {
+          label: "Organization Structure",
+          link: "/Academics/Syllabus",
+          subItems: [
+            { label: " ", link: "#" }
+          ]
+        },
         { label: "Chancellor", link: "/organization/chancellor" },
         { label: "Vice Chancellor", link: "/organization/vice-chancellor" },
         // { label: "Pro Vice Chancellor", link: "/organization/pro-vice-chancellor" },
@@ -57,7 +64,6 @@ export class HeaderComponent implements AfterViewInit {
         { label: "Academic Council", link: "/organization/academic-council" },
         { label: "Finance Committee", link: "/organization/finance-committee" },
         { label: "Examination Board", link: "/organization/examination-committee" },
-        // { label: "Building & Works Committee", link: "/organization/building-works-committee" }
       ]
     },
     {
@@ -118,7 +124,7 @@ export class HeaderComponent implements AfterViewInit {
         { label: "Examination Centre", link: "#" },
         { label: "Examination Schedule", link: "#" },
         { label: "UFM Rules", link: "#" },
-        { label: "Revaluation Rules", link: "#" },
+        { label: "Scrutiny Rules", link: "#" },
         // { label: "Grace Rule in CBCS System", link: "#" },
         // { label: "Detained Rule in CBCS System", link: "#" },
         { label: "Question Bank Portal", link: "#" },
@@ -135,7 +141,7 @@ export class HeaderComponent implements AfterViewInit {
       subItems: [
         { label: "Annual Report", link: "/annual-report" },
         // { label: "BEU Magazine", link: "/magazine" },
-        // { label: "Financial Report", link: "/financial-report" }
+        { label: "Audit Report", link: "/financial-report" }
       ]
     },
     {

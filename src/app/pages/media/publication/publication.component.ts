@@ -18,8 +18,8 @@ export default class PublicationComponent {
 
   pressList: any;
   constructor(private service: ApiService,public router: Router) {
-    this.getPress();
-    console.log("Current URL:", this.router.url);
+    this.getPress(); this.pageTitle = this.router.url.split('/')[2].toUpperCase();
+    console.log("Current URL:", this.router.url.split('/')[2]);
   }
 
 

@@ -54,6 +54,9 @@ export default class DashAnalyticsComponent {
   // public props
   courseCount:any;
   bannerCount:any;
+  affiliation:any;
+  noticeBoardCount:any;
+  impLinkCount:any;
   @ViewChild('chart') chart!: ChartComponent;
   chartOptions!: Partial<ChartOptions>;
   chartOptions_1!: Partial<ChartOptions>;
@@ -281,11 +284,34 @@ export default class DashAnalyticsComponent {
   //   })
   // }
 
-  getBanner(){
-    this.service.bannerGet().subscribe((res:any)=> {
-      this.bannerCount = res.length;
-      console.log(res)
+  getBanner() {
+    this.service.bannerGet().subscribe((res: any) => {
+      // console.log(res.data)
+      this.bannerCount = res.data.length;
     })
+    this.service.affiliationGetAdmin(1, 500).subscribe((res: any) => {
+      // this.List = res;
+      this.affiliation = res.totalRecords;
+
+    });
+    this.service.noticeBoardGet().subscribe((res: any) => {
+      // if (res.data) {
+      // console.log(res)
+      this.noticeBoardCount = res.length
+      // }
+    });
+    this.service.importantLinkGet().subscribe((res: any) => {
+      this.impLinkCount = res.length
+    });
   }
+
+  // getFile(page: number = 1, pageSize: number = 10) {
+  //   this.service.affiliationGetAdmin(page, pageSize).subscribe((res: any) => {
+  //     this.List = res;
+  //     this.totalRecords = res.totalRecords;
+  //     this.currentPage = page;
+  //     this.pageSize = pageSize;
+  //   });
+  // }
 
 }

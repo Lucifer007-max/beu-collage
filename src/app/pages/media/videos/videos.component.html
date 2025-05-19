@@ -11,7 +11,7 @@
     <nav class="mt-2">
       <ul class="breadcrumb bg-transparent">
         <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
-        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li>
+        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Media</a></li>
         <li class="breadcrumb-item active text-white" aria-current="page">{{pageTitle}}</li>
       </ul>
     </nav>
@@ -44,12 +44,14 @@
         <!-- If videos exist -->
         <ng-container *ngIf="videosList && videosList.length > 0; else noVideos">
           <div class="col-lg-4 col-md-4 col-sm-12 img-fluid my-3" *ngFor="let item of videosList">
-            <article class="gallery-item">
-              <iframe width="100%" height="400px"
-                [src]="'https://www.youtube.com/embed/' + item.videoURL.split('/')[3].split('=')[1] | dataFilter:'resourceUrl'"
-                frameborder="0" allowfullscreen>
-              </iframe>
-            </article>
+            <div class=" card shadow">
+              <article class="gallery-item">
+                <iframe width="100%" height="300px"
+                  [src]="'https://www.youtube.com/embed/' + item.videoURL.split('/')[3].split('=')[1] | dataFilter:'resourceUrl'"
+                  frameborder="0" allowfullscreen>
+                </iframe>
+              </article>
+            </div>
           </div>
         </ng-container>
 

@@ -30,7 +30,8 @@ export default class ImportantlinkComponent {
         id: [''],
         implinks: ['', Validators.required],
         linkurl: [''],
-        urlType: ['']
+        urlType: [''],
+        linksdate:['']
       })
     }
   }
@@ -75,6 +76,7 @@ export default class ImportantlinkComponent {
     const payLoad = {
       // "id":this.noticeForm.value.id,
       "linktitle": this.importnatLinks.value.implinks,
+      "linksdate": this.importnatLinks.value.linksdate,
       "linkurl": (this.newFile ?? this.selectedFileName) || this.importnatLinks.value.linkurl,
       // ...(this.isUpdate && { id: this.id })
     }
@@ -104,7 +106,7 @@ export default class ImportantlinkComponent {
 
   handleDeleteLink(id: number) {
     this.service.importantLinkDelete(id).subscribe((res) => {
-      console.log(res)
+      // console.log(res)
       this.getImportantLink()
       this.service.SuccessSnackbar(res.message)
     })
@@ -126,8 +128,8 @@ export default class ImportantlinkComponent {
   handleEdit(data: any) {
     console.log(data)
 
-    data.linkurl.endsWith('.pdf') ? (this.selectedFileName = data.linkurl, this.importnatLinks.patchValue({ urlType: 'file', implinks: data.linktitle })) :
-      this.importnatLinks.patchValue({ urlType: 'text', linkurl: data.linkurl, implinks: data.linktitle })
+    data.linkurl.endsWith('.pdf') ? (this.selectedFileName = data.linkurl, this.importnatLinks.patchValue({ urlType: 'file', implinks: data.linktitle,linksdate:data.linksdate })) :
+      this.importnatLinks.patchValue({ urlType: 'text', linkurl: data.linkurl, implinks: data.linktitle,linksdate:data.linksdate })
     this.id = data.id
     setTimeout(() => {
       this.formSection.nativeElement.scrollIntoView({ behavior: 'smooth' });

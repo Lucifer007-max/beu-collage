@@ -19,7 +19,8 @@ export default class PicturesComponent {
   albumList: any;
   constructor(private service: ApiService,public router: Router) {
     this.getMedia();
-    console.log("Current URL:", this.router.url);
+    this.pageTitle = this.router.url.split('/')[2].toUpperCase();
+    console.log("Current URL:", this.router.url.split('/')[2]);
   }
 
 

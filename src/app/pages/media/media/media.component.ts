@@ -8,7 +8,7 @@ import { ApiService } from 'src/service/api.service';
 @Component({
   selector: 'app-media',
   templateUrl: './media.component.html',
-  standalone:true,
+  standalone: true,
   imports: [SharedModule, CommonModule, RouterModule],
 
   styleUrls: ['./media.component.scss']
@@ -18,10 +18,10 @@ export default class MediaComponent {
   pageTitle: string = '';
 
   mediaList: any;
-  constructor(private service: ApiService,public router: Router) {
+  constructor(private service: ApiService, public router: Router) {
     this.getMedia();
-    
-    console.log("Current URL:", this.router.url);
+    this.pageTitle = this.router.url.split('/')[2].toUpperCase();
+    console.log("Current URL:", this.router.url.split('/')[2]);
   }
 
 

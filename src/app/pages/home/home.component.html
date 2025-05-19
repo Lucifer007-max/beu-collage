@@ -42,21 +42,19 @@
             </li>
 
           </ul> -->
-          <marquee *ngIf="noticeBoard.length !== 0" direction="up" behavior="scroll" scrollamount="2" onmouseover="this.stop();"
-            onmouseout="this.start();" height="200" id="new_marguw">
+          <marquee *ngIf="noticeBoard.length !== 0" direction="up" behavior="scroll" scrollamount="2"
+            onmouseover="this.stop();" onmouseout="this.start();" height="200" id="new_marguw">
             <ul *ngIf="noticeBoard" class="list-group list-group-flush notice-board">
               <li *ngFor="let item of noticeBoard" class="list-group-item font-secondary-color p-2"
                 style="background: rgb(191, 219, 254);">
                 <span class="fa fa-arrow-right font-secondary-color me-2"></span>&nbsp;
 
                 <ng-container *ngIf="item.link; else plainText">
-                  <a 
-                  [href]="item.link.endsWith('.pdf') ? baseUrl + item.link : item.link" 
-                  target="_blank" 
-                  rel="noopener noreferrer">
-                  {{ item.board }}
-                </a>
-                
+                  <a [href]="item.link.endsWith('.pdf') ? baseUrl + item.link : item.link" target="_blank"
+                    rel="noopener noreferrer">
+                    {{ item.board }}
+                  </a>
+
                 </ng-container>
 
                 <ng-template #plainText>
@@ -147,15 +145,16 @@
             </li>
           </ul> -->
 
-          <marquee *ngIf="importLink.length !== 0" direction="up" behavior="scroll" scrollamount="2" onmouseover="this.stop();"
-            onmouseout="this.start();" height="200" id="new_marguw">
+          <marquee *ngIf="importLink.length !== 0" direction="up" behavior="scroll" scrollamount="2"
+            onmouseover="this.stop();" onmouseout="this.start();" height="200" id="new_marguw">
             <ul *ngIf="importLink" class="list-group list-group-flush notice-board overflow-hidden">
               <li *ngFor="let item of importLink" class="list-group-item font-secondary-color p-2"
                 style="background: rgb(191, 219, 254)">
                 <span class="fa fa-arrow-right font-secondary-color me-2"></span>&nbsp;
 
                 <ng-container *ngIf="item.linkurl; else plainText">
-                  <a  [href]="item.linkurl.endsWith('.pdf') ? baseUrl + item.linkurl : item.linkurl"  target="_blank" rel="noopener noreferrer">
+                  <a [href]="item.linkurl.endsWith('.pdf') ? baseUrl + item.linkurl : item.linkurl" target="_blank"
+                    rel="noopener noreferrer">
                     {{ item.linktitle }}
                   </a>
                 </ng-container>
@@ -508,18 +507,19 @@
 
     <div class="row justify-content-center mt-4">
       <div class="col-6 col-md-3 text-center">
-        <img src="https://www.ncerc.ac.in/content/img/acrdt/aicte.png" class="img-fluid w-75" alt="AICTE">
+        <img src="https://www.ncerc.ac.in/content/img/acrdt/aicte.png" class="img-fluid my-3 w-75 " alt="AICTE">
       </div>
       <div class="col-6 col-md-3 text-center">
-        <img src="https://www.prtgc.ac.in/wp-content/uploads/2022/05/aishe-logo.png" class="img-fluid w-75" alt="AISHE">
+        <img src="https://www.prtgc.ac.in/wp-content/uploads/2022/05/aishe-logo.png" class="img-fluid my-3 w-75"
+          alt="AISHE">
       </div>
       <div class="col-6 col-md-3 text-center">
-        <img src="https://www.kindpng.com/picc/m/152-1520962_nptel-logo-hd-png-download.png" class="img-fluid w-75"
+        <img src="https://www.kindpng.com/picc/m/152-1520962_nptel-logo-hd-png-download.png" class="img-fluid my-3 w-75"
           alt="NPTEL">
       </div>
       <div class="col-6 col-md-3 text-center">
-        <img src="https://cybervidyapeeth.in/static/cybervidyapeeth/img/banner-img/ugc-logo2.png" class="img-fluid w-75"
-          alt="UGC">
+        <img src="https://cybervidyapeeth.in/static/cybervidyapeeth/img/banner-img/ugc-logo2.png"
+          class="img-fluid my-3 w-75" alt="UGC">
       </div>
     </div>
   </div>
@@ -582,7 +582,7 @@
 
       <div class="d-flex justify-content-center align-items-center px-3 py-2">
         <h2 class="fw-bold text-primary text-center fs-5 fs-md-4 m-0">
-          COLLAGE EVENT
+          Collage EVENT
         </h2>
         <!-- <div class="d-flex gap-2 align-items-center text-warning fs-5 fw-bold">
           <button class="border-0 bg-transparent" (click)="moveDown('college-events')"><i
@@ -595,10 +595,15 @@
   </div>
 
   <div class="container my-4 h-40 overflow-hidden">
-    <ul class="list-unstyled overflow-hidden" id="college-events" [innerHTML]="this.events">
+    <!-- <ul class="list-unstyled overflow-hidden" id="college-events" [innerHTML]="this.events">
 
 
-    </ul>
+    </ul> -->
+    <marquee *ngIf="this.events.length !== 0" direction="up" behavior="scroll" scrollamount="2"
+      onmouseover="this.stop();" onmouseout="this.start();" height="200" id="new_marguw" class="container my-4">
+      <div [innerHTML]="events"></div>
+    </marquee>
+
   </div>
 </section>
 
@@ -616,7 +621,7 @@
 </div><!-- Button trigger modal -->
 
 <!-- Modal -->
-<div class="modal fade show" #exampleModal id="exampleModal" data-bs-backdrop="static" tabindex="-1"
+<div *ngIf="this.imagePreview" class="modal fade show" #exampleModal id="exampleModal" data-bs-backdrop="static" tabindex="-1"
   aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
@@ -624,8 +629,10 @@
       <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Notification</h1> -->
       <!-- </div> -->
       <div class="modal-body">
-        <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"
-          (click)="handleModal()"></button>
+        <button type="button" style="    position: absolute;
+        right: 10px;
+        top: 7px;
+    " class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close" (click)="handleModal()"></button>
         <!-- <iframe src="https://sample-files.com/downloads/documents/pdf/basic-text.pdf" height="500px" width="100%"
           frameborder="0"></iframe> -->
         <img [src]="baseUrl+this.imagePreview" class="d-block m-auto w-75" />
