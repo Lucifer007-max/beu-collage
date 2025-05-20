@@ -27,21 +27,6 @@
           </div> -->
         </div>
         <div class="card-body p-2 overflow-hidden h-40" style="background: rgb(191, 219, 254)">
-          <!-- <ul *ngIf="noticeBoard" id="notice-board" class="list-group list-group-flush notice-board overflow-hidden"
-            >
-            <li *ngFor="let item of noticeBoard" class="list-group-item font-secondary-color p-2">
-              <span class="fa fa-arrow-right font-secondary-color me-2"></span>&nbsp;
-
-              <ng-container *ngIf="item.link; else plainText">
-                <a [href]="baseUrl+item.link" target="_blank" rel="noopener noreferrer">{{ item.board }}</a>
-              </ng-container>
-
-              <ng-template #plainText>
-                {{ item.board }}
-              </ng-template>
-            </li>
-
-          </ul> -->
           <marquee *ngIf="noticeBoard.length !== 0" direction="up" behavior="scroll" scrollamount="2"
             onmouseover="this.stop();" onmouseout="this.start();" height="200" id="new_marguw">
             <ul *ngIf="noticeBoard" class="list-group list-group-flush notice-board">
@@ -64,7 +49,6 @@
             </ul>
           </marquee>
           <div *ngIf="noticeBoard.length=== 0">No Data Found</div>
-
           <div *ngIf="!noticeBoard" class="placeholder-glow">
             <p class="placeholder my-2 py-2 w-100"></p>
             <p class="placeholder my-2 py-2 w-100"></p>
@@ -206,49 +190,6 @@
   </div>
 </div>
 
-<style>
-  .marquee-container {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-  }
-
-  .marquee-content {
-    display: flex;
-    animation: marquee 10s linear infinite;
-    padding-left: 100%;
-  }
-
-  .marquee-content li {
-    display: inline-block;
-    padding: 0 20px;
-    font-weight: bold;
-    color: #00548B;
-  }
-
-  .highlight {
-    background-color: #ffc107;
-    padding: 5px 10px;
-    font-weight: bold;
-    border-radius: 5px;
-  }
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0%);
-    }
-
-    to {
-      transform: translateX(-100%);
-    }
-  }
-
-  /* Hover effect to pause the marquee */
-  .marquee-container:hover .marquee-content {
-    animation-play-state: paused;
-  }
-</style>
 
 <section class="container-fluid bg-primarylight py-5" data-aos="fade-up">
   <div class="beu-section ">
@@ -625,23 +566,14 @@
   aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: block;">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
-      <!-- <div class="modal-header"> -->
-      <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Notification</h1> -->
-      <!-- </div> -->
       <div class="modal-body">
         <button type="button" style="    position: absolute;
         right: 10px;
         top: 7px;
     " class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close" (click)="handleModal()"></button>
-        <!-- <iframe src="https://sample-files.com/downloads/documents/pdf/basic-text.pdf" height="500px" width="100%"
-          frameborder="0"></iframe> -->
         <img [src]="baseUrl+this.imagePreview" class="d-block m-auto w-75" />
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
-    </div>
+      </div>
   </div>
 </div>
 

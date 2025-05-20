@@ -256,12 +256,12 @@ export const NavigationItems: NavigationItem[] = [
       //   type: 'item',
       //   url: '/admin/add-magazine',
       // },
-      // {
-      //   id: 'report-2.3',
-      //   title: 'Financial Mangement',
-      //   type: 'item',
-      //   url: '/admin/add-financial',
-      // }
+      {
+        id: 'report-2.3',
+        title: 'Audit Mangement',
+        type: 'item',
+        url: '/admin/add-financial',
+      }
     ]
   },
   {

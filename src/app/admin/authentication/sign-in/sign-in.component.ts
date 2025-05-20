@@ -38,7 +38,7 @@ export default class SignInComponent implements OnInit {
     }
     this.API.adminAuth(JsonBody).subscribe((res: any) => {
       console.log(res)
-      this.API.SuccessSnackbar("Welcome "+res.firstName+" You have login successfully");
+      this.API.SuccessSnackbar("Welcome to BEU ADMIN. You have login successfully..!");
       sessionStorage.setItem('token' , res.token)
       sessionStorage.setItem('id' , res.id)
       this.router.navigate(['/admin/dashboard'])

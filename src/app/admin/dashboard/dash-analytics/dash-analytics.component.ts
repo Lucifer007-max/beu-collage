@@ -52,11 +52,13 @@ export type ChartOptions = {
 })
 export default class DashAnalyticsComponent {
   // public props
-  courseCount:any;
-  bannerCount:any;
-  affiliation:any;
-  noticeBoardCount:any;
-  impLinkCount:any;
+  courseCount: any;
+  bannerCount: any;
+  affiliation: any;
+  noticeBoardCount: any;
+  impLinkCount: any;
+  // reportCount: number | any = 0;
+  auditReportCount:any;
   @ViewChild('chart') chart!: ChartComponent;
   chartOptions!: Partial<ChartOptions>;
   chartOptions_1!: Partial<ChartOptions>;
@@ -64,7 +66,7 @@ export default class DashAnalyticsComponent {
   chartOptions_3!: Partial<ChartOptions>;
 
   // constructor
-  constructor(private service: ApiService,private router:  Router) {
+  constructor(private service: ApiService, private router: Router) {
     this.chartOptions = {
       chart: {
         height: 205,
@@ -303,15 +305,14 @@ export default class DashAnalyticsComponent {
     this.service.importantLinkGet().subscribe((res: any) => {
       this.impLinkCount = res.length
     });
+    this.service.reportGet().subscribe((res: any) => {
+      this.auditReportCount = res.length;
+      console.log(this.auditReportCount , res)
+    });
+    // this.service.reportGet().subscribe((res: any) => {
+    //   this.reportCount = res.length;
+    // });
   }
 
-  // getFile(page: number = 1, pageSize: number = 10) {
-  //   this.service.affiliationGetAdmin(page, pageSize).subscribe((res: any) => {
-  //     this.List = res;
-  //     this.totalRecords = res.totalRecords;
-  //     this.currentPage = page;
-  //     this.pageSize = pageSize;
-  //   });
-  // }
 
 }

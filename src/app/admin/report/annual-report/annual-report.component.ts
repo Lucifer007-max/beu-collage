@@ -77,6 +77,7 @@ export default class AnnualReportComponent {
 
   getReport() {
     this.service.reportGet().subscribe((res: any) => {
+      console.log(res)
       this.annualreportList = res;
     });
   }

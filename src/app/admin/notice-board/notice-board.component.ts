@@ -65,7 +65,7 @@ export default class NoticeBoardComponent implements OnInit {
         notice: ['', Validators.required],
         noticeurl: [''],
         urlType: [''], // Default is 'text'
-        noticedate:['']
+        noticedate: ['']
       })
     }
 
@@ -94,9 +94,9 @@ export default class NoticeBoardComponent implements OnInit {
   Add() {
     this.loader = true;
     const payLoad = {
-      "noticedate":this.noticeForm.value.noticedate,
+      "noticedate": this.noticeForm.value.noticedate,
       "board": this.noticeForm.value.notice,
-      "link": this.wfile || this.noticeForm.value.noticeurl,
+      "link": this.wfile || this.noticeForm.value.noticeurl || this.selectedFileName,
     }
     this.service.noticeBoardService(this.id, payLoad).subscribe((res: any) => {
       if (res.status) {
@@ -203,8 +203,8 @@ export default class NoticeBoardComponent implements OnInit {
   handleEdit(data: any) {
     console.log(data)
 
-    data.link.endsWith('.pdf') ? (this.selectedFileName = data.linkurl, this.noticeForm.patchValue({ urlType: 'file', notice: data.board })) :
-      this.noticeForm.patchValue({ urlType: 'text', noticeurl: data.link, notice: data.board })
+    data.link.endsWith('.pdf') ? (this.selectedFileName = data.linkurl, this.noticeForm.patchValue({ urlType: 'file', notice: data.board, noticedate: data.noticedate })) :
+      this.noticeForm.patchValue({ urlType: 'text', noticeurl: data.link, notice: data.board, noticedate: data.noticedate })
     this.id = data.id
     setTimeout(() => {
       this.formSection.nativeElement.scrollIntoView({ behavior: 'smooth' });

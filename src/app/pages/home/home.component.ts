@@ -28,10 +28,13 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
   baseUrl: String = environment.imgUrl;
   imagePreview: any;
   isSliderInitialized: boolean = false;
-  constructor(private service: ApiService) {
+  alerts: any = [];
 
+  @ViewChild('exampleModal') exampleModal!: ElementRef;
+  @ViewChildren('slicedImage') slicedImages!: QueryList<ElementRef>;
+  @ViewChild('carousel', { static: false }) carousel!: ElementRef;
 
-  }
+  constructor(private service: ApiService) { }
 
 
   ngOnInit(): void {
@@ -52,7 +55,6 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     this.getAlerts();
     this.getMetor()
     this.getModal();
-    // this.getMerchandies();
   }
   getModal() {
     this.service.modalGet().subscribe((res: any) => {
@@ -71,111 +73,42 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
   }
   getNoticeBoard() {
     this.service.noticeBoardGet(1).subscribe((res: any) => {
-      this.noticeBoard = res      // if (res.data) {
-      //   this.noticeForm.patchValue({
-      //     id: res.data[0].id, // Set ID
-      //     notice: res.data[0].board // Set Notice content
-      //   });
-      // }
+      this.noticeBoard = res;
     });
   }
   getImportantLink() {
     this.service.importantLinkGet(1).subscribe((res: any) => {
       this.importLink = res
-      // if (res.data) {
-      //   this.noticeForm.patchValue({
-      //     id: res.data[0].id, // Set ID
-      //     implinks: res.data[0].implinks // Set Notice content
-      //   });
-      // }
     });
   }
   getEvents() {
     this.service.eventsGet().subscribe((res) => {
-      // if (res.data) {
       this.events = res.data[0].events
-      //   this.eventForm.patchValue({
-      //     id: res.data[0].id, // Set ID
-      //     events: res.data[0].events // Set Notice content
-      //   });
-      // }
+
     });
   }
-  // getCourse() {
-  //   this.service.courseGet().subscribe((res: any) => {
-  //     this.courseList = res;
-  //   })
-  // }
+
+
   getMetor() {
     this.service.mentoruserGet().subscribe((res: any) => {
       this.mentorList = res.data;
-      console.log(res.data)
     })
   }
   getTestimonial() {
     this.service.testimonialGet().subscribe((res: any) => {
       this.testimonialList = res;
-      console.log(this.testimonialList, res);
     });
   }
 
-  alerts: any = []
   getAlerts() {
     this.service.alertsGet().subscribe((res) => {
       if (res.data) {
         this.alerts = res.data
-        // this.noticeForm.patchValue({
-        //   id: res.data[0].id, // Set ID
-        //   notice: res.data[0].notice // Set Notice content
-        // });
       }
     });
   }
-  initializeSlider() {
-    $('.testimonial-slider').slick({
-      dots: true,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
-  }
 
-  // moveUp(listId: string) {
-  //   const list = document.getElementById(listId) || document.createElement('ul');
-  //   const items = list?.children;
 
-  //   if (items.length === 0) return;
-
-  //   const firstItem = items[0] as HTMLElement;
-  //   const height = firstItem.offsetHeight * -1;
-  //   list.style.transition = "transform 0.5s ease-in-out";
-  //   list.style.transform = `translateY(${height}px)`;
-  //   setTimeout(() => {
-  //     list.appendChild(items[0].cloneNode(true));
-  //     list.removeChild(items[0]);
-  //     list.style.transition = "none";
-  //     list.style.transform = "translateY(0)";
-  //   }, 500);
-  // }
   moveUp(listId: string) {
     const list = document.getElementById(listId);
     if (!list) return;
@@ -224,15 +157,42 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     setTimeout(() => this.autoScroll(listId), 3000);
   }
 
-
   ngAfterViewChecked() {
     if (this.testimonialList.length > 0 && !this.isSliderInitialized) {
       this.initializeSlider();
       this.isSliderInitialized = true;
     }
   }
-  @ViewChildren('slicedImage') slicedImages!: QueryList<ElementRef>;
-  @ViewChild('carousel', { static: false }) carousel!: ElementRef;
+
+  initializeSlider() {
+    $('.testimonial-slider').slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+  }
+
+
   ngAfterViewInit() {
     AOS.init({
       duration: 800,
@@ -246,41 +206,7 @@ export default class HomeComponent implements OnInit, AfterViewChecked, AfterVie
     this.autoScroll("important-information");
     this.autoScroll("notice-board");
     this.autoScroll("college-events");
-    // ngAfterViewInit() {
-    setTimeout(() => {
-      console.log('screoll acrtive')
-      if (this.carousel) {
-        new bootstrap.Carousel(this.carousel.nativeElement, {
-          interval: 3000, // Change slide every 3 seconds
-          ride: 'carousel'
-        });
-      }
-    }, 1000); // Delay to ensure DOM is fully loaded
-    this.slicedImages.forEach(containerRef => {
-      const container = containerRef.nativeElement as HTMLElement;
-      const imgSrc = container.getAttribute('data-image');
-
-      for (let i = 0; i < 8; i++) {
-        const slice = document.createElement('div');
-        slice.style.flex = '1';
-        slice.style.backgroundImage = `url(${imgSrc})`;
-        slice.style.backgroundSize = 'cover';
-        slice.style.backgroundPosition = `${(i / 8) * 100}% center`;
-        slice.style.animation = 'sliceIn 1s forwards';
-        slice.style.transform = 'translateY(-100%)';
-        slice.style.opacity = '0';
-        slice.style.transitionDelay = `${i * 0.1}s`; // Optional staggered effect
-        container.appendChild(slice);
-      }
-    });
-
   }
-
-
-  // ngAfterViewInit() {
-  // }
-
-  @ViewChild('exampleModal') exampleModal!: ElementRef;
 
   handleModal() {
     const modalElement = this.exampleModal?.nativeElement;

@@ -36,15 +36,24 @@
       <!-- Content Section -->
       <div class="col-lg-9">
         <div class="row">
-          <div class="col-lg-4 d-flex align-items-start position-relative" *ngFor="let items of annualreportList">
-            <div class="report-list">
-              <div class="report-item">
-                <a [href]="imgURL+items.file" target="_blank">
-                  <img [src]="imgURL+items.thumbnail" alt="img" height="300px" width="300px" />
-                </a>
+
+
+          <ng-container *ngIf="annualreportList?.length > 0; else elseData">
+            <div class="col-lg-4 d-flex align-items-start position-relative" *ngFor="let items of annualreportList">
+              <div class="report-list">
+                <div class="report-item">
+                  <a [href]="imgURL + items.file" target="_blank">
+                    <img [src]="imgURL + items.thumbnail" alt="img" height="300px" width="300px" />
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          </ng-container>
+
+          <ng-template #elseData>
+            <p>No annual reports found.</p>
+          </ng-template>
+
         </div>
       </div>
     </div>

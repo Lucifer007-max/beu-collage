@@ -21,6 +21,7 @@ export default class ReportViewComponent {
   getReport() {
     this.service.reportGet().subscribe((res: any) => {
       this.annualreportList = res;
+      console.log(res)
     });
   }
 }

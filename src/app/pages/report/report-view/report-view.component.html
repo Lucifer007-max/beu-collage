@@ -28,22 +28,26 @@
         <div class="list-group custom_list">
           <a [routerLink]="'/annual-report'" [routerLinkActive]="'active'"
             class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Annual Report</a>
-          <a [routerLink]="'/magazine'" [routerLinkActive]="'active'"
-            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Magazine</a>
+          <a [routerLink]="'/financial-report'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+            <span class="text-primary mx-3">»</span>Audit Report</a>
         </div>
       </div>
       <!-- Content Section -->
       <div class="col-lg-9 d-flex align-items-start position-relative">
         <!-- Vision/Mission Content -->
-        <ul class="report-list">
+        <ul class="report-list" *ngIf="this.annualreportList.lenght >0; else  elseData ">
           <li class="report-item" *ngFor="let items of annualreportList">
             <a [href]="imgURL+items.file" target="_blank">
               <!-- Annual Report as on <span class="report-date">13th August 2024</span> -->
               <i class="fa fa-chevron-right" aria-hidden="true"></i>
-               {{items.title}}
+              {{items.title}}
             </a>
           </li>
+
         </ul>
+        <ng-template #elseData>
+          <p class="text-center">No Annual reports found.</p>
+        </ng-template>
 
       </div>
     </div>
