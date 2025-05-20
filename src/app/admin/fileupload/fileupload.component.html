@@ -46,11 +46,11 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Files</th>
         <th scope="col">Title</th>
         <th scope="col">{{this.router.url.split('/')[2].split('-')[1] === 'letter' ? 'Letter' : 'Document'}} Number</th>
         <th scope="col">Date</th>
         <th scope="col">Description</th>
+        <th scope="col">Files</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -59,7 +59,7 @@
         <th scope="row">{{ i + 1 }}</th>
         <th scope="row">{{ list.title ?? '--' }}</th>
         <th scope="row">{{ list.docnumber ?? '-' }}</th>
-        <th scope="row">{{ list.docdate ?? '--' }}</th>
+        <th scope="row">{{ list.docdate ?? '--'  | date: 'dd-MM-yyyy' }}</th>
         <th scope="row">{{ list.desc ?? '--' }}</th>
         <td>
           <a *ngIf="router.url.split('/')[2].split('-')[1] === 'acts'" [href]="imgUrl + list.actsFile" target="_blank">
@@ -87,9 +87,7 @@
         <td>
           <a class="btn btn-info btn-sm" (click)="handleEdit(list,1)"><i
             class="fa fa-edit"></i></a>
-
-            <!-- <input type="checkbox" [checked]="list.status === 1" disabled (change)="handleEdit(list,1)" class="form-check"/> -->
-
+            &nbsp;
           <button class="btn btn-sm btn-danger" *ngIf="list.idDeleted === 0" (click)="handleDelete(list.id,1)"><i *ngIf="!this.loaders" class="fa fa-trash"></i>
             <div class="spinner-border" role="status" *ngIf="this.loaders">
               <span class="sr-only">Loading...</span>
