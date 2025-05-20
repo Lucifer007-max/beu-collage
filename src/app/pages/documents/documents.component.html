@@ -162,7 +162,7 @@
               <td>{{ list.createdAt | date: 'medium' }}</td>
               <td>{{ list.linktitle ?? '--' }}</td>
               <td>
-                {{list.linkurl.endsWith('.pdf')}}
+                <!-- {{list.linkurl.endsWith('.pdf')}} -->
                 <a *ngIf="list.linkurl" [href]="list.linkurl.endsWith('.pdf') ? baseUrl + list.linkurl : list.linkurl " target="_blank" rel="noopener noreferrer">
                   <i class="fa fa-eye"></i> View
                   <!-- {{ list.linkurl ?? '--' }} -->
