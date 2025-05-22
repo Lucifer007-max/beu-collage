@@ -53,9 +53,6 @@ export class HeaderComponent implements AfterViewInit {
         {
           label: "Organization Structure",
           link: "/Academics/Syllabus",
-          subItems: [
-            { label: " ", link: "#" }
-          ]
         },
         { label: "Chancellor", link: "/organization/chancellor" },
         { label: "Vice Chancellor", link: "/organization/vice-chancellor" },
@@ -118,21 +115,12 @@ export class HeaderComponent implements AfterViewInit {
       title: "Examination",
       isOpen: false,
       subItems: [
-        { label: "Branch Codes", link: "#" },
-        // { label: "Course Codes", link: "#" },
-        // { label: "Subject Code & Paper ID", link: "#" },
-        { label: "Examination Centre", link: "#" },
-        { label: "Examination Schedule", link: "#" },
-        { label: "UFM Rules", link: "#" },
-        { label: "Scrutiny Rules", link: "#" },
-        // { label: "Grace Rule in CBCS System", link: "#" },
-        // { label: "Detained Rule in CBCS System", link: "#" },
-        { label: "Question Bank Portal", link: "#" },
-        // { label: "Annual Report", link: "/annual-report" },
-        // { label: "Lokpal Orders", link: "/lokpal-orders" },
-        // { label: "One-View display of Student Result Data", link: "#" },
-        // { label: "Ph.D.", link: "/phd" },
-        // { label: "Merit List of Students", link: "#" }
+        { label: "Branch Codes", link: "/examination/branch-codes" },
+        { label: "Examination Centre", link: "/examination/centre" },
+        { label: "Examination Schedule", link: "/examination/schedule" },
+        { label: "UFM Rules", link: "/examination/ufm-rules" },
+        { label: "Scrutiny Rules", link: "/examination/scrutiny-rules" },
+        { label: "Question Bank Portal", link: "/examination/question-bank" }
       ]
     },
     {
@@ -171,8 +159,8 @@ export class HeaderComponent implements AfterViewInit {
       title: "Lokpal",
       isOpen: false,
       subItems: [
-        { label: "Appointment of Lokpal", link: "/appointment-of-lokpal" },
-        { label: "Lokpal Orders", link: "/lokpal-orders" }
+        { label: "Appointment of Lokpal", link: "/lokpal/appointment-of-lokpal" },
+        { label: "Lokpal Orders", link: "/lokpal/lokpal-orders" }
       ]
     },
     {

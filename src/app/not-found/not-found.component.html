@@ -1,15 +1,17 @@
 <app-header></app-header>
 
-<section class="position-relative w-100" style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
+<section class="position-relative w-100"
+  style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
   <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
 
-  <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+  <div
+    class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
     <h1 class="fs-2 fw-bold text-light">{{this.router.url.split('/')[1].toUpperCase()}}</h1>
 
     <nav class="mt-2">
       <ul class="breadcrumb bg-primary">
         <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
-        <li class="breadcrumb-item active text-white" aria-current="page">{{this.router.url.split('/')[1] }}</li>
+        <li class="breadcrumb-item active text-white" aria-current="page"> {{this.router.url.split('/')[2] }}</li>
       </ul>
     </nav>
 
@@ -18,11 +20,52 @@
 </section>
 
 <section class="py-5">
-  <!-- <h1 class="text-center my-4 text-dark">{{this.router.url.split('/')[1] }} Page Content Will Upload Soon !</h1> -->
-
-<h1>Coming Soon</h1>
-
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="list-group custom_postion">
+          <div *ngIf="this.router.url.split('/')[1] === 'Academics'">
+            <div class="list-group custom_list">
+              <a *ngFor="let item of academicsLinks" [routerLink]="item.link" routerLinkActive="active"
+                class="list-group-item list-group-item-action">
+                <span class="text-primary mx-3">»</span>{{ item.label }}
+              </a>
+            </div>
+          </div>
+          <div *ngIf="this.router.url.split('/')[1] === 'admission'" class="list-group custom_list">
+            <a *ngFor="let item of addmission" [routerLink]="item.link" routerLinkActive="active"
+              class="list-group-item list-group-item-action">
+              <span class="text-primary mx-3">»</span>{{ item.label }}
+            </a>
+          </div>
+          <div *ngIf="this.router.url.split('/')[1] === 'examination'" class="list-group custom_list">
+            <a *ngFor="let item of examinationLinks" [routerLink]="item.link" routerLinkActive="active"
+              class="list-group-item list-group-item-action">
+              <span class="text-primary mx-3">»</span>{{ item.label }}
+            </a>
+          </div>
+          <div *ngIf="this.router.url.split('/')[1] === 'services'" class="list-group custom_list">
+              <a  *ngFor="let item of serviceLinks" [routerLink]="item.link" routerLinkActive="active" class="list-group-item list-group-item-action">
+                <span class="text-primary mx-3">»</span>{{ item.label }}
+              </a>
+          </div>
+          <div *ngIf="this.router.url.split('/')[1] === 'rti'" class="list-group custom_list">
+              <a  *ngFor="let item of rtiLinks" [routerLink]="item.link" routerLinkActive="active" class="list-group-item list-group-item-action">
+                <span class="text-primary mx-3">»</span>{{ item.label }}
+              </a>
+          </div>
+          <div *ngIf="this.router.url.split('/')[1] === 'lokpal'" class="list-group custom_list">
+              <a  *ngFor="let item of lokpalLinks" [routerLink]="item.link" routerLinkActive="active" class="list-group-item list-group-item-action">
+                <span class="text-primary mx-3">»</span>{{ item.label }}
+              </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <h1 class="text-center">{{this.router.url.split('/')[2].toUpperCase()}} Page Content will update soon</h1>
+      </div>
+    </div>
+  </div>
 </section>
 
 <app-footer></app-footer>
-

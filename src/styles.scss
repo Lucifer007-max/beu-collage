@@ -92,7 +92,11 @@ File: style.css
   transform: rotate(90deg) !important;
   z-index: 99;
   left: -88px;
-  bottom: 300px;
+  top: 170px;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #ffffff !important;
 }
 
 .start-20 {

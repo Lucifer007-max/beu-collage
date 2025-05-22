@@ -10,5 +10,6 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+  today: Date = new Date();
 
 }
