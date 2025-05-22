@@ -136,6 +136,12 @@ export class HeaderComponent implements AfterViewInit {
       ]
     },
     {
+      title: "Result",
+      link: "https://results.beup.ac.in/",
+      isOpen: false,
+      subItems: []
+    },
+    {
       title: "Reports",
       isOpen: false,
       subItems: [

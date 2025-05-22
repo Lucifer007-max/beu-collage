@@ -68,14 +68,37 @@
             (mouseleave)="onMouseLeave(item)"
             (click)="toggleDropdown(item, $event)"
           >
-            <a
+            <!-- <a
               class="nav-link text-dark"
               [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
               [routerLink]="item.link || null"
               role="button"
             >
               {{ item.title || item.label }}
-            </a>
+            </a> -->
+
+
+            <a
+                *ngIf="item.title !== 'Result' "
+                class="nav-link text-dark"
+                [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
+                [routerLink]="item.link || null"
+                role="button"
+              >
+                {{ item.title || item.label }}
+              </a> 
+              <a
+                *ngIf="item.title === 'Result' "
+                class="nav-link text-dark"
+                [href]="item.link"
+                target="_blank"
+                role="button"
+              >
+                {{ item.title || item.label }}
+              </a>
+
+
+
 
             <ul class="dropdown-menu" [ngClass]="{ 'show': item.isOpen }" *ngIf="item.subItems?.length > 0">
               <ng-container *ngTemplateOutlet="renderMenu; context: { items: item.subItems }"></ng-container>
