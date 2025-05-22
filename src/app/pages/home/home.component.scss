@@ -64,6 +64,7 @@
     right: 0;
     left: 0;
   }
+
 }
 
 .pills_data {
@@ -205,6 +206,15 @@ img.d-block.w-100.height_banner {
     font-weight: 900;
     font-size: 20px;
     text-transform: uppercase;
+  }
+  .d-block.m-auto.w-75 {
+    width: 100% !important;
+  }
+  .beu-section  {
+    padding: 40px 0px  !important;
+  }
+  .beu-section  h2 {
+    font-size: 25px;
   }
 }
 
@@ -568,4 +578,12 @@ img.d-block.w-100.height_banner {
   /* Hover effect to pause the marquee */
   .marquee-container:hover .marquee-content {
     animation-play-state: paused;
+  }
+
+  .hover-underline{
+    transition: 0.5s all;
+  }
+  .hover-underline:hover {
+    text-decoration: underline !important;
+    font-style: italic;
   }

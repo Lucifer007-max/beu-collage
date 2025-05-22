@@ -30,12 +30,12 @@
           <marquee *ngIf="noticeBoard.length !== 0" direction="up" behavior="scroll" scrollamount="2"
             onmouseover="this.stop();" onmouseout="this.start();" height="200" id="new_marguw">
             <ul *ngIf="noticeBoard" class="list-group list-group-flush notice-board">
-              <li *ngFor="let item of noticeBoard" class="list-group-item font-secondary-color p-2"
+              <li *ngFor="let item of noticeBoard" class="list-group-item text-light p-2"
                 style="background: rgb(191, 219, 254);">
                 <span class="fa fa-arrow-right font-secondary-color me-2"></span>&nbsp;
 
                 <ng-container *ngIf="item.link; else plainText">
-                  <a [href]="item.link.endsWith('.pdf') ? baseUrl + item.link : item.link" target="_blank"
+                  <a [href]="item.link.endsWith('.pdf') ? baseUrl + item.link : item.link" target="_blank" class="hover-underline"  style="color: blue;"
                     rel="noopener noreferrer">
                     {{ item.board }}
                   </a>
@@ -90,8 +90,7 @@
       </button>
     </div>
 
-    <div
-      class="col-lg-3 col-md-3 col-sm-12 order-sm-3 order-md-3 order-lg-3 order-xl-3  p-0 border-0 order-3 position-relative"
+    <div class="col-lg-3 col-md-3 col-sm-12 order-sm-3 order-md-3 order-lg-3 order-xl-3  p-0 border-0 order-3 position-relative"
       style="background: rgb(191, 219, 254)">
       <div class="card shadow-sm shadow-none m-0">
         <div class="card-header text-white d-flex justify-content-between align-items-center p-2"
@@ -137,7 +136,7 @@
                 <span class="fa fa-arrow-right font-secondary-color me-2"></span>&nbsp;
 
                 <ng-container *ngIf="item.linkurl; else plainText">
-                  <a [href]="item.linkurl.endsWith('.pdf') ? baseUrl + item.linkurl : item.linkurl" target="_blank"
+                  <a [href]="item.linkurl.endsWith('.pdf') ? baseUrl + item.linkurl : item.linkurl" target="_blank" class="hover-underline" style="color: blue;"
                     rel="noopener noreferrer">
                     {{ item.linktitle }}
                   </a>
