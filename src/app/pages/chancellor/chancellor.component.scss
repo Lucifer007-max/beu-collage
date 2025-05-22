@@ -39,3 +39,12 @@
   font-weight: 600;
   margin-top: 5px;
 }
+
+
+@media (max-width:600px) {
+  .profile-img {
+    width: 250px !important;
+    height: 250px !important;
+    margin: 30px 40px !important;
+  }
+}
