@@ -52,7 +52,7 @@ export class HeaderComponent implements AfterViewInit {
       subItems: [
         {
           label: "Organization Structure",
-          link: "/Academics/Syllabus",
+          // link: "/Academics/Syllabus",
         },
         { label: "Honorable Chancellor", link: "/organization/chancellor" },
         { label: "Vice Chancellor", link: "/organization/vice-chancellor" },
