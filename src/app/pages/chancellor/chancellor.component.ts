@@ -22,7 +22,7 @@ export class ChancellorComponent {
   setPageTitle() {
     const url = this.router.url;
     if (url === '/organization/chancellor') {
-      this.pageTitle = 'Honorable Chancellor';
+      this.pageTitle = "Hon'ble Chancellor";
     } else if (url === '/organization/vice-chancellor') {
       this.pageTitle = 'Vice Chancellor';
     } else if(url === "/organization/pro-vice-chancellor") {

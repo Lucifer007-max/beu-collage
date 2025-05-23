@@ -29,20 +29,41 @@
         <div class="list-group custom_list">
           <a [routerLink]="'/about/vision'"  [routerLinkActive]="'active'" class="list-group-item list-group-item-action">  <span class="text-primary mx-3">»</span>Vision</a>
           <a [routerLink]="'/about/mission'" [routerLinkActive]="'active'"  class="list-group-item list-group-item-action">  <span class="text-primary mx-3">»</span>Mission</a>
-          <a [routerLink]="'/about/objective'" [routerLinkActive]="'active'"  class="list-group-item list-group-item-action">  <span class="text-primary mx-3">»</span>Object</a>
+          <a [routerLink]="'/about/objective'" [routerLinkActive]="'active'"  class="list-group-item list-group-item-action">  <span class="text-primary mx-3">»</span>Objective</a>
           <!-- <a [routerLink]="'/about/history'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
             <span class="text-primary mx-3">»</span> History
           </a> -->
           <a [routerLink]="'/about/university-act'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
             <span class="text-primary mx-3">»</span> University Act
           </a>
+          <a [routerLink]="'/about/university-statutes'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+            <span class="text-primary mx-3">»</span> University Statutes
+          </a>
+          <a  [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+            <span class="text-primary mx-3">»</span> Regulation
+          </a>
           <a class="list-group-item list-group-item-action">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
             <span class="text-primary mx-3">»</span> UG
           </a>
           <a   class="list-group-item list-group-item-action">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
             <span class="text-primary mx-3">»</span> PG
           </a>
           <a  class="list-group-item list-group-item-action">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
             <span class="text-primary mx-3">»</span> Ph.D
           </a>
           <!-- <a [routerLink]="'/about/noida-campus'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
@@ -140,7 +161,12 @@
               </li>
             </ul>
           </div>
-
+          <div class="vision-body" *ngIf="pageTitle === 'University Statutes'">
+            <div class="vision-header">
+              {{pageTitle}}
+            </div>
+            <iframe src="../../../assets/act Beu..pdf" height="500px" width="600px"></iframe>
+          </div>
           <div *ngIf="pageTitle === 'Regulations' || pageTitle === 'University Logo' || pageTitle === 'University Act'">
             <h1 class="text-center w-100">To be updated soon</h1>
           </div>

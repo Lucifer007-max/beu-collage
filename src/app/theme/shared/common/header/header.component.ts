@@ -29,8 +29,8 @@ export class HeaderComponent implements AfterViewInit {
         { label: "Vision", link: "/about/vision" },
         { label: "Mission", link: "/about/mission" },
         { label: "Objective", link: "/about/objective" },
-        // { label: "History", link: "/about/history" },
-        { label: "University Act & Statutes", link: "/about/university-act" },
+        { label: "University Act", link: "/about/university-act" },
+        { label: "University Statutes", link: "/about/university-statutes" },
         {
           title: "Regulations",
           isOpen: false,
@@ -54,7 +54,7 @@ export class HeaderComponent implements AfterViewInit {
           label: "Organization Structure",
           // link: "/Academics/Syllabus",
         },
-        { label: "Honorable Chancellor", link: "/organization/chancellor" },
+        { label: "Hon'ble Chancellor", link: "/organization/chancellor" },
         { label: "Vice Chancellor", link: "/organization/vice-chancellor" },
         // { label: "Pro Vice Chancellor", link: "/organization/pro-vice-chancellor" },
         { label: "Executive Council", link: "/organization/executive-council" },
@@ -85,9 +85,9 @@ export class HeaderComponent implements AfterViewInit {
           label: "Syllabus",
           link: "/Academics/Syllabus",
           subItems: [
-            { label: "PhD", link: "/academic/3" },
-            { label: "MTech", link: "/academic/2" },
-            { label: "BTech", link: "/academic/1" }
+            { label: "ph.D", link: "/academic/3" },
+            { label: "M.Tech", link: "/academic/2" },
+            { label: "B.Tech", link: "/academic/1" }
           ]
         },
         // { label: "Honours Degree MOOCs (NPTEL) Courses", link: "/Academics/Honours-Degree-MOOCs" },
@@ -167,7 +167,7 @@ export class HeaderComponent implements AfterViewInit {
       title: "Documents",
       isOpen: false,
       subItems: [
-        { label: "Act", link: "/acts" },
+        // { label: "Act", link: "/acts" },
         { label: "Circular", link: "/circular" },
         { label: "Important Links", link: "/links" },
         { label: "Notification", link: "/notification" },

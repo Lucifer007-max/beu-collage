@@ -58,8 +58,8 @@ export class NotFoundComponent {
 
   examinationLinks = [
     { label: "Branch Codes", link: "/examination/branch-codes" },
-    { label: "Examination Centre", link: "/examination/centre" },
-    { label: "Examination Schedule", link: "/examination/schedule" },
+    { label: "Examination Centre", link: "/examination/examination-centre" },
+    { label: "Examination Schedule", link: "/examination/examination-schedule" },
     { label: "UFM Rules", link: "/examination/ufm-rules" },
     { label: "Scrutiny Rules", link: "/examination/scrutiny-rules" },
     { label: "Question Bank Portal", link: "/examination/question-bank" }

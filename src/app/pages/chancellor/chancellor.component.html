@@ -32,7 +32,7 @@
         <div class="list-group custom_list">
           <!-- <a [routerLink]="'/'" [routerLinkActive]="'active'"  class="list-group-item list-group-item-action">Home</a> -->
           <a [routerLink]="'/organization/chancellor'"  [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
-            <span class="text-primary mx-3">»</span>Honorable Chancellor</a>
+            <span class="text-primary mx-3">»</span>Hon'ble Chancellor</a>
           <a [routerLink]="'/organization/vice-chancellor'" [routerLinkActive]="'active'"  class="list-group-item list-group-item-action">
             <span class="text-primary mx-3">»</span>Vice Chancellor</a>
           <!-- <a [routerLink]="'/organization/chancellor'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">Chancellor</a> -->
@@ -55,13 +55,15 @@
       <div class="col-lg-9 d-flex align-items-start position-relative">
         <div class="profile-card row" *ngIf="this.router.url === '/organization/chancellor'">
           <div class="profile-img col-12 col-lg-6 col-md-6 col-sm-12">
-            <img src="https://th.bing.com/th/id/OIP.s-8aQLaDtm3fUvIjPF8a8QHaFj?rs=1&pid=ImgDetMain" alt="Profile Image">
+            <a href="https://www.ugc.gov.in/" target="_blank">
+              <img src="https://th.bing.com/th/id/OIP.s-8aQLaDtm3fUvIjPF8a8QHaFj?rs=1&pid=ImgDetMain" alt="Profile Image">
+            </a>
           </div>
           <div class="col-12 col-lg-6 col-md-6 col-sm-12">
             <h2 class="name text-center mt-4">Shri Nitish Kumar</h2>
             <p class="text-center">
 
-              <i class="designation text-center">Hon’ble Chief Minister, Bihar - Cum - Chancellor <br> (Bihar Engineering University)</i>
+              <i class="designation text-center">Hon'ble Chief Minister, Bihar - cum -Hon'ble Chancellor <br> Bihar Engineering University, Patna</i>
             </p>
           </div>
         </div>
@@ -85,7 +87,10 @@
 
               </small></p>
               <h5 class="text-end">Prof. Suresh Kant Verma </h5>
-              <i class="designation float-end">Vice- Chancellor<br></i>
+              <i class="designation float-end">Vice- Chancellor <br></i>
+              <p class="text-end">
+                Bihar Engineering University, Patna
+              </p>
           </div>
         </div>
       </div>

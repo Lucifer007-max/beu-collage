@@ -42,6 +42,10 @@ const routes: Routes = [
         loadComponent: () => import('./pages/about/about.component'),
       },
       {
+        path: 'about/university-statutes',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
         path: 'about/regulations',
         loadComponent: () => import('./pages/about/about.component'),
       },

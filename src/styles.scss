@@ -92,7 +92,7 @@ File: style.css
   transform: rotate(90deg) !important;
   z-index: 99;
   left: -88px;
-  top: 170px;
+  top: 200px;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -214,5 +214,5 @@ File: style.css
 }
 
 .position-absolute.top-0.start-0.w-100.h-100.bg-primary.opacity-75{
-  background: #0676bd85 !important;
+  background: rgb(6 118 189 / 14%) !important;
 }
