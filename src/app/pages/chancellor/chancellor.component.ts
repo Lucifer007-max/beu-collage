@@ -14,6 +14,37 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
 })
 export class ChancellorComponent {
   constructor(public router: Router) {
+    this.setPageTitle();
     console.log("Current URL:", this.router.url);
   }
+  pageTitle: string = '';
+
+  setPageTitle() {
+    const url = this.router.url;
+    if (url === '/organization/chancellor') {
+      this.pageTitle = 'Honorable Chancellor';
+    } else if (url === '/organization/vice-chancellor') {
+      this.pageTitle = 'Vice Chancellor';
+    } else if(url === "/organization/pro-vice-chancellor") {
+      this.pageTitle = 'Pro Vice Chancellor';
+    }
+    else if(url === "/organization/executive-council") {
+      this.pageTitle = 'Executive Council';
+    }
+    else if(url === "/organization/academic-council") {
+      this.pageTitle = 'Academic Council';
+    }
+    else if(url === "/organization/finance-committee") {
+      this.pageTitle = 'Finance Council';
+    }
+    else if(url === "/organization/examination-committee") {
+      this.pageTitle = 'Examination Council';
+    }
+    else {
+      this.pageTitle = url.split('/')[2].toUpperCase();
+    }
+  }
+
+
+
 }

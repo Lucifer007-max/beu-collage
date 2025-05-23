@@ -39,7 +39,7 @@ export default class AddSyllabusComponent {
     this.courseOptions = [
       { "id": 1, title: 'B.Tech' },
       { "id": 2, title: 'M.Tech' },
-      { "id": 3, title: 'PHD' }
+      { "id": 3, title: 'Ph.D' }
     ]
   }
   onItemSelect(item: any) {

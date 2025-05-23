@@ -7,9 +7,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent {
+  formattedTitle: string = '';
+
   constructor(public router: Router) {
     console.log("Current URL:", this.router.url);
+    const rawSlug = this.router.url.split('/')[2];
+    this.formattedTitle = this.formatTitle(rawSlug);
+
   }
+  formatTitle(slug: string): string {
+    if (!slug) return '';
+    return slug
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  }
+
 
   academicsLinks = [
     { label: "Programmes", link: "/Academics/Programmes" },
@@ -22,7 +35,7 @@ export class NotFoundComponent {
       label: "Syllabus",
       link: "/Academics/Syllabus",
       subItems: [
-        { label: "PhD", link: "/academic/3" },
+        { label: "Ph.D", link: "/academic/3" },
         { label: "MTech", link: "/academic/2" },
         { label: "BTech", link: "/academic/1" }
       ]
@@ -40,7 +53,7 @@ export class NotFoundComponent {
   addmission =[
     { label: "Bachelors", link: "/Academics/NPTEL-Local-Chapters" },
     { label: "Masters", link: "/Academics/NPTEL-Online-Certification" },
-    { label: "Doctoral PHD ", link: "/Academics/Value-Education" }
+    { label: "Doctoral Ph.D ", link: "/Academics/Value-Education" }
   ]
 
   examinationLinks = [

@@ -42,9 +42,14 @@ export default class AboutComponent {
     } else if(url === "/about/vision") {
       console.log(url)
       this.pageTitle = 'Vision';
-    }else {
-      this.pageTitle = url.split('/')[2].toUpperCase() + " Comning Soon";
-
+    }else if(url === '/about/regulations') {
+      this.pageTitle = 'Regulations';
+    }
+    else if(url === '/about/university-logo') {
+      this.pageTitle = 'University Logo';
+    }
+    else if(url === '/about/university-act') {
+      this.pageTitle = 'University Act';
     }
   }
 

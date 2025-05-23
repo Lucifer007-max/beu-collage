@@ -37,7 +37,7 @@ export class HeaderComponent implements AfterViewInit {
           subItems: [
             { title: "UG", link: "/about/ug" },
             { title: "PG", link: "/about/pg" },
-            { title: "PHD", link: "/about/phd" },
+            { title: "Ph.D", link: "/about/phd" },
           ]
         },
         // { label: "Noida Campus", link: "/about/noida-campus" },
@@ -54,7 +54,7 @@ export class HeaderComponent implements AfterViewInit {
           label: "Organization Structure",
           link: "/Academics/Syllabus",
         },
-        { label: "Chancellor", link: "/organization/chancellor" },
+        { label: "Honorable Chancellor", link: "/organization/chancellor" },
         { label: "Vice Chancellor", link: "/organization/vice-chancellor" },
         // { label: "Pro Vice Chancellor", link: "/organization/pro-vice-chancellor" },
         { label: "Executive Council", link: "/organization/executive-council" },
@@ -75,7 +75,7 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: [
         { label: "Programmes", link: "/Academics/Programmes" },
-        { label: "NBA Accredited Programs", link: "/Academics/NBA-Accredited-Programs" },
+        { label: "NBA Accredited Programmes", link: "/Academics/NBA-Accredited-Programs" },
         // { label: "Naac Programm", link: "/Academics/Naac-Programm" },
         { label: "NIRF Ranking", link: "/Academics/NIRF-Ranking" },
         { label: "Board of Studies", link: "/Academics/Board-of-Studies" },

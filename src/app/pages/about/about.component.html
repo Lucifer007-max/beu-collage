@@ -8,11 +8,11 @@
   <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-75"></div>
 
   <div class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
-    <h1 class="fs-2 fw-bold text-light">{{pageTitle.toUpperCase()}}</h1>
+    <h1 class="fs-2 fw-bold text-light">{{pageTitle}}</h1>
     <nav class="mt-2">
       <ul class="breadcrumb bg-transparent">
         <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
-        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li>
+        <!-- <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li> -->
         <li class="breadcrumb-item active text-white" aria-current="page">{{pageTitle}}</li>
       </ul>
     </nav>
@@ -22,7 +22,7 @@
 
 <!-- Main Content Section -->
 <section class="py-5">
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
       <!-- Sidebar -->
       <div class="col-lg-3 custom_postion" data-aos="fade-up">
@@ -36,8 +36,14 @@
           <a [routerLink]="'/about/university-act'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
             <span class="text-primary mx-3">»</span> University Act
           </a>
-          <a [routerLink]="'/about/regulations'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
-            <span class="text-primary mx-3">»</span> Regulations (First, 2010)
+          <a class="list-group-item list-group-item-action">
+            <span class="text-primary mx-3">»</span> UG
+          </a>
+          <a   class="list-group-item list-group-item-action">
+            <span class="text-primary mx-3">»</span> PG
+          </a>
+          <a  class="list-group-item list-group-item-action">
+            <span class="text-primary mx-3">»</span> Ph.D
           </a>
           <!-- <a [routerLink]="'/about/noida-campus'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
             <span class="text-primary mx-3">»</span> Noida Campus
@@ -54,24 +60,25 @@
         </div>
       </div>
       <!-- Content Section -->
-      <div class="col-lg-9 d-flex align-items-start position-relative" data-aos="fade-up">
+      <div class="col-lg-9 d-flex align-items-start justify-content-center position-relative" data-aos="fade-up">
         <!-- Circular Image -->
-         <div class="position-absolute top-10">
+         <!-- <div class="position-absolute top-10">
            <div class="rounded-circle position-relative overflow-hidden me-4" style="width:250px; height: 250px;">
              <img src="https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif"
                class="w-100 h-100 object-fit-cover" />
              <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-75"></div>
            </div>
-         </div>
+         </div> -->
 
         <!-- Vision/Mission Content -->
         <div class="vision-card z-1">
-          <div class="vision-header">
-            {{pageTitle}}
-          </div>
           <!-- {{console.log(pageTitle)}} -->
 
           <div class="vision-body" *ngIf="pageTitle === 'Vision'">
+            <div class="vision-header">
+              {{pageTitle}}
+            </div>
+
             <ul>
               <li>To provide and upgrade the knowledge of Applied Science, Engineering & Technology, Architecture &
                 Planning, and Management as well as research in the fields of technical education.</li>
@@ -82,6 +89,9 @@
             </ul>
           </div>
           <div class="vision-body" *ngIf="pageTitle === 'Mission'">
+            <div class="vision-header">
+              {{pageTitle}}
+            </div>
             <ul>
               <li>To develop flexible and innovative academic programmes to cater the need of students with different
                 background, and prepare them to compete at the national and international levels.</li>
@@ -96,6 +106,9 @@
           </div>
 
           <div class="vision-body" *ngIf="pageTitle === 'Objective'">
+            <div class="vision-header">
+              {{pageTitle}}
+            </div>
             <ul>
               <li>To create institutes and centers of excellence for imparting State-of the art education, training and
                 research in the fields of Engineering and Technology as well as Architecture and Planning, Management;</li>
@@ -126,6 +139,10 @@
                 To make such provisions as would enable affiliated colleges to undertake specialization of studies.
               </li>
             </ul>
+          </div>
+
+          <div *ngIf="pageTitle === 'Regulations' || pageTitle === 'University Logo' || pageTitle === 'University Act'">
+            <h1 class="text-center w-100">To be updated soon</h1>
           </div>
         </div>
       </div>

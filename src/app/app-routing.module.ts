@@ -194,8 +194,8 @@ const routes: Routes = [
         loadComponent: () => import('./pages/report/report-view/report-view.component'),
       },
       {
-        path: 'magazine',
-        loadComponent: () => import('./pages/report/magazine/magazine.component'),
+        path: 'financial-report',
+        loadComponent: () => import('./pages/report/report-view/report-view.component'),
       },
 
       {

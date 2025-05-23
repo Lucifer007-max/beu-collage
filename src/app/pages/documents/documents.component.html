@@ -8,13 +8,13 @@
   <!-- Content -->
   <div
     class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
-    <h1 class="fs-2 fw-bold text-light">{{this.router.url.split('/')[1].toUpperCase()}}</h1>
+    <h1 class="fs-2 fw-bold text-light">{{formatTitle(this.router.url.split('/')[1])}}</h1>
 
     <nav class="mt-2">
       <ul class="breadcrumb bg-primary">
         <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
         <!-- <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li> -->
-        <li class="breadcrumb-item active text-white" aria-current="page">{{this.router.url.split('/')[1] }}</li>
+        <li class="breadcrumb-item active text-white" aria-current="page">{{formatTitle(this.router.url.split('/')[1]) }}</li>
       </ul>
     </nav>
 
