@@ -85,7 +85,7 @@ export class HeaderComponent implements AfterViewInit {
           label: "Syllabus",
           link: "/Academics/Syllabus",
           subItems: [
-            { label: "ph.D", link: "/academic/3" },
+            { label: "Ph.D", link: "/academic/3" },
             { label: "M.Tech", link: "/academic/2" },
             { label: "B.Tech", link: "/academic/1" }
           ]
