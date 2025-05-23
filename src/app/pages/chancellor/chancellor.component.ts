@@ -35,10 +35,10 @@ export class ChancellorComponent {
       this.pageTitle = 'Academic Council';
     }
     else if(url === "/organization/finance-committee") {
-      this.pageTitle = 'Finance Council';
+      this.pageTitle = 'Finance Committee';
     }
     else if(url === "/organization/examination-committee") {
-      this.pageTitle = 'Examination Council';
+      this.pageTitle = 'Examination Board';
     }
     else {
       this.pageTitle = url.split('/')[2].toUpperCase();
