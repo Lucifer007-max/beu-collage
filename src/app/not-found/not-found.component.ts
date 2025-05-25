@@ -42,7 +42,7 @@ export class NotFoundComponent {
     },
     { label: "Academic Calendar", link: "/Academics/Academic-Calendar" },
     { label: "Publications", link: "/Academics/Publications" },
-    { label: "Faculty Development Programs (FDP)", link: "/Academics/FDP" },
+    { label: "Faculty Development Programs (FDP)", link: "/Academics/Faculty-Development-Programs" },
     { label: "E-Learning Resources", link: "/Academics/E-Learning-Resources" },
     { label: "NPTEL Local Chapters", link: "/Academics/NPTEL-Local-Chapters" },
     { label: "NPTEL Online Certification", link: "/Academics/NPTEL-Online-Certification" },
@@ -53,7 +53,7 @@ export class NotFoundComponent {
   addmission =[
     { label: "Bachelors", link: "/Academics/NPTEL-Local-Chapters" },
     { label: "Masters", link: "/Academics/NPTEL-Online-Certification" },
-    { label: "Doctoral Ph.D ", link: "/Academics/Value-Education" }
+    { label: "Doctoral Ph.D ", link: "/Academics/Doctoral-Ph.D"}
   ]
 
   examinationLinks = [
