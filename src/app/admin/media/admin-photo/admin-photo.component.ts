@@ -44,8 +44,8 @@ export default class AdminPhotoComponent {
 
   // Handle file selection
   onFileSelect(event: any, type: any) {
-    const file = event.target.files[0];
     if (type === 'thumbnail') {
+      const file = event.target.files[0];
       if (file) {
         const allowedExtensions = ['jpg', 'png', 'jepg'];
         const fileExtension = file.name.split('.').pop()?.toLowerCase();
@@ -58,17 +58,32 @@ export default class AdminPhotoComponent {
         this.albumForm.patchValue({ thumbnail: file });
       }
     } else {
-      if (file) {
-        const allowedExtensions = ['jpg', 'png', 'jepg'];
-        const fileExtension = file.name.split('.').pop()?.toLowerCase();
-        if (!allowedExtensions.includes(fileExtension!)) {
-          this.service.ErrorSnackbar("Invalid file type. Only 'jpg', 'png', 'jepg' allowed.");
-          return;
+      const input = event.target as HTMLInputElement;
+      const files = input.files;
+      if (files && files.length > 0) {
+        const allowedExtensions = ['jpg', 'jpeg', 'png']; // Note: 'jpeg' not 'jepg'
+        const validFiles: File[] = [];
+
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          const fileExtension = file.name.split('.').pop()?.toLowerCase();
+
+          if (fileExtension && allowedExtensions.includes(fileExtension)) {
+            validFiles.push(file);
+          } else {
+            this.service.ErrorSnackbar(
+              `Invalid file type "${file.name}". Only 'jpg', 'jpeg', 'png' are allowed.`
+            );
+          }
         }
 
-        this.selectedFile = file;
-        console.log(this.selectedFile, file)
-        this.albumallForm.patchValue({ file: this.selectedFile });
+        if (validFiles.length > 0) {
+          this.selectedFile = validFiles;
+          console.log('Selected Files:', this.selectedFile);
+
+          // If you're storing the files in a FormControl, store the entire array
+          this.albumallForm.patchValue({ file: this.selectedFile });
+        }
       }
     }
   }
@@ -94,8 +109,9 @@ export default class AdminPhotoComponent {
         console.log(res.status)
         this.service.SuccessSnackbar(res.message);
         this.loader1 = false;
-          this.getAlbum();
-          this.albumAllList();
+        this.getAlbum();
+        this.albumAllList();
+
       }, (err) => {
         this.service.ErrorSnackbar(err.message);
         this.loader1 = false;
@@ -111,16 +127,17 @@ export default class AdminPhotoComponent {
       this.loader = true;
       const payLoad = {
         "title": this.albumallForm.value.albumID,
-        "file": this.selectedFile,
+        "files": this.selectedFile,
       }
-      this.service.albumALlService(payLoad).subscribe((res: any) => {
-        if (res.status) {
+      this.service.albumAllService(payLoad).subscribe((res: any) => {
+        // if (res.message === 'All album files added successfully') {
           this.getAlbum();
           this.getAlbumAll();
+          this.albumallForm.reset()
           this.service.SuccessSnackbar(res.message);
-        } else {
-          this.service.ErrorSnackbar('Something went wrong...!!');
-        }
+        // } else {
+        //   this.service.ErrorSnackbar('Something went wrong...!!');
+        // }
         this.loader = false;
       }, (err) => {
         this.service.ErrorSnackbar(err.message);

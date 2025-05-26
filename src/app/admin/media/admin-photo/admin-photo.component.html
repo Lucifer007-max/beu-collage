@@ -8,7 +8,7 @@
       </div>
       <div class="mb-3 col-lg-6">
         <label for="" class="form-label">Album Tumbnail</label>
-        <input type="file" class="form-control" (change)="onFileSelect($event, 'thumbnail')" accept=".png" formControlName="thumbnail" >
+        <input type="file" class="form-control" (change)="onFileSelect($event, 'thumbnail')" accept="image/*"  formControlName="thumbnail" >
         <!-- <input type="text" class="form-control" formControlName="thumbnail"> -->
       </div>
       <button type="submit" (click)="handleSubmit()" class="btn col-2 btn-primary"
@@ -38,7 +38,7 @@
       </div>
       <div class="mb-3 col-lg-6">
         <label class="form-label">Select Photo</label>
-        <input type="file" class="form-control" (change)="onFileSelect($event,'')" accept=".png" formControlName="file">
+        <input type="file" class="form-control" (change)="onFileSelect($event,'')" multiple  accept="image/*"  formControlName="file">
         <!-- <input type="hidden" value="acts" class="form-control" formControlName="type"> -->
       </div>
     </div>
@@ -57,15 +57,15 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">File</th>
-        <th scope="col">Title</th>
+        <!-- <th scope="col">Title</th> -->
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let list of this.albumAllList; index as i">
         <th scope="row">{{i+1}} </th>
-        <th scope="row">{{list?.album?.title}} </th>
-        <td><a [href]="imgURL+list.albumFile" target="_blank"><img [src]="imgURL+list.albumFile" class="w-100" /></a></td>
+        <!-- <th scope="row">{{list?.album?.title}} </th> -->
+        <td><a [href]="imgURL+list.albumFile" target="_blank"><img [src]="imgURL+list.albumFile" class="" width="100px" /></a></td>
         <td><a class="btn btn-danger btn-sm" (click)="handleDelete(list.id)"><i class="fa fa-trash"></i></a></td>
       </tr>
     </tbody>

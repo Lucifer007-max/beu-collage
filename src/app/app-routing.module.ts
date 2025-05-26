@@ -154,6 +154,10 @@ const routes: Routes = [
         path: 'media/pictures',
         loadComponent: () => import('./pages/media/pictures/pictures.component')
       },
+      {
+        path: 'media/pictures/:id',
+        loadComponent: () => import('./pages/media/picture-details/pictures-details.component')
+      },
 
 
       {

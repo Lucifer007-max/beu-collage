@@ -5,7 +5,7 @@
       <div class="mb-3 col-lg-6">
         <label class="form-label">Media File</label>
         <label class="form-label">Media File</label>
-        <input type="file" class="form-control" (change)="onFileSelect($event)" accept=".png" formControlName="file">
+        <input type="file" class="form-control" (change)="onFileSelect($event)" accept="image/*"  formControlName="file">
 
         <!-- Image preview -->
         <img *ngIf="imagePreview" [src]="imgUrl+imagePreview" alt="Preview" class="mt-2" width="200" height="auto">

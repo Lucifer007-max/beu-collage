@@ -35,7 +35,7 @@ export class ChancellorComponent {
       this.pageTitle = 'Academic Council';
     }
     else if(url === "/organization/finance-committee") {
-      this.pageTitle = 'Finance Committee';
+      this.pageTitle = 'Finance Council';
     }
     else if(url === "/organization/examination-committee") {
       this.pageTitle = 'Examination Board';

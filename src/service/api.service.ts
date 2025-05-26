@@ -372,18 +372,22 @@ export class ApiService {
     return this.httpClient.post(this.baseUrl + 'report/add-magzine', formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
-  albumALlService(payload: any): Observable<any> {
-    const formData: any = new FormData();
+  albumAllService(payload: any): Observable<any> {
+    const formData: FormData = new FormData();
+
     for (const key in payload) {
       if (payload.hasOwnProperty(key)) {
-        // Ensure file is handled correctly
-        if (payload[key] instanceof File) {
-          formData.append(key, payload[key], payload[key].name); // Append file with its original name
+        if (key === 'files' && Array.isArray(payload.files)) {
+          // Append each file with the same key: 'files'
+          payload.files.forEach((file: File) => {
+            formData.append('files', file, file.name);
+          });
         } else {
           formData.append(key, payload[key]);
         }
       }
     }
+
     return this.httpClient.post(this.baseUrl + 'publication/add-albumall', formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
@@ -638,10 +642,15 @@ export class ApiService {
     return this.httpClient.get(this.baseUrl + `course/get-course-file?${id}`)
       .pipe(catchError(this.handleError.bind(this)));
   }
-  albumGetAll(): Observable<any> {
-    return this.httpClient.get(this.baseUrl + 'publication/get-albumall')
+  albumGetAll(id?: any): Observable<any> {
+    let url = this.baseUrl + 'publication/get-albumall';
+    if (id) {
+      url += `?id=${id}`;
+    }
+    return this.httpClient.get(url)
       .pipe(catchError(this.handleError.bind(this)));
   }
+
   mediaGet(): Observable<any> {
     return this.httpClient.get(this.baseUrl + 'publication/get-media')
       .pipe(catchError(this.handleError.bind(this)));
