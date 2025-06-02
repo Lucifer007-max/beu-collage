@@ -76,7 +76,10 @@ export default class DocumentsComponent {
 
   getNoticeBoard() {
     this.apiService.noticeBoardGet().subscribe((res: any) => {
-      this.noticeBoard = res;
+      // this.noticeBoard = res;
+      this.noticeBoard = res.sort((a: any, b: any) => {
+      return new Date(b.noticedate).getTime() - new Date(a.noticedate).getTime();
+    });
     });
   }
 
