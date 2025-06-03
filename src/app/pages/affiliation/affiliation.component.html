@@ -53,7 +53,7 @@
         <th>URL</th>
         <th style="width: 150px;">Session</th>
         <th style="width: 150px;">Type</th>
-        <th style="width: 150px;">Download</th>
+        <!-- <th style="width: 150px;">Download</th> -->
       </tr>
     </thead>
     <tbody>
@@ -63,7 +63,7 @@
         <td><a [href]="listItem.url">{{ listItem.url }}</a></td>
         <td>{{ listItem.session }}</td>
         <th>{{ listItem.type === "1" ? "Private" : "Government"}}</th>
-        <td><a class="btn btn-outline-primary" [href]="imgUrl + listItem.file"><i class="fa fa-cloud-download"></i> Download</a></td>
+        <!-- <td><a class="btn btn-outline-primary" [href]="imgUrl + listItem.file"><i class="fa fa-cloud-download"></i> Download</a></td> -->
       </tr>
     </tbody>
   </table>
