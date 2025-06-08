@@ -18,12 +18,15 @@ export class AffiliationComponent {
   selectedType: any = '';
   selectedSession: any = '';
   selectedYear: number = new Date().getFullYear();
-  years: number[] = [];
+  years: string[] = [];
+  // years: number[] = [];
   constructor(public service:ApiService) {
     this.getList('','')
-    for (let year = 2000; year <= 2090; year++) {
-      this.years.push(year);
+
+    for (let year = 2023; year <= 2025; year++) {
+      this.years.push(`${year}-${(year + 1).toString().slice(-2)}`);
     }
+
   }
 
   getList(type: any, session: any) {
@@ -33,7 +36,7 @@ export class AffiliationComponent {
     const payload: any = {};
     if (type) payload.type = type;
     if (session) payload.session = session;
-
+    // payload.sortAlpha = true;
     this.service.affiliationGet(payload).subscribe((res: any) => {
       if (res?.length > 0) {
         this.list = res;

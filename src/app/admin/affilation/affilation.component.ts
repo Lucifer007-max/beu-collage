@@ -31,7 +31,7 @@ export default class AffilationComponent {
   listId: any;
 
   selectedYear: number = new Date().getFullYear();
-  years: number[] = [];
+  years: string[] = [];
 
 
   constructor(private service: ApiService, private FB: FormBuilder, public router: Router) {
@@ -47,8 +47,8 @@ export default class AffilationComponent {
       // session: [null, Validators.required]
     });
 
-    for (let year = 2000; year <= 2090; year++) {
-      this.years.push(year);
+    for (let year = 2023; year <= 2025; year++) {
+      this.years.push(`${year}-${(year + 1).toString().slice(-2)}`);
     }
 
 

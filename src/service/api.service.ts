@@ -260,7 +260,8 @@ export class ApiService {
   affiliationGet(filters: any): Observable<any> {
     const params = new HttpParams()
       .set('type', filters.type || '')
-      .set('session', filters.session || '');
+      .set('session', filters.session || '')
+      .set('sortAlpha', true);
 
     return this.httpClient.get(this.baseUrl + 'affiliation/get-affilation-users', { params })
       .pipe(catchError(this.handleError.bind(this)));
