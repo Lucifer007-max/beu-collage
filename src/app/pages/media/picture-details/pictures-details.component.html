@@ -46,10 +46,10 @@
             <div class="col-lg-4 col-md-4 col-sm-12" *ngFor="let item of albumList">
               <div class="media-card card">
                 <div class ="card-body">
-                  <a [routerLink]="item.id">
-                    <img [src]="imgurl + item.thumbnail" class="media- w-100" />
-                  </a>
-                  <h5 class="card-title text-center my-2">{{item.title}}</h5>
+                  <!-- <a [routerLink]="item.id"> -->
+                    <img [src]="imgurl + item.albumFile" class="media- w-100" />
+                  <!-- </a> -->
+                  <!-- <h5 class="card-title text-center my-2">{{item.title}}</h5> -->
                 </div>
               </div>
 

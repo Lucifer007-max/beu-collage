@@ -44,15 +44,14 @@
         <div class="row">
           <ng-container *ngIf="albumList && albumList.length > 0; else noVideos">
             <div class="col-lg-4 col-md-4 col-sm-12" *ngFor="let item of albumList">
-              <div class="media-card card">
-                <div class ="card-body">
-                  <a [routerLink]="item.id">
+              <a [routerLink]="item.id">
+                <div class="media-card card">
+                  <div class ="card-body">
                     <img [src]="imgurl + item.thumbnail" class="media- w-100" />
-                  </a>
-                  <h5 class="card-title text-center my-2">{{item.title}}</h5>
+                    <h5 class="card-title text-center mt-2">{{item.title}}</h5>
+                  </div>
                 </div>
-              </div>
-
+              </a>
             </div>
           </ng-container>
         </div>
