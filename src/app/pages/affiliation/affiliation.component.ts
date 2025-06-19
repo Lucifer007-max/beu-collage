@@ -37,15 +37,16 @@ export class AffiliationComponent {
     if (type) payload.type = type;
     if (session) payload.session = session;
     // payload.sortAlpha = true;
-    this.service.affiliationGet(payload).subscribe((res: any) => {
+    // this.service.affiliationGet(payload).subscribe((res: any) => {
+    this.service.affiliationGet(payload).subscribe((res: any[]) => {
       if (res?.length > 0) {
         this.list = res;
 
-        // this.list = res.sort((a, b) => {
-        //  if (a.type === '2' && b.type !== '2') return -1;
-        //  if (a.type !== '2' && b.type === '2') return 1;
-        //   return a.title.localeCompare(b.title);
-        // });
+        this.list = res.sort((a, b) => {
+         if (a.type === '2' && b.type !== '2') return -1;
+         if (a.type !== '2' && b.type === '2') return 1;
+          return a.title.localeCompare(b.title);
+        });
 
 
       } else {
