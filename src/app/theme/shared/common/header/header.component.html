@@ -79,8 +79,8 @@
             </a> -->
 
 
+            <!-- *ngIf="item.title !== 'Result' " -->
             <a
-                *ngIf="item.title !== 'Result' "
                 class="nav-link text-dark"
                 [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
                 [routerLink]="item.link || null"
@@ -88,15 +88,15 @@
               >
                 {{ item.title || item.label }}
               </a>
-              <a
+              <!-- <a
                 *ngIf="item.title === 'Result' "
                 class="nav-link text-dark"
                 [href]="item.link"
                 target="_blank"
                 role="button"
               >
-                {{ item.title || item.label }}
-              </a>
+                {{ item.title || item.label }} -->
+              <!-- </a> -->
 
 
 

@@ -1,0 +1,67 @@
+<app-header></app-header>
+<section class="position-relative w-100"
+    style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
+    <!-- Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
+
+    <!-- Content -->
+    <div
+        class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+        <h1 class="fs-2 fw-bold text-light">{{this.examName}}</h1>
+
+        <nav class="mt-2">
+            <ul class="breadcrumb bg-primary">
+                <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">{{this.examName}}</li>
+            </ul>
+        </nav>
+
+        <!-- Divider -->
+        <div class="border-top border-white mt-2" style="width: 100%; opacity: 0.6;"></div>
+    </div>
+</section>
+
+<div class="container mt-4">
+  <div class="container my-4 p-4 border rounded bg-light">
+    <div class="bg-secondary text-white text-center p-2 rounded-top">
+      <strong>{{this.examName}}</strong>
+    </div>
+
+    <div class="p-4">
+      <label for="reg" class="form-label">Enter your Registration Number:</label>
+      <div class="input-group mb-3">
+        <input
+          id="reg"
+          type="text"
+          class="form-control"
+          [(ngModel)]="regNo"
+          placeholder="Enter Reg. No."
+        />
+        <button class="btn btn-outline-dark" (click)="showResult()">Show Result</button>
+      </div>
+
+      <!-- Error block -->
+      <div *ngIf="showError" class="text-danger">
+        <p><strong>The results for a Registration Number cannot be found because of any of the following reasons:</strong></p>
+        <ul>
+          <li>You may have entered a Wrong Registration Number.</li>
+          <li>Your Registration Number does not belong to B.Tech.</li>
+          <li>Your College may not have sent the Internal/Practical Assessment marks to the University.</li>
+          <li>Your Result is on HOLD due some reasons.</li>
+          <li>In case of any typological error or discrepancy, the student is required to report to their respective college for necessary intimation to the University.</li>
+        </ul>
+        <p><strong class="text-danger">Disclaimer:</strong></p>
+      </div>
+
+      <p class="text-muted small">
+        The results published are provisional and subject to change after post publication scrutiny by University.
+        The university shall not be held responsible for any inadvertent error that may have crept into the results being displayed.
+      </p>
+    </div>
+  </div>
+
+
+</div>
+
+
+<app-footer></app-footer>

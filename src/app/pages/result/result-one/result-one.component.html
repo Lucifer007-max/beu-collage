@@ -1,0 +1,60 @@
+<app-header></app-header>
+<section class="position-relative w-100"
+    style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;">
+    <!-- Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
+
+    <!-- Content -->
+    <div
+        class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+        <h1 class="fs-2 fw-bold text-light">Result </h1>
+
+        <nav class="mt-2">
+            <ul class="breadcrumb bg-primary">
+                <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Result</li>
+            </ul>
+        </nav>
+
+        <!-- Divider -->
+        <div class="border-top border-white mt-2" style="width: 100%; opacity: 0.6;"></div>
+    </div>
+</section>
+
+<div class="container mt-4">
+  <div class="container my-4 p-4 border rounded bg-light">
+    <h4 class="text-center text-primary mb-4">
+      Examination Results <small class="text-dark">(use the links below to access results)</small>
+    </h4>
+
+    <table class="table table-bordered table-striped table-hover">
+      <thead class="bg-dark text-white text-center">
+        <tr>
+          <th class="text-light">Examinations Name</th>
+          <th class="text-light">Batch/ Session</th>
+          <th class="text-light">Published Date</th>
+        </tr>
+      </thead>
+
+      <ng-container *ngFor="let section of examData">
+        <tr class="table-secondary">
+          <td colspan="3"><h4 class="m-0">{{ section.course }}</h4></td>
+        </tr>
+
+        <tr
+          *ngFor="let exam of section.exams"
+          (click)="onExamClick(exam)"
+          class="clickable-row"
+        >
+          <td><p class="m-1">{{ exam.name }}</p></td>
+          <td class="text-center">{{ exam.session }}</td>
+          <td class="text-center">{{ exam.published }}</td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+
+</div>
+
+
+<app-footer></app-footer>

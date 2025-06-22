@@ -35,6 +35,10 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import {NgsRevealModule} from 'ngx-scrollreveal';
 // import { ImportantlinkComponent } from './admin/importantlink/importantlink.component';
 // import { ModalComponent } from './admin/modal/modal.component';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
 
 
 @NgModule({
@@ -63,6 +67,10 @@ import {NgsRevealModule} from 'ngx-scrollreveal';
 
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, ReactiveFormsModule, BrowserAnimationsModule, HttpClientModule,AngularEditorModule, NgMultiSelectDropDownModule.forRoot(),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore())
+
+
   ],
   providers: [
     AuthInterceptorProvider,

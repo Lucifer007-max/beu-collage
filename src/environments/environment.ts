@@ -12,6 +12,16 @@ export const environment = {
   // backendUrl : 'https://beu-bih.ac.in/v1/',
   apiUrl: 'https://beu-bih.ac.in/backend/v1/',
   backendUrl : 'https://beu-bih.ac.in/backend/v1/',
+
+  firebaseConfig : {
+    apiKey: "AIzaSyASbS80xS1_w2UWb_UlBxngzeAGDaIbCsc",
+    authDomain: "beu-app-10946.firebaseapp.com",
+    projectId: "beu-app-10946",
+    storageBucket: "beu-app-10946.firebasestorage.app",
+    messagingSenderId: "49555334698",
+    appId: "1:49555334698:web:1eadefbc40cfa6fe898553",
+    measurementId: "G-BZZ81KMPXJ"
+  }
 };
 // prod === 'https://prod.anantdrishti.com/v1/'
 // dev ==='https://beu-prod.anantdrishti.com/v1/'

@@ -123,9 +123,15 @@ export class HeaderComponent implements AfterViewInit {
         { label: "Question Bank Portal", link: "/examination/question-bank" }
       ]
     },
+    // {
+    //   title: "Result",
+    //   link: "https://results.beup.ac.in/",
+    //   isOpen: false,
+    //   subItems: []
+    // },
     {
       title: "Result",
-      link: "https://results.beup.ac.in/",
+      link: "/result-one",
       isOpen: false,
       subItems: []
     },

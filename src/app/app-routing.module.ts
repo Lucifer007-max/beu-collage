@@ -26,6 +26,14 @@ const routes: Routes = [
         loadComponent: () => import('./pages/home/home.component'),
       },
       {
+        path: 'result-one',
+        loadComponent: () => import('./pages/result/result-one/result-one.component'),
+      },
+      {
+        path: 'result-two/:id',
+        loadComponent: () => import('./pages/result/result-two/result-two.component'),
+      },
+      {
         path: 'about/vision',
         loadComponent: () => import('./pages/about/about.component'),
       },
