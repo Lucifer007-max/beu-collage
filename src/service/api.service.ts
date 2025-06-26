@@ -271,6 +271,16 @@ export class ApiService {
     return this.httpClient.get(this.baseUrl + 'notice/get-events')
       .pipe(catchError(this.handleError.bind(this)));
   }
+
+  resultGet(year: string, redg_no: string): Observable<any> {
+    const params = new HttpParams()
+      .set('year', year)
+      .set('redg_no', redg_no);
+
+    return this.httpClient.get(this.baseUrl + 'result/get-result', { params })
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+
   noticeBoardGet(params?: any): Observable<any> {
     let url = this.baseUrl + 'notice/get-notice-board';
     if (params !== undefined && params !== null) {

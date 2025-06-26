@@ -1,0 +1,111 @@
+<!-- <app-header></app-header> -->
+
+
+
+<div class="buttons">
+  <button onclick="window.history.back()">⬅ Back</button>
+  <button onclick="print()">🖨 Print</button>
+</div>
+
+<div class="watermark">WEB COPY</div>
+
+<div class="container position-relative print-watermark" #printSection *ngIf="resultData">
+  <!-- Watermark -->
+  <div class="watermark">
+    BIHAR ENGINEERING UNIVERSITY, PATNA
+  </div>
+
+  <div class="header text-center mb-3">
+    <h2><strong>BIHAR ENGINEERING UNIVERSITY, PATNA</strong></h2>
+    <h3 style="color: red;">{{examName}} </h3>
+  </div>
+
+  <table class="table table-bordered">
+    <tr>
+      <td><strong>Semester:</strong> {{ '1' }}</td>
+      <td><strong>Examination (Month/Year):</strong> Feb/{{ resultData.year + 1 }}</td>
+    </tr>
+    <tr>
+      <td><strong>Registration No:</strong> {{ resultData.redg_no }}</td>
+      <td><strong>Student Name:</strong> {{ resultData.name }}</td>
+    </tr>
+    <tr>
+      <td><strong>Father's Name:</strong> {{ resultData.father_name }}</td>
+      <td><strong>Mother's Name:</strong> {{ resultData.mother_name }}</td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>College Name:</strong> {{ resultData.college_code }} - {{ resultData.college_name }}</td>
+    </tr>
+    <tr>
+      <td colspan="2"><strong>Course Name:</strong> {{ resultData.course_code }} - {{ resultData.course }}</td>
+    </tr>
+  </table>
+
+  <div class="section-title">SUBJECT DETAIL</div>
+  <table class="table table-bordered">
+    <tr>
+      <th>Subject Code</th>
+      <th>Subject Name</th>
+      <th>ESE</th>
+      <th>IA</th>
+      <th>Total</th>
+      <th>Grade</th>
+      <th>Credit</th>
+    </tr>
+    <tr>
+      <td>{{ resultData.sub_code }}</td>
+      <td>{{ resultData.subject }}</td>
+      <td>{{ resultData.ese }}</td>
+      <td>{{ resultData.ia }}</td>
+      <td>{{ resultData.total_out }}</td>
+      <td>{{ resultData.letter_grade }}</td>
+      <td>{{ resultData.CREDIT }}</td>
+    </tr>
+  </table>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Semester</th>
+      <td>I</td>
+      <td>II</td>
+      <td>III</td>
+      <td>IV</td>
+      <td>V</td>
+      <td>VI</td>
+      <td>VII</td>
+      <td>VIII</td>
+      <td>Cur. CGPA</td>
+    </tr>
+    <tr>
+      <th>SGPA</th>
+      <td>{{ resultData.SGPASEM_1 || '-' }}</td>
+      <td>{{ resultData.SGPASEM_2 || '-' }}</td>
+      <td>{{ resultData.SGPASEM_3 || '-' }}</td>
+      <td>{{ resultData.SGPASEM_4 || '-' }}</td>
+      <td>{{ resultData.SGPASEM_5 || '-' }}</td>
+      <td>{{ resultData.SGPASEM_6 || '-' }}</td>
+      <td>{{ resultData.SGPASEM_7 || '-' }}</td>
+      <td>{{ resultData.SGPASEM_8 || '-' }}</td>
+      <td>{{ resultData.CGPA || '-' }}</td>
+    </tr>
+  </table>
+
+  <p><strong>Result:</strong> {{ resultData.fail_any || 'PASS' }}</p>
+  <p><strong>Publish Date:</strong> 11-05-{{ resultData.year + 2 }}</p>
+
+  <ul>
+    <li>ESE : End Semester Exam</li>
+    <li>IA : Internal Assessment</li>
+    <li>SGPA : Semester Grade Point Average</li>
+    <li>CGPA : Cumulative Grade Point Average</li>
+    <li>AB : Absent</li>
+    <li>NA : Not Applicable</li>
+    <li>* : Not Available</li>
+    <li>UR : Passed Under Regulation(UR)</li>
+    <li>CA : Cancellation of Assessment</li>
+    <li>UMC : Unfair Means Case</li>
+    <li>WEB COPY : Not valid for official purposes.</li>
+    <li>University does not own for the errors or omissions, if any, in the statement.</li>
+  </ul>
+</div>
+<!-- <app-footer></app-footer> -->

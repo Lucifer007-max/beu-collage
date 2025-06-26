@@ -34,6 +34,10 @@ const routes: Routes = [
         loadComponent: () => import('./pages/result/result-two/result-two.component'),
       },
       {
+        path: 'result-three',
+        loadComponent: () => import('./pages/result/result-three/result-three.component'),
+      },
+      {
         path: 'about/vision',
         loadComponent: () => import('./pages/about/about.component'),
       },
