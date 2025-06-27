@@ -23,10 +23,9 @@ export default class ResultTwoComponent {
   // resultData: any = null;
   // showErrorPage = false;
   // isLoading = false;
-
+  errMsg:any = ''
   showResult() {
     this.isLoading = true;
-    this.showError = false;
 
     this.apiService.resultGet(this.sessionYear, this.regNo).subscribe({
       next: (res) => {
@@ -36,13 +35,15 @@ export default class ResultTwoComponent {
             state: { resultData: res.data },
             queryParams: { name: this.examName }
           });
-
         } else {
+          console.log(res.message);
+          this.errMsg = res.message; // ✅ Corrected here
           this.showError = true;
         }
       },
       error: (err) => {
         console.error(err);
+        this.errMsg = 'Something went wrong. Please try again.';
         this.showError = true;
       },
       complete: () => {
@@ -50,6 +51,7 @@ export default class ResultTwoComponent {
       }
     });
   }
+
 
   clearResult() {
     this.resultData = null;

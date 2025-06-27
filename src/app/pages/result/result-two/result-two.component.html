@@ -45,8 +45,11 @@
       </div>
 
       <!-- Error block -->
-      <div *ngIf="showError" class="text-danger">
-        <p><strong>The results for a Registration Number cannot be found because of any of the following reasons:</strong></p>
+      <div class="text-danger">
+        <div *ngIf="showError" class="text-danger">
+          {{ errMsg }}
+        </div>
+                <p><strong>The results for a Registration Number cannot be found because of any of the following reasons:</strong></p>
         <ul>
           <li>You may have entered a Wrong Registration Number.</li>
           <li>Your Registration Number does not belong to B.Tech.</li>
