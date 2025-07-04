@@ -488,6 +488,10 @@ export class ApiService {
     return this.httpClient.post(this.baseUrl + 'result/semester', payload)
       .pipe(catchError(this.handleError.bind(this)));
   }
+  resultServiceUpdate(payload: any, id: number): Observable<any> {
+    return this.httpClient.put(this.baseUrl + 'result/' + id, payload)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
 
   affiliationUpdateService(payload: any, id: number): Observable<any> {
     const formData: any = new FormData();
@@ -723,7 +727,10 @@ export class ApiService {
     return this.httpClient.delete(`${this.baseUrl}affiliation/affilation-delete?id=${id}&value=${value}`)
       .pipe(catchError(this.handleError.bind(this)));
   }
-
+  resultDelete(id: number): Observable<any> {
+    return this.httpClient.delete(`${this.baseUrl}result/${id}`)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
   bannerDelete(id: number): Observable<any> {
     return this.httpClient.delete(this.baseUrl + 'banner/delete-banner/' + id)
       .pipe(catchError(this.handleError.bind(this)));

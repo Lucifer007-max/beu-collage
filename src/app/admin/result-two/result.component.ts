@@ -29,22 +29,32 @@ export default class ResultComponent {
   selectedSession = '';
   isUpdate: boolean = false;
   listId: any;
-
+  semId: any;
   selectedYear: number = new Date().getFullYear();
   years: string[] = [];
   courseList: any = []
   cousteListsyllabus: any = [];
-  courseid:any;
+  courseid: any;
+  examData: any = [];
   constructor(private service: ApiService, private FB: FormBuilder, public router: Router) {
     this.getFile();
+
   }
+
+  // constructor(public router: Router, private service: ApiService) {
+  //   console.log("Current URL:", this.router.url);
+
+
+  // }
 
   ngOnInit() {
     this.fileForm = this.FB.group({
+      sessionID: [null],
       session: [null, Validators.required],
       title: [null, Validators.required],
       batchYear: [null, Validators.required],
       publishDate: [null, Validators.required],
+      semId: [null, Validators.required],
     });
 
     for (let year = 2023; year <= 2025; year++) {
@@ -99,21 +109,40 @@ export default class ResultComponent {
   //   });
   // }
   getFile(page: number = 1, pageSize: number = 10) {
-    this.service.affiliationGetAdmin(page, pageSize).subscribe((res: any) => {
-      this.List = res;
-      this.totalRecords = res.totalRecords;
-      this.currentPage = page;
-      this.pageSize = pageSize;
+    // this.service.affiliationGetAdmin(page, pageSize).subscribe((res: any) => {
+    //   this.List = res;
+    //   this.totalRecords = res.totalRecords;
+    //   this.currentPage = page;
+    //   this.pageSize = pageSize;
+    // });
+
+    this.service.resultSemGet().subscribe((res: any) => {
+      // Transform the data for binding
+
+      this.examData = res.map((item: any) => {
+        return {
+          course: `${item.courseName}`, // You can replace this with actual course name if available
+          exams: item.exams.map((exam: any) => ({
+            id: exam.id,
+            course: `${item.courseid}`,
+            name: exam.examName,
+            batchYear: exam.batchYear,
+            semId: exam.semId,
+            session: `${exam.session}`,
+            published: new Date(exam.publishDate).toLocaleDateString()
+          }))
+        };
+      });
     });
   }
 
-  handleChange(e: any) {
-    const selectedValue = e.target.value;
-    this.fileForm.patchValue({
-      type: selectedValue
-    });
+  // handleChange(e: any) {
+  //   const selectedValue = e.target.value;
+  //   this.fileForm.patchValue({
+  //     type: selectedValue
+  //   });
 
-  }
+  // }
 
   // / Handle year change event
   onYearChange() {
@@ -130,9 +159,14 @@ export default class ResultComponent {
   //   this.selectedSession = ''
   //   // this.fileForm.get('file')?.setValue(year);
   // }
-  handleChnage(e:any) {
+  handleChnage(e: any) {
     console.log(e.target.value)
     this.courseid = e.target.value
+
+  }
+  handleSemId(e: any) {
+    console.log(e.target.value)
+    this.semId = e.target.value
 
   }
 
@@ -140,24 +174,25 @@ export default class ResultComponent {
     this.loader = true;
 
     const payload = {
-      courseid:this.courseid,
+      courseid: this.courseid,
       examName: this.fileForm.value.title,
       publishDate: this.fileForm.value.publishDate,
-      batchYear :this.fileForm.value.batchYear,
-      session: this.fileForm.value.session
+      batchYear: this.fileForm.value.batchYear,
+      session: this.fileForm.value.session,
+      semId: this.semId
     }
     // console.log(payload)
-    const service = this.isUpdate ? this.service.affiliationUpdateService(payload, this.listId) : this.service.resultService(payload)
+    const service = this.isUpdate ? this.service.resultServiceUpdate(payload, this.listId) : this.service.resultService(payload)
     service.subscribe(
       (res: any) => {
-        if (res.status) {
-          this.service.SuccessSnackbar(res.msg);
-          this.fileForm.reset();
-          this.selectedFile = null;
-          this.getFile();
-        } else {
-          this.service.ErrorSnackbar(res);
-        }
+        // if (res) {
+        this.service.SuccessSnackbar(res.msg);
+        this.fileForm.reset();
+        this.selectedFile = null;
+        this.getFile();
+        // } else {
+        //   this.service.ErrorSnackbar(res);
+        // }
         this.loader = false;
       },
       (err) => {
@@ -170,7 +205,7 @@ export default class ResultComponent {
 
   handleDelete(id: number, value: number) {
     this.loaders = true;
-    this.service.affiliationDelete(id, value).subscribe((res: any) => {
+    this.service.resultDelete(id).subscribe((res: any) => {
       this.List = res;
       this.loaders = false;
       this.getFile()
@@ -179,21 +214,35 @@ export default class ResultComponent {
 
 
   handleEdit(data: any) {
-    this.fileForm.patchValue({
-      title: data.title,
-      url: data.url,
-      type: data.type,
-    });
-    this.selectedYear = data.session;
     console.log(data)
-    this.listId = data.id
-    this.selectedSession = data.session
-    this.selectedFileName = data.file;
+    // Convert publishDate to yyyy-MM-dd (for input[type="date"])
+    const formattedDate = data.published
+      ? new Date(data.published).toISOString().split('T')[0]
+      : null;
+    console.log(formattedDate)
+    // Patch form fields
+    this.fileForm.patchValue({
+      session: data.session,
+      title: data.name,
+      batchYear: data.batchYear,
+      publishDate: formattedDate, // formatted
+      semId: data.semId,
+      sessionID: data.course.toString(), // or data.courseid if that's correct
+    });
+
+    // Set class variables
+    this.courseid = data.course.toString();
+    this.semId = data.semId;
+    this.listId = data.id;
+
+    // Scroll into view
     setTimeout(() => {
       this.formSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }, 100);
-    this.isUpdate = true
+
+    this.isUpdate = true;
   }
+
 
 
 }

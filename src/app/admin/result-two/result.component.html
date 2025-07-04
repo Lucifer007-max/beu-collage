@@ -1,17 +1,29 @@
-<app-card cardTitle="Subject Add" [options]="false">
+<app-card cardTitle="Add Result" [options]="false">
 
   <form [formGroup]="fileForm" (ngSubmit)="handleSubmit()" #formSection>
     <div class="row">
       <div class="mb-3 col-lg-6">
-        <label class="form-label">Select Branch</label>
-        <select class="form-select form-control" (change)="handleChnage($event)"
-          formControlName="sessionID">
+        <label class="form-label">Select Programmes</label>
+        <select class="form-select form-control" (change)="handleChnage($event)" formControlName="sessionID">
           <option *ngFor="let branch of courseList" [value]="branch.id">{{ branch.session }}</option>
+        </select>
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Semester </label>
+        <select class="form-select form-control" (change)="handleSemId($event)" formControlName="semId">
+          <option [value]="'1'">Semester 1</option>
+          <option [value]="'2'">Semester 2</option>
+          <option [value]="'3'">Semester 3</option>
+          <option [value]="'4'">Semester 4</option>
+          <option [value]="'5'">Semester 5</option>
+          <option [value]="'6'">Semester 6</option>
+          <option [value]="'7'">Semester 7</option>
+          <option [value]="'8'">Semester 8</option>
         </select>
       </div>
 
       <div class="mb-3 col-lg-6">
-        <label class="form-label">Semester Name</label>
+        <label class="form-label">Examinations Name (Result Description)</label>
         <input type="text" class="form-control" formControlName="title">
         <input type="hidden" value="acts" class="form-control" formControlName="title">
       </div>
@@ -24,7 +36,7 @@
         <input type="date" class="form-control" formControlName="publishDate">
       </div>
       <div class="mb-3 col-lg-6">
-        <label class="form-label">Batch Year</label>
+        <label class="form-label">Exam Year</label>
         <input type="text" class="form-control" formControlName="batchYear">
       </div>
     </div>
@@ -41,7 +53,7 @@
 
 
 
-<app-card cardTitle="Subject List" [options]="false">
+<app-card cardTitle="Result List" [options]="false">
   <!-- <table class="table">
     <thead>
       <tr>
@@ -77,6 +89,53 @@
 
     </tbody>
   </table> -->
+
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Programmes</th>
+        <th scope="col">Exam Name</th>
+        <th scope="col">Batch Session</th>
+        <th scope="col">Semester</th>
+        <th scope="col">Exam Year</th>
+        <th scope="col">Published Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let section of examData">
+        <!-- <tr class="table-secondary">
+          <td colspan="5">
+            <strong>{{ section.course }}</strong>
+          </td>
+        </tr> -->
+        <tr *ngFor="let exam of section.exams; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ section.course }}</td>
+          <td>{{ exam.name }}</td>
+          <td>{{ exam.session }}</td>
+          <td>{{ exam.semId ?? '--' }} Semester</td>
+          <td>{{ exam.batchYear }}</td>
+          <td>{{ exam.published }}</td>
+          <td>
+
+            <!-- <button class="btn btn-sm btn-danger" *ngIf="exam.idDeleted === 0" (click)="handleDelete(exam.id,1)"><i
+                class="fa fa-trash"></i>
+            </button> -->
+            <button class="btn btn-sm btn-success"  (click)="handleDelete(exam.id,0)"><i
+                class="fa fa-trash"></i></button>
+            &nbsp;
+            &nbsp;
+            <button class="btn btn-sm btn-info" (click)="handleEdit(exam)"><i class="fa fa-pen"></i></button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
   <!-- Pagination Controls -->
 
 </app-card>

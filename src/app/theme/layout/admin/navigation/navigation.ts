@@ -280,14 +280,14 @@ export const NavigationItems: NavigationItem[] = [
     children: [
       {
         id: 'menu-level-2.1',
-        title: 'Result Mangement',
+        title: 'Programme Mangement',
         type: 'item',
         url: '/admin/add-result',
         external: false
       },
       {
         id: 'menu-level-2.1',
-        title: 'Add Subject',
+        title: 'Result Mangement',
         type: 'item',
         url: '/admin/result-new',
         external: false

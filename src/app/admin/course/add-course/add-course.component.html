@@ -1,4 +1,4 @@
-<app-card cardTitle="Add Course" [options]="false">
+<app-card cardTitle="Add Programmes" [options]="false">
   <form class="row" autocomplete="off" [formGroup]="courseForm" (ngSubmit)="handleSubmit()" #formSection>
     <!-- <div class="mb-3 col-lg-6">
       <label class="form-label">Select Course</label>
@@ -7,7 +7,7 @@
       </select>
     </div> -->
     <div class="mb-3 col-lg-6">
-      <label class="form-label">Syllabus Session</label>
+      <label class="form-label">Programmes Name</label>
       <input type="text" class="form-control" id="exampleInputEmail1" formControlName="session">
     </div>
   </form>
@@ -22,19 +22,19 @@
 
 
 
-<app-card cardTitle="Session List" [options]="false">
+<app-card cardTitle="Programmes List" [options]="false">
   <table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
         <!-- <th scope="col">Course</th> -->
-        <th scope="col">Course Name</th>
+        <th scope="col">Programmes Name</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
       <!-- Show fallback if courseList is empty -->
-      <tr *ngIf="courseList.length === 0">
+      <tr *ngIf="courseList?.length === 0">
         <td colspan="4" class="text-center text-muted">No records found</td>
       </tr>
 
