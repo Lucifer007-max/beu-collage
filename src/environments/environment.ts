@@ -7,11 +7,11 @@ import packageInfo from '../../package.json';
 export const environment = {
   appVersion: packageInfo.version,
   production: false,
-  imgUrl: 'http://localhost:9001/',
-  // apiUrl: 'http://localhost:9001/',
-  // backendUrl : 'http://localhost:9001/',
-  apiUrl: 'http://localhost:9001/v1/',
-  backendUrl : 'http://localhost:9001/v1/',
+  imgUrl: 'http://beu-bih.ac.in/backend/',
+  // apiUrl: 'http://beu-bih.ac.in/v1/',
+  // backendUrl : 'http://beu-bih.ac.in/v1/',
+  apiUrl: 'http://beu-bih.ac.in/backend/v1/',
+  backendUrl : 'http://beu-bih.ac.in/backend/v1/',
 
   firebaseConfig : {
     apiKey: "AIzaSyASbS80xS1_w2UWb_UlBxngzeAGDaIbCsc",
