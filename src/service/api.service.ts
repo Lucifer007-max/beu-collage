@@ -272,6 +272,11 @@ export class ApiService {
       .pipe(catchError(this.handleError.bind(this)));
   }
 
+  resultSemGet(): Observable<any> {
+    return this.httpClient.get(this.baseUrl + 'result/sem-get')
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+
   resultGet(year: string, redg_no: string): Observable<any> {
     const params = new HttpParams()
       .set('year', year)
@@ -478,6 +483,12 @@ export class ApiService {
     return this.httpClient.post(this.baseUrl + 'affiliation/add-affilation', formData)
       .pipe(catchError(this.handleError.bind(this)));
   }
+  resultService(payload: any): Observable<any> {
+
+    return this.httpClient.post(this.baseUrl + 'result/semester', payload)
+      .pipe(catchError(this.handleError.bind(this)));
+  }
+
   affiliationUpdateService(payload: any, id: number): Observable<any> {
     const formData: any = new FormData();
     for (const key in payload) {

@@ -272,6 +272,30 @@ export const NavigationItems: NavigationItem[] = [
     icon: 'feather icon-user'
   },
 
+  {
+    id: 'result ',
+    title: 'Result Mangement',
+    type: 'collapse',
+    icon: 'feather icon-file',
+    children: [
+      {
+        id: 'menu-level-2.1',
+        title: 'Result Mangement',
+        type: 'item',
+        url: '/admin/add-result',
+        external: false
+      },
+      {
+        id: 'menu-level-2.1',
+        title: 'Add Subject',
+        type: 'item',
+        url: '/admin/result-new',
+        external: false
+      },
+
+    ]
+  },
+
   // {
   //   id: 'ui-component',
   //   title: 'Ui Component',

@@ -334,7 +334,7 @@ const routes: Routes = [
         // canActivate: [AuthGuard]
       },
       {
-        path: 'admin/add-session',
+        path: 'admin/add-result',
         loadComponent: () => import('./admin/course/add-course/add-course.component'),
         // canActivate: [AuthGuard]
       },
@@ -366,6 +366,11 @@ const routes: Routes = [
       {
         path: 'admin/profile-update',
         loadComponent: () => import('./admin/profile/profile.component'),
+        // canActivate: [AuthGuard]
+      },
+      {
+        path: 'admin/result-new',
+        loadComponent: () => import('./admin/result-two/result.component'),
         // canActivate: [AuthGuard]
       },
     ]

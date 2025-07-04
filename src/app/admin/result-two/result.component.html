@@ -1,0 +1,82 @@
+<app-card cardTitle="Affiliation Add" [options]="false">
+
+  <form [formGroup]="fileForm" (ngSubmit)="handleSubmit()" #formSection>
+    <div class="row">
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Select Branch</label>
+        <select class="form-select form-control" (change)="handleChnage($event)"
+          formControlName="sessionID">
+          <option *ngFor="let branch of courseList" [value]="branch.id">{{ branch.session }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Semester Name</label>
+        <input type="text" class="form-control" formControlName="title">
+        <input type="hidden" value="acts" class="form-control" formControlName="title">
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Batch Session</label>
+        <input type="text" class="form-control" formControlName="session">
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Publish Date</label>
+        <input type="date" class="form-control" formControlName="publishDate">
+      </div>
+      <div class="mb-3 col-lg-6">
+        <label class="form-label">Batch Year</label>
+        <input type="text" class="form-control" formControlName="batchYear">
+      </div>
+    </div>
+
+    <button type="submit" class="btn col-2 btn-primary" *ngIf="!loader">{{isUpdate ? "Update" : "Add"}}</button>
+    <div class="spinner-border text-dark" role="status" *ngIf="loader">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </form>
+
+
+</app-card>
+
+
+
+
+<app-card cardTitle="Affiliation List" [options]="false">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Files</th>
+        <th scope="col">Title</th>
+        <th scope="col">URL</th>
+        <th scope="col">Type</th>
+        <th scope="col">Session</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of List?.data; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <th scope="row"><a [href]="imgUrl+list.file" target="_blank">{{ list.file }}</a></th>
+        <th scope="row">{{ list.title }}</th>
+        <th scope="row"><a [href]="list.url" target="_blank">{{ list.url }}</a></th>
+        <th scope="row">{{ list.type === "1" ? "Private" : "Government"}}</th>
+        <th scope="row">{{ list.session }}</th>
+        <td>
+
+          <button class="btn btn-sm btn-danger" *ngIf="list.idDeleted === 0" (click)="handleDelete(list.id,1)"><i
+              class="fa fa-trash"></i>
+          </button>
+          <button class="btn btn-sm btn-success" *ngIf="list.idDeleted === 1" (click)="handleDelete(list.id,0)"><i
+              class="fa fa-check"></i></button>
+          &nbsp;
+          &nbsp;
+          <button class="btn btn-sm btn-info" (click)="handleEdit(list)"><i class="fa fa-pen"></i></button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+  <!-- Pagination Controls -->
+
+</app-card>

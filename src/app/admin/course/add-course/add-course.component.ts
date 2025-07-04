@@ -33,14 +33,14 @@ export default class AddCourseComponent {
       })
     }
     this.getSession()
-    this.courseOptions = [
-      { "id": 1, title: 'B.Tech' },
-      { "id": 2, title: 'M.Tech' },
-      { "id": 3, title: 'Ph.D' }
-    ]
+    // this.courseOptions = [
+    //   { "id": 1, title: 'B.Tech' },
+    //   { "id": 2, title: 'M.Tech' },
+    //   { "id": 3, title: 'Ph.D' }
+    // ]
   }
   onItemSelect(item: any) {
-    console.log(item.target.value);
+    // console.log(item.target.value);
     this.selectedItems = item.target.value
   }
 
@@ -50,7 +50,7 @@ export default class AddCourseComponent {
     if (this.courseForm.valid) {
       this.sloader = true;
       const payLoad = {
-        "courseID": this.selectedItems,
+        "courseID": 0,
         "session": this.courseForm.value.session,
       }
       this.service.coursesession(payLoad, this.id).subscribe((res: any) => {
