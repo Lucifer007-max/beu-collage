@@ -27,7 +27,7 @@ export default class ResultOneComponent {
           course: `${item.courseName}`, // You can replace this with actual course name if available
           exams: item.exams.map((exam: any) => ({
             name: exam.examName,
-            session: `${exam.batchYear} / ${exam.session}`,
+            session:  `${exam.session}`,
             published: new Date(exam.publishDate).toLocaleDateString()
           }))
         };
