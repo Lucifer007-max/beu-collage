@@ -8,8 +8,8 @@ export const environment = {
   appVersion: packageInfo.version,
   production: false,
   imgUrl: 'https://beu-bih.ac.in/backend/',
-  // apiUrl: 'https://beu-bih.ac.in/v1/',
-  // backendUrl : 'https://beu-bih.ac.in/v1/',
+  // apiUrl: 'https://beu-bih.ac.in/backend/',
+  // backendUrl : 'https://beu-bih.ac.in/backend/',
   apiUrl: 'https://beu-bih.ac.in/backend/v1/',
   backendUrl : 'https://beu-bih.ac.in/backend/v1/',
 
