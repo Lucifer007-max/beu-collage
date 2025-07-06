@@ -28,6 +28,7 @@ export default class ResultOneComponent {
           exams: item.exams.map((exam: any) => ({
             name: exam.examName,
             session:  `${exam.session}`,
+            batchYear: exam.batchYear,
             published: new Date(exam.publishDate).toLocaleDateString()
           }))
         };
@@ -42,7 +43,7 @@ export default class ResultOneComponent {
     console.log('Clicked Exam:', exam);
     // Example: navigate to detail page or open modal
     this.router.navigate(['/result-two', exam.name], {
-      queryParams: { session: exam?.session?.toString()?.trim() }
+      queryParams: { session: exam?.batchYear?.toString()?.trim() }
     });
   }
 
