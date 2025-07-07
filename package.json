@@ -48,6 +48,7 @@
     "ng-click-outside2": "^11.2.0",
     "ng-multiselect-dropdown": "^1.0.0",
     "ngx-color-picker": "^14.0.0",
+    "ngx-print": "^3.1.0",
     "ngx-scrollbar": "^13.0.1",
     "ngx-scrollreveal": "^3.0.0",
     "rxjs": "~7.8.1",

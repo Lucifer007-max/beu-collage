@@ -71,3 +71,32 @@ button {
     display: none;
   }
 }
+
+
+
+.watermark-wrapper {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  text-align: center;
+  opacity: 0.09;
+  pointer-events: none;
+  user-select: none;
+}
+
+.watermark-text {
+  color: red;
+  font-weight: 900;
+  font-size: 24px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.watermark-logo {
+  border-radius: 50%;
+  width: 150px;
+  margin: 10px auto;
+  display: block;
+}

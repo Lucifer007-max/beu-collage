@@ -277,7 +277,7 @@ export class ApiService {
       .pipe(catchError(this.handleError.bind(this)));
   }
 
-  resultGet(year: string, redg_no: string, semester:any): Observable<any> {
+  resultGet(year: string, redg_no: string, semester: any): Observable<any> {
     const params = new HttpParams()
       .set('year', year)
       .set('redg_no', redg_no)

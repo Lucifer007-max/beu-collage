@@ -44,10 +44,11 @@ export default class ResultTwoComponent {
     this.apiService.resultGet(this.sessionYear, this.regNo, this.semesterId).subscribe({
       next: (res) => {
         if (res && res.status === 200) {
+          console.log("res", this.resultData)
           this.resultData = res.data;
           this.router.navigate(['/result-three'], {
-            state: { resultData: res.data },
-            queryParams: { name: this.examName }
+            // state: { resultData: res.data },
+            queryParams: { name: this.examName,semester: this.semesterId, session:this.sessionYear , regNo:this.regNo}
           });
         } else {
           console.log(res.message);
@@ -96,20 +97,13 @@ export default class ResultTwoComponent {
 
       // this.semesterId = semesterNum; // keep original number if you want
       this.semesterId = this.toRoman(semesterNum);
-
-
-// console.log('semesterRoman:', this.semesterRoman);
-      console.log('Session:', this.sessionYear);
-      console.log('semesterId:', this.semesterId);
     });
 
   }
   onExamClick(exam: any) {
-    // console.log('Clicked Exam:', exam);
     this.apiService.resultGet(String(this.sessionYear), this.regNo, this.semesterId).subscribe((res) => {
       console.log(res)
     })
-    // this.router.navigate(['/result', exam.id]);
   }
 
 }

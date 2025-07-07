@@ -14,12 +14,7 @@ import { ApiService } from 'src/service/api.service';
 export default class ResultOneComponent {
   examData:any = [];
 
-
-
-
-
   constructor(public router: Router, private service: ApiService) {
-    console.log("Current URL:", this.router.url);
     this.service.resultSemGet().subscribe((res: any) => {
       // Transform the data for binding
       this.examData = res.map((item: any) => {
@@ -40,13 +35,10 @@ export default class ResultOneComponent {
 
 
   }
+  
   onExamClick(exam: any) {
-    console.log('Clicked Exam:', exam);
-    // console.log('Navigating with semId:', exam?.semId);
-
-    // Example: navigate to detail page or open modal
     this.router.navigate(['/result-two', exam.name], {
-      queryParams: { 
+      queryParams: {
         semester: exam?.semId,
         session: exam?.batchYear?.toString()?.trim() }
     });

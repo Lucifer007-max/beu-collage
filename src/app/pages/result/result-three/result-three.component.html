@@ -9,125 +9,170 @@
 
 <div class="watermark">WEB COPY</div>
 
-<div class="container position-relative print-watermark w-75" #printSection *ngIf="resultData">
-  <!-- Watermark -->
-  <!-- <div class="watermark">
-    BIHAR ENGINEERING UNIVERSITY, PATNA
-  </div> -->
 
-  <div class="header text-center mb-3 d-flex flex-row justify-content-center align-items-center">
-    <img src="../../../../assets//beu_logo.jpeg" class="" style="width: 150px;" />
-    <div>
-      <h2><strong>BIHAR ENGINEERING UNIVERSITY, PATNA</strong></h2>
-      <h3 style="color: red;">{{examName}} </h3>
+<div class="container p-4 border border-dark bg-white position-relative" style="width:90%; margin:0 auto;">
+
+  <div class="watermark-wrapper">
+    <img src="assets/beu_logo.jpeg" class="watermark-logo" />
+    <h1 class="watermark-text">BIHAR ENGINEERING UNIVERSITY, PATNA</h1>
+  </div>
+
+  <!-- Header -->
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <img src="assets/beu_logo.jpeg" alt="BEU Logo" width="130" />
+
+    <div class="text-center w-100">
+      <h3 class="fw-bold text-uppercase">Bihar Engineering University, Patna</h3>
+      <h5 class="fw-semibold text-danger">
+        B.Tech. {{ this.semesterId }}<sup>th</sup> Semester Examination, {{ this.sessionYear }}
+      </h5>
+
+      <p class="text-secondary mt-2 mb-0">
+        {{ currentDate | date: 'fullDate' }} {{ currentDate | date: 'hh:mm:ss a' }}
+      </p>
     </div>
   </div>
 
-  <table class="table table-bordered cutumtableBasicDetails">
-    <tr>
-      <td colspan="2"><strong>Semester:</strong> {{ resultData.studentInfo.semester }}</td>
-      <!-- <td><strong>Examination (Month/Year):</strong> Feb/{{ resultData.year + 1 }}</td> -->
-      <td colspan="2"><strong>Examination (Month/Year):</strong> {{ resultData.exam_held }}</td>
-    </tr>
-    <tr>
-      <!-- <td><strong>Registration No:</strong> {{ resultData.redg_no }}</td> -->
-      <td colspan="1"><strong>Registration No:</strong></td>
-      <td colspan="3"><strong style="margin-left: -1%;">{{ resultData.redg_no }}</strong></td>
-      <!-- <td><strong>Student Name:</strong> {{ resultData.name }}</td> -->
-    </tr>
-    <tr>
-      <td colspan="1"><strong>Student Name:</strong></td>
-      <td colspan="3"><strong style="margin-left: -1%;">{{ resultData.name }}</strong></td>
 
-    </tr>
-    <tr>
-      <!-- <td><strong>Father's Name:</strong> {{ resultData.father_name }}</td> -->
-      <td colspan="1"><strong>Father's Name:</strong></td>
-      <td colspan="1">{{ resultData.father_name }}</td>
-      <!-- <td><strong>Mother's Name:</strong> {{ resultData.mother_name }}</td> -->
-      <td colspan="1"><strong>Mother's Name:</strong></td>
-      <td colspan="1">{{ resultData.mother_name }}</td>
-    </tr>
-    <tr>
-      <!-- <td colspan="2"><strong>College Name:</strong> {{ resultData.college_code }} - {{ resultData.college_name }}</td> -->
-      <td colspan="1"><strong>College Name:</strong> </td>
-      <td colspan="3">{{ resultData.college_code }} - {{ resultData.college_name }}</td>
-
-    </tr>
-    <tr>
-      <!-- <td colspan="2"><strong>Course Name:</strong> {{ resultData.course_code }} - {{ resultData.course }}</td> -->
-      <td colspan="1"><strong>Course Name:</strong></td>
-      <td colspan="3"> {{ resultData.course_code }} - {{ resultData.course }}</td>
-    </tr>
-  </table>
-
-  <div class="section-title">SUBJECT DETAIL</div>
+  <!-- Details Table -->
   <table class="table table-bordered">
-    <tr>
-      <th>Subject Code</th>
-      <th>Subject Name</th>
-      <th>ESE</th>
-      <th>IA</th>
-      <th>Total</th>
-      <th>Grade</th>
-      <th>Credit</th>
-    </tr>
-    <tr>
-      <td>{{ resultData.sub_code }}</td>
-      <td>{{ resultData.subject }}</td>
-      <td>{{ resultData.ese }}</td>
-      <td>{{ resultData.ia }}</td>
-      <td>{{ resultData.total_out }}</td>
-      <td>{{ resultData.letter_grade }}</td>
-      <td>{{ resultData.CREDIT }}</td>
-    </tr>
+    <tbody>
+      <tr>
+        <td colspan="2"><strong>Semester:</strong> {{this.semesterId}}</td>
+        <td colspan="2"><strong>Examination (Month/Year):</strong> {{this.sessionYear}}</td>
+      </tr>
+      <tr>
+        <td><strong>Registration No:</strong></td>
+        <td colspan="3">{{ resultData.redg_no }}</td>
+      </tr>
+      <tr>
+        <td><strong>Student Name:</strong></td>
+        <td colspan="3">{{ resultData.name }}</td>
+      </tr>
+      <tr>
+        <td><strong>Father's Name:</strong></td>
+        <td>{{ resultData.father_name }}</td>
+        <td><strong>Mother's Name:</strong></td>
+        <td>{{ resultData.mother_name }}</td>
+      </tr>
+      <tr>
+        <td><strong>College Name:</strong></td>
+        <td colspan="3">{{ resultData.college_code }} - {{ resultData.college_name }}</td>
+      </tr>
+      <tr>
+        <td><strong>Course Name:</strong></td>
+        <td colspan="3">{{ resultData.course_code }} - {{ resultData.course }}</td>
+      </tr>
+    </tbody>
   </table>
 
-  <table class="table table-bordered">
-    <tr>
-      <th>Semester</th>
-      <td>I</td>
-      <td>II</td>
-      <td>III</td>
-      <td>IV</td>
-      <td>V</td>
-      <td>VI</td>
-      <td>VII</td>
-      <td>VIII</td>
-      <td>Cur. CGPA</td>
-    </tr>
-    <tr>
-      <th>SGPA</th>
-      <td>{{ resultData.SGPASEM_1 || '-' }}</td>
-      <td>{{ resultData.SGPASEM_2 || '-' }}</td>
-      <td>{{ resultData.SGPASEM_3 || '-' }}</td>
-      <td>{{ resultData.SGPASEM_4 || '-' }}</td>
-      <td>{{ resultData.SGPASEM_5 || '-' }}</td>
-      <td>{{ resultData.SGPASEM_6 || '-' }}</td>
-      <td>{{ resultData.SGPASEM_7 || '-' }}</td>
-      <td>{{ resultData.SGPASEM_8 || '-' }}</td>
-      <td>{{ resultData.CGPA || '-' }}</td>
-    </tr>
+  <!-- Subject Table -->
+  <h6 class="fw-bold text-light p-2 mb-0 bg-secondary">THEORY</h6>
+  <table class="table table-bordered table-sm">
+    <thead class="text-center">
+      <tr>
+        <th>Subject Code</th>
+        <th>Subject Name</th>
+        <th>ESE</th>
+        <th>IA</th>
+        <th>Total</th>
+        <th>Grade</th>
+        <th>Credit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let subject of resultData.theorySubjects">
+        <td>{{ subject.code }}</td>
+        <td>{{ subject.name }}</td>
+        <td>{{ subject.ese }}</td>
+        <td>{{ subject.ia }}</td>
+        <td>{{ subject.total }}</td>
+        <td>{{ subject.grade }}</td>
+        <td>{{ subject.credit }}</td>
+      </tr>
+    </tbody>
   </table>
 
-  <!-- <p><strong>Result:</strong> {{ resultData.fail_any || 'PASS' }}</p> -->
-  <p style="border: 2px solid rgb(30, 29, 29); padding: 4px;"><strong>Remarks:</strong> <span style="font-weight: 600; color: red;"> {{ resultData.fail_any || 'PASS' }}</span> </p>
-  <!-- <p><strong>Publish Date:</strong> {{ resultData.year + 2 }}</p> -->
-   <p><Strong>Note:</Strong></p>
+  <h6 class="fw-bold text-light p-2 mb-0 bg-secondary">PRACTICAL</h6>
+  <table class="table table-bordered table-sm">
+    <thead class="text-center">
+      <tr>
+        <th>Subject Code</th>
+        <th>Subject Name</th>
+        <th>ESE</th>
+        <th>IA</th>
+        <th>Total</th>
+        <th>Grade</th>
+        <th>Credit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let subject of resultData.practicalSubjects">
+        <td>{{ subject.code }}</td>
+        <td>{{ subject.name }}</td>
+        <td>{{ subject.ese }}</td>
+        <td>{{ subject.ia }}</td>
+        <td>{{ subject.total }}</td>
+        <td>{{ subject.grade }}</td>
+        <td>{{ subject.credit }}</td>
+      </tr>
+    </tbody>
+  </table>
 
+  <!-- SGPA/CGPA Table -->
+  <h6 class="fw-bold text-light p-2 mb-0 bg-secondary">SGPA / CGPA</h6>
+  <table class="table table-bordered text-center table-sm">
+    <thead>
+      <tr>
+        <th>Semester</th>
+        <td>I</td>
+        <td>II</td>
+        <td>III</td>
+        <td>IV</td>
+        <td>V</td>
+        <td>VI</td>
+        <td>VII</td>
+        <td>VIII</td>
+        <td>Cur. CGPA</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>SGPA</th>
+        <td>{{ resultData.sgpa[0] || '-' }}</td>
+        <td>{{ resultData.sgpa[1] || '-' }}</td>
+        <td>{{ resultData.sgpa[2] || '-' }}</td>
+        <td>{{ resultData.sgpa[3] || '-' }}</td>
+        <td>{{ resultData.sgpa[4] || '-' }}</td>
+        <td>{{ resultData.sgpa[5] || '-' }}</td>
+        <td>{{ resultData.sgpa[6] || '-' }}</td>
+        <td>{{ resultData.sgpa[7] || '-' }}</td>
+        <td>{{ resultData.cgpa || '-' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Remarks -->
+  <p class="border border-dark p-2"><strong>Remarks: &nbsp;&nbsp;</strong>
+    <span class="fw-bold text-danger">{{ resultData.fail_any || 'PASS' }}</span>
+  </p>
+
+  <!-- Notes -->
+  <p><strong>Note:</strong></p>
   <ul>
-    <li>ESE : End Semester Exam</li>
-    <li>IA : Internal Assessment</li>
-    <li>SGPA : Semester Grade Point Average</li>
-    <li>CGPA : Cumulative Grade Point Average</li>
-    <li>AB : Absent</li>
-    <li>NA : Not Applicable</li>
-    <li>* : Not Available</li>
-    <li>UR : Passed Under Regulation(UR)</li>
-    <li>CA : Cancellation of Assessment</li>
-    <li>UMC : Unfair Means Case</li>
-    <li>WEB COPY : Not valid for official purposes.</li>
-    <li>University does not own for the errors or omissions, if any, in the statement.</li>
+    <li>ESE: End Semester Exam</li>
+    <li>IA: Internal Assessment</li>
+    <li>SGPA: Semester Grade Point Average</li>
+    <li>CGPA: Cumulative Grade Point Average</li>
+    <li>AB: Absent</li>
+    <li>NA: Not Applicable</li>
+    <li>*: Not Available</li>
+    <li>UR: Passed Under Regulation(UR)</li>
+    <li>CA: Cancellation of Assessment</li>
+    <li>UMC: Unfair Means Case</li>
+    <li><strong>WEB COPY</strong>: Not valid for official purpose.</li>
+    <li>University does not own for errors/omissions in this statement.</li>
   </ul>
 </div>
+
 <!-- <app-footer></app-footer> -->
