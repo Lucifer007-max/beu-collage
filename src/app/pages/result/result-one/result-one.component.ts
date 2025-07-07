@@ -29,7 +29,8 @@ export default class ResultOneComponent {
             name: exam.examName,
             session:  `${exam.session}`,
             batchYear: exam.batchYear,
-            published: new Date(exam.publishDate).toLocaleDateString()
+            published: new Date(exam.publishDate).toLocaleDateString(),
+            semId: exam.semId
           }))
         };
       });
@@ -41,9 +42,13 @@ export default class ResultOneComponent {
   }
   onExamClick(exam: any) {
     console.log('Clicked Exam:', exam);
+    // console.log('Navigating with semId:', exam?.semId);
+
     // Example: navigate to detail page or open modal
     this.router.navigate(['/result-two', exam.name], {
-      queryParams: { session: exam?.batchYear?.toString()?.trim() }
+      queryParams: { 
+        semester: exam?.semId,
+        session: exam?.batchYear?.toString()?.trim() }
     });
   }
 

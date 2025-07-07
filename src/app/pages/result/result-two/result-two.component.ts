@@ -18,16 +18,30 @@ export default class ResultTwoComponent {
   showError: boolean = true;
   examName = ''
   sessionYear = '';
+  semesterId :any;
+  semesterRoman: string = '';
   isLoading = false;
   resultData: any;
   // resultData: any = null;
   // showErrorPage = false;
   // isLoading = false;
   errMsg:any = ''
+
+
+  private toRoman(num: number): string {
+    const map: { [key: number]: string } = {
+      1: 'I', 2: 'II', 3: 'III', 4: 'IV',
+      5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII'
+    };
+    return map[num] || num.toString();
+  }
+
+
+
   showResult() {
     this.isLoading = true;
 
-    this.apiService.resultGet(this.sessionYear, this.regNo).subscribe({
+    this.apiService.resultGet(this.sessionYear, this.regNo, this.semesterId).subscribe({
       next: (res) => {
         if (res && res.status === 200) {
           this.resultData = res.data;
@@ -76,14 +90,23 @@ export default class ResultTwoComponent {
     this.examName = cleanName.split('?')[0]
 
     this.route.queryParams.subscribe((params: any) => {
+      // this.semesterId = +params['semester'];
+      const semesterNum = +params['semester'];
       this.sessionYear = params['session'];
+
+      // this.semesterId = semesterNum; // keep original number if you want
+      this.semesterId = this.toRoman(semesterNum);
+
+
+// console.log('semesterRoman:', this.semesterRoman);
       console.log('Session:', this.sessionYear);
+      console.log('semesterId:', this.semesterId);
     });
 
   }
   onExamClick(exam: any) {
     // console.log('Clicked Exam:', exam);
-    this.apiService.resultGet(String(this.sessionYear), this.regNo).subscribe((res) => {
+    this.apiService.resultGet(String(this.sessionYear), this.regNo, this.semesterId).subscribe((res) => {
       console.log(res)
     })
     // this.router.navigate(['/result', exam.id]);

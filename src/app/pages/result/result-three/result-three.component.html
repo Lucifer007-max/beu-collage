@@ -23,24 +23,41 @@
     </div>
   </div>
 
-  <table class="table table-bordered">
+  <table class="table table-bordered cutumtableBasicDetails">
     <tr>
-      <td><strong>Semester:</strong> {{ '1' }}</td>
-      <td><strong>Examination (Month/Year):</strong> Feb/{{ resultData.year + 1 }}</td>
+      <td colspan="2"><strong>Semester:</strong> {{ resultData.studentInfo.semester }}</td>
+      <!-- <td><strong>Examination (Month/Year):</strong> Feb/{{ resultData.year + 1 }}</td> -->
+      <td colspan="2"><strong>Examination (Month/Year):</strong> {{ resultData.exam_held }}</td>
     </tr>
     <tr>
-      <td><strong>Registration No:</strong> {{ resultData.redg_no }}</td>
-      <td><strong>Student Name:</strong> {{ resultData.name }}</td>
+      <!-- <td><strong>Registration No:</strong> {{ resultData.redg_no }}</td> -->
+      <td colspan="1"><strong>Registration No:</strong></td>
+      <td colspan="3"><strong style="margin-left: -1%;">{{ resultData.redg_no }}</strong></td>
+      <!-- <td><strong>Student Name:</strong> {{ resultData.name }}</td> -->
     </tr>
     <tr>
-      <td><strong>Father's Name:</strong> {{ resultData.father_name }}</td>
-      <td><strong>Mother's Name:</strong> {{ resultData.mother_name }}</td>
+      <td colspan="1"><strong>Student Name:</strong></td>
+      <td colspan="3"><strong style="margin-left: -1%;">{{ resultData.name }}</strong></td>
+
     </tr>
     <tr>
-      <td colspan="2"><strong>College Name:</strong> {{ resultData.college_code }} - {{ resultData.college_name }}</td>
+      <!-- <td><strong>Father's Name:</strong> {{ resultData.father_name }}</td> -->
+      <td colspan="1"><strong>Father's Name:</strong></td>
+      <td colspan="1">{{ resultData.father_name }}</td>
+      <!-- <td><strong>Mother's Name:</strong> {{ resultData.mother_name }}</td> -->
+      <td colspan="1"><strong>Mother's Name:</strong></td>
+      <td colspan="1">{{ resultData.mother_name }}</td>
     </tr>
     <tr>
-      <td colspan="2"><strong>Course Name:</strong> {{ resultData.course_code }} - {{ resultData.course }}</td>
+      <!-- <td colspan="2"><strong>College Name:</strong> {{ resultData.college_code }} - {{ resultData.college_name }}</td> -->
+      <td colspan="1"><strong>College Name:</strong> </td>
+      <td colspan="3">{{ resultData.college_code }} - {{ resultData.college_name }}</td>
+
+    </tr>
+    <tr>
+      <!-- <td colspan="2"><strong>Course Name:</strong> {{ resultData.course_code }} - {{ resultData.course }}</td> -->
+      <td colspan="1"><strong>Course Name:</strong></td>
+      <td colspan="3"> {{ resultData.course_code }} - {{ resultData.course }}</td>
     </tr>
   </table>
 
@@ -93,8 +110,10 @@
     </tr>
   </table>
 
-  <p><strong>Result:</strong> {{ resultData.fail_any || 'PASS' }}</p>
-  <p><strong>Publish Date:</strong> 11-05-{{ resultData.year + 2 }}</p>
+  <!-- <p><strong>Result:</strong> {{ resultData.fail_any || 'PASS' }}</p> -->
+  <p style="border: 2px solid rgb(30, 29, 29); padding: 4px;"><strong>Remarks:</strong> <span style="font-weight: 600; color: red;"> {{ resultData.fail_any || 'PASS' }}</span> </p>
+  <!-- <p><strong>Publish Date:</strong> {{ resultData.year + 2 }}</p> -->
+   <p><Strong>Note:</Strong></p>
 
   <ul>
     <li>ESE : End Semester Exam</li>
