@@ -24,7 +24,8 @@
     <div class="text-center w-100">
       <h3 class="fw-bold text-uppercase">Bihar Engineering University, Patna</h3>
       <h5 class="fw-semibold text-danger">
-        B.Tech. {{ this.semesterId }}<sup>th</sup> Semester Examination, {{ this.sessionYear }}
+        <!-- B.Tech. {{ this.semesterId }}<sup>th</sup> Semester Examination, {{ this.sessionYear }} -->
+        {{this.examResultName}}
       </h5>
 
       <p class="text-secondary mt-2 mb-0">
@@ -35,19 +36,19 @@
 
 
   <!-- Details Table -->
-  <table class="table table-bordered">
+  <table class="table table-bordered cutumtableBasicDetails">
     <tbody>
       <tr>
         <td colspan="2"><strong>Semester:</strong> {{this.semesterId}}</td>
-        <td colspan="2"><strong>Examination (Month/Year):</strong> {{this.sessionYear}}</td>
+        <td colspan="2"><strong>Examination (Month/Year):</strong> {{resultData.exam_held}}</td>
       </tr>
       <tr>
         <td><strong>Registration No:</strong></td>
-        <td colspan="3">{{ resultData.redg_no }}</td>
+        <td colspan="3" style="font-weight: 600;">{{ resultData.redg_no }}</td>
       </tr>
       <tr>
         <td><strong>Student Name:</strong></td>
-        <td colspan="3">{{ resultData.name }}</td>
+        <td colspan="3" style="font-weight: 600;">{{ resultData.name }}</td>
       </tr>
       <tr>
         <td><strong>Father's Name:</strong></td>
@@ -166,12 +167,12 @@
     <li>CGPA: Cumulative Grade Point Average</li>
     <li>AB: Absent</li>
     <li>NA: Not Applicable</li>
-    <li>*: Not Available</li>
-    <li>UR: Passed Under Regulation(UR)</li>
+    <li>N/A: Not Available</li>
+    <li>*: Passed Under Regulation(UR)</li>
     <li>CA: Cancellation of Assessment</li>
-    <li>UMC: Unfair Means Case</li>
+    <li>UMC: Unfair Mean Case</li>
     <li><strong>WEB COPY</strong>: Not valid for official purpose.</li>
-    <li>University does not own for errors/omissions in this statement.</li>
+    <li>University does not own for errors or omissions, if any, in the statement.</li>
   </ul>
 </div>
 

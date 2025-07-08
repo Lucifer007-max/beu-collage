@@ -14,6 +14,7 @@ import { NgxPrintModule } from 'ngx-print'
 export default class ResultThreeComponent implements OnInit {
   resultData: any;
   examName: any;
+  examResultName: any;
   semesterNum: any;
   sessionYear: any;
   semesterId: any;
@@ -25,6 +26,7 @@ export default class ResultThreeComponent implements OnInit {
     const nav = this.router.getCurrentNavigation();
     this.route.queryParams.subscribe((params: any) => {
       const semesterNum = +params['name'];
+      this.examResultName = params['name'];
       this.sessionYear = params['session'];
       this.semesterId = params['semester'];
       this.regNo = params['regNo'];
