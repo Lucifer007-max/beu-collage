@@ -8,6 +8,9 @@ import { GuestComponent } from './theme/layout/guest/guest.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from 'src/guard/authguard.guard';
 import { StudentComponent } from './theme/layout/student/student.component';
+// import { TpoDashboardComponent } from './pages/training-and-placement/tpo-admin/tpo-dashboard/tpo-dashboard.component';
+import { tpoAuthguardGuard } from './pages/training-and-placement/tpo-gaurd/tpo-authguard.guard';
+import { TpoNavBarComponent } from './pages/training-and-placement/tpo-layout/tpo-nav-bar/tpo-nav-bar.component';
 
 const routes: Routes = [
 
@@ -36,6 +39,22 @@ const routes: Routes = [
       {
         path: 'result-three',
         loadComponent: () => import('./pages/result/result-three/result-three.component'),
+      },
+      {
+        path: 'tpo-login',
+        loadComponent: () => import('./pages/training-and-placement/tpo-login/tpo-login.component'),
+      },
+       {
+        path: 'TPO-About-Us',
+        loadComponent: () => import('./pages/training-and-placement/about-tpo/about-tpo.component'),
+      },
+      {
+        path: 'career',
+        loadComponent: () => import('./pages/training-and-placement/career/career.component'),
+      },
+      {
+        path: 'tpo-cell',
+        loadComponent: () => import('./pages/training-and-placement/tpo-cell/tpo-cell.component'),
       },
       {
         path: 'about/vision',
@@ -373,6 +392,34 @@ const routes: Routes = [
         loadComponent: () => import('./admin/result-two/result.component'),
         // canActivate: [AuthGuard]
       },
+    ]
+  },
+
+    {
+    path: 'tpo',
+    component: TpoNavBarComponent,
+    canActivate: [tpoAuthguardGuard],
+
+    children: [
+      // { path: 'dashboard', component: TpoDashboardComponent, 
+      //   // canActivate: [tpoAuthguardGuard]
+
+      //  },
+      {
+        path: 'dashboard',
+        loadComponent: () => import('./pages/training-and-placement/tpo-admin/tpo-dashboard/tpo-dashboard.component').then(m => m.TpoDashboardComponent),
+
+      },
+      {
+        path: 'Add-placement',
+        loadComponent: () => import('./pages/training-and-placement/tpo-admin/placement-list/placement-list.component').then(m => m.PlacementListComponent), 
+        // canActivate: [tpoAuthguardGuard]
+      },
+       {
+        path: 'placement-List',
+        loadComponent: () => import('./pages/training-and-placement/tpo-admin/placement-list/placement-list.component').then(m => m.PlacementListComponent), 
+        // canActivate: [tpoAuthguardGuard]
+      }
     ]
   },
 

@@ -1,0 +1,153 @@
+<!-- <div *ngIf="this.router.url.split('/')[1] === 'tpo' && this.router.url.split('/')[2] === 'Add-placement'" class="container my-1 shadow-lg p-4 rounded-4 bg-white animate__animated animate__fadeIn"> -->
+<div *ngIf="router.url === '/tpo/Add-placement'" class="container my-1 shadow-lg p-4 rounded-4 bg-white animate__animated animate__fadeIn">
+  <h2 class="mb-2 text-primary text-center fw-bold">Add Placement</h2>
+
+  <form>
+    <div class="row g-4">
+      <!-- Job Title -->
+      <div class="col-md-3">
+        <label for="jobTitle" class="form-label">Job Title</label>
+        <input type="text" class="form-control" id="jobTitle" placeholder="Enter job title">
+      </div>
+
+      <!-- Job Role -->
+      <div class="col-md-3">
+        <label for="jobRole" class="form-label">Job Role</label>
+        <input type="text" class="form-control" id="jobRole" placeholder="Enter job role">
+      </div>
+
+      <!-- Company Name -->
+      <div class="col-md-3">
+        <label for="companyName" class="form-label">Company Name</label>
+        <input type="text" class="form-control" id="companyName" placeholder="Enter company name">
+      </div>
+
+       <!-- Eligible streem-->
+      <div class="col-md-3">
+        <label for="eligibleStreem" class="form-label">Eligible Streem</label>
+        <input type="text" class="form-control" id="eligibleStreem" placeholder="Enter Eligible streem">
+      </div>
+
+      <!-- Backlog Allow -->
+      <div class="col-md-3">
+        <label for="backlog" class="form-label">Backlog Allowed</label>
+        <input type="text" class="form-control" id="backlog" placeholder="Backlog Allowed">
+         <!-- <select name="" id="backlog">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+         </select> -->
+      </div>
+
+      <!-- Package -->
+      <div class="col-md-3">
+        <label for="package" class="form-label">Package (in LPA)</label>
+        <input type="number" step="0.1" class="form-control" id="package" placeholder="e.g. 6.5">
+      </div>
+
+      <!-- Application Start Date -->
+      <div class="col-md-3">
+        <label for="startDate" class="form-label">Application Start Date</label>
+        <input type="date" class="form-control" id="startDate">
+      </div>
+
+      <!-- Application End Date -->
+      <div class="col-md-3">
+        <label for="endDate" class="form-label">Application End Date</label>
+        <input type="date" class="form-control" id="endDate">
+      </div>
+
+        <!-- Interview Date -->
+      <div class="col-md-3">
+        <label for="interviewDate" class="form-label">Interview Date</label>
+        <input type="date" class="form-control" id="interviewDate">
+      </div>
+
+        <!-- Apply Link -->
+      <div class="col-md-3">
+        <label for="applyLink" class="form-label">Apply link</label>
+        <input type="text" class="form-control" id="applyLink">
+      </div>
+
+      <!-- PDF Upload -->
+      <div class="col-md-3">
+        <label for="pdf" class="form-label">Upload PDF</label>
+        <input type="file" class="form-control" id="pdf" accept=".pdf">
+      </div>
+
+      <!-- Remarks -->
+      <div class="col-md-3">
+        <label for="remarks" class="form-label">Remarks</label>
+        <input type="text" class="form-control" id="remarks" placeholder="Optional remarks">
+      </div>
+
+      <!-- Other Details -->
+      <div class="col-md-12">
+        <label for="details" class="form-label">Other Details</label>
+        <textarea id="details" class="form-control" rows="3" placeholder="Any other relevant information"></textarea>
+      </div>
+    </div>
+
+    <div class="text-end mt-4">
+      <button class="btn btn-primary px-4 py-2 animate__animated animate__pulse animate__infinite">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+<!-- <div *ngIf="this.router.url.split('/')[1] === 'tpo' && this.router.url.split('/')[2] === 'placement-List'">
+
+    <p>works</p>
+
+</div> -->
+
+<div *ngIf="router.url === '/tpo/placement-List'">
+  <!-- <p>works 2</p>/ -->
+
+  <div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Placement List</h5>
+    </div>
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>#</th>
+              <th>Student Name</th>
+              <th>Company</th>
+              <th>Position</th>
+              <th>Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let placement of placements; index as i">
+              <td>{{ i + 1 }}</td>
+              <td>{{ placement.studentName }}</td>
+              <td>{{ placement.company }}</td>
+              <td>{{ placement.position }}</td>
+              <td>{{ placement.date | date:'mediumDate' }}</td>
+              <td>
+                <span
+                  class="badge"
+                  [ngClass]="{
+                    'bg-success': placement.status === 'Selected',
+                    'bg-warning text-dark': placement.status === 'Pending',
+                    'bg-danger': placement.status === 'Rejected'
+                  }"
+                >
+                  {{ placement.status }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+

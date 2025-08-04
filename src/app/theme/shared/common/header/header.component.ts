@@ -75,21 +75,22 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: [
         { label: "Programmes", link: "/Academics/Programmes" },
-        { label: "NBA Accredited Programmes", link: "/Academics/NBA-Accredited-Programs" },
-        // { label: "Naac Programm", link: "/Academics/Naac-Programm" },
-        { label: "NIRF Ranking", link: "/Academics/NIRF-Ranking" },
-        { label: "Board of Studies", link: "/Academics/Board-of-Studies" },
-        { label: "Industry Consultation Committee", link: "/Academics/Industry-Consultation-Committee" },
-        { label: "Virtual Lab", link: "/Academics/Virtual-Lab" },
         {
           label: "Syllabus",
           link: "/Academics/Syllabus",
           subItems: [
             { label: "Ph.D", link: "/academic/3" },
             { label: "M.Tech", link: "/academic/2" },
-            { label: "B.Tech", link: "/academic/1" }
+            // { label: "B.Tech", link: "/academic/1" }
+            { label: "B.Tech", link: "https://syllabus.beup.ac.in/" }
           ]
         },
+        { label: "NBA Accredited Programmes", link: "/Academics/NBA-Accredited-Programs" },
+        // { label: "Naac Programm", link: "/Academics/Naac-Programm" },
+        { label: "NIRF Ranking", link: "/Academics/NIRF-Ranking" },
+        { label: "Board of Studies", link: "/Academics/Board-of-Studies" },
+        { label: "Industry Consultation Committee", link: "/Academics/Industry-Consultation-Committee" },
+        { label: "Virtual Lab", link: "/Academics/Virtual-Lab" },
         // { label: "Honours Degree MOOCs (NPTEL) Courses", link: "/Academics/Honours-Degree-MOOCs" },
         // { label: "Compendium", link: "/Academics/Compendium" },
         { label: "Academic Calendar", link: "/Academics/Academic-Calendar" },
@@ -135,6 +136,16 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: []
     },
+    //  {
+    //   title: "Training & Placement",
+    //   isOpen: false,
+    //   subItems: [
+    //     { label: "About Us", link: "/TPO-About-Us" },
+    //     { label: "Training and Placement Cell", link: "/tpo-cell" },
+    //     { label: "Career", link: "/career" },
+    //     { label: "Login", link: "/tpo-login" }
+    //   ]
+    // },
     {
       title: "Reports",
       isOpen: false,

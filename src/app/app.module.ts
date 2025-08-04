@@ -39,6 +39,8 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
+import { TpoNavBarComponent } from './pages/training-and-placement/tpo-layout/tpo-nav-bar/tpo-nav-bar.component';
+// import { TpoDashboardComponent } from './pages/training-and-placement/tpo-admin/tpo-dashboard/tpo-dashboard.component';
 
 
 @NgModule({
@@ -60,6 +62,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     NavCollapseComponent,
     NavGroupComponent,
     NotFoundComponent,
+    TpoNavBarComponent,
+    // TpoDashboardComponent,
     // ImportantlinkComponent,
     // ModalComponent,
 

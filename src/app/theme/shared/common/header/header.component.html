@@ -80,7 +80,33 @@
 
 
             <!-- *ngIf="item.title !== 'Result' " -->
-            <a
+
+            <!-- comment by aakash dated 04-08-2025 -->
+            <!-- <a
+            class="nav-link text-dark"
+            [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
+            [routerLink]="item.link || null"
+            role="button"
+            >
+            {{ item.title || item.label }}
+          </a> -->
+
+          <ng-container *ngIf="item.link && (item.link.startsWith('http') || item.link.startsWith('https') || item.link.startsWith('www')); else internalLink">
+              <a
+                class="nav-link text-dark"
+                [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
+                [href]="item.link"
+                target="_blank"
+                rel="noopener noreferrer"
+                role="button"
+              >
+                {{ item.title || item.label }}
+              </a>
+            </ng-container>
+
+           
+            <ng-template #internalLink>
+              <a
                 class="nav-link text-dark"
                 [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
                 [routerLink]="item.link || null"
@@ -88,6 +114,10 @@
               >
                 {{ item.title || item.label }}
               </a>
+            </ng-template>
+          <!-- comment by aakash dated 04-08-2025 -->
+
+
               <!-- <a
                 *ngIf="item.title === 'Result' "
                 class="nav-link text-dark"

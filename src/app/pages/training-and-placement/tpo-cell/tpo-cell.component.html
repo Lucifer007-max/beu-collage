@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<!-- style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;"> -->
+<section class="position-relative w-100"
+  style="height: 250px; background: url('assets/beu-background.jpeg') center/cover no-repeat;">
+  <!-- Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
+
+  <!-- Content -->
+  <div
+    class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+    <h1 class="fs-2 fw-bold text-light">{{formatTitle(this.router.url.split('/')[1])}}</h1>
+
+    <nav class="mt-2">
+      <ul class="breadcrumb bg-primary">
+        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+        <!-- <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li> -->
+        <li class="breadcrumb-item active text-white" aria-current="page">{{formatTitle(this.router.url.split('/')[1]) }}</li>
+      </ul>
+    </nav>
+
+    <!-- Divider -->
+    <div class="border-top border-white mt-2" style="width: 100%; opacity: 0.6;"></div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 custom_postion">
+      <div class="list-group custom_list">
+        <!-- <a [routerLink]="'/'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">Home</a> -->
+        <!-- <a [routerLink]="'/acts'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>Acts
+        </a> -->
+        <a [routerLink]="'/TPO-About-Us'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>About Us
+        </a>
+        <a [routerLink]="'/tpo-cell'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>Training and Placement Cell
+        </a>
+        <a [routerLink]="'/career'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>Career
+        </a>
+      </div>
+    </div>
+
+
+
+    <div class="col-lg-9">
+        <h1 class="text-center">Will be updated soon</h1>
+      </div>
+
+
+
+    
+  </div>
+</div>
+
+
+<app-footer></app-footer>

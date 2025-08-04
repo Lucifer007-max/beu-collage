@@ -1,0 +1,152 @@
+<app-header></app-header>
+
+<!-- style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;"> -->
+<section class="position-relative w-100"
+  style="height: 250px; background: url('assets/beu-background.jpeg') center/cover no-repeat;">
+  <!-- Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
+
+  <!-- Content -->
+  <div
+    class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+    <h1 class="fs-2 fw-bold text-light">{{formatTitle(this.router.url.split('/')[1])}}</h1>
+
+    <nav class="mt-2">
+      <ul class="breadcrumb bg-primary">
+        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+        <!-- <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li> -->
+        <li class="breadcrumb-item active text-white" aria-current="page">{{formatTitle(this.router.url.split('/')[1]) }}</li>
+      </ul>
+    </nav>
+
+    <!-- Divider -->
+    <div class="border-top border-white mt-2" style="width: 100%; opacity: 0.6;"></div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <!-- <div class="col-lg-3 custom_postion">
+      <div class="list-group custom_list">
+      
+        <a [routerLink]="'/TPO-About-Us'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>About Us
+        </a>
+        <a [routerLink]="'/tpo-cell'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>Training and Placement Cell
+        </a>
+        <a [routerLink]="'/career'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>Career
+        </a>
+      </div>
+    </div> -->
+
+     <div class="col-lg-12">
+      <!-- {{this.flag}} -->
+      <!-- <div *ngIf="showSection">
+        <table class="table table-bordered table-striped my-5" *ngIf="List?.length > 0; else noData"> -->
+      <div >
+        <table class="table table-bordered table-striped my-5" >
+          <thead style="background-color: #1e82e6;">
+            <tr>
+              <th scope="col" style="width: 1%;">Sl. No.</th>
+              <th scope="col" style="width: 5%;">JobId</th>
+              <th scope="col" style="width: 10%;">Job Title</th>
+              <th scope="col" style="width: 10%;"> Company</th>
+              <th scope="col" style="width: 10%;">Job Role</th>
+              <th style="width: 3%;">Salary</th>
+              <th style="width: 10%;">Start Date</th>
+              <th style="width: 10%;">End Date</th>
+              <th style="width: 10%;">Interview</th>
+              <th style="width: 10%;">Apply Link</th>
+              <th style="width: 1%;">View</th>
+              <th style="width: 20%;">Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let list of List; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <th scope="row">{{list.title}}</th>
+              <th scope="row">{{list.docdate ?? '--' | date: 'dd-MM-yyyy' }}</th>
+              <th scope="row">{{list.docnumber ?? '--'}}</th>
+              <th scope="row">{{list.desc}}
+                <ng-container *ngIf="list.createdAt === list.updatedAt; else updatedBlock">
+                  <img src="https://aktu.ac.in/images/new_red.gif" width="50px" />
+                </ng-container>
+                <ng-template #updatedBlock>
+                  <img src="https://freepngimg.com/thumb/update_button/25530-9-update-button-image.png" width="50px" />
+                </ng-template>
+              </th>
+
+              <td>
+                <a *ngIf="this.router.url.split('/')[1] === 'acts'" target="_blank" type="button"
+                  class="btn btn-primary btn-sm" [href]="imgUrl + list.actsFile">
+                  <i class="fa fa-file-download"></i><small>
+                    Download
+
+                  </small>
+                </a>
+                
+              </td>
+            </tr> -->
+         
+            <tr>
+              <td>1</td>
+              <td>BEU-1001</td>
+              <td>Developer</td>
+              <td>TCS</td>
+              <td>Developer</td>
+              <td>4.5 LPA</td>
+              <td>05-08-2025</td>
+              <td>15-08-2025</td>
+              <td>To be updated soon</td>
+
+              <td>
+                <!-- <ng-container *ngIf="currentDate <= job.endDate; else closedTemplate"> -->
+                <ng-container *ngIf="currentDate <= jobEndDate; else closedTemplate">
+                  <button class="btn btn-sm btn-primary">
+                    <i class="bi bi-pencil-square me-1"></i> Apply
+                  </button>
+                </ng-container>
+
+                <ng-template #closedTemplate>
+                  <button class="btn btn-sm btn-outline-secondary" disabled>
+                    <i class="bi bi-lock-fill me-1"></i> Closed
+                  </button>
+                </ng-template>
+              </td>
+
+
+              <!-- <td><button class="btn btn-sm btn-primary">Apply</button></td> -->
+              <td><button class="btn btn-outline-success">
+                    <i class="bi bi-download"></i>
+                  </button></td>
+              <td>Interview date will be announced soon</td>
+            </tr>
+
+
+          </tbody>
+        </table>
+        <ng-template #noData>
+          <p class="text-center text-danger my-5">Will be updated soon</p>
+        </ng-template>
+      </div>
+     
+    </div>
+
+
+
+    <!-- <div class="col-lg-12">
+        <h1 class="text-center">Will be updated soon</h1>
+    </div> -->
+
+
+    
+
+
+
+    
+  </div>
+</div>
+
+
+<app-footer></app-footer>

@@ -1,0 +1,127 @@
+<app-header></app-header>
+
+<!-- style="height: 250px; background: url('https://college-website-brown-one.vercel.app/assets/indian-institute-of-technology-iit-patna.avif') center/cover no-repeat;"> -->
+<section class="position-relative w-100"
+  style="height: 250px; background: url('assets/beu-background.jpeg') center/cover no-repeat;">
+  <!-- Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgb(106 175 255 / 50%);"></div>
+
+  <!-- Content -->
+  <div
+    class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
+    <h1 class="fs-2 fw-bold text-light">{{formatTitle(this.router.url.split('/')[1])}}</h1>
+
+    <nav class="mt-2">
+      <ul class="breadcrumb bg-primary">
+        <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
+        <!-- <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li> -->
+        <li class="breadcrumb-item active text-white" aria-current="page">{{formatTitle(this.router.url.split('/')[1]) }}</li>
+      </ul>
+    </nav>
+
+    <!-- Divider -->
+    <div class="border-top border-white mt-2" style="width: 100%; opacity: 0.6;"></div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 custom_postion">
+      <div class="list-group custom_list">
+        <!-- <a [routerLink]="'/'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">Home</a> -->
+        <!-- <a [routerLink]="'/acts'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>Acts
+        </a> -->
+        <a [routerLink]="'/TPO-About-Us'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>About Us
+        </a>
+        <a [routerLink]="'/tpo-cell'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>Training and Placement Cell
+        </a>
+        <a [routerLink]="'/career'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+          <span class="text-primary mx-3">»</span>Career
+        </a>
+      </div>
+    </div>
+
+
+
+   <div class="col-lg-9 mt-2 mb-2">
+        <!-- <h2 class="text-center mb-4"> Our Team</h2> -->
+  
+
+        <!-- <div class="card mb-4 shadow-sm" style="max-width: 600px; margin: 0 auto;">
+            <div class="row g-0">
+                <div class="col-md-4 d-flex align-items-center justify-content-center bg-light">
+                    <img src="assets/profile-photo.jpg" class="img-fluid rounded-start" alt="Profile Photo" style="max-height: 180px; object-fit: cover;">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title mb-1">Dr. Jane Doe</h5>
+                        <p class="card-text mb-1 text-muted">Training and Placement Officer</p>
+                        <p class="card-text mb-1"><strong>Email:</strong> jane.doe@example.com</p>
+                        <p class="card-text mb-0"><strong>Phone:</strong> +91-9876543210</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <!-- <h2 class="text-center mb-4">Meet Our Team</h2> -->
+
+            <div class="row g-4">
+            <!-- Profile Card 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm h-100">
+                        <img src="assets/uploads/tpo/tpo-officer.jpeg" class="rounded-circle mx-auto d-block" alt="Profile Photo" style="width: 120px; height: 120px; object-fit: top; border: 3px solid #0f8abe;">
+                            <div class="card-body">
+                                <h5 class="card-title">Mr. Niraj Kumar</h5>
+                                <p class="card-text text-muted mb-1">Training and Placement Officer</p>
+                                <!-- <h5 class="card-title" style="text-align: center;">Mr. Niraj Kumar</h5>
+                                <p class="card-text text-muted mb-1" style="text-align: center;">Training and Placement Officer</p> -->
+                                <p class="card-text mb-1"><strong>Email:</strong> tpo.beu@bihar.gov.in</p>
+                                <p class="card-text mb-0"><strong>Phone:</strong> +91 -7903289860</p>
+                            </div>
+                    </div>
+                </div>
+
+                 <!-- Profile Card 2 -->
+                <!-- <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm h-100">
+                     <img src="assets/profile2.jpg" class="card-img-top" alt="Profile Photo">
+                        <div class="card-body">
+                            <h5 class="card-title">Mr. John Smith</h5>
+                            <p class="card-text text-muted mb-1">Placement Coordinator</p>
+                            <p class="card-text mb-1"><strong>Email:</strong> john.smith@example.com</p>
+                            <p class="card-text mb-0"><strong>Phone:</strong> +91-9876543211</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Profile Card 3 -->
+                <!-- <div class="col-md-6 col-lg-4">
+                    <div class="card shadow-sm h-100">
+                     <img src="assets/profile3.jpg" class="card-img-top" alt="Profile Photo">
+                        <div class="card-body">
+                            <h5 class="card-title">Ms. Asha Patel</h5>
+                            <p class="card-text text-muted mb-1">Assistant Officer</p>
+                            <p class="card-text mb-1"><strong>Email:</strong> asha.patel@example.com</p>
+                            <p class="card-text mb-0"><strong>Phone:</strong> +91-9876543212</p>
+                        </div>
+                    </div>
+                </div> -->
+
+
+            </div>
+
+
+
+    </div>
+
+
+
+    
+  </div>
+</div>
+
+
+<app-footer></app-footer>

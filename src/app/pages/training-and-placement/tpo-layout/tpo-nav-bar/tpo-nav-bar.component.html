@@ -1,0 +1,47 @@
+      <img src="../../../../../assets/logo.png" class="w-100 p-0" />
+
+<div class="d-flex" [ngClass]="{ 'toggled': isCollapsed }">
+  <!-- Sidebar -->
+  <div class="CUSTsidebar text-white p-3 vh-100" [ngStyle]="{ width: isCollapsed ? '70px' : '250px' }" style="transition: 0.3s;">
+    <button class="btn btn-sm btn-light w-100 mb-4" (click)="toggleSidebar()">
+    <!-- <button class="btn btn-sm btn-outline-light w-100 mb-4" (click)="toggleSidebar()"> -->
+      <!-- <i class="bi" [ngClass]="isCollapsed ? 'bi-arrow-right-square' : 'bi-arrow-left-square'"></i> -->
+       <img [src]="isCollapsed ? 'assets/beu_logo.jpeg' : 'assets/beu_logo.jpeg'" 
+       alt="Sidebar Toggle Logo" 
+       class="img-fluid" 
+       [ngStyle]="{ width: isCollapsed ? '70px' : '70px' }" />
+       <!-- style="height: 50px; width: 50px;"  -->
+    </button>
+
+    <ul class="nav flex-column">
+      <li class="nav-item mb-2">
+        <a routerLink="/tpo/dashboard" class="nav-link " routerLinkActive="active">
+          <i class="bi bi-speedometer2 me-2"></i>
+          <span *ngIf="!isCollapsed">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a routerLink="/tpo/Add-placement" class="nav-link " routerLinkActive="active">
+          <i class="bi bi-clipboard-plus me-2"></i>
+          <span *ngIf="!isCollapsed">Add Placement</span>
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a routerLink="/tpo/placement-List" class="nav-link" routerLinkActive="active">
+          <i class="bi bi-briefcase  me-2"></i>
+          <span *ngIf="!isCollapsed">PLacement List</span>
+        </a>
+      </li>
+      <li class="nav-item mt-4">
+        <button class="btn btn-outline-light w-100" (click)="logout()">
+          <i class="bi bi-box-arrow-right me-2"></i>
+          <span *ngIf="!isCollapsed">Logout</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+  <div class="flex-grow-1 p-4 bg-light min-vh-100">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<app-footer></app-footer>
