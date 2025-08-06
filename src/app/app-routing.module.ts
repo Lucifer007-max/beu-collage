@@ -136,19 +136,19 @@ const routes: Routes = [
       },
       {
         path: 'organization/executive-council',
-        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
+        loadComponent: () => import('./pages/governance/governance/governance.component').then(m => m.GovernanceComponent),
       },
       {
         path: 'organization/academic-council',
-        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
+        loadComponent: () => import('./pages/governance/governance/governance.component').then(m => m.GovernanceComponent),
       },
       {
         path: 'organization/finance-committee',
-        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
+        loadComponent: () => import('./pages/governance/governance/governance.component').then(m => m.GovernanceComponent),
       },
       {
-        path: 'organization/examination-committee',
-        loadComponent: () => import('./pages/chancellor/chancellor.component').then(m => m.ChancellorComponent),
+        path: 'organization/examination-board',
+        loadComponent: () => import('./pages/governance/governance/governance.component').then(m => m.GovernanceComponent),
       },
       {
         path: 'organization/building-works-committee',

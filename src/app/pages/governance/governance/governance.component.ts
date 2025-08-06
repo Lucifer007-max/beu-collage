@@ -45,6 +45,15 @@ export class GovernanceComponent {
       this.pageTitle = "BEU Officials";
     } else if(url === "/organization/organization-structure") {
       this.pageTitle = 'Organization Structure';
+    }else if(url === "/organization/executive-council") {
+      this.pageTitle = 'Executive Council';
+    }else if(url === "/organization/academic-council") {
+      this.pageTitle = 'Academic Council';
+    } else if(url === "/organization/finance-committee") {
+      this.pageTitle = 'Finance Committee';
+    }
+    else if(url === "/organization/examination-board") {
+      this.pageTitle = 'Examination Board';
     }
     else {
       this.pageTitle = url.split('/')[2].toUpperCase();
@@ -86,6 +95,44 @@ export class GovernanceComponent {
                   { name: 'Vikas Kumar', degree: '', designation: 'OSD' },
                   { name: 'Niraj Kumar', degree: '', designation: 'Training & Placement Officer' }
                 ];
+
+  executiveCouncilMembers = [
+    'The Vice-Chancellor of the University',
+    'Additional chief Secretary/ Principal Secretary/Secretary, Department of Science and technology, Government of Bihar or his/her representative not below the rank of joint secretary',
+    'Additional chief Secretary/ Principal Secretary/ Secretary, Department of Education, Government of Bihar or his/her representative not below the rank of joint secretary',
+    'Additional chief Secretary/ Principal Secretary /Secretary, Department of Finance, Government of Bihar or his/her representative not below the rank of joint secretary',
+    'Director, Indian Institute of Technology, Patna or his/her representative not below the rank of professor',
+    'Director, National Institute of Technology, Patna or his/her representative not below the rank of professor',
+    'Director, Chandragupta Institute of Management, Patna or his/her representative not below the rank of professor',
+    'Director, Development Management Institute, Patna or his/ her representative not below the rank of professor',
+    'Head of Department, Department of Architecture, National Institute of Technology, Patna',
+    'Director, Department of Science and technology, Government of Bihar',
+    'The Registrar of the University',
+    'Three teachers to be nominated by the Vice Chancellor of whom, one shall be from amongst Heads of Department, one from Professors and one from Associate Professors by rotation for a period of one year each from Government engineering colleges'
+  ];
+
+  academicCouncilMembers = [
+    'The Vice-Chancellor who shall be the Chairman',
+    'Director, Indian Institute of Technology, Patna or his/her representative not below the rank of professor',
+    'Director, National Institute of Technology, Patna or his/her representative not below the rank of professor',
+    'Director, Chandragupta Institute of Management, Patna or his/her representative not below the rank of professor',
+    'Director, Development Management Institute, Patna or his/her representative not below the rank of professor',
+    'Head of Department, Department of Architecture, National Institute of Technology Patna;',
+    'Three persons from amongst educationists of repute or men of letters or members of the learned profession or eminent public men, who are not in the service nominated by the Chancellor',
+    'A nominee of the All India Council for Technical Education',
+    'Director, Department of Science and technology, Government of Bihar',
+    'Ten Principals of the Government Engineering colleges of Bihar on rotation for a period of three years to be nominated by the Government of Bihar',
+    'Three members of the teaching staff; one each respectively representing the Professor, Associate and Assistant Professors of Government Engineering colleges, nominated by the Vice- Chancellor for a period of three years'
+  ]
+
+  financeCommittee =[
+    'The Vice-Chancellor as the Chairman',
+    'Two officers nominated by the Department of Science & Technology, Govt. of Bihar',
+    'Three persons to be nominated by the Executive council, out of whom at least one shall be a member of the Executive council',
+    'Two persons to be nominated by the State Government from amongst teachers not below the rank of Associate Professor',
+    'The Registrar',
+    'The Finance Officer, Member-Secretary'
+  ]
 
 
 }
