@@ -54,6 +54,15 @@ export default class AboutComponent {
     else if(url === '/about/university-statutes') {
       this.pageTitle = 'University Statutes';
     }
+    else if(url === '/about/regulations/UG') {
+      this.pageTitle = 'UG Regulations';
+    }
+    else if(url === '/about/regulations/PG') {
+      this.pageTitle = 'PG Regulations';
+    }
+    else if(url === '/about/regulations/Ph.D') {
+      this.pageTitle = 'Ph.D Regulations';
+    }
   }
 
 }

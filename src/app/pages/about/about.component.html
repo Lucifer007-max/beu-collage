@@ -44,7 +44,7 @@
           <a  [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
             <span class="text-primary mx-3">»</span> Regulations
           </a>
-          <a class="list-group-item list-group-item-action">
+          <a [routerLink]="'/about/regulations/UG'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
             &nbsp;
             &nbsp;
             &nbsp;
@@ -167,15 +167,27 @@
             <div class="vision-header">
               {{pageTitle}}
             </div>
-            <iframe src="../../../assets/act Beu..pdf" height="500px" width="600px"></iframe>
+            <iframe src="assets/static/doc/act Beu..pdf" height="500px" width="600px"></iframe>
+          </div>
+           <div class="vision-body" *ngIf="pageTitle === 'University Statutes'">
+            <div class="vision-header">
+              {{pageTitle}}
+            </div>
+            <iframe src="assets/static/doc/STATUTES OF THE UNIVERSITY [Vide Section 28 and 29 (1) of the Act].pdf" height="500px" width="600px"></iframe>
+          </div>
+           <div class="vision-body" *ngIf="pageTitle === 'UG Regulations'">
+            <div class="vision-header">
+              {{pageTitle}}
+            </div>
+            <iframe src="assets/static/doc/Regulation UG.pdf" height="500px" width="600px"></iframe>
           </div>
           <div class="vision-body" *ngIf="pageTitle === 'University Logo'">
             <div class="vision-header">
               {{pageTitle}}
             </div>
-            <img src="../../../assets/beu_logo.jpeg" height="500px" width="500px">
+            <img src="../../../assets/beu_logo.jpeg" height="500px" width="520px">
           </div>
-          <div *ngIf="pageTitle === 'Regulations' || pageTitle === 'University Logos' || pageTitle === 'University Statutes'">
+          <div *ngIf="pageTitle === 'PG Regulations' || pageTitle === 'Ph.D Regulations' || pageTitle === 'University Logos'">
             <h1 class="text-center w-100">Will be updated soon</h1>
           </div>
         </div>

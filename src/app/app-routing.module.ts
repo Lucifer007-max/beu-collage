@@ -81,6 +81,18 @@ const routes: Routes = [
         loadComponent: () => import('./pages/about/about.component'),
       },
       {
+        path: 'about/regulations/UG',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
+        path: 'about/regulations/PG',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
+        path: 'about/regulations/Ph.D',
+        loadComponent: () => import('./pages/about/about.component'),
+      },
+      {
         path: 'about/noida-campus',
         loadComponent: () => import('./pages/about/about.component'),
       },
