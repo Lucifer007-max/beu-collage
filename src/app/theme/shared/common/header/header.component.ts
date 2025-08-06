@@ -35,7 +35,7 @@ export class HeaderComponent implements AfterViewInit {
           title: "Regulations",
           isOpen: false,
           subItems: [
-            { title: "UG", link: "/about/ug" },
+            { title: "UG", link: "/about/regulations/UG" },
             { title: "PG", link: "/about/pg" },
             { title: "Ph.D", link: "/about/phd" },
           ]
