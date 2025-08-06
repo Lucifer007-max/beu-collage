@@ -56,6 +56,7 @@ export class HeaderComponent implements AfterViewInit {
         },
         { label: "Hon'ble Chancellor", link: "/organization/chancellor" },
         { label: "Vice Chancellor", link: "/organization/vice-chancellor" },
+        { label: "BEU Officials", link: "" },
         // { label: "Pro Vice Chancellor", link: "/organization/pro-vice-chancellor" },
         { label: "Executive Council", link: "/organization/executive-council" },
         { label: "Academic Council", link: "/organization/academic-council" },
@@ -74,7 +75,14 @@ export class HeaderComponent implements AfterViewInit {
       link: null,
       isOpen: false,
       subItems: [
-        { label: "Programmes", link: "/Academics/Programmes" },
+        { label: "Programmes", link: "/Academics/Programmes",
+           subItems: [
+            { label: "Ph.D", link: "/academic/3" },
+            { label: "M.Tech", link: "/academic/2" },
+            { label: "B.Tech", link: "/academic/1" }
+            // { label: "B.Tech", link: "https://syllabus.beup.ac.in/" }
+          ]
+         },
         {
           label: "Syllabus",
           link: "/Academics/Syllabus",
@@ -90,15 +98,17 @@ export class HeaderComponent implements AfterViewInit {
         { label: "NIRF Ranking", link: "/Academics/NIRF-Ranking" },
         { label: "Board of Studies", link: "/Academics/Board-of-Studies" },
         { label: "Industry Consultation Committee", link: "/Academics/Industry-Consultation-Committee" },
-        { label: "Virtual Lab", link: "/Academics/Virtual-Lab" },
+        // { label: "Virtual Lab", link: "/Academics/Virtual-Lab" },
+        { label: "Virtual Lab", link: "https://www.vlab.co.in/participating-institute-iit-bombay" },
         // { label: "Honours Degree MOOCs (NPTEL) Courses", link: "/Academics/Honours-Degree-MOOCs" },
         // { label: "Compendium", link: "/Academics/Compendium" },
         { label: "Academic Calendar", link: "/Academics/Academic-Calendar" },
         { label: "Publications", link: "/Academics/Publications" },
         { label: "Faculty Development Programs (FDP)", link: "/Academics/FDP" },
         { label: "E-Learning Resources", link: "/Academics/E-Learning-Resources" },
-        { label: "NPTEL Local Chapters", link: "/Academics/NPTEL-Local-Chapters" },
-        { label: "NPTEL Online Certification", link: "/Academics/NPTEL-Online-Certification" },
+        // { label: "NPTEL Local Chapters", link: "/Academics/NPTEL-Local-Chapters" },
+        // { label: "NPTEL Online Certification", link: "/Academics/NPTEL-Online-Certification" },
+        { label: "NPTEL Online Certification", link: "https://archive.nptel.ac.in/noc/" },
         { label: "Value Education", link: "/Academics/Value-Education" },
         // { label: "ODOP Nodal Officer", link: "/Academics/ODOP-Nodal-Officer" }
       ]
@@ -136,16 +146,16 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: []
     },
-    //  {
-    //   title: "Training & Placement",
-    //   isOpen: false,
-    //   subItems: [
-    //     { label: "About Us", link: "/TPO-About-Us" },
-    //     { label: "Training and Placement Cell", link: "/tpo-cell" },
-    //     { label: "Career", link: "/career" },
-    //     { label: "Login", link: "/tpo-login" }
-    //   ]
-    // },
+     {
+      title: "Training & Placement",
+      isOpen: false,
+      subItems: [
+        { label: "About Us", link: "/TPO-About-Us" },
+        { label: "Training and Placement Cell", link: "/tpo-cell" },
+        { label: "Career", link: "/career" },
+        { label: "Login", link: "/tpo-login" }
+      ]
+    },
     {
       title: "Reports",
       isOpen: false,

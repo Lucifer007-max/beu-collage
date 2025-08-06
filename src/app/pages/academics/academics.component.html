@@ -9,12 +9,12 @@
   <!-- Content -->
   <div
     class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
-    <h1 class="fs-2 fw-bold text-light">Letter</h1>
+    <h1 class="fs-2 fw-bold text-light">Syllabus</h1>
 
     <nav class="mt-2">
       <ul class="breadcrumb bg-primary">
         <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
-        <li class="breadcrumb-item active text-white" aria-current="page">Letter</li>
+        <li class="breadcrumb-item active text-white" aria-current="page">Syllabus</li>
       </ul>
     </nav>
 
@@ -32,14 +32,16 @@
       <div class="col-lg-3 custom_postion">
         <div class="list-group custom_list">
           <a [routerLink]="'/about/vision'" [routerLinkActive]="'active'"
-            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Vision</a>
+            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Ph.D</a>
           <a [routerLink]="'/about/mission'" [routerLinkActive]="'active'"
-            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Mission</a>
-          <a [routerLink]="'/about/objective'" [routerLinkActive]="'active'"
-            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Object</a>
+            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>M.Tech</a>
+          <!-- <a [routerLink]="'/about/objective'" [routerLinkActive]="'active'"
+            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Objective</a> -->
         </div>
       </div>
       <!-- Content Section -->
+        <!-- <h3 style="text-align: center;">Will be updated soon</h3> -->
+
       <div class="col-lg-9 d-flex align-items-start position-relative">
         <div class="row">
           <div class="col-lg-12 mb-4" *ngFor="let items of dataList">

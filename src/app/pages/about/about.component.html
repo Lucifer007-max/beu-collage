@@ -169,7 +169,13 @@
             </div>
             <iframe src="../../../assets/act Beu..pdf" height="500px" width="600px"></iframe>
           </div>
-          <div *ngIf="pageTitle === 'Regulations' || pageTitle === 'University Logo' || pageTitle === 'University Statutes'">
+          <div class="vision-body" *ngIf="pageTitle === 'University Logo'">
+            <div class="vision-header">
+              {{pageTitle}}
+            </div>
+            <img src="../../../assets/beu_logo.jpeg" height="500px" width="500px">
+          </div>
+          <div *ngIf="pageTitle === 'Regulations' || pageTitle === 'University Logos' || pageTitle === 'University Statutes'">
             <h1 class="text-center w-100">Will be updated soon</h1>
           </div>
         </div>
