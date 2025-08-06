@@ -56,52 +56,37 @@
       </div>
 
       <!-- Content Section -->
-      <div class="col-lg-9 d-flex align-items-start position-relative">
-        <div class="profile-card row" *ngIf="this.router.url === '/organization/chancellor'">
-          <div class="profile-img col-12 col-lg-6 col-md-6 col-sm-12">
-            <a href="https://cm.bihar.gov.in/users/home.aspx" target="_blank">
-              <!-- <img src="https://cmo.bihar.gov.in/assets/images/cmbihar/cmpro-pic.png" alt="Profile Image"> -->
-              <img src="assets/chancellor.jpeg" alt="Profile Image">
-            </a>
-          </div>
-          <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-            <h2 class="name text-center mt-4">Shri Nitish Kumar</h2>
-            <p class="text-center">
-
-              <i class="designation text-center">Hon'ble Chief Minister, Bihar - cum -Hon'ble Chancellor <br> Bihar Engineering University, Patna</i>
-            </p>
-          </div>
+        <div class="table-container" *ngIf="pageTitle === 'BEU Officials'">
+                <h2>BEU Officials</h2>
+                <table class="animated-table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Designation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let official of officials">
+                        <!-- <td>{{ official.name }}</td> -->
+                        <td>
+                            <strong>{{ official.name }}</strong>
+                            <div *ngIf="official.degree" class="degree">{{ official.degree }}</div>
+                        </td>
+                        <td>{{ official.designation }}</td>
+                    </tr>
+                    </tbody>
+                </table>
         </div>
-        <div class="profile-card row" *ngIf="this.router.url === '/organization/vice-chancellor'">
-          <div class="profile-img col-12 col-lg-6 col-md-6 col-sm-12">
-            <img src="https://i1.rgstatic.net/ii/profile.image/1020399039037441-1620293497466_Q512/Suresh-Verma-6.jpg" alt="Profile Image">
-          </div>
-          <div class="col-12 col-lg-12 col-md-12 col-sm-12">
-            <p class="text-center mt-3"><small>
-              Prof Suresh Kant Verma is currently serving as Vice Chancellor, Bihar Engineering University, Patna, Bihar.
-                Prior to this, he was Deputy Director, National Institute of Technology, Patna. He holds B.Sc (Engg.), M.Sc
-                (Engg.) and Ph.D (Engg.) from BIT, Sindri, Ranchi University, Ranchi. His Specialization is Heat Power
-                Engineering. His area of research includes Solar Energy, Stirling Cycle Engine and Computational Fluid
-                Dynamics. He has also contributed in the development of NIT Patna by taking responsibility at key positions
-                like Head of the Department (Mechanical Engineering), Dean (Student Welfare), Dean (Academic) and Chairman
-                (ACoFAR). He is Fellow of the Institution of Engineers (India). He has also the membership of Professional
-                Societies like, Indian Society of Mechanical Engineers, Indian Society for Technical Education, Solar Energy
-                Society of India and American Society of Mechanical Engineers. He has published the research papers in the
-                National and International Journals and also has presented papers in the International and National
-                conferences. He has guided M.Sc (Engg.) / M.Tech and Ph.D research scholars.
 
-              </small></p>
-              <h5 class="text-end">Prof. Suresh Kant Verma </h5>
-              <p class="text-end mb-2">
-                Vice- Chancellor
-              </p>
 
-              <p class="text-end">
-                Bihar Engineering University, Patna
-              </p>
-          </div>
+        <div class="col-lg-9 d-flex align-items-start position-relative" *ngIf="pageTitle === 'Organization Structure'">
+
+            <img src="assets/static/img/organization_structure.jpeg" alt="">
+
         </div>
-      </div>
+
+
+
     </div>
   </div>
 </section>

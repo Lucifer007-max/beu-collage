@@ -21,7 +21,11 @@ export class ChancellorComponent {
 
   setPageTitle() {
     const url = this.router.url;
-    if (url === '/organization/chancellor') {
+     if (url === '/organization/organization-structure') {
+      this.pageTitle = "Organization Structure";
+    }else if (url === '/organization/BEU-Officials') {
+      this.pageTitle = "BEU Officials";
+    }else if (url === '/organization/chancellor') {
       this.pageTitle = "Hon'ble Chancellor";
     } else if (url === '/organization/vice-chancellor') {
       this.pageTitle = 'Vice Chancellor';

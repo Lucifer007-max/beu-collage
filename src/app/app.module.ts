@@ -40,6 +40,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { TpoNavBarComponent } from './pages/training-and-placement/tpo-layout/tpo-nav-bar/tpo-nav-bar.component';
+// import { GovernanceComponent } from './pages/governance/governance/governance.component';
 // import { TpoDashboardComponent } from './pages/training-and-placement/tpo-admin/tpo-dashboard/tpo-dashboard.component';
 
 
@@ -63,6 +64,7 @@ import { TpoNavBarComponent } from './pages/training-and-placement/tpo-layout/tp
     NavGroupComponent,
     NotFoundComponent,
     TpoNavBarComponent,
+    // GovernanceComponent,
     // TpoDashboardComponent,
     // ImportantlinkComponent,
     // ModalComponent,

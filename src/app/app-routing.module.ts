@@ -100,6 +100,18 @@ const routes: Routes = [
         path: 'about/data-privacy-policy',
         loadComponent: () => import('./pages/about/about.component'),
       },
+       {
+        path: 'organization/organization-structure',
+        // loadComponent: () => import('./pages/chancellor/chancellor.component'),
+        loadComponent: () => import('./pages/governance/governance/governance.component').then(m => m.GovernanceComponent),
+
+      },
+       {
+        path: 'organization/BEU-Officials',
+        // loadComponent: () => import('./pages/chancellor/chancellor.component'),
+        loadComponent: () => import('./pages/governance/governance/governance.component').then(m => m.GovernanceComponent),
+
+      },
       {
         path: 'organization/chancellor',
         // loadComponent: () => import('./pages/chancellor/chancellor.component'),

@@ -51,9 +51,8 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: [
         {
-          label: "Organization Structure",
-          // link: "/Academics/Syllabus",
-        },
+          label: "Organization Structure", link: "/organization/organization-structure"},
+        { label: "BEU Officials", link: "/organization/BEU-Officials" },
         { label: "Hon'ble Chancellor", link: "/organization/chancellor" },
         { label: "Vice Chancellor", link: "/organization/vice-chancellor" },
         { label: "BEU Officials", link: "" },
@@ -146,15 +145,21 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: []
     },
+    //  {
+    //   title: "Training & Placement",
+    //   isOpen: false,
+    //   subItems: [
+    //     { label: "About Us", link: "/TPO-About-Us" },
+    //     { label: "Training and Placement Cell", link: "/tpo-cell" },
+    //     { label: "Career", link: "/career" },
+    //     { label: "Login", link: "/tpo-login" }
+    //   ]
+    // },
      {
-      title: "Training & Placement",
+      title: "T & P Cell",
+      link: "/TPCell",
       isOpen: false,
-      subItems: [
-        { label: "About Us", link: "/TPO-About-Us" },
-        { label: "Training and Placement Cell", link: "/tpo-cell" },
-        { label: "Career", link: "/career" },
-        { label: "Login", link: "/tpo-login" }
-      ]
+      subItems: []
     },
     {
       title: "Reports",
