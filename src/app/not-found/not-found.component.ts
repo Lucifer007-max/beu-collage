@@ -25,7 +25,7 @@ export class NotFoundComponent {
 
 
   academicsLinks = [
-    { label: "Programmes", link: "/Academics/Programmes" },
+    { label: "Programmes", link: "/academics/Program" },
     { label: "NBA Accredited Programs", link: "/Academics/NBA-Accredited-Programs" },
     { label: "NIRF Ranking", link: "/Academics/NIRF-Ranking" },
     { label: "Board of Studies", link: "/Academics/Board-of-Studies" },
