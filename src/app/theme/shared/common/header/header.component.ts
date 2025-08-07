@@ -74,11 +74,12 @@ export class HeaderComponent implements AfterViewInit {
       link: null,
       isOpen: false,
       subItems: [
-        { label: "Programmes", link: "/Academics/Programmes",
+        // { label: "Programmes", link: "/Academics/Programmes",
+        { label: "Programmes", link: "/academics/Program",
            subItems: [
-            { label: "Ph.D", link: "/academic/3" },
-            { label: "M.Tech", link: "/academic/2" },
-            { label: "B.Tech", link: "/academic/1" }
+            { label: "Ph.D", link: "/academics/Program/Ph.D" },
+            { label: "M.Tech", link: "/academics/Program/M.Tech" },
+            { label: "B.Tech", link: "/academics/Program/B.Tech" }
             // { label: "B.Tech", link: "https://syllabus.beup.ac.in/" }
           ]
          },
@@ -86,9 +87,11 @@ export class HeaderComponent implements AfterViewInit {
           label: "Syllabus",
           link: "/Academics/Syllabus",
           subItems: [
-            { label: "Ph.D", link: "/academic/3" },
-            { label: "M.Tech", link: "/academic/2" },
+            // { label: "Ph.D", link: "/academic/3" },
+            // { label: "M.Tech", link: "/academic/2" },
             // { label: "B.Tech", link: "/academic/1" }
+            { label: "Ph.D", link: "/syllabus/3" },
+            { label: "M.Tech", link: "/syllabus/2" },
             { label: "B.Tech", link: "https://syllabus.beup.ac.in/" }
           ]
         },

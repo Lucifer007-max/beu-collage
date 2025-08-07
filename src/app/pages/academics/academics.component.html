@@ -9,12 +9,14 @@
   <!-- Content -->
   <div
     class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
-    <h1 class="fs-2 fw-bold text-light">Syllabus</h1>
+    <!-- <h1 class="fs-2 fw-bold text-light">Syllabus</h1> -->
+    <h1 class="fs-2 fw-bold text-light">{{pageTitle}}</h1>
 
     <nav class="mt-2">
       <ul class="breadcrumb bg-primary">
         <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
-        <li class="breadcrumb-item active text-white" aria-current="page">Syllabus</li>
+        <!-- <li class="breadcrumb-item active text-white" aria-current="page">Syllabus</li> -->
+        <li class="breadcrumb-item active text-white" aria-current="page">{{pageTitle}}</li>
       </ul>
     </nav>
 
@@ -30,19 +32,55 @@
     <div class="row">
       <!-- Sidebar -->
       <div class="col-lg-3 custom_postion">
-        <div class="list-group custom_list">
-          <a [routerLink]="'/about/vision'" [routerLinkActive]="'active'"
-            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Ph.D</a>
-          <a [routerLink]="'/about/mission'" [routerLinkActive]="'active'"
-            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>M.Tech</a>
-          <!-- <a [routerLink]="'/about/objective'" [routerLinkActive]="'active'"
-            class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Objective</a> -->
+        <div>
+
+        
+            <div class="list-group custom_list" *ngIf="this.router.url.split('/')[1] === 'syllabus'">
+              <a [routerLink]="'/about/vision'" [routerLinkActive]="'active'"
+                class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>Ph.D</a>
+              <a [routerLink]="'/about/mission'" [routerLinkActive]="'active'"
+                class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>M.Tech</a>
+              <!-- <a [routerLink]="'/about/objective'" [routerLinkActive]="'active'"
+                class="list-group-item list-group-item-action"> <span class="text-primary mx-3">»</span>B.Tech</a> -->
+            </div>
         </div>
+
+          <div *ngIf="this.router.url.split('/')[1] === 'academics'">
+            <!-- <div class="list-group custom_list">
+              <a *ngFor="let item of academicsLinks" [routerLink]="item.link" routerLinkActive="active"
+                class="list-group-item list-group-item-action">
+                <span class="text-primary mx-3">»</span>{{ item.label }}
+              </a>
+            </div> -->
+              <div class="list-group custom_list">
+                <ng-container *ngFor="let item of academicsLinks">
+                  
+                  <!-- Main Item -->
+                  <a [routerLink]="item.link" routerLinkActive="active"
+                    class="list-group-item list-group-item-action">
+                    <span class="text-primary mx-3">»</span>{{ item.label }}
+                  </a>
+
+                  <!-- Sub Items (if present) -->
+                  <div *ngIf="item.subItems">
+                    <a *ngFor="let subItem of item.subItems"
+                      [routerLink]="subItem.link" routerLinkActive="active"
+                      class="list-group-item list-group-item-action ps-5">
+                      <span class="text-secondary mx-3">›</span>{{ subItem.label }}
+                    </a>
+                  </div>
+
+                </ng-container>
+              </div>
+
+          </div>
+
+
       </div>
       <!-- Content Section -->
         <!-- <h3 style="text-align: center;">Will be updated soon</h3> -->
 
-      <div class="col-lg-9 d-flex align-items-start position-relative">
+      <div class="col-lg-9 d-flex align-items-start position-relative" *ngIf="pageTitle === 'Syllabus'">
         <div class="row">
           <div class="col-lg-12 mb-4" *ngFor="let items of dataList">
             <a [routerLink]="['/academic/session', items.syllabusSessionID]">
@@ -58,6 +96,29 @@
           </div>
         </div>
       </div>
+
+
+
+      <div class="col-lg-9 d-flex align-items-start position-relative" *ngIf="pageTitle === 'Ph.D Programmes'">
+
+            <img src="assets/static/img/phd_program.jpeg" alt="">
+
+      </div>
+
+      <div class="col-lg-9 d-flex align-items-start position-relative" *ngIf="pageTitle === 'M.Tech Programmes'">
+
+            <img src="assets/static/img/mtech_program.jpeg" alt="">
+
+      </div>
+
+      <div class="col-lg-9 d-flex align-items-start position-relative" *ngIf="pageTitle === 'B.Tech Programmes'">
+
+            <img src="assets/static/img/btech_program.jpeg" alt="">
+
+      </div>
+
+
+
     </div>
   </div>
 </section>

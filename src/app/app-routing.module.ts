@@ -252,6 +252,22 @@ const routes: Routes = [
         path: 'academic/session/:id',
         loadComponent: () => import('./pages/academic-session/academic-session.component'),
       },
+       {
+        path: 'academics/Program',
+        loadComponent: () => import('./pages/academics/academics.component'),
+      },
+       {
+        path: 'academics/Program/Ph.D',
+        loadComponent: () => import('./pages/academics/academics.component'),
+      },
+       {
+        path: 'academics/Program/M.Tech',
+        loadComponent: () => import('./pages/academics/academics.component'),
+      },
+       {
+        path: 'academics/Program/B.Tech',
+        loadComponent: () => import('./pages/academics/academics.component'),
+      },
       {
         path: 'annual-report',
         loadComponent: () => import('./pages/report/report-view/report-view.component'),
