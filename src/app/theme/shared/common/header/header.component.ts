@@ -55,7 +55,7 @@ export class HeaderComponent implements AfterViewInit {
         { label: "BEU Officials", link: "/organization/BEU-Officials" },
         { label: "Hon'ble Chancellor", link: "/organization/chancellor" },
         { label: "Vice Chancellor", link: "/organization/vice-chancellor" },
-        { label: "BEU Officials", link: "" },
+        // { label: "BEU Officials", link: "" },
         // { label: "Pro Vice Chancellor", link: "/organization/pro-vice-chancellor" },
         { label: "Executive Council", link: "/organization/executive-council" },
         { label: "Academic Council", link: "/organization/academic-council" },
