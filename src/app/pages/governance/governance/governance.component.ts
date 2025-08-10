@@ -80,8 +80,9 @@ export class GovernanceComponent {
   // ];
   officials = [
                   {
-                    name: 'Dr. Pradip Kumar',
-                    degree: 'M.A., Ph.D., PGD in Public Administrator & Local Self Government',
+                    name: 'Dr. Pradip Kumar, IES (Retd.)',
+                    // degree: 'M.A., Ph.D., PGD in Public Administrator & Local Self Government',
+                    degree: '',
                     designation: 'Registrar'
                   },
                   { name: 'Dr. Bijendra Kumar', degree: '', designation: 'Examination Controller' },
@@ -90,7 +91,7 @@ export class GovernanceComponent {
                   { name: 'Dr. Shiv Kumar Rai', degree: '', designation: 'Deputy Examination Controller' },
                   { name: 'Kumari Chandni', degree: '', designation: 'Assistant Registrar' },
                   { name: 'Ramprit Baitha', degree: '', designation: 'Assistant Registrar' },
-                  { name: 'Anita Kumari', degree: '', designation: 'Assistant Examination Controller' },
+                  { name: 'Dr. Anita Kumari', degree: '', designation: 'Assistant Examination Controller' },
                   { name: 'Anisha', degree: '', designation: 'Assistant Examination Controller' },
                   { name: 'Vikas Kumar', degree: '', designation: 'OSD' },
                   { name: 'Niraj Kumar', degree: '', designation: 'Training & Placement Officer' }
