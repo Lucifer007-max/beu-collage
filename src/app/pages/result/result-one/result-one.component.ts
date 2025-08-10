@@ -12,7 +12,7 @@ import { ApiService } from 'src/service/api.service';
   imports: [CommonModule, SharedModule],
 })
 export default class ResultOneComponent {
-  examData:any = [];
+  examData: any = [];
 
   constructor(public router: Router, private service: ApiService) {
     this.service.resultSemGet().subscribe((res: any) => {
@@ -22,9 +22,14 @@ export default class ResultOneComponent {
           course: `${item.courseName}`, // You can replace this with actual course name if available
           exams: item.exams.map((exam: any) => ({
             name: exam.examName,
-            session:  `${exam.session}`,
+            session: `${exam.session}`,
             batchYear: exam.batchYear,
-            published: new Date(exam.publishDate).toLocaleDateString(),
+            published: new Date(exam.publishDate).toLocaleDateString('en-GB', {
+              day: '2-digit',
+              month: '2-digit',
+              year: 'numeric'
+            })
+            ,
             semId: exam.semId
           }))
         };
@@ -35,12 +40,13 @@ export default class ResultOneComponent {
 
 
   }
-  
+
   onExamClick(exam: any) {
     this.router.navigate(['/result-two', exam.name], {
       queryParams: {
         semester: exam?.semId,
-        session: exam?.batchYear?.toString()?.trim() }
+        session: exam?.batchYear?.toString()?.trim()
+      }
     });
   }
 

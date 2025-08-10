@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
 declare var google: any;
 
 @Component({
@@ -51,7 +52,8 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: [
         {
-          label: "Organization Structure", link: "/organization/organization-structure"},
+          label: "Organization Structure", link: "/organization/organization-structure"
+        },
         { label: "BEU Officials", link: "/organization/BEU-Officials" },
         { label: "Hon'ble Chancellor", link: "/organization/chancellor" },
         { label: "Vice Chancellor", link: "/organization/vice-chancellor" },
@@ -75,14 +77,15 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: [
         // { label: "Programmes", link: "/Academics/Programmes",
-        { label: "Programmes", link: "/academics/Program",
-           subItems: [
+        {
+          label: "Programmes", link: "/academics/Program",
+          subItems: [
             { label: "Ph.D", link: "/academics/Program/Ph.D" },
             { label: "M.Tech", link: "/academics/Program/M.Tech" },
             { label: "B.Tech", link: "/academics/Program/B.Tech" }
             // { label: "B.Tech", link: "https://syllabus.beup.ac.in/" }
           ]
-         },
+        },
         {
           label: "Syllabus",
           link: "/Academics/Syllabus",
@@ -101,7 +104,7 @@ export class HeaderComponent implements AfterViewInit {
         { label: "Board of Studies", link: "/Academics/Board-of-Studies" },
         { label: "Industry Consultation Committee", link: "/Academics/Industry-Consultation-Committee" },
         // { label: "Virtual Lab", link: "/Academics/Virtual-Lab" },
-        { label: "Virtual Lab", link: "https://www.vlab.co.in/participating-institute-iit-bombay" },
+        { label: "Virtual Lab", link: "/" },
         // { label: "Honours Degree MOOCs (NPTEL) Courses", link: "/Academics/Honours-Degree-MOOCs" },
         // { label: "Compendium", link: "/Academics/Compendium" },
         { label: "Academic Calendar", link: "/Academics/Academic-Calendar" },
@@ -112,7 +115,7 @@ export class HeaderComponent implements AfterViewInit {
         // { label: "NPTEL Local Chapters", link: "/Academics/NPTEL-Local-Chapters" },
         // { label: "NPTEL Online Certification", link: "/Academics/NPTEL-Online-Certification" },
         { label: "NPTEL Online Certification", link: "https://archive.nptel.ac.in/noc/" },
-        { label: "Value Education", link: "/Academics/Value-Education" },
+        // { label: "Value Education", link: "/Academics/Value-Education" },
         // { label: "ODOP Nodal Officer", link: "/Academics/ODOP-Nodal-Officer" }
       ]
     },
@@ -159,7 +162,7 @@ export class HeaderComponent implements AfterViewInit {
     //     { label: "Login", link: "/tpo-login" }
     //   ]
     // },
-     {
+    {
       title: "T & P Cell",
       link: "/TPCell",
       isOpen: false,
@@ -214,6 +217,29 @@ export class HeaderComponent implements AfterViewInit {
       ]
     },
   ];
+
+
+  handleItemClick(item: any, event: Event) {
+    if (item.title === 'Virtual Lab' || item.label === 'Virtual Lab') {
+      event.preventDefault(); // stop normal navigation
+      Swal.fire({
+        title: 'Virtual Lab Access',
+        text: 'You are being redirected to an external Virtual Lab website.',
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'Proceed',
+        cancelButtonText: 'Cancel'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.open('https://www.vlab.co.in/participating-institute-iit-bombay', '_blank');
+        }
+      });
+    }
+    else {
+
+    }
+  }
+
 
   @HostListener('window:resize', ['$event'])
   onResize() {

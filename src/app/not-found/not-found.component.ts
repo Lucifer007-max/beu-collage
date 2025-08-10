@@ -46,7 +46,7 @@ export class NotFoundComponent {
     { label: "E-Learning Resources", link: "/Academics/E-Learning-Resources" },
     { label: "NPTEL Local Chapters", link: "/Academics/NPTEL-Local-Chapters" },
     { label: "NPTEL Online Certification", link: "/Academics/NPTEL-Online-Certification" },
-    { label: "Value Education", link: "/Academics/Value-Education" }
+    // { label: "Value Education", link: "/Academics/Value-Education" }
   ];
 
 

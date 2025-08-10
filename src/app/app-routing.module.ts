@@ -441,7 +441,7 @@ const routes: Routes = [
     canActivate: [tpoAuthguardGuard],
 
     children: [
-      // { path: 'dashboard', component: TpoDashboardComponent, 
+      // { path: 'dashboard', component: TpoDashboardComponent,
       //   // canActivate: [tpoAuthguardGuard]
 
       //  },
@@ -452,12 +452,12 @@ const routes: Routes = [
       },
       {
         path: 'Add-placement',
-        loadComponent: () => import('./pages/training-and-placement/tpo-admin/placement-list/placement-list.component').then(m => m.PlacementListComponent), 
+        loadComponent: () => import('./pages/training-and-placement/tpo-admin/placement-list/placement-list.component').then(m => m.PlacementListComponent),
         // canActivate: [tpoAuthguardGuard]
       },
        {
         path: 'placement-List',
-        loadComponent: () => import('./pages/training-and-placement/tpo-admin/placement-list/placement-list.component').then(m => m.PlacementListComponent), 
+        loadComponent: () => import('./pages/training-and-placement/tpo-admin/placement-list/placement-list.component').then(m => m.PlacementListComponent),
         // canActivate: [tpoAuthguardGuard]
       }
     ]

@@ -1,15 +1,20 @@
-<header class="w-100" >
-  <div class="d-flex b-sm-flex d-lg-flex d-md-flex justify-content-center align-items-center border-bottom border-primary border-dashed bg-light text-primary fw-semibold small" style="height: 27px;">
+<header class="w-100">
+  <div
+    class="d-flex b-sm-flex d-lg-flex d-md-flex justify-content-center align-items-center border-bottom border-primary border-dashed bg-light text-primary fw-semibold small"
+    style="height: 27px;">
     <ul class="d-flex list-unstyled m-0">
       <!-- <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/'">Home</li> -->
       <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning">Tender</li>
       <li class="px-3 py-2 border-start border-end border-primary cursor-pointer hover-text-warning">Fee Structure</li>
       <!-- <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/Placement'">Placement</li>
       <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/Recruitment'">Recruitment</li> -->
-      <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning"  [routerLink]="'/Faq'">FAQs</li>
+      <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning" [routerLink]="'/Faq'">FAQs</li>
       <li class="px-3 py-2 border-end border-primary cursor-pointer hover-text-warning">Contact Us</li>
-      <li class="px-3 py-2 cursor-pointer hover-text-warning"><a href="https://beu-bih.ac.in/admin" target="_blank" rel="noopener noreferrer">Login</a></li>
-      <li class="px-3 py-2 cursor-pointer hover-text-warning"><div id="google_translate_element"></div></li>
+      <li class="px-3 py-2 cursor-pointer hover-text-warning"><a href="https://beu-bih.ac.in/admin" target="_blank"
+          rel="noopener noreferrer">Login</a></li>
+      <li class="px-3 py-2 cursor-pointer hover-text-warning">
+        <div id="google_translate_element"></div>
+      </li>
 
     </ul>
   </div>
@@ -49,12 +54,12 @@
 
   <nav class="navbar navbar-expand-md navbar-dark bg-primary p-0">
     <div class="container btn_navss">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false"  (click)="toggleNavbar()" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav"  [ngClass]="{ 'open': isNavbarOpen, 'closed': !isNavbarOpen }"   #navbarCollapse
->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" (click)="toggleNavbar()" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav"
+        [ngClass]="{ 'open': isNavbarOpen, 'closed': !isNavbarOpen }" #navbarCollapse>
         <ul class="navbar-nav">
           <ng-container *ngTemplateOutlet="renderMenu; context: { items: menuItems }"></ng-container>
         </ul>
@@ -62,13 +67,8 @@
 
       <ng-template #renderMenu let-items="items">
         <ng-container *ngFor="let item of items">
-          <li
-            class="nav-item"
-            [ngClass]="{ 'dropdown': item.subItems?.length > 0 }"
-            (mouseenter)="onMouseEnter(item)"
-            (mouseleave)="onMouseLeave(item)"
-            (click)="toggleDropdown(item, $event)"
-          >
+          <li class="nav-item" [ngClass]="{ 'dropdown': item.subItems?.length > 0 }" (mouseenter)="onMouseEnter(item)"
+            (mouseleave)="onMouseLeave(item)" (click)="toggleDropdown(item, $event)">
             <!-- <a
               class="nav-link text-dark"
               [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
@@ -91,34 +91,27 @@
             {{ item.title || item.label }}
           </a> -->
 
-          <ng-container *ngIf="item.link && (item.link.startsWith('http') || item.link.startsWith('https') || item.link.startsWith('www')); else internalLink">
-              <a
-                class="nav-link text-dark"
-                [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
-                [href]="item.link"
-                target="_blank"
-                rel="noopener noreferrer"
-                role="button"
-              >
+            <ng-container
+              *ngIf="item.link && (item.link.startsWith('http') || item.link.startsWith('https') || item.link.startsWith('www')); else internalLink">
+              <a class="nav-link text-dark" [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
+                [href]="item.link" target="_blank" rel="noopener noreferrer" role="button">
                 {{ item.title || item.label }}
               </a>
             </ng-container>
 
-           
+
             <ng-template #internalLink>
-              <a
-                class="nav-link text-dark"
-                [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
-                [routerLink]="item.link || null"
-                role="button"
-              >
+              <a class="nav-link text-dark" [ngClass]="{ 'dropdown-toggle': item.subItems?.length > 0 }"
+                [routerLink]="(item.title || item.label) !== 'Virtual Lab' ? (item.link || null) : null"
+                (click)="handleItemClick(item, $event)" role="button">
                 {{ item.title || item.label }}
               </a>
             </ng-template>
-          <!-- comment by aakash dated 04-08-2025 -->
+
+            <!-- comment by aakash dated 04-08-2025 -->
 
 
-              <!-- <a
+            <!-- <a
                 *ngIf="item.title === 'Result' "
                 class="nav-link text-dark"
                 [href]="item.link"
@@ -126,7 +119,7 @@
                 role="button"
               >
                 {{ item.title || item.label }} -->
-              <!-- </a> -->
+            <!-- </a> -->
 
 
 
@@ -164,11 +157,7 @@
 
 
 <!-- back-to-top button -->
-<button
-  class="back-to-top"
-  (click)="scrollToTop()"
-  *ngIf="showBackToTop"
->
+<button class="back-to-top" (click)="scrollToTop()" *ngIf="showBackToTop">
   ↑ Back to Top
 </button>
 
