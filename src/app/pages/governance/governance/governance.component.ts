@@ -98,7 +98,8 @@ export class GovernanceComponent {
                 ];
 
   executiveCouncilMembers = [
-    'The Vice-Chancellor of the University;',
+    // 'The Vice-Chancellor of the University;',
+    'The Vice-Chancellor who shall be the Chairman;', // said by Vishal ji BEU
     'Additional chief Secretary/ Principal Secretary/Secretary, Department of Science and technology, Government of Bihar or his/her representative not below the rank of joint secretary;',
     'Additional chief Secretary/ Principal Secretary/ Secretary, Department of Education, Government of Bihar or his/her representative not below the rank of joint secretary;',
     'Additional chief Secretary/ Principal Secretary /Secretary, Department of Finance, Government of Bihar or his/her representative not below the rank of joint secretary;',
