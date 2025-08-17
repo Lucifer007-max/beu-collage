@@ -185,8 +185,10 @@ export class HeaderComponent implements AfterViewInit {
          },
         { label: "Career", link: "",
            subItems: [
-            { label: "Company list for recruiting/FTE", link: "/Company-list-for-recruiting-FTE" },
-            { label: "Company list for Internship", link: "/Company-list-for-Internship" },
+            { label: "Company list for recruiting/FTE", link: "/tpo/Company-list-for-recruiting-FTE" },
+            { label: "Company list for Internship", link: "/tpo/Company-list-for-Internship" },
+            // { label: "Company list for recruiting/FTE", link: "/Company-list-for-recruiting-FTE" },
+            // { label: "Company list for Internship", link: "/Company-list-for-Internship" },
           ]
          },
         { label: "Our Alumni", link: "/tpo/Our-Alumni" },
