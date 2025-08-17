@@ -61,23 +61,6 @@ export class GovernanceComponent {
 
   }
 
-
-  // officials = [
-  //   {
-  //     name: 'Dr. Pradip Kumar M.A., Ph.D., PGD in Public Administrator & Local Self Government',
-  //     designation: 'Registrar'
-  //   },
-  //   { name: 'Dr. Bijendra Kumar', designation: 'Examination Controller' },
-  //   { name: 'Upendra Kumar Singh', designation: 'Finance Officer' },
-  //   { name: 'Dr. Sunny Chandra', designation: 'Deputy Registrar' },
-  //   { name: 'Dr. Shiv Kumar Rai', designation: 'Deputy Examination Controller' },
-  //   { name: 'Kumari Chandni', designation: 'Assistant Registrar' },
-  //   { name: 'Ramprit Baitha', designation: 'Assistant Registrar' },
-  //   { name: 'Anita Kumari', designation: 'Assistant Examination Controller' },
-  //   { name: 'Anisha', designation: 'Assistant Examination Controller' },
-  //   { name: 'Vikas Kumar', designation: 'OSD' },
-  //   { name: 'Niraj Kumar', designation: 'Training & Placement Officer' }
-  // ];
   officials = [
                   {
                     name: 'Dr. Pradip Kumar, IAS (Retd.)',

@@ -48,8 +48,32 @@ const routes: Routes = [
         path: 'TPO-About-Us',
         loadComponent: () => import('./pages/training-and-placement/about-tpo/about-tpo.component'),
       },
+       {
+        path: 'tpo/Tpo-mission',
+        loadComponent: () => import('./pages/training-and-placement/about-tpo/about-tpo.component'),
+      },
+       {
+        path: 'tpo/Tpo-vision',
+        loadComponent: () => import('./pages/training-and-placement/about-tpo/about-tpo.component'),
+      },
+       {
+        path: 'tpo/contact',
+        loadComponent: () => import('./pages/training-and-placement/about-tpo/about-tpo.component'),
+      },
+       {
+        path: 'tpo/Training-and-placement-officer',
+        loadComponent: () => import('./pages/training-and-placement/about-tpo/about-tpo.component'),
+      },
       {
         path: 'career',
+        loadComponent: () => import('./pages/training-and-placement/career/career.component'),
+      },
+      {
+        path: 'Company-list-for-Internship',
+        loadComponent: () => import('./pages/training-and-placement/career/career.component'),
+      },
+      {
+        path: 'Company-list-for-recruiting-FTE',
         loadComponent: () => import('./pages/training-and-placement/career/career.component'),
       },
       {

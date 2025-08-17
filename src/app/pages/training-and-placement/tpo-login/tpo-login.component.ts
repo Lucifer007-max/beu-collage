@@ -34,20 +34,28 @@ export default class TpoLoginComponent implements OnInit {
   }
 
   handleLogin() {
-    const JsonBody = {
-      "email": this.formData.value.email,
-      "password": this.formData.value.password,
-    }
-    this.API.adminAuth(JsonBody).subscribe((res: any) => {
-      console.log(res)
-      this.API.SuccessSnackbar("Welcome to BEU ADMIN. You have login successfully..!");
-      sessionStorage.setItem('token' , res.token)
-      sessionStorage.setItem('id' , res.id)
-      // this.router.navigate(['/admin/dashboard'])
-      this.router.navigate(['/tpo/dashboard'])
-    },(err) => {
-      console.log(err)
-      this.API.ErrorSnackbar(err.message)
-    })
+    // const JsonBody = {
+    //   "email": this.formData.value.email,
+    //   "password": this.formData.value.password,
+    // }
+    // this.API.adminAuth(JsonBody).subscribe((res: any) => {
+    //   console.log(res)
+    //   this.API.SuccessSnackbar("Welcome to BEU ADMIN. You have login successfully..!");
+    //   sessionStorage.setItem('token' , res.token)
+    //   sessionStorage.setItem('id' , res.id)
+    //   this.router.navigate(['/tpo/dashboard'])
+    // },(err) => {
+    //   console.log(err)
+    //   this.API.ErrorSnackbar(err.message)
+    // })
   }
+
+  loginWithGoogle() {
+  // Integrate your Google login logic here
+}
+
+loginWithGithub() {
+  // Integrate your GitHub login logic here
+}
+
 }
