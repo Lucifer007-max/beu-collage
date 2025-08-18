@@ -22,7 +22,7 @@ export class AffiliationComponent {
   selectedYear: string = '';
   // years: number[] = [];
   constructor(public service:ApiService) {
-    this.getList('','')
+    // this.getList('','')
 
     const today = new Date();
     const currentYear = today.getMonth() >= 6 ? today.getFullYear() : today.getFullYear() - 1;
@@ -35,6 +35,7 @@ export class AffiliationComponent {
     }
 
     this.selectedYear = `${currentYear}-${(currentYear + 1).toString().slice(-2)}`;
+    this.getList('', this.selectedYear);
 
   }
 
