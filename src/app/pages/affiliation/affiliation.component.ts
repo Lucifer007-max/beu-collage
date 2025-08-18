@@ -17,12 +17,19 @@ export class AffiliationComponent {
   imgUrl = environment.imgUrl;
   selectedType: any = '';
   selectedSession: any = '';
+  selectedYear: number = new Date().getFullYear();
   years: string[] = [];
-  selectedYear: string = '';
   // years: number[] = [];
   constructor(public service:ApiService) {
+    this.getList('','')
 
-    for (let year = 2023; year <= 2025; year++) {
+    const today = new Date();
+    const currentYear = today.getMonth() >= 6 ? today.getFullYear() : today.getFullYear() - 1;
+    // for (let year = 2023; year <= 2025; year++) {
+    //   this.years.push(`${year}-${(year + 1).toString().slice(-2)}`);
+    // }
+
+    for (let year = currentYear; year >= 2023; year--) {
       this.years.push(`${year}-${(year + 1).toString().slice(-2)}`);
     }
 
@@ -39,6 +46,10 @@ export class AffiliationComponent {
     this.selectedYear = `${year}-${nextShort}`;
     this.getList('',this.selectedYear)
 
+
+    this.selectedYear = `${currentYear}-${(currentYear + 1).toString().slice(-2)}`;
+    this.selectedSession = this.selectedYear;
+    this.getList('', this.selectedYear);
 
   }
 

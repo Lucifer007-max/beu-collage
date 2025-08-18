@@ -152,22 +152,58 @@ export class HeaderComponent implements AfterViewInit {
       isOpen: false,
       subItems: []
     },
-    //  {
-    //   title: "Training & Placement",
-    //   isOpen: false,
-    //   subItems: [
-    //     { label: "About Us", link: "/TPO-About-Us" },
-    //     { label: "Training and Placement Cell", link: "/tpo-cell" },
-    //     { label: "Career", link: "/career" },
-    //     { label: "Login", link: "/tpo-login" }
-    //   ]
-    // },
-    {
-      title: "T & P Cell",
-      link: "/TPCell",
+     {
+      title: "Training & Placement",
       isOpen: false,
-      subItems: []
+      subItems: [
+        { label: "About Us", link: "" ,
+           subItems: [
+            { label: "Our Mission", link: "/tpo/Tpo-mission" },
+            { label: "Our Vision", link: "/tpo/Tpo-vision" },
+            { label: "Training and Placement Officer", link: "/tpo/Training-and-placement-officer" }
+          ]
+        },
+        { label: "Why recruit from BEU Patna?", link: "",
+           subItems: [
+            { label: "Industry aligned syllabus", link: "/tpo/Industry-aligned-syllabus" },
+            { label: "Students from various engineering and architecture desciplines", link: "/tpo/Students-from-various-engineering-and-architecture-desciplines" },
+            { label: "Well infrastructure supporting practical training and labs", link: "/tpo/Well-infrastructure-supporting-practical-training-and-labs" },
+            { label: "Professional ethics like communication skills, team work etc.", link: "/tpo/Professional-ethics-like-communication-skills-team-work" }
+          ]
+         },
+        { label: "Join TNP Cell BEU Patna", link: "",
+          subItems: [
+            { label: "Register as company", link: "/tpo/Register-as-company" },
+            { label: "Register as student", link: "/tpo/Register-as-student" },
+          ]
+         },
+        { label: "For Companies", link: "",
+           subItems: [
+            { label: "Job Notification Form (JNF) submission", link: "/tpo/Job-Notification-Form-submission" },
+            { label: "Internship Notification Form (INF) submission", link: "/tpo/Internship-Notification-Form-submission" },
+          ]
+         },
+        { label: "Career", link: "",
+           subItems: [
+            { label: "Company list for recruiting/FTE", link: "/tpo/Company-list-for-recruiting-FTE" },
+            { label: "Company list for Internship", link: "/tpo/Company-list-for-Internship" },
+            // { label: "Company list for recruiting/FTE", link: "/Company-list-for-recruiting-FTE" },
+            // { label: "Company list for Internship", link: "/Company-list-for-Internship" },
+          ]
+         },
+        { label: "Our Alumni", link: "/tpo/Our-Alumni" },
+        { label: "Placement Brochure", link: "/tpo/Placement-Brochure" },
+        { label: "Login", link: "/tpo-login" },
+        { label: "Contact", link: "/tpo/contact" }
+        // { label: "Training and Placement Cell", link: "/tpo-cell" },
+      ]
     },
+    // {
+    //   title: "Training & Placement",
+    //   link: "/TPCell",
+    //   isOpen: false,
+    //   subItems: []
+    // },
     {
       title: "Reports",
       isOpen: false,

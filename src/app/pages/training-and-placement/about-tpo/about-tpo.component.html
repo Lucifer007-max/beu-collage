@@ -9,13 +9,15 @@
   <!-- Content -->
   <div
     class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start text-white px-5">
-    <h1 class="fs-2 fw-bold text-light">{{formatTitle(this.router.url.split('/')[1])}}</h1>
+    <!-- <h1 class="fs-2 fw-bold text-light">{{formatTitle(this.router.url.split('/')[1])}}</h1> -->
+    <h1 class="fs-2 fw-bold text-light">{{pageTitle}}</h1>
 
     <nav class="mt-2">
       <ul class="breadcrumb bg-primary">
         <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">Home</a></li>
         <!-- <li class="breadcrumb-item"><a href="#" class="text-white text-decoration-none">About</a></li> -->
-        <li class="breadcrumb-item active text-white" aria-current="page">{{formatTitle(this.router.url.split('/')[1]) }}</li>
+        <!-- <li class="breadcrumb-item active text-white" aria-current="page">{{formatTitle(this.router.url.split('/')[1]) }}</li> -->
+        <li class="breadcrumb-item active text-white" aria-current="page">{{pageTitle}}</li>
       </ul>
     </nav>
 
@@ -31,7 +33,7 @@
         <!-- <a [routerLink]="'/acts'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
           <span class="text-primary mx-3">»</span>Acts
         </a> -->
-        <a [routerLink]="'/TPO-About-Us'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
+        <!-- <a [routerLink]="'/TPO-About-Us'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
           <span class="text-primary mx-3">»</span>About Us
         </a>
         <a [routerLink]="'/tpo-cell'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
@@ -39,13 +41,80 @@
         </a>
         <a [routerLink]="'/career'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
           <span class="text-primary mx-3">»</span>Career
-        </a>
+        </a> -->
       </div>
     </div>
 
 
 
-   <div class="col-lg-9 mt-2 mb-2">
+    <div class="col-lg-12 mt-2 mb-2" *ngIf="pageTitle === 'Our Mission'">
+      <!-- <div class="mission-container">
+          <h1 class="main-title">Our Mission</h1>
+          <p class="mission-description">
+            The mission of the Training and Placement (TNP) Cell at Bihar Engineering University, Patna is to
+            facilitate the transition of students from academia to the professional world through comprehensive
+            support and industry exposure.
+          </p>
+
+          <div class="card-grid">
+            <div class="mission-card" *ngFor="let point of missions" [@fadeInUp]>
+              <h3>{{ point.title }}</h3>
+              <p>{{ point.description }}</p>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="mission-container">
+            <h1 class="main-title">Our Mission</h1>
+            <p class="mission-description" style="text-align: left !important;">
+             The mission of a Training and Placement (TNP) cell in Bihar Engineering University,
+              Patna is to facilitate the transition of students from academia to the professional 
+              world by providing comprehensive placement support and industry exposure. 
+              This involves a range of activities aimed at enhancing employability and ensuring 
+              successful placements.
+            </p>
+
+            <span><h2>Key Missions of a TNP Cell:</h2></span>
+            <ul class="mission-list">
+              <li *ngFor="let point of missions" [@fadeInUp]>
+                <span class="bullet">•</span>
+                <div class="text">
+                  <strong>{{ point.title }}:</strong> {{ point.description }}
+                </div>
+              </li>
+            </ul>
+          </div>
+
+
+    </div>
+
+    <div class="col-lg-12 mt-2 mb-2" *ngIf="pageTitle === 'Our Vision'">
+      
+
+        <div class="mission-container">
+            <h1 class="main-title">Our Vision</h1>
+            <p class="mission-description" style="text-align: left !important;">
+              The Vision of Training and Placement (TNP) Cell in Bihar Engineering University, 
+              Patna is to empower students with the resources and guidance necessary to achieve 
+              their career aspirations, whether through securing employment, pursuing higher education, 
+              or engaging in entrepreneurial endeavours. This vision involves the premier facilitator of 
+              industry-academia partnerships and ensure 100% placement for our eligible students, 
+              facilitating connections between students and potential employers, providing career 
+              counselling, and offering training programs to enhance student’s skills and employability. 
+              Ultimately, the TNP Cell aims to bridge the gap between academia and industry; 
+              ensuring students are well-prepared for successful careers.
+            </p>
+
+           
+          </div>
+
+
+    </div>
+
+
+
+
+   <div class="col-lg-9 mt-2 mb-2" *ngIf="pageTitle === 'Training and Placement Officer'">
         <!-- <h2 class="text-center mb-4"> Our Team</h2> -->
   
 
@@ -70,12 +139,18 @@
 
             <div class="row g-4 te">
             <!-- Profile Card 1 -->
-                <div class="col-md-6 col-lg-4" style="margin-left: 25%;">
+                <!-- <div class="col-md-6 col-lg-4" style="margin-left: 25%;"> -->
+                <div class="col-md-9 col-lg-4" style="margin-left: 15%;">
                     <div class="card shadow-sm h-100">
                         <img src="assets/uploads/tpo/tpo-officer.jpeg" class="rounded-circle mx-auto d-block" alt="Profile Photo" style="width: 120px; height: 120px; object-fit: top; border: 3px solid #0f8abe;">
                             <div class="card-body">
                                 <h5 class="card-title">Mr. Niraj Kumar</h5>
-                                <p class="card-text text-muted mb-1">Training and Placement Officer</p>
+                                <p class="card-text text-muted mb-1" style="font-weight: 600;">Training and Placement Officer,</p>
+                                <p class="card-text text-muted mb-1">
+                                                                      Bihar Engineering University, Patna
+                                                                      Department of Science, Technology and Technical Education,
+                                                                      Govt. of Bihar, Patna.
+                                                                      </p>
                                 <!-- <h5 class="card-title" style="text-align: center;">Mr. Niraj Kumar</h5>
                                 <p class="card-text text-muted mb-1" style="text-align: center;">Training and Placement Officer</p> -->
                                 <p class="card-text mb-1"><strong>Email:</strong> tpo.beu@bihar.gov.in</p>
@@ -117,6 +192,42 @@
 
 
     </div>
+
+    
+
+    <div class="col-lg-9 mt-2 mb-2 contact-form" *ngIf="pageTitle === 'Contact'">
+          <div class="contact-form-wrapper">
+                <div class="contact-header">
+                  <h2>Contact Us</h2>
+                  <p>We’d love to hear from you! Reach us through any of the options below.</p>
+                </div>
+
+                <div class="contact-info">
+                  <p><strong>Email: </strong> <a href="mailto:tpo.beu@bihar.gov.in">tpo.beu@bihar.gov.in</a></p>
+                  <p><strong>Phone: </strong> <a href="tel:+917902389860">+91-7903289860</a></p>
+                  <p><strong>Website: </strong> <a href="http://beu-bih.ac.in" target="_blank">beu-bih.ac.in</a></p>
+                  <p><strong>Address: </strong> Bihar Engineering University, 6th Floor, Examination Block, Aryabhatta Knowledge University Campus, Mithapur, Patna - 800001, Bihar</p>
+                </div>
+
+                <form class="contact-form">
+                  <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required />
+                  </div>
+                  <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required />
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="subject" placeholder="Subject" required />
+                  </div>
+                  <div class="form-group">
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                  </div>
+                  <button type="submit" class="send-btn">Send Message</button>
+                </form>
+          </div>
+
+    </div>
+
 
 
 

@@ -61,26 +61,9 @@ export class GovernanceComponent {
 
   }
 
-
-  // officials = [
-  //   {
-  //     name: 'Dr. Pradip Kumar M.A., Ph.D., PGD in Public Administrator & Local Self Government',
-  //     designation: 'Registrar'
-  //   },
-  //   { name: 'Dr. Bijendra Kumar', designation: 'Examination Controller' },
-  //   { name: 'Upendra Kumar Singh', designation: 'Finance Officer' },
-  //   { name: 'Dr. Sunny Chandra', designation: 'Deputy Registrar' },
-  //   { name: 'Dr. Shiv Kumar Rai', designation: 'Deputy Examination Controller' },
-  //   { name: 'Kumari Chandni', designation: 'Assistant Registrar' },
-  //   { name: 'Ramprit Baitha', designation: 'Assistant Registrar' },
-  //   { name: 'Anita Kumari', designation: 'Assistant Examination Controller' },
-  //   { name: 'Anisha', designation: 'Assistant Examination Controller' },
-  //   { name: 'Vikas Kumar', designation: 'OSD' },
-  //   { name: 'Niraj Kumar', designation: 'Training & Placement Officer' }
-  // ];
   officials = [
                   {
-                    name: 'Dr. Pradip Kumar, IES (Retd.)',
+                    name: 'Dr. Pradip Kumar, IAS (Retd.)',
                     // degree: 'M.A., Ph.D., PGD in Public Administrator & Local Self Government',
                     degree: '',
                     designation: 'Registrar'
@@ -88,51 +71,53 @@ export class GovernanceComponent {
                   { name: 'Dr. Bijendra Kumar', degree: '', designation: 'Examination Controller' },
                   { name: 'Upendra Kumar Singh', degree: '', designation: 'Finance Officer' },
                   { name: 'Dr. Sunny Chandra', degree: '', designation: 'Deputy Registrar' },
-                  { name: 'Dr. Shiv Kumar Rai', degree: '', designation: 'Deputy Examination Controller' },
+                  { name: 'Dr. Shiv Kumar Ray', degree: '', designation: 'Deputy Examination Controller' },
                   { name: 'Kumari Chandni', degree: '', designation: 'Assistant Registrar' },
                   { name: 'Ramprit Baitha', degree: '', designation: 'Assistant Registrar' },
                   { name: 'Dr. Anita Kumari', degree: '', designation: 'Assistant Examination Controller' },
                   { name: 'Anisha', degree: '', designation: 'Assistant Examination Controller' },
-                  { name: 'Vikas Kumar', degree: '', designation: 'OSD' },
+                  { name: 'Dr. Vikas Kumar', degree: '', designation: 'OSD' },
                   { name: 'Niraj Kumar', degree: '', designation: 'Training & Placement Officer' }
                 ];
 
   executiveCouncilMembers = [
-    'The Vice-Chancellor of the University',
-    'Additional chief Secretary/ Principal Secretary/Secretary, Department of Science and technology, Government of Bihar or his/her representative not below the rank of joint secretary',
-    'Additional chief Secretary/ Principal Secretary/ Secretary, Department of Education, Government of Bihar or his/her representative not below the rank of joint secretary',
-    'Additional chief Secretary/ Principal Secretary /Secretary, Department of Finance, Government of Bihar or his/her representative not below the rank of joint secretary',
-    'Director, Indian Institute of Technology, Patna or his/her representative not below the rank of professor',
-    'Director, National Institute of Technology, Patna or his/her representative not below the rank of professor',
-    'Director, Chandragupta Institute of Management, Patna or his/her representative not below the rank of professor',
-    'Director, Development Management Institute, Patna or his/ her representative not below the rank of professor',
-    'Head of Department, Department of Architecture, National Institute of Technology, Patna',
-    'Director, Department of Science and technology, Government of Bihar',
-    'The Registrar of the University',
-    'Three teachers to be nominated by the Vice Chancellor of whom, one shall be from amongst Heads of Department, one from Professors and one from Associate Professors by rotation for a period of one year each from Government engineering colleges'
+    // 'The Vice-Chancellor of the University;',
+    'The Vice-Chancellor who shall be the Chairman;', // said by Vishal ji BEU
+    'Additional chief Secretary/ Principal Secretary/Secretary, Department of Science and technology, Government of Bihar or his/her representative not below the rank of joint secretary;',
+    'Additional chief Secretary/ Principal Secretary/ Secretary, Department of Education, Government of Bihar or his/her representative not below the rank of joint secretary;',
+    'Additional chief Secretary/ Principal Secretary /Secretary, Department of Finance, Government of Bihar or his/her representative not below the rank of joint secretary;',
+    'Director, Indian Institute of Technology, Patna or his/her representative not below the rank of professor;',
+    'Director, National Institute of Technology, Patna or his/her representative not below the rank of professo;r',
+    'Director, Chandragupta Institute of Management, Patna or his/her representative not below the rank of professor;',
+    'Director, Development Management Institute, Patna or his/ her representative not below the rank of professor;',
+    'Head of Department, Department of Architecture, National Institute of Technology, Patna;',
+    'Director, Department of Science and technology, Government of Bihar;',
+    'The Registrar of the University shall act as ex-officio Member-Secretary to the Executive Council;',
+    'Three teachers to be nominated by the Vice Chancellor of whom, one shall be from amongst Heads of Department, one from Professors and one from Associate Professors by rotation for a period of one year each from Government engineering colleges;'
   ];
 
   academicCouncilMembers = [
-    'The Vice-Chancellor who shall be the Chairman',
-    'Director, Indian Institute of Technology, Patna or his/her representative not below the rank of professor',
-    'Director, National Institute of Technology, Patna or his/her representative not below the rank of professor',
-    'Director, Chandragupta Institute of Management, Patna or his/her representative not below the rank of professor',
-    'Director, Development Management Institute, Patna or his/her representative not below the rank of professor',
+    'The Vice-Chancellor who shall be the Chairman;',
+    'Director, Indian Institute of Technology, Patna or his/her representative not below the rank of professor;',
+    'Director, National Institute of Technology, Patna or his/her representative not below the rank of professor;',
+    'Director, Chandragupta Institute of Management, Patna or his/her representative not below the rank of professor;',
+    'Director, Development Management Institute, Patna or his/her representative not below the rank of professor;',
     'Head of Department, Department of Architecture, National Institute of Technology Patna;',
-    'Three persons from amongst educationists of repute or men of letters or members of the learned profession or eminent public men, who are not in the service nominated by the Chancellor',
-    'A nominee of the All India Council for Technical Education',
-    'Director, Department of Science and technology, Government of Bihar',
-    'Ten Principals of the Government Engineering colleges of Bihar on rotation for a period of three years to be nominated by the Government of Bihar',
-    'Three members of the teaching staff; one each respectively representing the Professor, Associate and Assistant Professors of Government Engineering colleges, nominated by the Vice- Chancellor for a period of three years'
+    'Three persons from amongst educationists of repute or men of letters or members of the learned profession or eminent public men, who are not in the service nominated by the Chancellor;',
+    'A nominee of the All India Council for Technical Education;',
+    'Director, Department of Science and technology, Government of Bihar;',
+    'Ten Principals of the Government Engineering colleges of Bihar on rotation for a period of three years to be nominated by the Government of Bihar;',
+    'Three members of the teaching staff; one each respectively representing the Professor, Associate and Assistant Professors of Government Engineering colleges, nominated by the Vice- Chancellor for a period of three years;',
+    'The Registrar of the University shall act as ex-officio Secretary to the Academic Council.'
   ]
 
   financeCommittee =[
     'The Vice-Chancellor as the Chairman',
-    'Two officers nominated by the Department of Science & Technology, Govt. of Bihar',
-    'Three persons to be nominated by the Executive council, out of whom at least one shall be a member of the Executive council',
-    'Two persons to be nominated by the State Government from amongst teachers not below the rank of Associate Professor',
+    'Two officers nominated by the Department of Science & Technology, Govt. of Bihar.',
+    'Three persons to be nominated by the Executive council, out of whom at least one shall be a member of the Executive council;',
+    'Two persons to be nominated by the State Government from amongst teachers not below the rank of Associate Professor.',
     'The Registrar',
-    'The Finance Officer, Member-Secretary'
+    'The Finance Officer, Member-Secretary.'
   ]
 
 

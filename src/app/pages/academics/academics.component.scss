@@ -10,7 +10,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  table-layout: fixed;
+  // table-layout: fixed;
 }
 th, td {
   border: 1px solid black;
@@ -26,7 +26,7 @@ th {
   background-color: #e6e6e6;
 }
 .sno-column {
-  width: 20%;
+  width: 8%;
   text-align: center;
 }
 h3 {
