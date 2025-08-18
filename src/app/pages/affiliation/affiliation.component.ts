@@ -35,6 +35,7 @@ export class AffiliationComponent {
     }
 
     this.selectedYear = `${currentYear}-${(currentYear + 1).toString().slice(-2)}`;
+    this.selectedSession = this.selectedYear;
     this.getList('', this.selectedYear);
 
   }
