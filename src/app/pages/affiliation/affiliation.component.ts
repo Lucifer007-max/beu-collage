@@ -17,15 +17,28 @@ export class AffiliationComponent {
   imgUrl = environment.imgUrl;
   selectedType: any = '';
   selectedSession: any = '';
-  selectedYear: number = new Date().getFullYear();
   years: string[] = [];
+  selectedYear: string = '';
   // years: number[] = [];
   constructor(public service:ApiService) {
-    this.getList('','')
 
     for (let year = 2023; year <= 2025; year++) {
       this.years.push(`${year}-${(year + 1).toString().slice(-2)}`);
     }
+
+    // Auto-select correct session based on today's date
+    const today = new Date();
+    let year = today.getFullYear();
+
+    // Optional: use academic session logic — e.g. before April, use previous year
+    if (today.getMonth() < 3) {
+      year = year - 1;
+    }
+
+    const nextShort = (year + 1).toString().slice(-2);
+    this.selectedYear = `${year}-${nextShort}`;
+    this.getList('',this.selectedYear)
+
 
   }
 

@@ -44,7 +44,7 @@ export default class AffilationComponent {
       title: [null, Validators.required],
       url: [null, Validators.required],
       type: [null, Validators.required],
-      // session: [null, Validators.required]
+      district: [null, Validators.required]
     });
 
     for (let year = 2023; year <= 2025; year++) {
@@ -125,7 +125,8 @@ export default class AffilationComponent {
       title: this.fileForm.value.title,
       url: this.fileForm.value.url,
       type: this.fileForm.value.type,
-      session: this.selectedYear || this.selectedSession
+      session: this.selectedYear || this.selectedSession,
+      district : this.fileForm.value.district
     }
     // console.log(payload)
     const service = this.isUpdate ? this.service.affiliationUpdateService(payload, this.listId) : this.service.affiliationService(payload)
