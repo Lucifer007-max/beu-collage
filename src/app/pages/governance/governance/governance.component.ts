@@ -76,7 +76,7 @@ export class GovernanceComponent {
                   { name: 'Ramprit Baitha', degree: '', designation: 'Assistant Registrar' },
                   { name: 'Dr. Anita Kumari', degree: '', designation: 'Assistant Examination Controller' },
                   { name: 'Anisha', degree: '', designation: 'Assistant Examination Controller' },
-                  { name: 'Dr. Vikas Kumar', degree: '', designation: 'OSD' },
+                  { name: 'Dr. Vikash Kumar', degree: '', designation: 'OSD' },
                   { name: 'Niraj Kumar', degree: '', designation: 'Training & Placement Officer' }
                 ];
 
