@@ -277,11 +277,12 @@ export class ApiService {
       .pipe(catchError(this.handleError.bind(this)));
   }
 
-  resultGet(year: string, redg_no: string, semester: any): Observable<any> {
+  resultGet(year: string, redg_no: string, semester: any, exam_held: string): Observable<any> {
     const params = new HttpParams()
       .set('year', year)
       .set('redg_no', redg_no)
-      .set('semester', semester);
+      .set('semester', semester)
+      .set('exam_held', exam_held);
 
     return this.httpClient.get(this.baseUrl + 'result/get-result', { params })
       .pipe(catchError(this.handleError.bind(this)));

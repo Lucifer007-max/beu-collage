@@ -19,6 +19,8 @@ export default class ResultThreeComponent implements OnInit {
   sessionYear: any;
   semesterId: any;
   regNo: any;
+  exam_held = '';
+
   currentDate: Date = new Date();
 
   @ViewChild('printSection') printSectionRef!: ElementRef;
@@ -30,9 +32,10 @@ export default class ResultThreeComponent implements OnInit {
       this.sessionYear = params['session'];
       this.semesterId = params['semester'];
       this.regNo = params['regNo'];
+      this.exam_held = params['exam_held'];
     });
 
-    this.apiService.resultGet(this.sessionYear, this.regNo, this.semesterId).subscribe(((res) => {
+    this.apiService.resultGet(this.sessionYear, this.regNo, this.semesterId, this.exam_held).subscribe(((res) => {
       console.log(res.data)
       this.resultData = res.data
     }))

@@ -32,6 +32,10 @@
         <input type="text" class="form-control" formControlName="session">
       </div>
       <div class="mb-3 col-lg-6">
+        <label class="form-label">Exam Held</label>
+        <input type="text" class="form-control" formControlName="examHeld">
+      </div>
+      <div class="mb-3 col-lg-6">
         <label class="form-label">Publish Date</label>
         <input type="date" class="form-control" formControlName="publishDate">
       </div>
@@ -101,6 +105,7 @@
         <th scope="col">Batch Session</th>
         <th scope="col">Semester</th>
         <th scope="col">Exam Year</th>
+        <th scope="col">Exam Held</th>
         <th scope="col">Published Date</th>
         <th scope="col">Action</th>
       </tr>
@@ -119,6 +124,7 @@
           <td>{{ exam.session }}</td>
           <td>{{ exam.semId ?? '--' }} Semester</td>
           <td>{{ exam.batchYear }}</td>
+          <td>{{ exam.examHeld }}</td>
           <td>{{ exam.published }}</td>
           <td>
 

@@ -34,13 +34,14 @@
         <tr>
           <th class="text-light">Examinations Name</th>
           <th class="text-light">Batch/ Session</th>
+          <th class="text-light">Exam Held</th>
           <th class="text-light">Published Date</th>
         </tr>
       </thead>
 
       <ng-container *ngFor="let section of examData">
         <tr class="table-secondary">
-          <td colspan="3"><h4 class="m-0">{{ section.course }}</h4></td>
+          <td colspan="4"><h4 class="m-0">{{ section.course }}</h4></td>
         </tr>
 
         <tr
@@ -50,6 +51,7 @@
         >
           <td><p class="m-1">{{ exam.name }}</p></td>
           <td class="text-center">{{ exam.session }}</td>
+          <td class="text-center">{{ exam.examHeld }}</td>
           <td class="text-center">{{ exam.published }}</td>
         </tr>
       </ng-container>

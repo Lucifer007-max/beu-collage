@@ -53,6 +53,7 @@ export default class ResultComponent {
       session: [null, Validators.required],
       title: [null, Validators.required],
       batchYear: [null, Validators.required],
+      examHeld: [null, Validators.required],
       publishDate: [null, Validators.required],
       semId: [null, Validators.required],
     });
@@ -127,6 +128,7 @@ export default class ResultComponent {
             course: `${item.courseid}`,
             name: exam.examName,
             batchYear: exam.batchYear,
+            examHeld: exam.examHeld,
             semId: exam.semId,
             session: `${exam.session}`,
             published: new Date(exam.publishDate).toLocaleDateString()
@@ -178,6 +180,7 @@ export default class ResultComponent {
       examName: this.fileForm.value.title,
       publishDate: this.fileForm.value.publishDate,
       batchYear: this.fileForm.value.batchYear,
+      examHeld: this.fileForm.value.examHeld,
       session: this.fileForm.value.session,
       semId: this.semId
     }
@@ -225,6 +228,7 @@ export default class ResultComponent {
       session: data.session,
       title: data.name,
       batchYear: data.batchYear,
+      examHeld: data.examHeld,
       publishDate: formattedDate, // formatted
       semId: data.semId,
       sessionID: data.course.toString(), // or data.courseid if that's correct

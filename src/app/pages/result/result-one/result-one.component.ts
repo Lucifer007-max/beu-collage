@@ -24,6 +24,7 @@ export default class ResultOneComponent {
             name: exam.examName,
             session: `${exam.session}`,
             batchYear: exam.batchYear,
+            examHeld: exam.examHeld,
             published: new Date(exam.publishDate).toLocaleDateString('en-GB', {
               day: '2-digit',
               month: '2-digit',
@@ -45,7 +46,8 @@ export default class ResultOneComponent {
     this.router.navigate(['/result-two', exam.name], {
       queryParams: {
         semester: exam?.semId,
-        session: exam?.batchYear?.toString()?.trim()
+        session: exam?.batchYear?.toString()?.trim(),
+        exam_held: exam?.examHeld?.toString()?.trim(),
       }
     });
   }
