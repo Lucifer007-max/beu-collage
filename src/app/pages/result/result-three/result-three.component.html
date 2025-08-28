@@ -94,8 +94,8 @@
     </tbody>
   </table>
 
-  <h6 class="fw-bold text-light p-2 mb-0 bg-secondary">PRACTICAL</h6>
-  <table class="table table-bordered table-sm">
+  <h6 *ngIf="resultData?.practicalSubjects?.length > 0" class="fw-bold text-light p-2 mb-0 bg-secondary">PRACTICAL</h6>
+  <table *ngIf="resultData?.practicalSubjects?.length > 0" class="table table-bordered table-sm">
     <thead class="text-center">
       <tr>
         <th>Subject Code</th>
