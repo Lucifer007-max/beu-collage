@@ -229,6 +229,78 @@
     </div>
 
 
+    <div class="col-lg-12 mt-2 mb-2" *ngIf="pageTitle === 'Industry Aligned Syllabus'">
+      <div class="mission-container">
+        <h1 class="main-title">Industry Aligned Syllabus</h1>
+
+        <p class="mission-description" style="text-align: left !important;">
+          An industry-aligned syllabus focuses on equipping students with the knowledge and skills directly
+           relevant to current and future industry needs, bridging the gap between academic learning and
+            practical application. This involves incorporating industry-relevant technologies, project-based
+             learning, and opportunities for practical experience. 
+        </p>
+
+        <span><h2>Key aspects of an industry-aligned syllabus:</h2></span>
+        <ul class="mission-list">
+          <li *ngFor="let point of industrySyllabusPoints" [@fadeInUp]>
+            <span class="bullet">•</span>
+            <div class="text">
+              <strong>{{ point.title }}:</strong> {{ point.description }}
+            </div>
+          </li>
+        </ul>
+
+        <span><h2>Specific examples of industry-aligned courses:</h2></span>
+        <ul class="mission-list">
+          <li *ngFor="let course of industryCourses" [@fadeInUp]>
+            <span class="bullet">•</span>
+            <div class="text">
+              {{ course }}
+            </div>
+          </li>
+        </ul>
+
+        <span><h2>Benefits of an industry-aligned syllabus:</h2></span>
+        <ul class="mission-list">
+          <li *ngFor="let benefit of industryBenefits" [@fadeInUp]>
+            <span class="bullet">•</span>
+            <div class="text">
+              <strong>{{ benefit.title }}:</strong> {{ benefit.description }}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-lg-12 mt-2 mb-2" *ngIf="pageTitle === 'Students from various engineering and architecture desciplines'">
+      
+
+        <div class="mission-container">
+            <h1 class="main-title">Students from various engineering and architecture disciplines</h1>
+            <p class="mission-description" style="text-align: left !important;">
+              Students are enrolled for B.Tech (4 year course) with 34 specializations,
+               B.Arch (5 year course), for M.Tech (2 year course) with 20 specializations
+                and MBA Students of 38 State Government Engineering Colleges, 1 Central Government
+                 Engineering College & 19 Private Engineering Colleges affiliated with Bihar Engineering
+                  University, Patna in the state of Bihar. Students get admission through the JEE (Mains)
+                   examination for B. Tech Course and the Bihar Combined Entrance Competitive Examination
+                    (BCECE) for B. Tech/ B.Arch/ M.Tech Course. This provides our students with the right
+                     aptitude, which is very critical. These students are put through a rigorous, high
+                      intensity programs, which includes Industrial training, partnering with faculty
+                       in research, and participation in relevant forums and conferences, thereby making
+                        them truly industry ready. The assessment mechanisms followed are rigorous and require
+                         students to not just put in their best curriculum-based effort, but also applied learning
+                          gained through industry exposure.
+            </p>
+
+           
+          </div>
+
+
+    </div>
 
 
     

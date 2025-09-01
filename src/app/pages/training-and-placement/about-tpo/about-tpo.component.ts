@@ -130,4 +130,64 @@ imgUrl: any = environment.imgUrl
   ];
 
 
+  industrySyllabusPoints = [
+      {
+        title: 'Focus on practical skills',
+        description: 'Beyond theoretical knowledge, the syllabus emphasizes hands-on skills development through practical exercises, laboratory work, and projects that simulate real-world scenarios.'
+      },
+      {
+        title: 'Industry-relevant technologies',
+        description: 'The curriculum incorporates the latest technologies and tools used in various industries, ensuring students are familiar with current trends and practices.'
+      },
+      {
+        title: 'Project-based learning',
+        description: 'Students engage in projects that require them to apply their knowledge to solve practical problems, fostering critical thinking, problem-solving, and teamwork skills.'
+      },
+      {
+        title: 'Collaboration with industry',
+        description: 'Partnerships with industry leaders ensure the curriculum stays current and relevant, and provides students with valuable insights into industry practices and expectations, according to Bihar Engineering University.'
+      },
+      {
+        title: 'Soft skills development',
+        description: 'The syllabus also includes training in essential soft skills like communication, teamwork, and problem-solving, which are crucial for success in the workplace.'
+      },
+      {
+        title: 'Adaptability and lifelong learningg',
+        description: 'The curriculum encourages students to develop a mind-set of continuous learning and adaptability, enabling them to thrive in a rapidly evolving technological landscape.'
+      }
+    ];
+
+    industryCourses = [
+      'Programming Languages like Python, Java, and C++, along with newer languages relevant to specific industries;',
+      'Entrepreneurship and Venture Development;',
+      'Sales and Marketing;',
+      'Data Science and AI;',
+      'Cyber Security;',
+      'Cloud Computing;',
+      'Design Thinking;',
+      'AI Tools and Applications.'
+    ];
+
+    industryBenefits = [
+        {
+          title: 'Improved employability',
+          description: 'Students with industry-relevant skills are more likely to find jobs and succeed in their chosen fields.'
+        },
+        {
+          title: 'Enhanced career readiness',
+          description: 'Students gain practical experience and develop the skills needed to transition smoothly into the workforce.'
+        },
+        {
+          title: 'Increased innovation and productivity',
+          description: 'By fostering a culture of innovation and practical application, industry-aligned curricula can contribute to advancements in various industries.'
+        },
+        {
+          title: 'Better alignment with industry needs',
+          description: 'The curriculum ensures that students are equipped with the knowledge and skills that companies are actively seeking.'
+        }
+      ];
+
+
+
+
 }

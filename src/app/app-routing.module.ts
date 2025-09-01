@@ -57,6 +57,14 @@ const routes: Routes = [
         loadComponent: () => import('./pages/training-and-placement/about-tpo/about-tpo.component'),
       },
        {
+        path: 'tpo/Industry-aligned-syllabus',
+        loadComponent: () => import('./pages/training-and-placement/about-tpo/about-tpo.component'),
+      },
+       {
+        path: 'tpo/Students-from-various-engineering-and-architecture-desciplines',
+        loadComponent: () => import('./pages/training-and-placement/about-tpo/about-tpo.component'),
+      },
+       {
         path: 'tpo/contact',
         loadComponent: () => import('./pages/training-and-placement/about-tpo/about-tpo.component'),
       },

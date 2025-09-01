@@ -167,14 +167,18 @@ export class HeaderComponent implements AfterViewInit {
            subItems: [
             { label: "Industry aligned syllabus", link: "/tpo/Industry-aligned-syllabus" },
             { label: "Students from various engineering and architecture desciplines", link: "/tpo/Students-from-various-engineering-and-architecture-desciplines" },
-            { label: "Well infrastructure supporting practical training and labs", link: "/tpo/Well-infrastructure-supporting-practical-training-and-labs" },
-            { label: "Professional ethics like communication skills, team work etc.", link: "/tpo/Professional-ethics-like-communication-skills-team-work" }
+            { label: "Well infrastructure supporting practical training and labs", link: "" },
+            { label: "Professional ethics like communication skills, team work etc.", link: "" }
+            // { label: "Well infrastructure supporting practical training and labs", link: "/tpo/Well-infrastructure-supporting-practical-training-and-labs" },
+            // { label: "Professional ethics like communication skills, team work etc.", link: "/tpo/Professional-ethics-like-communication-skills-team-work" }
           ]
          },
         { label: "Join TNP Cell BEU Patna", link: "",
           subItems: [
-            { label: "Register as company", link: "/tpo/Register-as-company" },
-            { label: "Register as student", link: "/tpo/Register-as-student" },
+            { label: "Register as company", link: "https://forms.gle/mYpMRJSGKyQyNT777" },
+            { label: "Register as student", link: "https://forms.gle/easiHx3H2BwEn8EeA" },
+            // { label: "Register as company", link: "/tpo/Register-as-company" },
+            // { label: "Register as student", link: "/tpo/Register-as-student" },
           ]
          },
         { label: "For Companies", link: "",
