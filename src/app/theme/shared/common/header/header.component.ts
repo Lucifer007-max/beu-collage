@@ -183,8 +183,10 @@ export class HeaderComponent implements AfterViewInit {
          },
         { label: "For Companies", link: "",
            subItems: [
-            { label: "Job Notification Form (JNF) submission", link: "/tpo/Job-Notification-Form-submission" },
-            { label: "Internship Notification Form (INF) submission", link: "/tpo/Internship-Notification-Form-submission" },
+            { label: "Job Notification Form (JNF) submission", link: "https://forms.gle/wEYoSU7dsiby5UKU6" },
+            { label: "Internship Notification Form (INF) submission", link: "https://forms.gle/VLcUHhvMkz8ibvHm6" },
+            // { label: "Job Notification Form (JNF) submission", link: "/tpo/Job-Notification-Form-submission" },
+            // { label: "Internship Notification Form (INF) submission", link: "/tpo/Internship-Notification-Form-submission" },
           ]
          },
         { label: "Career", link: "",
