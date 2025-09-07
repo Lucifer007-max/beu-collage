@@ -38,7 +38,7 @@ export class HeaderComponent implements AfterViewInit {
           subItems: [
             { title: "UG", link: "/about/regulations/UG" },
             { title: "PG", link: "/about/pg" },
-            { title: "Ph.D", link: "/about/phd" },
+            { title: "Ph.D", link: "/about/regulations/Ph.D" },
           ]
         },
         // { label: "Noida Campus", link: "/about/noida-campus" },

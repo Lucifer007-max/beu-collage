@@ -60,7 +60,7 @@
             &nbsp;
             <span class="text-primary mx-3">»</span> PG
           </a>
-          <a  class="list-group-item list-group-item-action">
+          <a [routerLink]="'/about/regulations/Ph.D'" [routerLinkActive]="'active'" class="list-group-item list-group-item-action">
             &nbsp;
             &nbsp;
             &nbsp;
@@ -175,19 +175,28 @@
             </div>
             <iframe src="assets/static/doc/STATUTES OF THE UNIVERSITY [Vide Section 28 and 29 (1) of the Act].pdf" height="500px" width="900px"></iframe>
           </div>
-           <div class="vision-body" *ngIf="pageTitle === 'UG Regulations'">
+          <div class="vision-body" *ngIf="pageTitle === 'UG Regulations'">
             <div class="vision-header">
               {{pageTitle}}
             </div>
             <iframe src="assets/static/doc/Regulation UG.pdf" height="500px" width="900px"></iframe>
           </div>
+
+          <div class="vision-body" *ngIf="pageTitle === 'Ph.D Regulations'">
+            <div class="vision-header">
+              {{pageTitle}}
+            </div>
+            <iframe src="assets/static/doc/PhD Regulation BEU.pdf" height="500px" width="900px"></iframe>
+          </div>
+
+
           <div class="vision-body" *ngIf="pageTitle === 'University Logo'">
             <div class="vision-header">
               {{pageTitle}}
             </div>
             <img src="../../../assets/beu_logo.jpeg" height="500px" width="520px">
           </div>
-          <div *ngIf="pageTitle === 'PG Regulations' || pageTitle === 'Ph.D Regulations' || pageTitle === 'University Logos'">
+          <div *ngIf="pageTitle === 'PG Regulations' || pageTitle === 'University Logos'">
             <h1 class="text-center w-100">Will be updated soon</h1>
           </div>
         </div>
