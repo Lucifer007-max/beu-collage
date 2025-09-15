@@ -312,6 +312,8 @@ const routes: Routes = [
       {
         path: 'admin',
         loadComponent: () => import('./admin/authentication/sign-in/sign-in.component')
+        // canActivate: [AuthGuard]
+
       },
 
     ]
@@ -331,12 +333,12 @@ const routes: Routes = [
       {
         path: 'admin/add-notice',
         loadComponent: () => import('./admin/notice/notice.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-modal',
         loadComponent: () => import('./admin/modal/modal.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-links',
@@ -351,118 +353,118 @@ const routes: Routes = [
       {
         path: 'admin/add-notice-board',
         loadComponent: () => import('./admin/notice-board/notice-board.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-events',
         loadComponent: () => import('./admin/events/events.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-mentor',
         loadComponent: () => import('./admin/mentor/mentor.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-acts',
         loadComponent: () => import('./admin/fileupload/fileupload.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-circular',
         loadComponent: () => import('./admin/fileupload/fileupload.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-notification',
         loadComponent: () => import('./admin/fileupload/fileupload.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-downloads',
         loadComponent: () => import('./admin/fileupload/fileupload.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-minutes',
         loadComponent: () => import('./admin/fileupload/fileupload.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-letter',
         loadComponent: () => import('./admin/fileupload/fileupload.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-curriculum',
         loadComponent: () => import('./admin/fileupload/fileupload.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-videos',
         loadComponent: () => import('./admin/media/admin-videos/admin-videos.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
 
       {
         path: 'admin/add-publication',
         loadComponent: () => import('./admin/media/admin-publication/admin-publication.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-affiliation',
         loadComponent: () => import('./admin/affilation/affilation.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-media',
         loadComponent: () => import('./admin/media/admin-media/admin-media.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-photo',
         loadComponent: () => import('./admin/media/admin-photo/admin-photo.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-result',
         loadComponent: () => import('./admin/course/add-course/add-course.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-syllabus',
         loadComponent: () => import('./admin/course/add-syllabus/add-syllabus.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/upload-course',
         loadComponent: () => import('./admin/course/course-upload/course-upload.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-annual-report',
         loadComponent: () => import('./admin/report/annual-report/annual-report.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-magazine',
         loadComponent: () => import('./admin/report/magazine/magazine.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/add-financial',
         loadComponent: () => import('./admin/report/financial-report/financial-report.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/profile-update',
         loadComponent: () => import('./admin/profile/profile.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'admin/result-new',
         loadComponent: () => import('./admin/result-two/result.component'),
-        // canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
     ]
   },
