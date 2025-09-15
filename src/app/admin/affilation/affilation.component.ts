@@ -173,6 +173,7 @@ export default class AffilationComponent {
       title: data.title,
       url: data.url,
       type: data.type,
+      district: data.districtName,
     });
     this.selectedYear = data.session;
     console.log(data)
