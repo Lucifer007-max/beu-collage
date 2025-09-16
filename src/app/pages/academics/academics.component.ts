@@ -43,8 +43,8 @@ export default class AcademicsComponent {
         { label: "B.Tech", link: "/academics/Program/B.Tech" }
       ]
     },
-    { label: "NBA Accredited Programs", link: "/Academics/NBA-Accredited-Programs" },
-    { label: "NIRF Ranking", link: "/Academics/NIRF-Ranking" },
+    { label: "NBA Accredited Programs", link: "/academics/NBA-Accredited-Programs" },
+    { label: "NIRF Ranking", link: "/academics/NIRF-Ranking" },
     { label: "Board of Studies", link: "/Academics/Board-of-Studies" },
     { label: "Industry Consultation Committee", link: "/Academics/Industry-Consultation-Committee" },
     { label: "Virtual Lab", link: "https://www.vlab.co.in/participating-institute-iit-bombay" },
@@ -61,7 +61,7 @@ export default class AcademicsComponent {
     { label: "Publications", link: "/Academics/Publications" },
     { label: "Faculty Development Programs (FDP)", link: "/Academics/Faculty-Development-Programs" },
     { label: "E-Learning Resources", link: "/Academics/E-Learning-Resources" },
-    { label: "NPTEL Local Chapters", link: "/Academics/NPTEL-Local-Chapters" },
+    // { label: "NPTEL Local Chapters", link: "/Academics/NPTEL-Local-Chapters" },
     { label: "NPTEL Online Certification", link: "/Academics/NPTEL-Online-Certification" },
     // { label: "Value Education", link: "/Academics/Value-Education" }
   ];
@@ -78,6 +78,10 @@ export default class AcademicsComponent {
       this.pageTitle = 'M.Tech Programmes';
     } else if (url === '/academics/Program/B.Tech') {
       this.pageTitle = 'B.Tech Programmes';
+    }else if (url === '/academics/NBA-Accredited-Programs') {
+      this.pageTitle = 'NBA Accredited Programmes';
+    }else if (url === '/academics/NIRF-Ranking') {
+      this.pageTitle = 'NIRF Ranking';
     }
   }
 
@@ -125,5 +129,25 @@ export default class AcademicsComponent {
       }
     ]
   };
+
+
+
+
+  accreditationData = [
+    {
+      institution: 'Muzaffarpur Institute of Technology Muzaffarpur (Muzaffarpur)',
+      program: 'Civil Engineering',
+      level: 'Under Graduate',
+      status: 'ACCREDITED',
+      period: 'Academic Year 2021-22, 2022-23 and 2023-24, upto 30-06-2024'
+    },
+    {
+      institution: 'NALANDA COLLEGE OF ENGINEERING, CHANDI (Nalanda)',
+      program: 'Computer Science and Engineering',
+      level: 'Under Graduate',
+      status: 'ACCREDITED',
+      period: 'Academic year 2023-24 and 2024-25, i.e. upto 30-06-2025'
+    }
+  ];
 
 }

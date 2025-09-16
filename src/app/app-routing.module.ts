@@ -300,6 +300,14 @@ const routes: Routes = [
         path: 'academics/Program/B.Tech',
         loadComponent: () => import('./pages/academics/academics.component'),
       },
+       {
+        path: 'academics/NBA-Accredited-Programs',
+        loadComponent: () => import('./pages/academics/academics.component'),
+      },
+       {
+        path: 'academics/NIRF-Ranking',
+        loadComponent: () => import('./pages/academics/academics.component'),
+      },
       {
         path: 'annual-report',
         loadComponent: () => import('./pages/report/report-view/report-view.component'),

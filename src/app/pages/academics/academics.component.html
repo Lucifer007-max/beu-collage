@@ -416,6 +416,81 @@
       </div>
 
 
+      <div class="col-lg-9  position-relative" *ngIf="pageTitle === 'NBA Accredited Programmes'">
+          <div class="container py-5">
+            <div class="mb-4 p-4 bg-light border rounded shadow-sm animate__animated animate__fadeIn">
+              <h2 class="mb-3">🏛️ NBA-Accredited Programmes in Universities</h2>
+              <p>
+                The National Board of Accreditation (NBA) in India evaluates and accredits technical and professional 
+                programmes offered by universities and institutions, ensuring they meet quality standards in education,
+                 infrastructure, and outcomes. NBA accreditation is a mark of excellence, particularly for engineering,
+                  management, pharmacy, and computer applications programmes. Universities with NBA-accredited programmes
+                   demonstrate adherence to global benchmarks, enhancing employability and institutional reputation.  
+              </p>
+              <p>
+                Few engineering colleges in Bihar received NBA accreditation for Tier-II undergraduate programs,
+                 ensuring quality education as per national standards. Below were some notable institutions and
+                  their accredited programs:
+              </p>
+            </div>
+
+            <div class="card shadow-sm animate__animated animate__fadeInUp">
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Engineering Tier II (Under Graduate) Accredited Programs</h5>
+              </div>
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table table-hover m-0">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Name of the Institution</th>
+                        <th>Program</th>
+                        <th>Level</th>
+                        <th>Accreditation Status</th>
+                        <th>Accreditation Period</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let program of accreditationData">
+                        <td>{{ program.institution }}</td>
+                        <td>{{ program.program }}</td>
+                        <td>{{ program.level }}</td>
+                        <td>
+                          <span class="badge bg-success">{{ program.status }}</span>
+                        </td>
+                        <td>{{ program.period }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+
+      <div class="col-lg-9  position-relative" *ngIf="pageTitle === 'NIRF Ranking'">
+          
+         <div class="nirf-section shadow-sm p-4 mb-5 animate__animated animate__fadeIn">
+            <h2 class="text-center fw-bold nirf-heading mb-4">
+              National Institutional Ranking Framework (NIRF)
+            </h2>
+            <blockquote class="blockquote nirf-blockquote">
+              <p class="fs-6 text-justify">
+                The National Institutional Ranking Framework (NIRF) is an annual ranking system introduced 
+                by India's Ministry of Education in 2015 to evaluate universities, colleges, and institutions 
+                across various categories such as Overall, Universities, Engineering, Management, Pharmacy,
+                 Medical, Law, and more. NIRF aims to enhance transparency, promote competition, and improve
+                  the quality of higher education in India.
+              </p>
+            </blockquote>
+          </div>
+
+      </div>
+      
+
+
 
     </div>
   </div>

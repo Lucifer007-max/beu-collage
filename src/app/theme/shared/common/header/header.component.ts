@@ -98,9 +98,9 @@ export class HeaderComponent implements AfterViewInit {
             { label: "B.Tech", link: "https://syllabus.beup.ac.in/" }
           ]
         },
-        { label: "NBA Accredited Programmes", link: "/Academics/NBA-Accredited-Programs" },
+        { label: "NBA Accredited Programmes", link: "/academics/NBA-Accredited-Programs" },
         // { label: "Naac Programm", link: "/Academics/Naac-Programm" },
-        { label: "NIRF Ranking", link: "/Academics/NIRF-Ranking" },
+        { label: "NIRF Ranking", link: "/academics/NIRF-Ranking" },
         { label: "Board of Studies", link: "/Academics/Board-of-Studies" },
         { label: "Industry Consultation Committee", link: "/Academics/Industry-Consultation-Committee" },
         // { label: "Virtual Lab", link: "/Academics/Virtual-Lab" },
